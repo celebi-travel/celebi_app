@@ -21,54 +21,46 @@ class _DetailPageState extends State<DetailPage> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-          appBar: buildAppBar(),
-          body: SingleChildScrollView(
-            child: Column(
-              children: [
-                ImageSlider(),
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 20),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text('Nemrut Mountain',
-                          style: context.textTheme.bodyText1!.copyWith(
-                              fontWeight: FontWeight.w700, fontSize: 16)),
-                      BuildIconButton(),
-                      buildReadMoreText(context),
-                      Text('Product',
-                          style: context.textTheme.bodyText1!.copyWith(
-                              fontWeight: FontWeight.w700, fontSize: 18)),
-                      SizedBox(
-                        height: 120,
-                        child: ListView(
-                          physics: ClampingScrollPhysics(),
-                          controller: scrollController,
-                          scrollDirection: Axis.horizontal,
-                          children: buildProductImageList(context),
-                        ),
-                      ),
-                      Text('Post',
-                          style: context.textTheme.bodyText1!.copyWith(
-                              fontWeight: FontWeight.w700, fontSize: 18)),
-                      SizedBox(
-                        height: 120,
-                        child: ListView(
-                          physics: ClampingScrollPhysics(),
-                          controller: scrollController,
-                          scrollDirection: Axis.horizontal,
-                          children: buildPostImageList(context),
-                        ),
-                      ),
-                    ],
+    return Scaffold(
+      appBar: buildAppBar(context),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            ImageSlider(),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 20),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text('Nemrut Mountain', style: context.textTheme.bodyText1!.copyWith(fontWeight: FontWeight.w700, fontSize: 16)),
+                  BuildIconButton(),
+                  buildReadMoreText(context),
+                  Text('Product', style: context.textTheme.bodyText1!.copyWith(fontWeight: FontWeight.w700, fontSize: 18)),
+                  SizedBox(
+                    height: 120,
+                    child: ListView(
+                      physics: ClampingScrollPhysics(),
+                      controller: scrollController,
+                      scrollDirection: Axis.horizontal,
+                      children: buildProductImageList(context),
+                    ),
                   ),
-                ),
-              ],
+                  Text('Post', style: context.textTheme.bodyText1!.copyWith(fontWeight: FontWeight.w700, fontSize: 18)),
+                  SizedBox(
+                    height: 120,
+                    child: ListView(
+                      physics: ClampingScrollPhysics(),
+                      controller: scrollController,
+                      scrollDirection: Axis.horizontal,
+                      children: buildPostImageList(context),
+                    ),
+                  ),
+                ],
+              ),
             ),
-          )),
+          ],
+        ),
+      ),
     );
   }
 
@@ -81,10 +73,8 @@ class _DetailPageState extends State<DetailPage> {
       trimCollapsedText: 'Show more',
       trimExpandedText: 'Show less',
       style: TextStyle(color: Colors.black),
-      moreStyle: context.textTheme.bodyText1!.copyWith(
-          color: Colors.blue[900], fontWeight: FontWeight.w700, fontSize: 13),
-      lessStyle: context.textTheme.bodyText1!.copyWith(
-          color: Colors.blue[900], fontWeight: FontWeight.w700, fontSize: 13),
+      moreStyle: context.textTheme.bodyText1!.copyWith(color: Colors.blue[900], fontWeight: FontWeight.w700, fontSize: 13),
+      lessStyle: context.textTheme.bodyText1!.copyWith(color: Colors.blue[900], fontWeight: FontWeight.w700, fontSize: 13),
     );
   }
 }
