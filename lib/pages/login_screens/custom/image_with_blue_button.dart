@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-Stack buildForgetPasswordImage() {
+Stack buildForgetPasswordImage(String image) {
   return Stack(
     children: [
       Image.asset(
-        "asset/images/forget_password.png",
+        image,
         width: double.infinity,
       ),
       Positioned(

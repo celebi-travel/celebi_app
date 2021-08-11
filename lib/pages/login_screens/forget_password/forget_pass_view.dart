@@ -18,7 +18,9 @@ class _ForgetPasswordPageState extends State<ForgetPasswordPage> {
         backgroundColor: Colors.white,
         body: Column(
           children: [
-            buildForgetPasswordImage(),
+            buildForgetPasswordImage(
+              "asset/images/forget_password.png",
+            ),
             Text(
               'Forget Password',
               style: TextStyle(
