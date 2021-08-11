@@ -1,17 +1,18 @@
-import 'package:celebi_project/pages/login_screens/continue_button.dart';
-import 'package:celebi_project/pages/login_screens/welcome_back_page.dart/components/forget_password_button.dart';
-import 'package:celebi_project/pages/login_screens/welcome_back_page.dart/components/user_info_structure.dart';
+import 'package:celebi_project/pages/login_screens/custom/continue_button.dart';
+import 'package:celebi_project/pages/login_screens/custom/user_info_structure.dart';
+import 'package:celebi_project/pages/login_screens/welcome_page/components/forget_password_button.dart';
+import 'package:celebi_project/pages/login_screens/custom/image_with_white_button.dart';
 import 'package:flutter/material.dart';
 import '../../../../extensions/context_extension.dart';
 
-class WecomeBackPage extends StatefulWidget {
-  const WecomeBackPage({Key? key}) : super(key: key);
+class WelcomeBackPage extends StatefulWidget {
+  const WelcomeBackPage({Key? key}) : super(key: key);
 
   @override
   _WecomeBackPageState createState() => _WecomeBackPageState();
 }
 
-class _WecomeBackPageState extends State<WecomeBackPage> {
+class _WecomeBackPageState extends State<WelcomeBackPage> {
   bool isVisible = true;
 
   @override
@@ -20,32 +21,7 @@ class _WecomeBackPageState extends State<WecomeBackPage> {
       child: Scaffold(
         body: Column(
           children: [
-            Stack(
-              children: [
-                Positioned(
-                  child: Container(
-                    height: 46,
-                    width: 46,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: Colors.white,
-                    ),
-                    child: IconButton(
-                      onPressed: () {},
-                      icon: Icon(
-                        Icons.navigate_before,
-                        color: Colors.black,
-                      ),
-                    ),
-                    alignment: Alignment.center,
-                  ),
-                ),
-                Image.asset(
-                  "asset/images/welcome_back.png",
-                  width: double.infinity,
-                ),
-              ],
-            ),
+            buildImage("asset/images/welcome_back.png"),
             Column(children: [
               Padding(
                 padding: EdgeInsets.only(bottom: 10, top: 20),
@@ -54,10 +30,23 @@ class _WecomeBackPageState extends State<WecomeBackPage> {
               ),
               buildPasswordInfo(context),
               buildForgetPasswordButton(),
+              buildContinueButton('Login'),
               Padding(
-                padding: EdgeInsets.only(top: 70),
-                child: buildContinueButton('Login'),
-              )
+                padding: EdgeInsets.only(left: 100),
+                child: Row(
+                  children: [
+                    Text("Don't have an account?",
+                        style: TextStyle(color: Colors.grey)),
+                    TextButton(
+                      onPressed: () {},
+                      child: Text(
+                        'Sign up',
+                        style: TextStyle(color: Colors.grey[600], fontSize: 14),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
             ]),
           ],
         ),

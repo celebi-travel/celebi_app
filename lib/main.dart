@@ -1,4 +1,5 @@
-import 'package:celebi_project/pages/login_screens/welcome_back_page.dart/page_view.dart';
+import 'package:celebi_project/pages/login_screens/forget_password/forget_pass_view.dart';
+import 'package:celebi_project/pages/login_screens/register_continue/register_view.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
@@ -10,14 +11,9 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
-        textTheme: TextTheme(
-            //To support the following, you need to use the first initialization method
-            button: TextStyle(fontSize: 20)),
+        textTheme: TextTheme(button: TextStyle(fontSize: 20)),
       ),
-      home: WecomeBackPage(),
+      home: ForgetPasswordPage(),
     );
   }
 }
-
-//test yorum satırı mirsaid
-//test yorum hatice nur
