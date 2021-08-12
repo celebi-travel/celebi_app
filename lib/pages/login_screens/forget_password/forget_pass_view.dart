@@ -28,12 +28,18 @@ class _ForgetPasswordPageState extends State<ForgetPasswordPage> {
                   color: Colors.black,
                   fontWeight: FontWeight.bold),
             ),
-            Text(
-              'Enter your registered email below to receive password reset instruction',
-              style: TextStyle(fontSize: 18, color: Colors.grey),
+            Padding(
+              padding: EdgeInsets.only(top: 30),
+              child: Align(
+                alignment: Alignment.center,
+                child: Text(
+                  'Enter your registered email below to receive  password reset instruction',
+                  style: TextStyle(fontSize: 18, color: Colors.grey),
+                ),
+              ),
             ),
             Padding(
-                padding: EdgeInsets.only(top: 70),
+                padding: EdgeInsets.only(top: 40),
                 child:
                     buildUserInfoStructure(context, Icons.markunread, "Email")),
             buildContinueButton('Send'),
