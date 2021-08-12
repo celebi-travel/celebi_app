@@ -1,3 +1,4 @@
+import 'package:celebi_project/pages/main/create_route/create_route.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -25,7 +26,9 @@ class _BuildIconButtonState extends State<BuildIconButton> {
         Row(
           children: [
             IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => CreateRoutePage()));
+                },
                 icon: Icon(
                   FontAwesomeIcons.solidPlusSquare,
                   color: Colors.black,

@@ -28,8 +28,7 @@ class Body extends StatelessWidget {
           Expanded(flex: 3, child: NearbyLocations()),
           Spacer(),
           buildPopularPlaceText(context),
-          Expanded(
-              flex: 17, child: SingleChildScrollView(child: PopularPlaces()))
+          Expanded(flex: 17, child: SingleChildScrollView(physics: BouncingScrollPhysics(), child: PopularPlaces()))
         ],
       ),
     );
@@ -40,8 +39,7 @@ class Body extends StatelessWidget {
       alignment: Alignment.centerLeft,
       child: Text(
         'Nearby Locations',
-        style: context.textTheme.headline6!
-            .copyWith(letterSpacing: 0.3, fontWeight: FontWeight.bold),
+        style: context.textTheme.headline6!.copyWith(letterSpacing: 0.3, fontWeight: FontWeight.bold),
       ),
     );
   }
@@ -52,8 +50,7 @@ class Body extends StatelessWidget {
       children: [
         Text(
           'Popular Places',
-          style: context.textTheme.headline6!
-              .copyWith(letterSpacing: 0.3, fontWeight: FontWeight.bold),
+          style: context.textTheme.headline6!.copyWith(letterSpacing: 0.3, fontWeight: FontWeight.bold),
         ),
         TextButton(onPressed: () {}, child: Text('See All')),
       ],
@@ -62,8 +59,7 @@ class Body extends StatelessWidget {
 
   Container buildSearchField() {
     return Container(
-      decoration: BoxDecoration(
-          color: Colors.white, borderRadius: BorderRadius.circular(20)),
+      decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(20)),
       child: Center(
         child: TextFormField(
           keyboardType: TextInputType.text,
@@ -117,79 +113,82 @@ class PopularPlaces extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MasonryGrid(
-      crossAxisSpacing: 8,
       mainAxisSpacing: 8,
+      crossAxisSpacing: 8,
       column: 2,
       children: List.generate(
         6,
-        (index) => Column(
-          children: [
-            InkWell(
-              splashColor: Colors.grey,
-              highlightColor: Colors.transparent,
-              child: ClipRRect(
-                  borderRadius: BorderRadius.circular(14.0),
-                  child: Stack(
-                    children: [
-                      Image.asset(popularPlaces[index].imageUrl!),
-                      Positioned(
-                        bottom: 0,
-                        right: 0,
-                        left: 0,
-                        child: Container(
-                          decoration: BoxDecoration(
-                            gradient: LinearGradient(
-                              begin: FractionalOffset.center,
-                              end: FractionalOffset.bottomCenter,
-                              colors: [
-                                Colors.grey.withOpacity(0.0),
-                                Colors.black.withOpacity(0.4),
-                              ],
-                              stops: [
-                                0.0,
-                                1.0,
-                              ],
-                            ),
-                          ),
-                          child: Padding(
-                            padding: const EdgeInsets.fromLTRB(8, 12, 8, 8),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                RichText(
-                                  text: TextSpan(
-                                    text: 'Peri Bacaları,\n',
-                                    children: [TextSpan(text: 'Nevşehir')],
-                                  ),
-                                ),
-                                CircleAvatar(
-                                  minRadius: 13,
-                                  backgroundColor: Colors.white,
-                                  child: Icon(
-                                    Icons.favorite,
-                                    color: Colors.red,
-                                    size: 15,
-                                  ),
-                                )
-                              ],
-                            ),
-                          ),
-                        ),
-                      )
-                    ],
-                  )),
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => DetailPage(),
+        (index) => InkWell(
+          splashColor: Colors.transparent,
+          highlightColor: Colors.transparent,
+          child: ClipRRect(
+              borderRadius: BorderRadius.circular(14.0),
+              child: Stack(
+                children: [
+                  Container(
+                    width: double.infinity,
+                    child: Image.asset(
+                      popularPlaces[index].imageUrl!,
+                      fit: BoxFit.fill,
+                    ),
                   ),
-                );
-              },
-            ),
-          ],
+                  Positioned(
+                    bottom: 0,
+                    right: 8,
+                    left: 0,
+                    child: Container(
+                      decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                          begin: FractionalOffset.center,
+                          end: FractionalOffset.bottomCenter,
+                          colors: [
+                            Colors.grey.withOpacity(0.0),
+                            Colors.black.withOpacity(0.4),
+                          ],
+                          stops: [
+                            0.0,
+                            1.0,
+                          ],
+                        ),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.fromLTRB(8, 12, 8, 8),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            RichText(
+                              text: TextSpan(
+                                text: 'Peri Bacaları,\n',
+                                children: [TextSpan(text: 'Nevşehir')],
+                              ),
+                            ),
+                            CircleAvatar(
+                              minRadius: 13,
+                              backgroundColor: Colors.white,
+                              child: Icon(
+                                Icons.favorite,
+                                color: Colors.red,
+                                size: 15,
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                  )
+                ],
+              )),
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => DetailPage(),
+              ),
+            );
+          },
         ),
       ),
     );
   }
 }
+

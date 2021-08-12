@@ -18,6 +18,7 @@ class NearbyLocations extends StatelessWidget {
             padding: EdgeInsets.only(left: 8, top: 10),
             itemCount: nearbyLocations.length,
             scrollDirection: Axis.horizontal,
+            physics: BouncingScrollPhysics(),
             itemBuilder: (context, index) => Stack(children: <Widget>[
               Container(
                 alignment: Alignment.bottomLeft,
@@ -79,8 +80,7 @@ class HeadText extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       text,
-      style: context.textTheme.bodyText2!
-          .copyWith(color: Colors.white, fontSize: 10),
+      style: context.textTheme.bodyText2!.copyWith(color: Colors.white, fontSize: 10),
     );
   }
 }
