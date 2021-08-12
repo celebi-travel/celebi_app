@@ -7,10 +7,6 @@ import 'components/appbar.dart';
 import 'components/icon_buttons.dart';
 import 'components/image_slider.dart';
 
-void main() {
-  runApp(DetailPage());
-}
-
 class DetailPage extends StatefulWidget {
   @override
   _DetailPageState createState() => _DetailPageState();
