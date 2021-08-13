@@ -1,3 +1,5 @@
+import 'package:celebi_project/pages/login_screens/account_page/account_page.dart';
+import 'package:celebi_project/pages/login_screens/change_password/change_password.dart';
 import 'package:flutter/material.dart';
 
 import 'pages/main/home/home_view.dart';
@@ -13,7 +15,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         textTheme: TextTheme(button: TextStyle(fontSize: 20)),
       ),
-      home: HomeView(),
+      home: ChangePasswordView(),
     );
   }
 }

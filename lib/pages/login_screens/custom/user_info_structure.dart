@@ -7,32 +7,35 @@ Padding buildUserInfoStructure(
     padding: EdgeInsets.only(top: 10),
     child: SizedBox(
       width: 350,
-      child: Card(
-        shape: RoundedRectangleBorder(
-          side: BorderSide(color: Color(0xFFB6DAE6)),
-          borderRadius: BorderRadius.circular(15.0),
-        ),
-        color: Color(0xFFEBF4F7),
-        child: ListTile(
-          leading: Icon(
-            icon,
-            color: Colors.teal[200],
-          ),
-          title: TextFormField(
-            decoration: InputDecoration(
-              enabledBorder: UnderlineInputBorder(
-                borderSide: BorderSide(color: Color(0xFFEBF4F7)),
-              ),
-              focusedBorder: UnderlineInputBorder(
-                borderSide: BorderSide(color: Color(0xFFEBF4F7)),
-              ),
-              hintText: hintText,
-              hintStyle: context.textTheme.headline6!
-                  .copyWith(color: Colors.grey, fontSize: 18),
+      child: TextField(
+        decoration: InputDecoration(
+          contentPadding: EdgeInsets.symmetric(horizontal: 10),
+          prefixIcon: Padding(
+            padding: const EdgeInsets.only(left: 10),
+            child: Icon(
+              icon,
+              color: Colors.teal[200],
             ),
           ),
+          enabledBorder: OutlineInputBorder(
+              borderSide: BorderSide(
+                color: Color(0xFFB6DAE6),
+              ),
+              borderRadius: BorderRadius.circular(10)),
+          border: OutlineInputBorder(
+              borderSide: BorderSide(
+                color: Color(0xFFB6DAE6),
+              ),
+              borderRadius: BorderRadius.circular(10)),
+          focusedBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: Color(0xFFB6DAE6)),
+              borderRadius: BorderRadius.circular(10)),
+          hintText: hintText,
+          hintStyle: context.textTheme.headline6!
+              .copyWith(color: Colors.grey, fontSize: 18),
         ),
       ),
     ),
   );
 }
+//buton, text field, column paddingleri, text form field-> text field
