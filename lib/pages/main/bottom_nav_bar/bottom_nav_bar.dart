@@ -32,7 +32,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
     ),
     Container(
       child: Center(
-        child: Text('ACcount'),
+        child: Text('Account'),
       ),
     ),
   ];

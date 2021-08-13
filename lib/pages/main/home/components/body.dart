@@ -27,8 +27,21 @@ class Body extends StatelessWidget {
           buildNearbyLocationsText(context),
           Expanded(flex: 3, child: NearbyLocations()),
           Spacer(),
+          Align(
+            alignment: Alignment.centerLeft,
+            child: Text(
+              'Popular Cities',
+              style: context.textTheme.headline6!
+                  .copyWith(letterSpacing: 0.3, fontWeight: FontWeight.bold),
+            ),
+          ),
+          Expanded(flex: 3, child: NearbyLocations()),
+          Spacer(),
           buildPopularPlaceText(context),
-          Expanded(flex: 17, child: SingleChildScrollView(physics: BouncingScrollPhysics(), child: PopularPlaces()))
+          Expanded(
+              flex: 17,
+              child: SingleChildScrollView(
+                  physics: BouncingScrollPhysics(), child: PopularPlaces()))
         ],
       ),
     );
@@ -39,7 +52,8 @@ class Body extends StatelessWidget {
       alignment: Alignment.centerLeft,
       child: Text(
         'Nearby Locations',
-        style: context.textTheme.headline6!.copyWith(letterSpacing: 0.3, fontWeight: FontWeight.bold),
+        style: context.textTheme.headline6!
+            .copyWith(letterSpacing: 0.3, fontWeight: FontWeight.bold),
       ),
     );
   }
@@ -50,7 +64,8 @@ class Body extends StatelessWidget {
       children: [
         Text(
           'Popular Places',
-          style: context.textTheme.headline6!.copyWith(letterSpacing: 0.3, fontWeight: FontWeight.bold),
+          style: context.textTheme.headline6!
+              .copyWith(letterSpacing: 0.3, fontWeight: FontWeight.bold),
         ),
         TextButton(onPressed: () {}, child: Text('See All')),
       ],
@@ -59,7 +74,8 @@ class Body extends StatelessWidget {
 
   Container buildSearchField() {
     return Container(
-      decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(20)),
+      decoration: BoxDecoration(
+          color: Colors.white, borderRadius: BorderRadius.circular(20)),
       child: Center(
         child: TextFormField(
           keyboardType: TextInputType.text,
@@ -191,4 +207,3 @@ class PopularPlaces extends StatelessWidget {
     );
   }
 }
-
