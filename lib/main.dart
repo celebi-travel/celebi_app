@@ -1,9 +1,8 @@
 import 'package:celebi_project/pages/login_screens/account_page/account_page.dart';
-import 'package:celebi_project/pages/login_screens/forget_password/forget_pass_view.dart';
-import 'package:celebi_project/pages/login_screens/register_continue/register_view.dart';
-import 'package:celebi_project/pages/main/bottom_nav_bar/bottom_nav_bar.dart';
-import 'package:celebi_project/pages/main/route_filter_page/route_filter_page.dart';
+import 'package:celebi_project/pages/login_screens/change_password/change_password.dart';
 import 'package:flutter/material.dart';
+
+import 'pages/main/home/home_view.dart';
 
 void main() => runApp(MyApp());
 
@@ -16,7 +15,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         textTheme: TextTheme(button: TextStyle(fontSize: 20)),
       ),
-      home: RouteFilterPage(),
+      home: ChangePasswordView(),
     );
   }
 }

@@ -3,27 +3,28 @@ import 'package:celebi_project/pages/login_screens/custom/image_with_blue_button
 import 'package:celebi_project/pages/login_screens/custom/user_info_structure.dart';
 import 'package:flutter/material.dart';
 
-class ForgetPasswordPage extends StatefulWidget {
-  const ForgetPasswordPage({Key? key}) : super(key: key);
+class CheckEmailView extends StatefulWidget {
+  const CheckEmailView({Key? key}) : super(key: key);
 
   @override
-  _ForgetPasswordPageState createState() => _ForgetPasswordPageState();
+  _CheckEmailViewState createState() => _CheckEmailViewState();
 }
 
-class _ForgetPasswordPageState extends State<ForgetPasswordPage> {
+class _CheckEmailViewState extends State<CheckEmailView> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
         backgroundColor: Colors.white,
-        body: SingleChildScrollView(
+        body: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
           child: Column(
             children: [
               buildForgetPasswordImage(
                 "asset/images/forget_password.png",
               ),
               Text(
-                'Forget Password',
+                'Check your email',
                 style: TextStyle(
                     fontSize: 25,
                     color: Colors.black,
@@ -34,16 +35,16 @@ class _ForgetPasswordPageState extends State<ForgetPasswordPage> {
                 child: Align(
                   alignment: Alignment.center,
                   child: Text(
-                    'Enter your registered email below to receive  password reset instruction',
+                    'We have sent a password recovery instruciton to your email',
                     style: TextStyle(fontSize: 18, color: Colors.grey),
                   ),
                 ),
               ),
-              Padding(
-                  padding: EdgeInsets.only(top: 40),
-                  child: buildUserInfoStructure(
-                      context, Icons.markunread, "Email")),
-              buildContinueButton('Send'),
+              Spacer(
+                flex: 4,
+              ),
+              buildContinueButton('Ok'),
+              Spacer()
             ],
           ),
         ),
