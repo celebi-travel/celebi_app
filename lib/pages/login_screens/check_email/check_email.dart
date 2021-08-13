@@ -40,7 +40,6 @@ class _CheckEmailViewState extends State<CheckEmailView> {
                   ),
                 ),
               ),
-              
               Spacer(
                 flex: 4,
               ),
