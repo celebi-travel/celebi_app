@@ -19,7 +19,7 @@ class FilterCategory {
 
 List<FilterCategory> filterCategories = [
   FilterCategory(
-    categoryName: 'Hotels',
+    categoryName: 'Tours',
     categoryIcon: Icons.hotel, //local_hotel
     categoryColor: Colors.blueAccent,
     goPage: Container(),
@@ -29,13 +29,6 @@ List<FilterCategory> filterCategories = [
     categoryName: 'Outdoors',
     categoryIcon: Icons.outdoor_grill,
     categoryColor: Colors.indigo,
-    goPage: Container(),
-    isSelected: false,
-  ),
-  FilterCategory(
-    categoryName: 'Food & Drink',
-    categoryIcon: Icons.restaurant,
-    categoryColor: Colors.pinkAccent,
     goPage: Container(),
     isSelected: false,
   ),
