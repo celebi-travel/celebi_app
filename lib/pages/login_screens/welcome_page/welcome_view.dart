@@ -1,5 +1,6 @@
 import 'package:celebi_project/pages/login_screens/custom/continue_button.dart';
 import 'package:celebi_project/pages/login_screens/custom/user_info_structure.dart';
+import 'package:celebi_project/pages/login_screens/register_continue/register_view.dart';
 import 'package:celebi_project/pages/login_screens/welcome_page/components/forget_password_button.dart';
 import 'package:celebi_project/pages/login_screens/custom/image_with_white_button.dart';
 import 'package:flutter/material.dart';
@@ -30,7 +31,12 @@ class _WecomeBackPageState extends State<WelcomeBackPage> {
               ),
               buildPasswordInfo(context),
               buildForgetPasswordButton(),
-              buildContinueButton('Login'),
+              buildContinueButton('Login', () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => RegisterPage()),
+                );
+              }),
               Padding(
                 padding: EdgeInsets.only(left: 100),
                 child: Row(

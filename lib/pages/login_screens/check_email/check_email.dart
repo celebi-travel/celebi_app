@@ -1,6 +1,5 @@
 import 'package:celebi_project/pages/login_screens/custom/continue_button.dart';
 import 'package:celebi_project/pages/login_screens/custom/image_with_blue_button.dart';
-import 'package:celebi_project/pages/login_screens/custom/user_info_structure.dart';
 import 'package:flutter/material.dart';
 
 class CheckEmailView extends StatefulWidget {
@@ -43,7 +42,12 @@ class _CheckEmailViewState extends State<CheckEmailView> {
               Spacer(
                 flex: 4,
               ),
-              buildContinueButton('Ok'),
+              buildContinueButton('Ok', () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => CheckEmailView()),
+                );
+              }),
               Spacer()
             ],
           ),

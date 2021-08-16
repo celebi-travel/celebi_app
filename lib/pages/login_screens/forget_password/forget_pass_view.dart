@@ -1,3 +1,4 @@
+import 'package:celebi_project/pages/login_screens/check_email/check_email.dart';
 import 'package:celebi_project/pages/login_screens/custom/continue_button.dart';
 import 'package:celebi_project/pages/login_screens/custom/image_with_blue_button.dart';
 import 'package:celebi_project/pages/login_screens/custom/user_info_structure.dart';
@@ -43,7 +44,12 @@ class _ForgetPasswordPageState extends State<ForgetPasswordPage> {
                   padding: EdgeInsets.only(top: 40),
                   child: buildUserInfoStructure(
                       context, Icons.markunread, "Email")),
-              buildContinueButton('Send'),
+              buildContinueButton('Send', () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => CheckEmailView()),
+                );
+              }),
             ],
           ),
         ),
