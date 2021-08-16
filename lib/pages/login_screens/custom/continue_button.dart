@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 
-Padding buildContinueButton(
-  String title,
-) {
+Padding buildContinueButton(String title, Function onPressed) {
   return Padding(
     padding: EdgeInsets.only(
       top: 40,
@@ -11,7 +9,7 @@ Padding buildContinueButton(
         height: 55,
         width: 330,
         child: ElevatedButton(
-          onPressed: () {},
+          onPressed: onPressed,
           style: ButtonStyle(
               backgroundColor:
                   MaterialStateProperty.all<Color>(Color(0xFF6AADA4)),
