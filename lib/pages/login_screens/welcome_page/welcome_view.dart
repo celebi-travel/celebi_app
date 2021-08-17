@@ -26,8 +26,7 @@ class _WecomeBackPageState extends State<WelcomeBackPage> {
             Column(children: [
               Padding(
                 padding: EdgeInsets.only(bottom: 10, top: 20),
-                child: buildUserInfoStructure(
-                    context, Icons.markunread, 'Email or Username'),
+                child: buildUserInfoStructure(context, Icons.markunread, 'Email or Username'),
               ),
               buildPasswordInfo(context),
               buildForgetPasswordButton(),
@@ -41,10 +40,11 @@ class _WecomeBackPageState extends State<WelcomeBackPage> {
                 padding: EdgeInsets.only(left: 100),
                 child: Row(
                   children: [
-                    Text("Don't have an account?",
-                        style: TextStyle(color: Colors.grey)),
+                    Text("Don't have an account?", style: TextStyle(color: Colors.grey)),
                     TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => RegisterPage()));
+                      },
                       child: Text(
                         'Sign up',
                         style: TextStyle(color: Colors.grey[600], fontSize: 14),
@@ -84,8 +84,7 @@ class _WecomeBackPageState extends State<WelcomeBackPage> {
                 borderSide: BorderSide(color: Color(0xFFEBF4F7)),
               ),
               hintText: 'Password',
-              hintStyle: context.textTheme.headline6!
-                  .copyWith(color: Colors.grey, fontSize: 18),
+              hintStyle: context.textTheme.headline6!.copyWith(color: Colors.grey, fontSize: 18),
             ),
           ),
           trailing: IconButton(
