@@ -1,4 +1,5 @@
 import 'package:celebi_project/pages/login_screens/welcome_page/welcome_view.dart';
+import 'package:celebi_project/services/auth_service.dart';
 import 'package:celebi_project/widgets/login_buttons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -45,7 +46,10 @@ class _LoginMainPageState extends State<LoginMainPage> {
                   imagePath: 'asset/icons/google.png',
                   color: Color(0xff1A81F3),
                   avatarColor: Colors.white.withOpacity(0.15),
-                  onPressed: () {},
+                  onPressed: () async {
+                    String? result = await AuthService().signInWithGoogle();
+                    print('result = $result');
+                  },
                 ),
                 LoginButton(
                   name: 'Login with Email',

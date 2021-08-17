@@ -1,9 +1,10 @@
-import 'package:firebase_auth/firebase_auth.dart'; 
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
-/*class AuthService {
+class AuthService {
   static final FirebaseAuth _auth = FirebaseAuth.instance;
-
-  User? getCurrentUser() {
+  final _gooleSignIn = GoogleSignIn();
+  /*User? getCurrentUser() {
     return _auth.currentUser;
   } 
 
@@ -33,11 +34,11 @@ import 'package:firebase_auth/firebase_auth.dart';
   Future<void> sendPasswordResetMail() async {
     User? _user = _auth.currentUser;
     await _auth.sendPasswordResetEmail(email: _user!.email!);
-  }
+  }*/
 
-   Future<String> signInWithGoogle() async {
+  Future<String?> signInWithGoogle() async {
     print("1");
-    GoogleSignInAccount _googleSignInAccount = await _gooleSignIn.signIn();
+    GoogleSignInAccount? _googleSignInAccount = await _gooleSignIn.signIn();
     print("2");
     if (_googleSignInAccount != null) {
       print("3");
@@ -48,7 +49,7 @@ import 'package:firebase_auth/firebase_auth.dart';
           idToken: _googleSignInAuthentication.idToken,
           accessToken: _googleSignInAuthentication.accessToken,
         );
-        await _firebaseAuth.signInWithCredential(_credential);
+        await _auth.signInWithCredential(_credential);
         return "Signed In With Google";
       } on FirebaseAuthException catch (e) {
         print("there is an error");
@@ -58,4 +59,3 @@ import 'package:firebase_auth/firebase_auth.dart';
     return "";
   }
 }
-*/
