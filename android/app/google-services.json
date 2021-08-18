@@ -1,0 +1,40 @@
+{
+    "project_info": {
+        "project_number": "1022575622778",
+        "project_id": "celebi-9ee0d",
+        "storage_bucket": "celebi-9ee0d.appspot.com"
+    },
+    "client": [{
+        "client_info": {
+            "mobilesdk_app_id": "1:1022575622778:android:b67fa72f535f898b0f99c3",
+            "android_client_info": {
+                "package_name": "com.example.celebi_project"
+            }
+        },
+        "oauth_client": [{
+                "client_id": "1022575622778-bg0eq1fb7opbsar88efkgqhv9m4fnevr.apps.googleusercontent.com",
+                "client_type": 1,
+                "android_info": {
+                    "package_name": "com.example.celebi_project",
+                    "certificate_hash": "db63f8da26bcb57d0ee14d7255019a215178f468"
+                }
+            },
+            {
+                "client_id": "1022575622778-m3n6fohoubfaoa8cbi1922mjtqq449pf.apps.googleusercontent.com",
+                "client_type": 3
+            }
+        ],
+        "api_key": [{
+            "current_key": "AIzaSyBf7WVqnuAWkCUUIw1RLewpvmlyosIcg6g"
+        }],
+        "services": {
+            "appinvite_service": {
+                "other_platform_oauth_client": [{
+                    "client_id": "1022575622778-m3n6fohoubfaoa8cbi1922mjtqq449pf.apps.googleusercontent.com",
+                    "client_type": 3
+                }]
+            }
+        }
+    }],
+    "configuration_version": "1"
+}
