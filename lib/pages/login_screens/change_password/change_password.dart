@@ -113,6 +113,8 @@ class _ChangePasswordFormState extends State<ChangePasswordForm> {
               onPressed: () {
                 if (formKey.currentState!.validate()) {
                   final String oldPassword = oldPasswordController.text;
+                  final String newPassword = newPasswordController.text;
+                  final String repeatPassword = repeatPasswordController.text;
                   print(oldPassword);
                 }
               }),
@@ -190,7 +192,7 @@ class _ChangePasswordFormState extends State<ChangePasswordForm> {
       controller: repeatPasswordController,
       obscureText: !isVisible,
       validator: (value) {
-        return ' haata';
+        return null;
       },
       decoration: InputDecoration(
         prefixIcon: Padding(
