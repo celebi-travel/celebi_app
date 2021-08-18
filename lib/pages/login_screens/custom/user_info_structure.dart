@@ -8,6 +8,7 @@ Padding buildUserInfoStructure(
     child: SizedBox(
       width: 350,
       child: TextField(
+        
         decoration: InputDecoration(
           contentPadding: EdgeInsets.symmetric(horizontal: 10),
           prefixIcon: Padding(

@@ -14,7 +14,6 @@ class WelcomeBackPage extends StatefulWidget {
 
 class _WecomeBackPageState extends State<WelcomeBackPage> {
   bool isVisible = true;
-
   @override
   Widget build(BuildContext context) {
     return SafeArea(

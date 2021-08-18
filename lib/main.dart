@@ -13,6 +13,26 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        inputDecorationTheme: InputDecorationTheme(
+          fillColor: Color(0xFFB6DAE6).withOpacity(0.2),
+          filled: true,
+          contentPadding: EdgeInsets.symmetric(horizontal: 10),
+          enabledBorder: OutlineInputBorder(
+              borderSide: BorderSide(
+                color: Color(0xFFB6DAE6),
+              ),
+              borderRadius: BorderRadius.circular(10)),
+          border: OutlineInputBorder(
+              borderSide: BorderSide(
+                color: Color(0xFFB6DAE6),
+              ),
+              borderRadius: BorderRadius.circular(10)),
+          focusedBorder: OutlineInputBorder(
+              borderSide: BorderSide(
+                color: Color(0xFFB6DAE6),
+              ),
+              borderRadius: BorderRadius.circular(10)),
+        ),
         textTheme: TextTheme(button: TextStyle(fontSize: 20)),
       ),
       home: ChangePasswordView(),

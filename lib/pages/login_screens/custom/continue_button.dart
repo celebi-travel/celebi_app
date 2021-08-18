@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 
 Padding buildContinueButton(
   String title,
+  
 ) {
+
   return Padding(
     padding: EdgeInsets.only(
       top: 40,

@@ -1,8 +1,9 @@
+import 'package:flutter/material.dart';
+
 import 'package:celebi_project/extensions/context_extension.dart';
 import 'package:celebi_project/pages/login_screens/custom/continue_button.dart';
 import 'package:celebi_project/pages/login_screens/custom/image_with_blue_button.dart';
 import 'package:celebi_project/pages/login_screens/custom/user_info_structure.dart';
-import 'package:flutter/material.dart';
 
 class ChangePasswordView extends StatefulWidget {
   const ChangePasswordView({Key? key}) : super(key: key);
@@ -12,13 +13,6 @@ class ChangePasswordView extends StatefulWidget {
 }
 
 class _ChangePasswordViewState extends State<ChangePasswordView> {
-  bool isVisible = false;
-  void changeVisibility() {
-    setState(() {
-      isVisible = !isVisible;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -37,7 +31,7 @@ class _ChangePasswordViewState extends State<ChangePasswordView> {
                       "asset/images/forget_password.png",
                     ),
                     Text(
-                      'Create New Password',
+                      'Change New Password',
                       style: TextStyle(
                           fontSize: 25,
                           color: Colors.black,
@@ -55,162 +49,145 @@ class _ChangePasswordViewState extends State<ChangePasswordView> {
                     ),
                   ],
                 ),
+                ChangePasswordForm(),
                 SizedBox(
                   height: context.height * 0.05,
-                ),
-                Form(
-                  child: Column(
-                    children: [
-                      TextFormField(
-                        obscureText: !isVisible,
-                        decoration: InputDecoration(
-                          fillColor: Color(0xFFB6DAE6).withOpacity(0.2),
-                          filled: true,
-                          contentPadding: EdgeInsets.symmetric(horizontal: 10),
-                          prefixIcon: Padding(
-                            padding: const EdgeInsets.only(left: 10),
-                            child: Icon(
-                              Icons.mail,
-                              color: Colors.teal[200],
-                            ),
-                          ),
-                          suffixIcon: Padding(
-                            padding: const EdgeInsets.only(left: 10),
-                            child: IconButton(
-                              onPressed: () {
-                                changeVisibility();
-                              },
-                              icon: Icon(
-                                isVisible
-                                    ? Icons.visibility
-                                    : Icons.visibility_off,
-                                color: Colors.teal[200],
-                              ),
-                            ),
-                          ),
-                          enabledBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Color(0xFFB6DAE6),
-                              ),
-                              borderRadius: BorderRadius.circular(10)),
-                          border: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Color(0xFFB6DAE6),
-                              ),
-                              borderRadius: BorderRadius.circular(10)),
-                          focusedBorder: OutlineInputBorder(
-                              borderSide: BorderSide(color: Color(0xFFB6DAE6)),
-                              borderRadius: BorderRadius.circular(10)),
-                          hintText: 'Old password',
-                          hintStyle: context.textTheme.bodyText2!
-                              .copyWith(color: Colors.grey, fontSize: 18),
-                        ),
-                      ),
-                      SizedBox(height: 20),
-                      TextFormField(
-                        obscureText: !isVisible,
-                        decoration: InputDecoration(
-                          fillColor: Color(0xFFB6DAE6).withOpacity(0.2),
-                          filled: true,
-                          contentPadding: EdgeInsets.symmetric(horizontal: 10),
-                          prefixIcon: Padding(
-                            padding: const EdgeInsets.only(left: 10),
-                            child: Icon(
-                              Icons.mail,
-                              color: Colors.teal[200],
-                            ),
-                          ),
-                          suffixIcon: Padding(
-                            padding: const EdgeInsets.only(left: 10),
-                            child: IconButton(
-                              onPressed: () {
-                                changeVisibility();
-                              },
-                              icon: Icon(
-                                isVisible
-                                    ? Icons.visibility
-                                    : Icons.visibility_off,
-                                color: Colors.teal[200],
-                              ),
-                            ),
-                          ),
-                          enabledBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Color(0xFFB6DAE6),
-                              ),
-                              borderRadius: BorderRadius.circular(10)),
-                          border: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Color(0xFFB6DAE6),
-                              ),
-                              borderRadius: BorderRadius.circular(10)),
-                          focusedBorder: OutlineInputBorder(
-                              borderSide: BorderSide(color: Color(0xFFB6DAE6)),
-                              borderRadius: BorderRadius.circular(10)),
-                          hintText: 'New password',
-                          hintStyle: context.textTheme.bodyText2!
-                              .copyWith(color: Colors.grey, fontSize: 18),
-                        ),
-                      ),
-                      SizedBox(height: 20),
-                      TextFormField(
-                        obscureText: !isVisible,
-                        decoration: InputDecoration(
-                          fillColor: Color(0xFFB6DAE6).withOpacity(0.2),
-                          filled: true,
-                          contentPadding: EdgeInsets.symmetric(horizontal: 10),
-                          prefixIcon: Padding(
-                            padding: const EdgeInsets.only(left: 10),
-                            child: Icon(
-                              Icons.mail,
-                              color: Colors.teal[200],
-                            ),
-                          ),
-                          suffixIcon: Padding(
-                            padding: const EdgeInsets.only(left: 10),
-                            child: IconButton(
-                              onPressed: () {
-                                changeVisibility();
-                              },
-                              icon: Icon(
-                                isVisible
-                                    ? Icons.visibility
-                                    : Icons.visibility_off,
-                                color: Colors.teal[200],
-                              ),
-                            ),
-                          ),
-                          enabledBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Color(0xFFB6DAE6),
-                              ),
-                              borderRadius: BorderRadius.circular(10)),
-                          border: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Color(0xFFB6DAE6),
-                              ),
-                              borderRadius: BorderRadius.circular(10)),
-                          focusedBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Color(0xFFB6DAE6),
-                              ),
-                              borderRadius: BorderRadius.circular(10)),
-                          hintText: 'Repeat new password',
-                          hintStyle: context.textTheme.bodyText2!
-                              .copyWith(color: Colors.grey, fontSize: 18),
-                        ),
-                      ),
-                    ],
-                  ),
                 ),
                 SizedBox(
                   height: context.height * 0.15,
                 ),
-                buildContinueButton('Send'),
               ],
             ),
           ),
         ),
+      ),
+    );
+  }
+}
+
+class ChangePasswordForm extends StatefulWidget {
+  const ChangePasswordForm({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  _ChangePasswordFormState createState() => _ChangePasswordFormState();
+}
+
+TextEditingController oldPasswordController = TextEditingController();
+TextEditingController newPasswordController = TextEditingController();
+TextEditingController repeatPasswordController = TextEditingController();
+
+class _ChangePasswordFormState extends State<ChangePasswordForm> {
+  bool isVisible = false;
+  final formKey = GlobalKey<FormState>();
+  void changeVisibility() {
+    setState(() {
+      isVisible = !isVisible;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Form(
+      key: formKey,
+      child: Column(
+        children: [
+          TextFormField(
+            controller: oldPasswordController,
+            obscureText: !isVisible,
+            decoration: InputDecoration(
+              contentPadding: EdgeInsets.symmetric(horizontal: 10),
+              prefixIcon: Padding(
+                padding: const EdgeInsets.only(left: 10),
+                child: Icon(
+                  Icons.mail,
+                  color: Colors.teal[200],
+                ),
+              ),
+              suffixIcon: Padding(
+                padding: const EdgeInsets.only(left: 10),
+                child: IconButton(
+                  onPressed: () {
+                    changeVisibility();
+                  },
+                  icon: Icon(
+                    isVisible ? Icons.visibility : Icons.visibility_off,
+                    color: Colors.teal[200],
+                  ),
+                ),
+              ),
+              hintText: 'Old password',
+              hintStyle: context.textTheme.bodyText2!
+                  .copyWith(color: Colors.grey, fontSize: 18),
+            ),
+          ),
+          SizedBox(height: 20),
+          TextFormField(
+            controller: newPasswordController,
+            obscureText: !isVisible,
+            decoration: InputDecoration(
+              fillColor: Color(0xFFB6DAE6).withOpacity(0.2),
+              filled: true,
+              contentPadding: EdgeInsets.symmetric(horizontal: 10),
+              prefixIcon: Padding(
+                padding: const EdgeInsets.only(left: 10),
+                child: Icon(
+                  Icons.mail,
+                  color: Colors.teal[200],
+                ),
+              ),
+              suffixIcon: Padding(
+                padding: const EdgeInsets.only(left: 10),
+                child: IconButton(
+                  onPressed: () {
+                    changeVisibility();
+                  },
+                  icon: Icon(
+                    isVisible ? Icons.visibility : Icons.visibility_off,
+                    color: Colors.teal[200],
+                  ),
+                ),
+              ),
+              hintText: 'New password',
+              hintStyle: context.textTheme.bodyText2!
+                  .copyWith(color: Colors.grey, fontSize: 18),
+            ),
+          ),
+          SizedBox(height: 20),
+          TextFormField(
+            controller: repeatPasswordController,
+            obscureText: !isVisible,
+            validator: (value) {
+              return ' haata';
+            },
+            decoration: InputDecoration(
+              prefixIcon: Padding(
+                padding: const EdgeInsets.only(left: 10),
+                child: Icon(
+                  Icons.mail,
+                  color: Colors.teal[200],
+                ),
+              ),
+              suffixIcon: Padding(
+                padding: const EdgeInsets.only(left: 10),
+                child: IconButton(
+                  onPressed: () {
+                    changeVisibility();
+                  },
+                  icon: Icon(
+                    isVisible ? Icons.visibility : Icons.visibility_off,
+                    color: Colors.teal[200],
+                  ),
+                ),
+              ),
+              hintText: 'Repeat new password',
+              hintStyle: context.textTheme.bodyText2!
+                  .copyWith(color: Colors.grey, fontSize: 18),
+            ),
+          ),
+          buildContinueButton('Send'),
+        ],
       ),
     );
   }
