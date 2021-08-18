@@ -1,11 +1,7 @@
-<<<<<<< HEAD
 import 'package:celebi_project/pages/login_screens/change_password/change_password.dart';
 import 'package:celebi_project/pages/login_screens/login_main_page/login_main_page.dart';
 import 'package:celebi_project/pages/main/hotel_page/hotel_page_view.dart';
 import 'package:firebase_core/firebase_core.dart';
-=======
-import 'package:celebi_project/pages/login_screens/register_continue/register_view.dart';
->>>>>>> 8c5c4d6922d5e15dee4bb55f13470a09c3f7ad64
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
@@ -39,11 +35,7 @@ class MyApp extends StatelessWidget {
         ),
         textTheme: TextTheme(button: TextStyle(fontSize: 20)),
       ),
-<<<<<<< HEAD
       home: ChangePasswordView(),
-=======
-      home: RegisterPage(),
->>>>>>> 8c5c4d6922d5e15dee4bb55f13470a09c3f7ad64
     );
   }
 }
