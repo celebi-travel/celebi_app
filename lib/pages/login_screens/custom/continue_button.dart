@@ -1,19 +1,17 @@
 import 'package:flutter/material.dart';
 
-Padding buildContinueButton(
-  String title,
-  
-) {
-
-  return Padding(
-    padding: EdgeInsets.only(
-      top: 40,
-    ),
-    child: SizedBox(
+class CustomButton extends StatelessWidget {
+  const CustomButton({Key? key, required this.onPressed, required this.text})
+      : super(key: key);
+  final VoidCallback onPressed;
+  final String text;
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
         height: 55,
-        width: 330,
+        width: double.infinity,
         child: ElevatedButton(
-          onPressed: () {},
+          onPressed: onPressed,
           style: ButtonStyle(
               backgroundColor:
                   MaterialStateProperty.all<Color>(Color(0xFF6AADA4)),
@@ -22,12 +20,12 @@ Padding buildContinueButton(
                 borderRadius: BorderRadius.circular(15),
               ))),
           child: Text(
-            title,
+            text,
             style: TextStyle(
               color: Colors.white,
               fontSize: 25,
             ),
           ),
-        )),
-  );
+        ));
+  }
 }

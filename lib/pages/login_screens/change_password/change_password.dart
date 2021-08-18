@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:celebi_project/extensions/context_extension.dart';
+import 'package:celebi_project/pages/login_screens/check_email/check_email.dart';
 import 'package:celebi_project/pages/login_screens/custom/continue_button.dart';
 import 'package:celebi_project/pages/login_screens/custom/image_with_blue_button.dart';
 import 'package:celebi_project/pages/login_screens/custom/user_info_structure.dart';
@@ -56,6 +57,14 @@ class _ChangePasswordViewState extends State<ChangePasswordView> {
                 SizedBox(
                   height: context.height * 0.15,
                 ),
+                CustomButton(
+                    text: 'Register',
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => CheckEmailView()));
+                    })
               ],
             ),
           ),
@@ -93,101 +102,118 @@ class _ChangePasswordFormState extends State<ChangePasswordForm> {
       key: formKey,
       child: Column(
         children: [
-          TextFormField(
-            controller: oldPasswordController,
-            obscureText: !isVisible,
-            decoration: InputDecoration(
-              contentPadding: EdgeInsets.symmetric(horizontal: 10),
-              prefixIcon: Padding(
-                padding: const EdgeInsets.only(left: 10),
-                child: Icon(
-                  Icons.mail,
-                  color: Colors.teal[200],
-                ),
-              ),
-              suffixIcon: Padding(
-                padding: const EdgeInsets.only(left: 10),
-                child: IconButton(
-                  onPressed: () {
-                    changeVisibility();
-                  },
-                  icon: Icon(
-                    isVisible ? Icons.visibility : Icons.visibility_off,
-                    color: Colors.teal[200],
-                  ),
-                ),
-              ),
-              hintText: 'Old password',
-              hintStyle: context.textTheme.bodyText2!
-                  .copyWith(color: Colors.grey, fontSize: 18),
-            ),
-          ),
+          buildOldPasswordField(context),
           SizedBox(height: 20),
-          TextFormField(
-            controller: newPasswordController,
-            obscureText: !isVisible,
-            decoration: InputDecoration(
-              fillColor: Color(0xFFB6DAE6).withOpacity(0.2),
-              filled: true,
-              contentPadding: EdgeInsets.symmetric(horizontal: 10),
-              prefixIcon: Padding(
-                padding: const EdgeInsets.only(left: 10),
-                child: Icon(
-                  Icons.mail,
-                  color: Colors.teal[200],
-                ),
-              ),
-              suffixIcon: Padding(
-                padding: const EdgeInsets.only(left: 10),
-                child: IconButton(
-                  onPressed: () {
-                    changeVisibility();
-                  },
-                  icon: Icon(
-                    isVisible ? Icons.visibility : Icons.visibility_off,
-                    color: Colors.teal[200],
-                  ),
-                ),
-              ),
-              hintText: 'New password',
-              hintStyle: context.textTheme.bodyText2!
-                  .copyWith(color: Colors.grey, fontSize: 18),
-            ),
-          ),
+          buildNewPasswordField(context),
           SizedBox(height: 20),
-          TextFormField(
-            controller: repeatPasswordController,
-            obscureText: !isVisible,
-            validator: (value) {
-              return ' haata';
-            },
-            decoration: InputDecoration(
-              prefixIcon: Padding(
-                padding: const EdgeInsets.only(left: 10),
-                child: Icon(
-                  Icons.mail,
-                  color: Colors.teal[200],
-                ),
-              ),
-              suffixIcon: Padding(
-                padding: const EdgeInsets.only(left: 10),
-                child: IconButton(
-                  onPressed: () {
-                    changeVisibility();
-                  },
-                  icon: Icon(
-                    isVisible ? Icons.visibility : Icons.visibility_off,
-                    color: Colors.teal[200],
-                  ),
-                ),
-              ),
-              hintText: 'Repeat new password',
-              hintStyle: context.textTheme.bodyText2!
-                  .copyWith(color: Colors.grey, fontSize: 18),
-            ),
-          ),
-          buildContinueButton('Send'),
+          repeatPasswordField(context),
+          CustomButton(
+              text: 'Register',
+              onPressed: () {
+                if (formKey.currentState!.validate()) {
+                  final String oldPassword = oldPasswordController.text;
+                  print(oldPassword);
+                }
+              }),
         ],
+      ),
+    );
+  }
+
+  TextFormField buildOldPasswordField(BuildContext context) {
+    return TextFormField(
+      controller: oldPasswordController,
+      obscureText: !isVisible,
+      decoration: InputDecoration(
+        contentPadding: EdgeInsets.symmetric(horizontal: 10),
+        prefixIcon: Padding(
+          padding: const EdgeInsets.only(left: 10),
+          child: Icon(
+            Icons.mail,
+            color: Colors.teal[200],
+          ),
+        ),
+        suffixIcon: Padding(
+          padding: const EdgeInsets.only(left: 10),
+          child: IconButton(
+            onPressed: () {
+              changeVisibility();
+            },
+            icon: Icon(
+              isVisible ? Icons.visibility : Icons.visibility_off,
+              color: Colors.teal[200],
+            ),
+          ),
+        ),
+        hintText: 'Old password',
+        hintStyle: context.textTheme.bodyText2!
+            .copyWith(color: Colors.grey, fontSize: 18),
+      ),
+    );
+  }
+
+  TextFormField buildNewPasswordField(BuildContext context) {
+    return TextFormField(
+      controller: newPasswordController,
+      obscureText: !isVisible,
+      decoration: InputDecoration(
+        contentPadding: EdgeInsets.symmetric(horizontal: 10),
+        prefixIcon: Padding(
+          padding: const EdgeInsets.only(left: 10),
+          child: Icon(
+            Icons.mail,
+            color: Colors.teal[200],
+          ),
+        ),
+        suffixIcon: Padding(
+          padding: const EdgeInsets.only(left: 10),
+          child: IconButton(
+            onPressed: () {
+              changeVisibility();
+            },
+            icon: Icon(
+              isVisible ? Icons.visibility : Icons.visibility_off,
+              color: Colors.teal[200],
+            ),
+          ),
+        ),
+        hintText: 'New password',
+        hintStyle: context.textTheme.bodyText2!
+            .copyWith(color: Colors.grey, fontSize: 18),
+      ),
+    );
+  }
+
+  TextFormField repeatPasswordField(BuildContext context) {
+    return TextFormField(
+      controller: repeatPasswordController,
+      obscureText: !isVisible,
+      validator: (value) {
+        return ' haata';
+      },
+      decoration: InputDecoration(
+        prefixIcon: Padding(
+          padding: const EdgeInsets.only(left: 10),
+          child: Icon(
+            Icons.mail,
+            color: Colors.teal[200],
+          ),
+        ),
+        suffixIcon: Padding(
+          padding: const EdgeInsets.only(left: 10),
+          child: IconButton(
+            onPressed: () {
+              changeVisibility();
+            },
+            icon: Icon(
+              isVisible ? Icons.visibility : Icons.visibility_off,
+              color: Colors.teal[200],
+            ),
+          ),
+        ),
+        hintText: 'Repeat new password',
+        hintStyle: context.textTheme.bodyText2!
+            .copyWith(color: Colors.grey, fontSize: 18),
       ),
     );
   }

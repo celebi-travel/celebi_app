@@ -1,6 +1,7 @@
 import 'package:celebi_project/pages/login_screens/custom/continue_button.dart';
 import 'package:celebi_project/pages/login_screens/custom/image_with_white_button.dart';
 import 'package:celebi_project/pages/login_screens/custom/user_info_structure.dart';
+import 'package:celebi_project/pages/login_screens/forget_password/forget_pass_view.dart';
 import 'package:flutter/material.dart';
 
 class RegisterPage extends StatefulWidget {
@@ -56,7 +57,16 @@ class _RegisterToContuniState extends State<RegisterPage> {
                             buildTermsInfo(),
                             Padding(
                                 padding: EdgeInsets.only(left: 10),
-                                child: buildContinueButton('Register')),
+                                child: CustomButton(
+                                    text: 'Register',
+                                    onPressed: () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                ForgetPasswordPage()),
+                                      );
+                                    })),
                           ],
                         ),
                       ),
