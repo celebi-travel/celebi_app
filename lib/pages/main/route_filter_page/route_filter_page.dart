@@ -1,6 +1,5 @@
 import 'package:celebi_project/models/filter_category_model.dart';
 import 'package:celebi_project/models/touristic_place.dart';
-import 'package:celebi_project/pages/main/detail/components/icon_buttons.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -29,7 +28,8 @@ class _RouteFilterPageState extends State<RouteFilterPage> {
           elevation: 0,
           title: Text(
             'İstanbul',
-            style: context.textTheme.bodyText1!.copyWith(color: Colors.black, fontSize: 20),
+            style: context.textTheme.bodyText1!
+                .copyWith(color: Colors.black, fontSize: 20),
           )),
       body: SingleChildScrollView(
         child: Column(
@@ -70,12 +70,14 @@ class _RouteFilterPageState extends State<RouteFilterPage> {
               shrinkWrap: true,
               itemCount: touristicPlacesFilter[_categoryName]!.length,
               itemBuilder: (context, index) {
-                TouristicPlace _item = touristicPlacesFilter[_categoryName]![index];
+                TouristicPlace _item =
+                    touristicPlacesFilter[_categoryName]![index];
                 return Column(
                   children: [
                     Container(
                         height: 200,
-                        margin: EdgeInsets.symmetric(horizontal: 24, vertical: 14),
+                        margin:
+                            EdgeInsets.symmetric(horizontal: 24, vertical: 14),
                         width: double.infinity,
                         child: Row(
                           children: [
@@ -90,7 +92,10 @@ class _RouteFilterPageState extends State<RouteFilterPage> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text('${index + 1}. ' + _item.name,
-                                      style: context.textTheme.headline2!.copyWith(fontSize: 16, color: Colors.black)),
+                                      style: context.textTheme.headline2!
+                                          .copyWith(
+                                              fontSize: 16,
+                                              color: Colors.black)),
                                   SizedBox(height: 8),
                                   Row(
                                     children: [
@@ -102,7 +107,11 @@ class _RouteFilterPageState extends State<RouteFilterPage> {
                                   SizedBox(height: 8),
                                   Text(
                                     _item.infoText,
-                                    style: context.textTheme.subtitle1!.copyWith(color: Colors.grey, fontSize: 14, fontWeight: FontWeight.w400),
+                                    style: context.textTheme.subtitle1!
+                                        .copyWith(
+                                            color: Colors.grey,
+                                            fontSize: 14,
+                                            fontWeight: FontWeight.w400),
                                   ),
                                   Spacer(),
                                   Align(
@@ -141,7 +150,8 @@ class _RouteFilterPageState extends State<RouteFilterPage> {
 Container buildSearchField(searchController) {
   return Container(
     height: 50,
-    decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(20)),
+    decoration: BoxDecoration(
+        color: Colors.white, borderRadius: BorderRadius.circular(20)),
     margin: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
     child: Center(
       child: TextFormField(

@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 
 class HotelPage extends StatefulWidget {
   const HotelPage({Key? key}) : super(key: key);
-
   @override
   _HotelPageState createState() => _HotelPageState();
 }
@@ -13,6 +12,7 @@ class _HotelPageState extends State<HotelPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        elevation: 0,
         backgroundColor: Colors.white,
         leading: IconButton(
             onPressed: () {},

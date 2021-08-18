@@ -2,7 +2,7 @@ import 'package:celebi_project/extensions/context_extension.dart';
 import 'package:celebi_project/pages/login_screens/check_email/check_email.dart';
 import 'package:celebi_project/pages/login_screens/custom/continue_button.dart';
 import 'package:celebi_project/pages/login_screens/custom/image_with_blue_button.dart';
-import 'package:celebi_project/pages/login_screens/custom/user_info_structure.dart';
+
 import 'package:flutter/material.dart';
 
 class ChangePasswordView extends StatefulWidget {
