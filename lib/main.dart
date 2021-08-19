@@ -1,10 +1,13 @@
-import 'package:celebi_project/pages/login_screens/forget_password/forget_pass_view.dart';
-import 'package:celebi_project/pages/login_screens/register_continue/register_view.dart';
-import 'package:celebi_project/pages/login_screens/welcome_page/welcome_view.dart';
-import 'package:celebi_project/pages/main/restaruant_page/restaruant_view.dart';
+import 'package:celebi_project/pages/login_screens/login_main_page/login_main_page.dart';
+import 'package:celebi_project/pages/login_screens/splash/splash.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
-void main() => runApp(MyApp());
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   @override
@@ -36,7 +39,7 @@ class MyApp extends StatelessWidget {
         ),
         textTheme: TextTheme(button: TextStyle(fontSize: 20)),
       ),
-      home: RestaruantPage(),
+      home: Splash(),
     );
   }
 }

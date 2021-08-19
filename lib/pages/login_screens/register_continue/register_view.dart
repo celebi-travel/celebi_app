@@ -10,8 +10,6 @@ class RegisterPage extends StatefulWidget {
 }
 
 class _RegisterToContuniState extends State<RegisterPage> {
-  bool value = false;
-
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -36,47 +34,23 @@ class _RegisterToContuniState extends State<RegisterPage> {
                       width: MediaQuery.of(context).size.width,
                       decoration: BoxDecoration(
                           color: Colors.white,
-                          borderRadius: new BorderRadius.only(
-                              topLeft: const Radius.circular(40),
-                              topRight: const Radius.circular(40))),
+                          borderRadius: new BorderRadius.only(topLeft: const Radius.circular(40), topRight: const Radius.circular(40))),
                       child: Padding(
                         padding: EdgeInsets.only(right: 20, left: 20, top: 50),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            RegisterForm(),
-                            buildTermsInfo(),
-                          ],
+                        child: SingleChildScrollView(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              RegisterForm(),
+                              SizedBox(height: 200),
+                            ],
+                          ),
                         ),
                       ),
                     ),
                   ),
                 ],
               ))),
-    );
-  }
-
-  Row buildTermsInfo() {
-    return Row(
-      children: [
-        Checkbox(
-          activeColor: Colors.grey,
-          value: this.value,
-          onChanged: (value) {
-            setState(() {
-              this.value = (value)!;
-            });
-          },
-        ), //Checkbox
-        Text('I agrre with the'),
-        TextButton(
-            onPressed: () {},
-            child: Text(
-              'Terms of service',
-              style: TextStyle(fontSize: 13),
-            )),
-        Text('&pivacy policy'),
-      ],
     );
   }
 }

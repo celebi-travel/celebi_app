@@ -1,12 +1,14 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
+import 'firestore_service.dart';
+
 class AuthService {
   static final FirebaseAuth _auth = FirebaseAuth.instance;
   final _gooleSignIn = GoogleSignIn();
-  /*User? getCurrentUser() {
+  User? getCurrentUser() {
     return _auth.currentUser;
-  } 
+  }
 
   Future<void> signOut() async {
     await _auth.signOut();
@@ -21,10 +23,10 @@ class AuthService {
     }
   }
 
-  Future<String?> signUp({required String email, required String password, required String username}) async {
+  Future<String?> signUp({required String email, required String password, required String username, required String dateOfBirth}) async {
     try {
       await _auth.createUserWithEmailAndPassword(email: email, password: password);
-      await FirestoreService().saveNewUserData(user: _auth.currentUser!, username: username);
+      await FirestoreService().saveNewUserData(user: _auth.currentUser!, username: username, dateOfBirth: dateOfBirth);
       return "Signed up";
     } on FirebaseAuthException catch (e) {
       return e.message;
@@ -34,7 +36,7 @@ class AuthService {
   Future<void> sendPasswordResetMail() async {
     User? _user = _auth.currentUser;
     await _auth.sendPasswordResetEmail(email: _user!.email!);
-  }*/
+  }
 
   Future<String?> signInWithGoogle() async {
     print("1");

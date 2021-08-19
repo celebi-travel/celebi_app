@@ -1,5 +1,7 @@
 import 'package:celebi_project/pages/login_screens/custom/custom_button.dart';
 import 'package:celebi_project/pages/login_screens/welcome_page/components/forget_password_button.dart';
+import 'package:celebi_project/pages/main/bottom_nav_bar/bottom_nav_bar.dart';
+import 'package:celebi_project/services/auth_service.dart';
 import 'package:flutter/material.dart';
 import '../../../../extensions/context_extension.dart';
 
@@ -37,10 +39,18 @@ class _WelcomeBackFormState extends State<WelcomeBackForm> {
               SizedBox(height: 60),
               CustomButton(
                   text: 'Login',
-                  onPressed: () {
+                  onPressed: () async {
+                    print('clicked');
                     if (formKey.currentState!.validate()) {
-                      final String welcomeEmail = emailController.text;
-                      final String welcomePassword = passwordController.text;
+                      print('valdiated');
+                      final String email = emailController.text;
+                      final String password = passwordController.text;
+
+                      String? result = await AuthService().signIn(email: email, password: password);
+                      print('result = $result');
+                      if (result == 'Signed in') {
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => BottomNavBar()));
+                      }
                     }
                   }),
             ],
@@ -51,6 +61,11 @@ class _WelcomeBackFormState extends State<WelcomeBackForm> {
   TextFormField buildEmailField(BuildContext context) {
     return TextFormField(
       controller: emailController,
+      validator: (value) {
+        if (value!.isEmpty) {
+          return 'Lütfen bu alanı doldurunuz';
+        }
+      },
       decoration: InputDecoration(
         //contentPadding: EdgeInsets.symmetric(horizontal: 10),
         prefixIcon: Padding(
@@ -61,8 +76,7 @@ class _WelcomeBackFormState extends State<WelcomeBackForm> {
           ),
         ),
         hintText: 'Email or username',
-        hintStyle: context.textTheme.bodyText2!
-            .copyWith(color: Colors.grey, fontSize: 18),
+        hintStyle: context.textTheme.bodyText2!.copyWith(color: Colors.grey, fontSize: 18),
       ),
     );
   }
@@ -70,6 +84,11 @@ class _WelcomeBackFormState extends State<WelcomeBackForm> {
   TextFormField buildPasswordField(BuildContext context) {
     return TextFormField(
       controller: passwordController,
+      validator: (value) {
+        if (value!.isEmpty) {
+          return 'Lütfen bu alanı doldurunuz';
+        }
+      },
       obscureText: !isVisible,
       decoration: InputDecoration(
         prefixIcon: Padding(
@@ -92,8 +111,7 @@ class _WelcomeBackFormState extends State<WelcomeBackForm> {
           ),
         ),
         hintText: 'Password',
-        hintStyle: context.textTheme.bodyText2!
-            .copyWith(color: Colors.grey, fontSize: 18),
+        hintStyle: context.textTheme.bodyText2!.copyWith(color: Colors.grey, fontSize: 18),
       ),
     );
   }
