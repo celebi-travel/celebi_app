@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../../extensions/context_extension.dart';
 
-Padding buildUserInfoStructure(
+/*Padding buildUserInfoStructure(
     BuildContext context, IconData icon, String hintText) {
   return Padding(
     padding: EdgeInsets.only(top: 10),
@@ -38,5 +38,5 @@ Padding buildUserInfoStructure(
       ),
     ),
   );
-}
+}*/
 //buton, text field, column paddingleri, text form field-> text field

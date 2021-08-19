@@ -1,4 +1,4 @@
-import 'package:celebi_project/pages/login_screens/custom/continue_button.dart';
+import 'package:celebi_project/pages/login_screens/custom/custom_button.dart';
 import 'package:celebi_project/pages/login_screens/custom/image_with_blue_button.dart';
 import 'package:flutter/material.dart';
 

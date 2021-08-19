@@ -1,7 +1,5 @@
-import 'package:celebi_project/pages/login_screens/custom/continue_button.dart';
 import 'package:celebi_project/pages/login_screens/custom/image_with_white_button.dart';
-import 'package:celebi_project/pages/login_screens/custom/user_info_structure.dart';
-import 'package:celebi_project/pages/login_screens/forget_password/forget_pass_view.dart';
+import 'package:celebi_project/pages/login_screens/register_continue/form/register_form.dart';
 import 'package:flutter/material.dart';
 
 class RegisterPage extends StatefulWidget {
@@ -23,7 +21,7 @@ class _RegisterToContuniState extends State<RegisterPage> {
               width: double.infinity,
               child: Stack(
                 fit: StackFit.loose,
-                children: <Widget>[
+                children: [
                   SafeArea(
                     child: Container(
                       child: buildImage(
@@ -42,31 +40,12 @@ class _RegisterToContuniState extends State<RegisterPage> {
                               topLeft: const Radius.circular(40),
                               topRight: const Radius.circular(40))),
                       child: Padding(
-                        padding: EdgeInsets.only(top: 30, left: 30),
+                        padding: EdgeInsets.only(right: 20, left: 20, top: 50),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            buildUserInfoStructure(
-                                context, Icons.navigate_before, 'Name'),
-                            buildUserInfoStructure(context,
-                                Icons.navigate_before, 'Email or phone number'),
-                            buildUserInfoStructure(context,
-                                Icons.navigate_before, 'Date of birth'),
-                            buildUserInfoStructure(
-                                context, Icons.navigate_before, 'Password'),
+                            RegisterForm(),
                             buildTermsInfo(),
-                            Padding(
-                                padding: EdgeInsets.only(left: 10),
-                                child: CustomButton(
-                                    text: 'Register',
-                                    onPressed: () {
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) =>
-                                                ForgetPasswordPage()),
-                                      );
-                                    })),
                           ],
                         ),
                       ),

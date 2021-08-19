@@ -14,40 +14,46 @@ class _RestaruantPageState extends State<RestaruantPage> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: buildRestaruantAppbar(),
-      body: DefaultTabController(
-        length: 2,
-        child: Column(
-          children: [
-            SizedBox(
-                height: 55,
-                width: 330,
-                child: ElevatedButton(
-                  onPressed: () {},
-                  style: ButtonStyle(
-                      backgroundColor:
-                          MaterialStateProperty.all<Color>(Color(0xFFF5FDFC)),
-                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                          RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(15),
+      body: SingleChildScrollView(
+        child: DefaultTabController(
+          length: 2,
+          child: Column(
+            children: [
+              SizedBox(
+                  height: 50,
+                  width: 330,
+                  child: ElevatedButton(
+                      onPressed: () {},
+                      style: ButtonStyle(
+                          backgroundColor:
+                              MaterialStateProperty.all<Color>(Colors.white),
+                          shape:
+                              MaterialStateProperty.all<RoundedRectangleBorder>(
+                                  RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20),
+                          ))),
+                      child: ListTile(
+                        leading: Icon(Icons.search, color: Colors.grey),
+                        title: Text(
+                          "search",
+                          style: TextStyle(
+                            color: Colors.grey,
+                            fontSize: 25,
+                          ),
+                        ),
+                        trailing: Icon(Icons.ac_unit_sharp),
                       ))),
-                  child: Text(
-                    "search",
-                    style: TextStyle(
-                      color: Colors.grey,
-                      fontSize: 25,
-                    ),
-                  ),
-                )),
-            ImageSlider(),
-            buildTabBarHeadText(),
-            SizedBox(
-              height: MediaQuery.of(context).size.height / 2.5,
-              child: TabBarView(children: [
-                Image.asset('asset/images/menu.png'),
-                Image.asset('asset/images/menu.png'),
-              ]),
-            ),
-          ],
+              ImageSlider(),
+              buildTabBarHeadText(),
+              SizedBox(
+                height: MediaQuery.of(context).size.height / 2.5,
+                child: TabBarView(children: [
+                  Image.asset('asset/images/menu.png'),
+                  Image.asset('asset/images/menu.png'),
+                ]),
+              ),
+            ],
+          ),
         ),
       ),
     );

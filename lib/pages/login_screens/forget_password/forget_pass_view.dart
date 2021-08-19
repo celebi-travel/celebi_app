@@ -1,7 +1,5 @@
-import 'package:celebi_project/pages/login_screens/check_email/check_email.dart';
-import 'package:celebi_project/pages/login_screens/custom/continue_button.dart';
 import 'package:celebi_project/pages/login_screens/custom/image_with_blue_button.dart';
-import 'package:celebi_project/pages/login_screens/custom/user_info_structure.dart';
+import 'package:celebi_project/pages/login_screens/forget_password/form/forget_form.dart';
 import 'package:flutter/material.dart';
 
 class ForgetPasswordPage extends StatefulWidget {
@@ -40,18 +38,7 @@ class _ForgetPasswordPageState extends State<ForgetPasswordPage> {
                   ),
                 ),
               ),
-              Padding(
-                  padding: EdgeInsets.only(top: 40),
-                  child: buildUserInfoStructure(
-                      context, Icons.markunread, "Email")),
-              CustomButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => CheckEmailView()),
-                    );
-                  },
-                  text: 'Send')
+              ForgetForm(),
             ],
           ),
         ),
