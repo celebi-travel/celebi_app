@@ -8,7 +8,7 @@ class CustomButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-        height: 55,
+        height: 40,
         width: double.infinity,
         child: ElevatedButton(
           onPressed: onPressed,
@@ -17,13 +17,13 @@ class CustomButton extends StatelessWidget {
                   MaterialStateProperty.all<Color>(Color(0xFF6AADA4)),
               shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                   RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(15),
+                borderRadius: BorderRadius.circular(10),
               ))),
           child: Text(
             text,
             style: TextStyle(
               color: Colors.white,
-              fontSize: 25,
+              fontSize: 18,
             ),
           ),
         ));
