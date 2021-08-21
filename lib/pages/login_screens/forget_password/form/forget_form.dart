@@ -1,5 +1,4 @@
 import 'package:celebi_project/pages/login_screens/custom/custom_button.dart';
-import 'package:celebi_project/pages/login_screens/register_continue/form/register_form.dart';
 import 'package:flutter/material.dart';
 import '../../../../extensions/context_extension.dart';
 

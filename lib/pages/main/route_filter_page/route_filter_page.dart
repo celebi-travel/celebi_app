@@ -1,7 +1,6 @@
 import 'package:celebi_project/models/filter_category_model.dart';
 import 'package:celebi_project/models/touristic_place.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../../../../extensions/context_extension.dart';
 import 'components/category_item.dart';
@@ -119,7 +118,7 @@ class _RouteFilterPageState extends State<RouteFilterPage> {
                                     child: IconButton(
                                         onPressed: () {},
                                         icon: Icon(
-                                          FontAwesomeIcons.solidPlusSquare,
+                                          Icons.ac_unit,
                                           color: Colors.black,
                                         )),
                                   )

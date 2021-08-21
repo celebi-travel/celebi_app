@@ -1,10 +1,8 @@
 import 'package:celebi_project/pages/login_screens/login_main_page/login_main_page.dart';
-import 'package:celebi_project/pages/login_screens/welcome_page/welcome_view.dart';
 import 'package:celebi_project/pages/main/create_route/create_route.dart';
 import 'package:celebi_project/pages/main/home/home_view.dart';
 import 'package:celebi_project/services/auth_service.dart';
 import 'package:celebi_project/services/firestore_service.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 
@@ -18,8 +16,10 @@ class BottomNavBar extends StatefulWidget {
 class _BottomNavBarState extends State<BottomNavBar> {
   List<SalomonBottomBarItem> bottomNavBarElementsList = [
     SalomonBottomBarItem(icon: Icon(Icons.home), title: Text('Home')),
-    SalomonBottomBarItem(icon: Icon(Icons.router_outlined), title: Text('Routes')),
-    SalomonBottomBarItem(icon: Icon(Icons.wallet_giftcard), title: Text('Wallets')),
+    SalomonBottomBarItem(
+        icon: Icon(Icons.router_outlined), title: Text('Routes')),
+    SalomonBottomBarItem(
+        icon: Icon(Icons.wallet_giftcard), title: Text('Wallets')),
     SalomonBottomBarItem(icon: Icon(Icons.qr_code), title: Text('QR')),
     SalomonBottomBarItem(icon: Icon(Icons.person), title: Text('Account')),
   ];
@@ -82,7 +82,10 @@ class _AccountPageState extends State<AccountPage> {
         TextButton(
           onPressed: () async {
             await AuthService().signOut();
-            Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => LoginMainPage()), (route) => false);
+            Navigator.pushAndRemoveUntil(
+                context,
+                MaterialPageRoute(builder: (context) => LoginMainPage()),
+                (route) => false);
           },
           child: Text('Sign Out'),
         ),
