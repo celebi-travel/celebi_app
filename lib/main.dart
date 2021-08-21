@@ -1,3 +1,4 @@
+import 'package:celebi_project/pages/auth/onboard/onboard_view.dart';
 import 'package:celebi_project/pages/auth/otp/otp_view.dart';
 import 'package:celebi_project/pages/login_screens/change_password/change_password.dart';
 import 'package:celebi_project/pages/login_screens/login_main_page/login_main_page.dart';
@@ -40,7 +41,7 @@ class MyApp extends StatelessWidget {
         ),
         textTheme: TextTheme(button: TextStyle(fontSize: 20)),
       ),
-      home: ProfileView(),
+      home: OnboardView(),
     );
   }
 }

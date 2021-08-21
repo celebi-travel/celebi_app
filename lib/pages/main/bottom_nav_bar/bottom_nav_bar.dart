@@ -40,13 +40,17 @@ class _BottomNavBarState extends State<BottomNavBar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: SalomonBottomBar(
-        selectedItemColor: Colors.indigo,
-        currentIndex: _currentIndex,
-        onTap: (i) => setState(() => _currentIndex = i),
-        items: bottomNavBarElementsList,
-      ),
+      bottomNavigationBar: bottomBarMethod(),
       body: _pages[_currentIndex],
+    );
+  }
+
+  SalomonBottomBar bottomBarMethod() {
+    return SalomonBottomBar(
+      selectedItemColor: Colors.indigo,
+      currentIndex: _currentIndex,
+      onTap: (i) => setState(() => _currentIndex = i),
+      items: bottomNavBarElementsList,
     );
   }
 }

@@ -1,5 +1,4 @@
 import 'package:celebi_project/extensions/context_extension.dart';
-import 'package:celebi_project/pages/login_screens/custom/continue_button.dart';
 import 'package:celebi_project/pages/login_screens/custom/custom_button.dart';
 import 'package:celebi_project/pages/main/profile/proflle_view.dart';
 import 'package:celebi_project/widgets/custom_alert_dialog.dart';
