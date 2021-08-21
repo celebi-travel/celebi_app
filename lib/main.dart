@@ -18,11 +18,12 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
         inputDecorationTheme: InputDecorationTheme(
-          fillColor: Color(0xFFB6DAE6).withOpacity(0.2),
+          fillColor: Color(0xFF505050).withOpacity(0.2),
           filled: true,
           contentPadding: EdgeInsets.symmetric(horizontal: 10),
           enabledBorder: OutlineInputBorder(
               borderSide: BorderSide(
+                width: 2,
                 color: Color(0xFFB6DAE6),
               ),
               borderRadius: BorderRadius.circular(10)),
@@ -39,7 +40,7 @@ class MyApp extends StatelessWidget {
         ),
         textTheme: TextTheme(button: TextStyle(fontSize: 20)),
       ),
-      home: ProfileEditView(),
+      home: ProfileView(),
     );
   }
 }
