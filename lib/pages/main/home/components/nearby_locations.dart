@@ -6,7 +6,10 @@ import 'package:flutter/material.dart';
 class NearbyLocations extends StatelessWidget {
   const NearbyLocations({
     Key? key,
+    required this.onTap,
   }) : super(key: key);
+
+  final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -20,45 +23,51 @@ class NearbyLocations extends StatelessWidget {
             scrollDirection: Axis.horizontal,
             physics: BouncingScrollPhysics(),
             itemBuilder: (context, index) => Stack(children: <Widget>[
-              Container(
-                alignment: Alignment.bottomLeft,
-                width: context.height * 0.08,
-                height: context.height * 0.08,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(12),
-                  color: Colors.transparent,
-                  image: DecorationImage(
-                    fit: BoxFit.fill,
-                    image: AssetImage(
-                      nearbyLocations[index].imageUrl!,
+              GestureDetector(
+                onTap: onTap,
+                child: Container(
+                  alignment: Alignment.bottomLeft,
+                  width: context.height * 0.08,
+                  height: context.height * 0.08,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(12),
+                    color: Colors.transparent,
+                    image: DecorationImage(
+                      fit: BoxFit.fill,
+                      image: AssetImage(
+                        nearbyLocations[index].imageUrl!,
+                      ),
                     ),
                   ),
                 ),
               ),
-              Container(
-                alignment: Alignment.bottomLeft,
-                width: context.height * 0.08,
-                height: context.height * 0.08,
-                margin: EdgeInsets.only(right: 10),
-                padding: EdgeInsets.only(left: 5, bottom: 5),
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(12),
-                  gradient: LinearGradient(
-                    begin: FractionalOffset.center,
-                    end: FractionalOffset.bottomCenter,
-                    colors: [
-                      Colors.grey.withOpacity(0.0),
-                      Colors.black,
-                    ],
-                    stops: [
-                      0.0,
-                      1.0,
-                    ],
+              GestureDetector(
+                onTap: onTap,
+                child: Container(
+                  alignment: Alignment.bottomLeft,
+                  width: context.height * 0.08,
+                  height: context.height * 0.08,
+                  margin: EdgeInsets.only(right: 10),
+                  padding: EdgeInsets.only(left: 5, bottom: 5),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(12),
+                    gradient: LinearGradient(
+                      begin: FractionalOffset.center,
+                      end: FractionalOffset.bottomCenter,
+                      colors: [
+                        Colors.grey.withOpacity(0.0),
+                        Colors.black,
+                      ],
+                      stops: [
+                        0.0,
+                        1.0,
+                      ],
+                    ),
                   ),
-                ),
-                child: HeadText(
-                  text: nearbyLocations[index].placeName!,
+                  child: HeadText(
+                    text: nearbyLocations[index].placeName!,
+                  ),
                 ),
               )
             ]),
