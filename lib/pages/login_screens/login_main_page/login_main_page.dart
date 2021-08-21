@@ -16,6 +16,7 @@ class _LoginMainPageState extends State<LoginMainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: Center(
         child: Column(
           children: [
@@ -24,8 +25,8 @@ class _LoginMainPageState extends State<LoginMainPage> {
               child: Container(
                 height: 180,
                 width: 180,
-                color: Colors.grey,
-                child: Center(child: Text('Resim gelecek')),
+                color: Colors.white,
+                child: Image.asset('asset/images/login.png', fit: BoxFit.contain),
               ),
             ),
             Padding(

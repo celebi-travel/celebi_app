@@ -8,12 +8,18 @@ import 'components/icon_buttons.dart';
 import 'components/image_slider.dart';
 
 class DetailPage extends StatefulWidget {
+  final VoidCallback changePageFunc;
+
+  const DetailPage({Key? key, required this.changePageFunc}) : super(key: key);
   @override
-  _DetailPageState createState() => _DetailPageState();
+  _DetailPageState createState() => _DetailPageState(changePageFunc);
 }
 
 class _DetailPageState extends State<DetailPage> {
   ScrollController scrollController = ScrollController(keepScrollOffset: true);
+  final VoidCallback changePageFunc;
+
+  _DetailPageState(this.changePageFunc);
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +35,7 @@ class _DetailPageState extends State<DetailPage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text('Nemrut Mountain', style: context.textTheme.bodyText1!.copyWith(fontWeight: FontWeight.w700, fontSize: 16)),
-                  BuildIconButton(),
+                  BuildIconButton(changePageFunc: changePageFunc),
                   buildReadMoreText(context),
                   Text('Product', style: context.textTheme.bodyText1!.copyWith(fontWeight: FontWeight.w700, fontSize: 18)),
                   SizedBox(

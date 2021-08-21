@@ -7,7 +7,7 @@ import '../../../../extensions/context_extension.dart';
 import 'head_title.dart';
 import 'nearby_locations.dart';
 
-class Body extends StatelessWidget {
+/*lass Body extends StatefulWidget {
   const Body({
     Key? key,
     required this.searchController,
@@ -15,6 +15,11 @@ class Body extends StatelessWidget {
 
   final TextEditingController searchController;
 
+  @override
+  _BodyState createState() => _BodyState();
+}
+
+class _BodyState extends State<Body> {
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -25,23 +30,19 @@ class Body extends StatelessWidget {
           buildSearchField(),
           Spacer(),
           buildNearbyLocationsText(context),
-          Expanded(flex: 3, child: NearbyLocations()),
+          //Expanded(flex: 3, child: NearbyLocations()),
           Spacer(),
           Align(
             alignment: Alignment.centerLeft,
             child: Text(
               'Popular Cities',
-              style: context.textTheme.headline6!
-                  .copyWith(letterSpacing: 0.3, fontWeight: FontWeight.bold),
+              style: context.textTheme.headline6!.copyWith(letterSpacing: 0.3, fontWeight: FontWeight.bold),
             ),
           ),
-          Expanded(flex: 3, child: NearbyLocations()),
+          // Expanded(flex: 3, child: NearbyLocations()),
           Spacer(),
           buildPopularPlaceText(context),
-          Expanded(
-              flex: 17,
-              child: SingleChildScrollView(
-                  physics: BouncingScrollPhysics(), child: PopularPlaces()))
+          Expanded(flex: 17, child: SingleChildScrollView(physics: BouncingScrollPhysics(), child: PopularPlaces()))
         ],
       ),
     );
@@ -52,8 +53,7 @@ class Body extends StatelessWidget {
       alignment: Alignment.centerLeft,
       child: Text(
         'Nearby Locations',
-        style: context.textTheme.headline6!
-            .copyWith(letterSpacing: 0.3, fontWeight: FontWeight.bold),
+        style: context.textTheme.headline6!.copyWith(letterSpacing: 0.3, fontWeight: FontWeight.bold),
       ),
     );
   }
@@ -64,8 +64,7 @@ class Body extends StatelessWidget {
       children: [
         Text(
           'Popular Places',
-          style: context.textTheme.headline6!
-              .copyWith(letterSpacing: 0.3, fontWeight: FontWeight.bold),
+          style: context.textTheme.headline6!.copyWith(letterSpacing: 0.3, fontWeight: FontWeight.bold),
         ),
         TextButton(onPressed: () {}, child: Text('See All')),
       ],
@@ -74,13 +73,12 @@ class Body extends StatelessWidget {
 
   Container buildSearchField() {
     return Container(
-      decoration: BoxDecoration(
-          color: Colors.white, borderRadius: BorderRadius.circular(20)),
+      decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(20)),
       child: Center(
         child: TextFormField(
           keyboardType: TextInputType.text,
           validator: (value) {},
-          controller: searchController,
+          controller: widget.searchController,
           maxLength: 30,
           decoration: InputDecoration(
             counterText: '',
@@ -120,6 +118,7 @@ class Body extends StatelessWidget {
     );
   }
 }
+*/
 
 class PopularPlaces extends StatelessWidget {
   const PopularPlaces({
@@ -195,12 +194,12 @@ class PopularPlaces extends StatelessWidget {
                 ],
               )),
           onTap: () {
-            Navigator.push(
+            /*Navigator.push(
               context,
               MaterialPageRoute(
                 builder: (context) => DetailPage(),
               ),
-            );
+            );*/
           },
         ),
       ),

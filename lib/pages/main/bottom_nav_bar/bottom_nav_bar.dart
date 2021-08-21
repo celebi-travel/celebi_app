@@ -16,10 +16,8 @@ class BottomNavBar extends StatefulWidget {
 class _BottomNavBarState extends State<BottomNavBar> {
   List<SalomonBottomBarItem> bottomNavBarElementsList = [
     SalomonBottomBarItem(icon: Icon(Icons.home), title: Text('Home')),
-    SalomonBottomBarItem(
-        icon: Icon(Icons.router_outlined), title: Text('Routes')),
-    SalomonBottomBarItem(
-        icon: Icon(Icons.wallet_giftcard), title: Text('Wallets')),
+    SalomonBottomBarItem(icon: Icon(Icons.router_outlined), title: Text('Routes')),
+    SalomonBottomBarItem(icon: Icon(Icons.wallet_giftcard), title: Text('Wallets')),
     SalomonBottomBarItem(icon: Icon(Icons.qr_code), title: Text('QR')),
     SalomonBottomBarItem(icon: Icon(Icons.person), title: Text('Account')),
   ];
@@ -82,12 +80,15 @@ class _AccountPageState extends State<AccountPage> {
         TextButton(
           onPressed: () async {
             await AuthService().signOut();
-            Navigator.pushAndRemoveUntil(
-                context,
-                MaterialPageRoute(builder: (context) => LoginMainPage()),
-                (route) => false);
+            Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => LoginMainPage()), (route) => false);
           },
           child: Text('Sign Out'),
+        ),
+        TextButton(
+          onPressed: () async {
+            await AuthService().sendEmailVerification();
+          },
+          child: Text('Send email verification'),
         ),
         Text('Username = $username')
       ], mainAxisAlignment: MainAxisAlignment.center)),

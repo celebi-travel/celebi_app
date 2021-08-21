@@ -1,3 +1,4 @@
+import 'package:celebi_project/pages/login_screens/check_email/check_email.dart';
 import 'package:celebi_project/pages/login_screens/custom/custom_button.dart';
 import 'package:celebi_project/pages/main/bottom_nav_bar/bottom_nav_bar.dart';
 import 'package:celebi_project/services/auth_service.dart';
@@ -47,7 +48,8 @@ class _WelcomeBackFormState extends State<RegisterForm> {
 
                   String? result = await AuthService().signUp(email: email, password: password, username: name, dateOfBirth: date);
                   if (result == 'Signed up') {
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => BottomNavBar()));
+                    AuthService().sendEmailVerification();
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => CheckEmailView()));
                   }
                 }
               }),

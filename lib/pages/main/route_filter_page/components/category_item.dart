@@ -7,12 +7,14 @@ class CategoryItem extends StatelessWidget {
     required FilterCategory item,
     required this.onPressed,
     required this.isSelected,
+    this.size = 90,
   })  : _item = item,
         super(key: key);
 
   final FilterCategory _item;
   final VoidCallback onPressed;
   final bool isSelected;
+  final double size;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -21,8 +23,8 @@ class CategoryItem extends StatelessWidget {
         Stack(
           children: [
             Container(
-              height: isSelected ? 90 : 80,
-              width: isSelected ? 90 : 80,
+              height: isSelected ? size : size - 10,
+              width: isSelected ? size : size - 10,
               margin: EdgeInsets.all(8),
               decoration: BoxDecoration(
                 color: _item.categoryColor,

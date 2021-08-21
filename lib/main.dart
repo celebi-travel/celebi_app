@@ -1,3 +1,4 @@
+import 'package:celebi_project/pages/login_screens/splash/splash.dart';
 import 'package:celebi_project/pages/main/restaruant_page/restaruant_view.dart';
 import 'package:celebi_project/pages/main/settings_page/settings_page_view.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -23,23 +24,14 @@ class MyApp extends StatelessWidget {
           enabledBorder: OutlineInputBorder(
               borderSide: BorderSide(
                 width: 2,
-                color: Color(0xFFB6DAE6),
               ),
               borderRadius: BorderRadius.circular(10)),
-          border: OutlineInputBorder(
-              borderSide: BorderSide(
-                color: Color(0xFFB6DAE6),
-              ),
-              borderRadius: BorderRadius.circular(10)),
-          focusedBorder: OutlineInputBorder(
-              borderSide: BorderSide(
-                color: Color(0xFFB6DAE6),
-              ),
-              borderRadius: BorderRadius.circular(10)),
+          border: OutlineInputBorder(borderSide: BorderSide(), borderRadius: BorderRadius.circular(20)),
+          focusedBorder: OutlineInputBorder(borderSide: BorderSide(), borderRadius: BorderRadius.circular(20)),
         ),
         textTheme: TextTheme(button: TextStyle(fontSize: 20)),
       ),
-      home: RestaruantPage(),
+      home: Splash(),
     );
   }
 }

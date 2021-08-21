@@ -20,22 +20,77 @@ class _RouteFilterPageState extends State<RouteFilterPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset: true,
       appBar: AppBar(
           backgroundColor: Colors.transparent,
           centerTitle: true,
           elevation: 0,
           title: Text(
             'İstanbul',
-            style: context.textTheme.bodyText1!
-                .copyWith(color: Colors.black, fontSize: 20),
+            style: context.textTheme.bodyText1!.copyWith(color: Colors.black, fontSize: 20),
           )),
       body: SingleChildScrollView(
         child: Column(
           children: [
             SizedBox(
-              height: 140,
-              child: ListView.builder(
+                height: 140,
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: CategoryItem(
+                        item: filterCategories[0],
+                        onPressed: () {
+                          setState(() {
+                            _categoryName = filterCategories[0].categoryName;
+                            _currentSelectedCategoryIndex = 0;
+                          });
+                        },
+                        isSelected: _currentSelectedCategoryIndex == 0,
+                        size: 70,
+                      ),
+                    ),
+                    Expanded(
+                      child: CategoryItem(
+                        item: filterCategories[1],
+                        onPressed: () {
+                          setState(() {
+                            _categoryName = filterCategories[1].categoryName;
+                            _currentSelectedCategoryIndex = 1;
+                          });
+                        },
+                        isSelected: _currentSelectedCategoryIndex == 1,
+                        size: 70,
+                      ),
+                    ),
+                    Expanded(
+                      child: CategoryItem(
+                        item: filterCategories[2],
+                        onPressed: () {
+                          setState(() {
+                            _categoryName = filterCategories[2].categoryName;
+                            _currentSelectedCategoryIndex = 2;
+                          });
+                        },
+                        isSelected: _currentSelectedCategoryIndex == 2,
+                        size: 70,
+                      ),
+                    ),
+                    Expanded(
+                      child: CategoryItem(
+                        item: filterCategories[3],
+                        onPressed: () {
+                          setState(() {
+                            _categoryName = filterCategories[3].categoryName;
+                            _currentSelectedCategoryIndex = 3;
+                          });
+                        },
+                        isSelected: _currentSelectedCategoryIndex == 3,
+                        size: 70,
+                      ),
+                    ),
+                  ],
+                )
+
+                /* ListView.builder(
                 scrollDirection: Axis.horizontal,
                 itemCount: filterCategories.length,
                 itemBuilder: (context, index) {
@@ -49,10 +104,11 @@ class _RouteFilterPageState extends State<RouteFilterPage> {
                         _currentSelectedCategoryIndex = index;
                       });
                     },
+                    size: 70,
                   );
                 },
-              ),
-            ),
+              ),*/
+                ),
             buildSearchField(_controller),
             Padding(
               padding: const EdgeInsets.all(20),
@@ -69,14 +125,12 @@ class _RouteFilterPageState extends State<RouteFilterPage> {
               shrinkWrap: true,
               itemCount: touristicPlacesFilter[_categoryName]!.length,
               itemBuilder: (context, index) {
-                TouristicPlace _item =
-                    touristicPlacesFilter[_categoryName]![index];
+                TouristicPlace _item = touristicPlacesFilter[_categoryName]![index];
                 return Column(
                   children: [
                     Container(
                         height: 200,
-                        margin:
-                            EdgeInsets.symmetric(horizontal: 24, vertical: 14),
+                        margin: EdgeInsets.symmetric(horizontal: 24, vertical: 14),
                         width: double.infinity,
                         child: Row(
                           children: [
@@ -91,10 +145,7 @@ class _RouteFilterPageState extends State<RouteFilterPage> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text('${index + 1}. ' + _item.name,
-                                      style: context.textTheme.headline2!
-                                          .copyWith(
-                                              fontSize: 16,
-                                              color: Colors.black)),
+                                      style: context.textTheme.headline2!.copyWith(fontSize: 16, color: Colors.black)),
                                   SizedBox(height: 8),
                                   Row(
                                     children: [
@@ -106,11 +157,7 @@ class _RouteFilterPageState extends State<RouteFilterPage> {
                                   SizedBox(height: 8),
                                   Text(
                                     _item.infoText,
-                                    style: context.textTheme.subtitle1!
-                                        .copyWith(
-                                            color: Colors.grey,
-                                            fontSize: 14,
-                                            fontWeight: FontWeight.w400),
+                                    style: context.textTheme.subtitle1!.copyWith(color: Colors.grey, fontSize: 14, fontWeight: FontWeight.w400),
                                   ),
                                   Spacer(),
                                   Align(
@@ -149,8 +196,7 @@ class _RouteFilterPageState extends State<RouteFilterPage> {
 Container buildSearchField(searchController) {
   return Container(
     height: 50,
-    decoration: BoxDecoration(
-        color: Colors.white, borderRadius: BorderRadius.circular(20)),
+    decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(20)),
     margin: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
     child: Center(
       child: TextFormField(
