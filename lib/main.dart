@@ -1,6 +1,7 @@
 import 'package:celebi_project/pages/login_screens/splash/splash.dart';
 import 'package:celebi_project/pages/main/restaruant_page/restaruant_view.dart';
 import 'package:celebi_project/pages/main/settings_page/settings_page_view.dart';
+import 'package:celebi_project/test.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
@@ -26,12 +27,16 @@ class MyApp extends StatelessWidget {
                 width: 2,
               ),
               borderRadius: BorderRadius.circular(10)),
-          border: OutlineInputBorder(borderSide: BorderSide(), borderRadius: BorderRadius.circular(20)),
-          focusedBorder: OutlineInputBorder(borderSide: BorderSide(), borderRadius: BorderRadius.circular(20)),
+          border: OutlineInputBorder(
+              borderSide: BorderSide(),
+              borderRadius: BorderRadius.circular(20)),
+          focusedBorder: OutlineInputBorder(
+              borderSide: BorderSide(),
+              borderRadius: BorderRadius.circular(20)),
         ),
         textTheme: TextTheme(button: TextStyle(fontSize: 20)),
       ),
-      home: Splash(),
+      home: TestMap(),
     );
   }
 }
