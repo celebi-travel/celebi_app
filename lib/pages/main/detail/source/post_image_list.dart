@@ -2,18 +2,11 @@ import 'package:flutter/material.dart';
 
 import '../components/image_structure.dart';
 
-var image = <String>[
-  "asset/images/post1.png",
-  "asset/images/post2.png",
-  "asset/images/post3.png",
-  "asset/images/post1.png",
-];
-
-List<Widget> buildPostImageList(BuildContext context) {
+List<Widget> buildPostImageList(BuildContext context, List images) {
   var bigImageList = <Widget>[];
 
-  for (var i = 0; i < image.length; i++) {
-    bigImageList.add(imageStructure(context, image[i]));
+  for (var i = 0; i < images.length; i++) {
+    bigImageList.add(imageStructureNetwork(context, images[i]));
   }
   return bigImageList;
 }

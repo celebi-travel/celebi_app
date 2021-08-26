@@ -36,7 +36,7 @@ class MyApp extends StatelessWidget {
         ),
         textTheme: TextTheme(button: TextStyle(fontSize: 20)),
       ),
-      home: TestMap(),
+      home: Splash(),
     );
   }
 }
