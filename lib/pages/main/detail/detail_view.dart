@@ -97,8 +97,8 @@ class _DetailPageState extends State<DetailPage> {
                             setState(() {});
                           },
                           child: Text(
-                            'Paylaş',
-                            style: TextStyle(fontSize: 16),
+                            'Fotoğraf Ekle',
+                            style: TextStyle(fontSize: 14),
                           ))
                     ],
                   ),
