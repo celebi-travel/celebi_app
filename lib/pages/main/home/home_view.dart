@@ -17,6 +17,7 @@ class HomeView extends StatefulWidget {
 class _HomeViewState extends State<HomeView> {
   final searchController = TextEditingController();
   int _pageIndex = 0;
+  String sehir = 'Adıyaman';
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -43,7 +44,8 @@ class _HomeViewState extends State<HomeView> {
                       alignment: Alignment.centerLeft,
                       child: Text(
                         'Popular Cities',
-                        style: context.textTheme.headline6!.copyWith(letterSpacing: 0.3, fontWeight: FontWeight.bold),
+                        style: context.textTheme.headline6!.copyWith(
+                            letterSpacing: 0.3, fontWeight: FontWeight.bold),
                       ),
                     ),
                     Expanded(
@@ -55,7 +57,11 @@ class _HomeViewState extends State<HomeView> {
                         })),
                     Spacer(),
                     buildPopularPlaceText(context),
-                    Expanded(flex: 17, child: SingleChildScrollView(physics: BouncingScrollPhysics(), child: PopularPlaces()))
+                    Expanded(
+                        flex: 17,
+                        child: SingleChildScrollView(
+                            physics: BouncingScrollPhysics(),
+                            child: PopularPlaces()))
                   ],
                 ),
               )
@@ -65,7 +71,7 @@ class _HomeViewState extends State<HomeView> {
                     print('_pageIndex = $_pageIndex');
                     setState(() {});
                   })
-                : RouteFilterPage(),
+                : RouteFilterPage(sehir: sehir),
       ),
     );
   }
@@ -76,7 +82,8 @@ class _HomeViewState extends State<HomeView> {
       children: [
         Text(
           'Popular Places',
-          style: context.textTheme.headline6!.copyWith(letterSpacing: 0.3, fontWeight: FontWeight.bold),
+          style: context.textTheme.headline6!
+              .copyWith(letterSpacing: 0.3, fontWeight: FontWeight.bold),
         ),
         TextButton(onPressed: () {}, child: Text('See All')),
       ],
@@ -88,7 +95,8 @@ class _HomeViewState extends State<HomeView> {
       alignment: Alignment.centerLeft,
       child: Text(
         'Nearby Locations',
-        style: context.textTheme.headline6!.copyWith(letterSpacing: 0.3, fontWeight: FontWeight.bold),
+        style: context.textTheme.headline6!
+            .copyWith(letterSpacing: 0.3, fontWeight: FontWeight.bold),
       ),
     );
   }
