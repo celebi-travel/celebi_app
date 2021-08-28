@@ -17,7 +17,7 @@ class HomeView extends StatefulWidget {
 class _HomeViewState extends State<HomeView> {
   final searchController = TextEditingController();
   int _pageIndex = 0;
-  String sehir = 'Adıyaman';
+  String sehir = 'İstanbul';
   @override
   Widget build(BuildContext context) {
     return SafeArea(
