@@ -1,5 +1,6 @@
 import 'package:celebi_project/models/filter_category_model.dart';
 import 'package:celebi_project/models/touristic_place.dart';
+import 'package:celebi_project/pages/main/my_route_page/my_route_page.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../extensions/context_extension.dart';
@@ -7,16 +8,20 @@ import 'components/category_item.dart';
 import 'components/stars_builder.dart';
 
 class RouteFilterPage extends StatefulWidget {
-  const RouteFilterPage({Key? key}) : super(key: key);
+  final String sehir;
+  const RouteFilterPage({Key? key, required this.sehir}) : super(key: key);
 
   @override
-  _RouteFilterPageState createState() => _RouteFilterPageState();
+  _RouteFilterPageState createState() => _RouteFilterPageState(sehir);
 }
 
 class _RouteFilterPageState extends State<RouteFilterPage> {
+  final String sehir;
   String _categoryName = 'Tours';
   int _currentSelectedCategoryIndex = 0;
   TextEditingController _controller = TextEditingController();
+
+  _RouteFilterPageState(this.sehir);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,8 +30,9 @@ class _RouteFilterPageState extends State<RouteFilterPage> {
           centerTitle: true,
           elevation: 0,
           title: Text(
-            'İstanbul',
-            style: context.textTheme.bodyText1!.copyWith(color: Colors.black, fontSize: 20),
+            sehir,
+            style: context.textTheme.bodyText1!
+                .copyWith(color: Colors.black, fontSize: 20),
           )),
       body: SingleChildScrollView(
         child: Column(
@@ -88,27 +94,7 @@ class _RouteFilterPageState extends State<RouteFilterPage> {
                       ),
                     ),
                   ],
-                )
-
-                /* ListView.builder(
-                scrollDirection: Axis.horizontal,
-                itemCount: filterCategories.length,
-                itemBuilder: (context, index) {
-                  var _item = filterCategories[index];
-                  return CategoryItem(
-                    item: _item,
-                    isSelected: _currentSelectedCategoryIndex == index,
-                    onPressed: () {
-                      setState(() {
-                        _categoryName = _item.categoryName;
-                        _currentSelectedCategoryIndex = index;
-                      });
-                    },
-                    size: 70,
-                  );
-                },
-              ),*/
-                ),
+                )),
             buildSearchField(_controller),
             Padding(
               padding: const EdgeInsets.all(20),
@@ -125,55 +111,72 @@ class _RouteFilterPageState extends State<RouteFilterPage> {
               shrinkWrap: true,
               itemCount: touristicPlacesFilter[_categoryName]!.length,
               itemBuilder: (context, index) {
-                TouristicPlace _item = touristicPlacesFilter[_categoryName]![index];
+                TouristicPlace _item =
+                    touristicPlacesFilter[_categoryName]![index];
                 return Column(
                   children: [
-                    Container(
-                        height: 200,
-                        margin: EdgeInsets.symmetric(horizontal: 24, vertical: 14),
-                        width: double.infinity,
-                        child: Row(
-                          children: [
-                            Expanded(
-                              child: buildImage(_item),
-                            ),
-                            Expanded(
-                                child: Padding(
-                              padding: const EdgeInsets.all(12),
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text('${index + 1}. ' + _item.name,
-                                      style: context.textTheme.headline2!.copyWith(fontSize: 16, color: Colors.black)),
-                                  SizedBox(height: 8),
-                                  Row(
-                                    children: [
-                                      StarsBuilder(_item.starsNumber),
-                                      SizedBox(width: 8),
-                                      Text(_item.rateNumber.toString()),
-                                    ],
-                                  ),
-                                  SizedBox(height: 8),
-                                  Text(
-                                    _item.infoText,
-                                    style: context.textTheme.subtitle1!.copyWith(color: Colors.grey, fontSize: 14, fontWeight: FontWeight.w400),
-                                  ),
-                                  Spacer(),
-                                  Align(
-                                    alignment: Alignment.centerRight,
-                                    child: IconButton(
-                                        onPressed: () {},
-                                        icon: Icon(
-                                          Icons.ac_unit,
-                                          color: Colors.black,
-                                        )),
-                                  )
-                                ],
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => MyRoutePage()));
+                      },
+                      child: Container(
+                          height: 200,
+                          margin: EdgeInsets.symmetric(
+                              horizontal: 24, vertical: 14),
+                          width: double.infinity,
+                          child: Row(
+                            children: [
+                              Expanded(
+                                child: buildImage(_item),
                               ),
-                            ))
-                          ],
-                        )),
+                              Expanded(
+                                  child: Padding(
+                                padding: const EdgeInsets.all(12),
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text('${index + 1}. ' + _item.name,
+                                        style: context.textTheme.headline2!
+                                            .copyWith(
+                                                fontSize: 16,
+                                                color: Colors.black)),
+                                    SizedBox(height: 8),
+                                    Row(
+                                      children: [
+                                        StarsBuilder(_item.starsNumber),
+                                        SizedBox(width: 8),
+                                        Text(_item.rateNumber.toString()),
+                                      ],
+                                    ),
+                                    SizedBox(height: 8),
+                                    Text(
+                                      _item.infoText,
+                                      style: context.textTheme.subtitle1!
+                                          .copyWith(
+                                              color: Colors.grey,
+                                              fontSize: 14,
+                                              fontWeight: FontWeight.w400),
+                                    ),
+                                    Spacer(),
+                                    Align(
+                                      alignment: Alignment.centerRight,
+                                      child: IconButton(
+                                          onPressed: () {},
+                                          icon: Icon(
+                                            Icons.ac_unit,
+                                            color: Colors.black,
+                                          )),
+                                    )
+                                  ],
+                                ),
+                              ))
+                            ],
+                          )),
+                    ),
                     Divider(indent: 20, endIndent: 20),
                   ],
                 );
@@ -196,7 +199,8 @@ class _RouteFilterPageState extends State<RouteFilterPage> {
 Container buildSearchField(searchController) {
   return Container(
     height: 50,
-    decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(20)),
+    decoration: BoxDecoration(
+        color: Colors.white, borderRadius: BorderRadius.circular(20)),
     margin: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
     child: Center(
       child: TextFormField(

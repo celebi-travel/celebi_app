@@ -1,13 +1,8 @@
-import 'package:celebi_project/pages/auth/onboard/onboard_view.dart';
-import 'package:celebi_project/pages/auth/otp/otp_view.dart';
-import 'package:celebi_project/pages/login_screens/change_password/change_password.dart';
-import 'package:celebi_project/pages/login_screens/login_main_page/login_main_page.dart';
-import 'package:celebi_project/pages/main/home/home_view.dart';
-import 'package:celebi_project/pages/main/hotel_page/hotel_page_view.dart';
+import 'package:celebi_project/pages/login_screens/splash/splash.dart';
 import 'package:celebi_project/pages/main/music/music_view.dart';
-import 'package:celebi_project/pages/main/profile/proflle_view.dart';
-import 'package:celebi_project/pages/main/profile_edit/profile_edit_view.dart';
-import 'package:celebi_project/pages/main/wallet/wallet_view.dart';
+import 'package:celebi_project/pages/main/restaruant_page/restaruant_view.dart';
+import 'package:celebi_project/pages/main/settings_page/settings_page_view.dart';
+import 'package:celebi_project/test.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 

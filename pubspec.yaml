@@ -27,13 +27,14 @@ dependencies:
   cupertino_icons: ^1.0.2
   firebase_auth: ^3.0.1
   firebase_core: ^1.4.0
+  firebase_storage: ^10.0.2
   flutter:
     sdk: flutter
-  flutter_credit_card: ^2.0.0
+  flutter_polyline_points: ^1.0.0
   flutter_staggered_grid_view: ^0.4.0
-  flutter_svg: ^0.22.0
+  google_maps_flutter: ^2.0.6
   google_sign_in: ^5.0.7
-  http: ^0.13.3
+  image_picker: ^0.8.3+3
   masonry_grid: ^1.0.0
   readmore: ^2.1.0
   salomon_bottom_bar: ^3.1.0
