@@ -4,7 +4,11 @@ import 'package:firebase_auth/firebase_auth.dart';
 
 class FirestoreService {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
-
+  Future<void> saveHoteData({required Hotel hotel}) async {
+    await _firestore.collection('hotels').doc(hotel.uid).set(
+      {'uid': user.uid, 'email': user.email, 'username': username, 'dateOfBirth': dateOfBirth},
+    );
+  }
   Future<void> saveNewUserData({required User user, required String username, required String dateOfBirth}) async {
     await _firestore.collection('users').doc(user.uid).set(
       {'uid': user.uid, 'email': user.email, 'username': username, 'dateOfBirth': dateOfBirth},
