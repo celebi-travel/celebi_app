@@ -1,6 +1,7 @@
 import 'package:celebi_project/pages/login_screens/splash/splash.dart';
 import 'package:celebi_project/pages/main/restaruant_page/restaruant_view.dart';
 import 'package:celebi_project/pages/main/settings_page/settings_page_view.dart';
+import 'package:celebi_project/pages/main/video/video_screen.dart';
 import 'package:celebi_project/test.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
         inputDecorationTheme: InputDecorationTheme(
-          fillColor: Color(0xFF505050).withOpacity(0.2),
+          fillColor: Color(0xFF743F3F).withOpacity(0.2),
           filled: true,
           contentPadding: EdgeInsets.symmetric(horizontal: 10),
           enabledBorder: OutlineInputBorder(
@@ -36,7 +37,7 @@ class MyApp extends StatelessWidget {
         ),
         textTheme: TextTheme(button: TextStyle(fontSize: 20)),
       ),
-      home: TestMap(),
+      home: RestaruantPage(),
     );
   }
 }

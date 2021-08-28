@@ -1,4 +1,5 @@
-import 'package:celebi_project/pages/main/detail/components/image_slider.dart';
+import 'package:celebi_project/constants/image_slider.dart';
+import 'package:celebi_project/pages/main/detail/source/slider_image_list.dart';
 import 'package:flutter/material.dart';
 
 class HotelPage extends StatefulWidget {
@@ -28,7 +29,10 @@ class _HotelPageState extends State<HotelPage> {
       ),
       body: Column(
         children: [
-          ImageSlider(),
+          ImageSlider(
+            imagesList:
+                detailImagesList, //BURAYA HOTEL FOTOĞRAFLARININ LİSTESİ GELECEK
+          ),
         ],
       ),
     );

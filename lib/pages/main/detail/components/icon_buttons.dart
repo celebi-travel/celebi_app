@@ -23,18 +23,19 @@ class _BuildIconButtonState extends State<BuildIconButton> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        IconButton(
-            onPressed: () {},
-            icon: Icon(
-              Icons.location_on,
-              color: Colors.orange,
-            )),
+        Icon(
+          Icons.location_on,
+          color: Colors.orange,
+        ),
         Row(
           children: [
             TextButton(
               onPressed: changePageFunc,
-              child: Text('Create Your Route', style: context.textTheme.bodyText2!.copyWith(fontSize: 14, color: Colors.white)),
-              style: ButtonStyle(backgroundColor: MaterialStateProperty.all(Colors.red)),
+              child: Text('Create Your Route',
+                  style: context.textTheme.bodyText2!
+                      .copyWith(fontSize: 14, color: Colors.white)),
+              style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(Colors.red)),
             ),
             IconButton(
                 onPressed: () {},

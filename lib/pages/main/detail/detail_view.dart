@@ -1,3 +1,5 @@
+import 'package:celebi_project/pages/main/detail/source/slider_image_list.dart';
+
 import 'source/post_image_list.dart';
 import 'source/product_image_list.dart';
 import 'package:flutter/material.dart';
@@ -5,7 +7,7 @@ import 'package:readmore/readmore.dart';
 import '../../../../extensions/context_extension.dart';
 import 'components/appbar.dart';
 import 'components/icon_buttons.dart';
-import 'components/image_slider.dart';
+import '../../../constants/image_slider.dart';
 
 class DetailPage extends StatefulWidget {
   final VoidCallback changePageFunc;
@@ -28,16 +30,22 @@ class _DetailPageState extends State<DetailPage> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            ImageSlider(),
+            ImageSlider(
+              imagesList: detailImagesList,
+            ),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 20),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('Nemrut Mountain', style: context.textTheme.bodyText1!.copyWith(fontWeight: FontWeight.w700, fontSize: 16)),
+                  Text('Nemrut Mountain',
+                      style: context.textTheme.bodyText1!
+                          .copyWith(fontWeight: FontWeight.w700, fontSize: 16)),
                   BuildIconButton(changePageFunc: changePageFunc),
                   buildReadMoreText(context),
-                  Text('Product', style: context.textTheme.bodyText1!.copyWith(fontWeight: FontWeight.w700, fontSize: 18)),
+                  Text('Product',
+                      style: context.textTheme.bodyText1!
+                          .copyWith(fontWeight: FontWeight.w700, fontSize: 18)),
                   SizedBox(
                     height: 120,
                     child: ListView(
@@ -47,7 +55,9 @@ class _DetailPageState extends State<DetailPage> {
                       children: buildProductImageList(context),
                     ),
                   ),
-                  Text('Post', style: context.textTheme.bodyText1!.copyWith(fontWeight: FontWeight.w700, fontSize: 18)),
+                  Text('Post',
+                      style: context.textTheme.bodyText1!
+                          .copyWith(fontWeight: FontWeight.w700, fontSize: 18)),
                   SizedBox(
                     height: 120,
                     child: ListView(
@@ -75,8 +85,10 @@ class _DetailPageState extends State<DetailPage> {
       trimCollapsedText: 'Show more',
       trimExpandedText: 'Show less',
       style: TextStyle(color: Colors.black),
-      moreStyle: context.textTheme.bodyText1!.copyWith(color: Colors.blue[900], fontWeight: FontWeight.w700, fontSize: 13),
-      lessStyle: context.textTheme.bodyText1!.copyWith(color: Colors.blue[900], fontWeight: FontWeight.w700, fontSize: 13),
+      moreStyle: context.textTheme.bodyText1!.copyWith(
+          color: Colors.blue[900], fontWeight: FontWeight.w700, fontSize: 13),
+      lessStyle: context.textTheme.bodyText1!.copyWith(
+          color: Colors.blue[900], fontWeight: FontWeight.w700, fontSize: 13),
     );
   }
 }
