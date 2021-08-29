@@ -30,8 +30,8 @@ class _HotelPageState extends State<HotelPage> {
       body: Column(
         children: [
           ImageSlider(
-            imagesList:
-                detailImagesList, //BURAYA HOTEL FOTOĞRAFLARININ LİSTESİ GELECEK
+            imagesList: detailimagesList,
+            //BURAYA HOTEL FOTOĞRAFLARININ LİSTESİ GELECEK
           ),
         ],
       ),

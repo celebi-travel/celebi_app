@@ -1,5 +1,4 @@
 import 'package:celebi_project/pages/main/detail/source/slider_image_list.dart';
-
 import 'source/post_image_list.dart';
 import 'source/product_image_list.dart';
 import 'package:flutter/material.dart';
@@ -31,7 +30,7 @@ class _DetailPageState extends State<DetailPage> {
         child: Column(
           children: [
             ImageSlider(
-              imagesList: detailImagesList,
+              imagesList: detailimagesList,
             ),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 20),

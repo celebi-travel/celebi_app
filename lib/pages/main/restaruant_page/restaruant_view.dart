@@ -1,5 +1,5 @@
 import 'package:celebi_project/constants/image_slider.dart';
-import 'package:celebi_project/pages/main/detail/source/slider_image_list.dart';
+import 'package:celebi_project/pages/main/restaruant_page/source/restaruant_slider.dart';
 import 'package:celebi_project/pages/main/restaruant_page/widgets/components/widgets.dart';
 import 'package:celebi_project/pages/main/restaruant_page/widgets/tabbar/reservation.dart';
 import 'package:flutter/material.dart';
@@ -22,9 +22,7 @@ class _RestaruantPageState extends State<RestaruantPage> {
           length: 2,
           child: Column(
             children: [
-              ImageSlider(
-                imagesList: detailImagesList,
-              ),
+              ImageSlider(imagesList: restaruantImagesList),
               buildCityNameAndStar(),
               tabBarHeader(),
               Expanded(

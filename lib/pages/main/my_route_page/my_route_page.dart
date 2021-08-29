@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:celebi_project/models/filter_category_model.dart';
 import 'package:celebi_project/widgets/filter_element.dart';
 import 'package:flutter/material.dart';
