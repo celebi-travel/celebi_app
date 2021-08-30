@@ -1,4 +1,9 @@
 import 'package:celebi_project/pages/main/detail/source/slider_image_list.dart';
+import 'dart:io';
+
+import 'package:celebi_project/services/firestore_service.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 import 'source/post_image_list.dart';
 import 'source/product_image_list.dart';
 import 'package:flutter/material.dart';
@@ -20,7 +25,27 @@ class _DetailPageState extends State<DetailPage> {
   ScrollController scrollController = ScrollController(keepScrollOffset: true);
   final VoidCallback changePageFunc;
 
+  final ImagePicker _picker = ImagePicker();
+
   _DetailPageState(this.changePageFunc);
+
+  List<String> images = [];
+
+  Future<void> _getImages() async {
+    images = [];
+    List<QueryDocumentSnapshot<Object?>> _images =
+        await FirestoreService().getImages();
+    _images.forEach((element) {
+      images.add((element.data() as Map)['url']);
+    });
+    setState(() {});
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _getImages();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -42,6 +67,7 @@ class _DetailPageState extends State<DetailPage> {
                           .copyWith(fontWeight: FontWeight.w700, fontSize: 16)),
                   BuildIconButton(changePageFunc: changePageFunc),
                   buildReadMoreText(context),
+                  SizedBox(height: 14),
                   Text('Product',
                       style: context.textTheme.bodyText1!
                           .copyWith(fontWeight: FontWeight.w700, fontSize: 18)),
@@ -57,13 +83,37 @@ class _DetailPageState extends State<DetailPage> {
                   Text('Post',
                       style: context.textTheme.bodyText1!
                           .copyWith(fontWeight: FontWeight.w700, fontSize: 18)),
+                  SizedBox(height: 14),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        'Post',
+                        style: context.textTheme.bodyText1!.copyWith(
+                            fontWeight: FontWeight.w700, fontSize: 18),
+                      ),
+                      TextButton(
+                          onPressed: () async {
+                            XFile? xfile = await _picker.pickImage(
+                                source: ImageSource.gallery);
+                            File file = File(xfile!.path);
+                            await FirestoreService().saveImage(file);
+                            await _getImages();
+                            setState(() {});
+                          },
+                          child: Text(
+                            'Fotoğraf Ekle',
+                            style: TextStyle(fontSize: 14),
+                          ))
+                    ],
+                  ),
                   SizedBox(
                     height: 120,
                     child: ListView(
                       physics: ClampingScrollPhysics(),
                       controller: scrollController,
                       scrollDirection: Axis.horizontal,
-                      children: buildPostImageList(context),
+                      children: buildPostImageList(context, images),
                     ),
                   ),
                 ],

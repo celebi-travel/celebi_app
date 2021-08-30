@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:celebi_project/models/filter_category_model.dart';
 import 'package:celebi_project/widgets/filter_element.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_polyline_points/flutter_polyline_points.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class MyRoutePage extends StatefulWidget {
@@ -12,6 +13,21 @@ class MyRoutePage extends StatefulWidget {
 }
 
 class _MyRoutePageState extends State<MyRoutePage> {
+  List<Map<String, LatLng>> directions = [
+    {
+      'origin': LatLng(41.015137, 28.979530), // istanbul
+      'destination': LatLng(39.92074323126502, 32.820483946776854) // ankara
+    },
+    {
+      'origin': LatLng(39.92074323126502, 32.820483946776853), // ankara
+      'destination': LatLng(36.896891, 30.713323) // samsun
+    },
+    {
+      'origin': LatLng(36.896891, 30.713323), // samsun
+      'destination': LatLng(38.423733, 27.142826) // izmir
+    },
+  ];
+
   CameraPosition _initialPosition = CameraPosition(
     target: LatLng(41.015137, 28.979530),
     zoom: 10,
@@ -36,11 +52,8 @@ class _MyRoutePageState extends State<MyRoutePage> {
   Completer<GoogleMapController> _controller = Completer();
   Set<Marker> _markers = {};
   Set<Polyline> _polylines = {};
-  LatLng _origin = LatLng(41.015137, 28.979530);
-  LatLng _destination = LatLng(41.045137, 28.99530);
-  //PolylinePoints polylinePoints = PolylinePoints();
-  String googleAPIKey = "AIzaSyDBcZchTtJrV_TCymBK_mRJW4qjKZae04M";
-  List<LatLng> polylineCoordinates = [];
+  PolylinePoints polylinePoints = PolylinePoints();
+  String googleAPIKey = "AIzaSyCgAc5W3Hx4QSRhQFXSASv_prrQp3P9UeQ";
 
   void onMapCreated(GoogleMapController controller) {
     _controller.complete(controller);
@@ -49,48 +62,49 @@ class _MyRoutePageState extends State<MyRoutePage> {
   }
 
   void setMapPins() {
-    setState(() {
-      // source pin
+    directions.forEach((element) {
+      print(element);
       _markers.add(Marker(
-        markerId: MarkerId('sourcePin'),
-        position: _origin,
+        markerId: MarkerId(element['origin'].toString()),
+        position: element['origin']!,
       ));
-      // destination pin
       _markers.add(Marker(
-        markerId: MarkerId('destPin'),
-        position: _destination,
+        markerId: MarkerId(element['destination'].toString()),
+        position: element['destination']!,
       ));
+      setState(() {});
     });
   }
 
   setPolylines() async {
-    /*PolylineResult? result = await polylinePoints.getRouteBetweenCoordinates(
-        googleAPIKey, PointLatLng(_origin.latitude, _origin.longitude), PointLatLng(_destination.latitude, _destination.longitude));
-    print(result.errorMessage);
-    print(result.status);
-    if (result.status == 'OK') {
-      result.points.forEach((element) {
-        polylineCoordinates.add(LatLng(element.latitude, element.longitude));
-      });
-    }
-*/
-    setState(() {
-      // create a Polyline instance
-      // with an id, an RGB color and the list of LatLng pairs
-      Polyline polyline = Polyline(
-          polylineId: PolylineId("poly"),
-          color: Color.fromARGB(255, 40, 122, 198),
-          points: polylineCoordinates);
+    List<LatLng> polylineCoordinates = [];
+    for (var i = 0; i < directions.length; i++) {
+      PolylineResult? result = await polylinePoints.getRouteBetweenCoordinates(
+          googleAPIKey,
+          PointLatLng(directions[i]['origin']!.latitude,
+              directions[i]['origin']!.longitude),
+          PointLatLng(directions[i]['destination']!.latitude,
+              directions[i]['destination']!.longitude));
+      if (result.status == 'OK') {
+        result.points.forEach((_element) {
+          polylineCoordinates
+              .add(LatLng(_element.latitude, _element.longitude));
+        });
+      }
 
-      // add the constructed polyline as a set of points
-      // to the polyline set, which will eventually
-      // end up showing up on the map
+      Polyline polyline = Polyline(
+          polylineId: PolylineId("${directions[i]['origin']}"),
+          color: Color.fromARGB(255, 40, 122, 198),
+          points: polylineCoordinates,
+          width: 5);
       _polylines.add(polyline);
-    });
+    }
+    setState(() {});
   }
 
   @override
   Widget build(BuildContext context) {
+    print(_polylines);
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(

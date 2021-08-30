@@ -1,25 +1,40 @@
+import 'dart:io';
+import 'package:path/path.dart';
 import 'package:celebi_project/services/auth_service.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 
 class FirestoreService {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
-  Future<void> saveNewUserData({required User user, required String username, required String dateOfBirth}) async {
+  Future<void> saveNewUserData(
+      {required User user,
+      required String username,
+      required String dateOfBirth}) async {
     await _firestore.collection('users').doc(user.uid).set(
-      {'uid': user.uid, 'email': user.email, 'username': username, 'dateOfBirth': dateOfBirth},
+      {
+        'uid': user.uid,
+        'email': user.email,
+        'username': username,
+        'dateOfBirth': dateOfBirth
+      },
     );
   }
 
   Future<String> getCurrentUsersUsername() async {
     User? _user = AuthService().getCurrentUser();
-    DocumentSnapshot snapshot = await _firestore.collection('users').doc(_user!.uid).get();
+    DocumentSnapshot snapshot =
+        await _firestore.collection('users').doc(_user!.uid).get();
     return snapshot.get('username');
   }
 
   Future<void> changeUsername(String newUsername) async {
     User _user = AuthService().getCurrentUser()!;
-    await _firestore.collection('users').doc(_user.uid).update({'username': newUsername});
+    await _firestore
+        .collection('users')
+        .doc(_user.uid)
+        .update({'username': newUsername});
   }
 
   Future<void> deleteUser(String uid) async {
@@ -27,7 +42,35 @@ class FirestoreService {
   }
 
   Future<String> getUsernameByUID(String uid) async {
-    QuerySnapshot _querySnapshot = await _firestore.collection('users').where('uid', isEqualTo: uid).get();
+    QuerySnapshot _querySnapshot =
+        await _firestore.collection('users').where('uid', isEqualTo: uid).get();
     return (_querySnapshot.docs.first.data() as Map)['username'];
+  }
+
+  Future<List<QueryDocumentSnapshot<Object?>>> getImages() async {
+    QuerySnapshot _querySnapshot = await _firestore.collection('images').get();
+    return _querySnapshot.docs;
+  }
+
+  Future<void> saveImage(File image) async {
+    final FirebaseStorage _storage = FirebaseStorage.instance;
+    File file = File(image.path);
+    var snap = await _storage
+        .ref()
+        .child("images/${image.path}/${basename(file.path)}")
+        .putFile(file);
+    String url = await snap.ref.getDownloadURL();
+    /*await FirebaseFirestore.instance
+        .collection('images')
+        .doc('${image.path}')
+        .set({"url": url, "name": basename(file.path)});*/
+
+    print(
+        'file = $file, file.path = ${file.path}, image.path = ${image.path}, url ? $url');
+
+    await FirebaseFirestore.instance
+        .collection('images')
+        .doc()
+        .set({"url": url, "name": basename(file.path)});
   }
 }
