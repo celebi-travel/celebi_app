@@ -23,6 +23,7 @@ environment:
 dependencies:
   audioplayers: ^0.19.1
   carousel_slider: ^4.0.0
+  chewie: ^1.2.2
   cloud_firestore: ^2.4.0
   cupertino_icons: ^1.0.2
   firebase_auth: ^3.0.1
@@ -38,11 +39,14 @@ dependencies:
   google_sign_in: ^5.0.7
   image_picker: ^0.8.3+3
   masonry_grid: ^1.0.0
+  random_string: ^2.3.1
   readmore: ^2.1.0
   salomon_bottom_bar: ^3.1.0
   stripe_payment: ^1.1.4
   syncfusion_flutter_datepicker: ^19.2.59
   fluttericon: ^2.0.0
+  video_player: ^2.1.14
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -60,7 +64,8 @@ flutter:
   assets:
     - asset/images/
     - asset/icons/
-    - asset/svgs/
+    - asset/videos/
+    - json/
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
   # For details regarding adding assets from package dependencies, see

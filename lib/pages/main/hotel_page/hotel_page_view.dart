@@ -1,6 +1,6 @@
+import 'package:celebi_project/constants/image_slider.dart';
 import 'package:celebi_project/extensions/context_extension.dart';
 import 'package:celebi_project/models/hotel_reservation_model.dart';
-import 'package:celebi_project/pages/main/detail/components/image_slider.dart';
 import 'package:celebi_project/widgets/custom_alert_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttericon/entypo_icons.dart';
@@ -57,7 +57,7 @@ class _HotelPageState extends State<HotelPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            ImageSlider(),
+            ImageSlider(imagesList: []),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [

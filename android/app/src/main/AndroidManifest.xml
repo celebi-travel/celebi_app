@@ -1,5 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.celebi_project">
+   <uses-permission android:name="android.permission.INTERNET"/>    
    <application
         android:label="celebi_project"
           android:usesCleartextTraffic="true"

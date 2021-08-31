@@ -1,44 +1,32 @@
-import 'dart:convert';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class Hotel {
-  final String hotelName;
-  final List<String> images;
-  final double rating;
-  final String place;
-  final String description;
-  final int price;
+  late String hotelName;
+  late List<dynamic> images;
+  late double rating;
+  late String place;
+  late String description;
+  late int price;
+  late GeoPoint coordinate;
 
-  Hotel(
-       this.hotelName,
- this.images,
- this.rating,
- this.place,
- this.price,
- this.description);
+  Hotel({
+    required this.hotelName,
+    required this.images,
+    required this.rating,
+    required this.place,
+    required this.price,
+    required this.description,
+    required this.coordinate,
+  });
 
-  Map<String, dynamic> toMap() {
-    return {
-      'hotelName': hotelName,
-      'images': images,
-      'rating': rating,
-      'place': place,
-      'description': description,
-      'price': price,
-    };
+  Hotel.fromJson(Map<String, dynamic> json) {
+    hotelName = json['hotelName'];
+    images = json['images'];
+    rating = json['rating'];
+    place = json['place'];
+    price = json['price'];
+    description = json['description'];
+    coordinate = json['coordinate'];
   }
-
-  factory Hotel.fromMap(Map<String, dynamic> map) {
-    return Hotel(
-      map['hotelName'],
-      List<String>.from(map['images']),
-      map['rating'],
-      map['place'],
-      map['description'],
-      map['price'],
-    );
-  }
-
-  String toJson() => json.encode(toMap());
-
-  factory Hotel.fromJson(String source) => Hotel.fromMap(json.decode(source));
 }

@@ -1,11 +1,14 @@
 import 'dart:io';
 import 'package:celebi_project/models/hotel_model.dart';
 import 'package:celebi_project/models/restaurant_model.dart';
+<<<<<<< HEAD
+=======
+import 'package:firebase_storage/firebase_storage.dart';
+>>>>>>> 17ddb77df165497eee5b5ddb38be655cd17b28c7
 import 'package:path/path.dart';
 import 'package:celebi_project/services/auth_service.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_storage/firebase_storage.dart';
 
 class FirestoreService {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
@@ -81,10 +84,6 @@ class FirestoreService {
         .child("images/${image.path}/${basename(file.path)}")
         .putFile(file);
     String url = await snap.ref.getDownloadURL();
-    /*await FirebaseFirestore.instance
-        .collection('images')
-        .doc('${image.path}')
-        .set({"url": url, "name": basename(file.path)});*/
 
     print(
         'file = $file, file.path = ${file.path}, image.path = ${image.path}, url ? $url');
@@ -93,5 +92,27 @@ class FirestoreService {
         .collection('images')
         .doc()
         .set({"url": url, "name": basename(file.path)});
+  }
+
+  Future<List<Hotel>> getHotels() async {
+    QuerySnapshot<Map<String, dynamic>> hotels =
+        await FirebaseFirestore.instance.collection('hotels').get();
+    List<Hotel> _hotels = [];
+    hotels.docs.forEach((element) {
+      var _hotelMap = element.data();
+      _hotels.add(Hotel.fromJson(_hotelMap));
+    });
+    return _hotels;
+  }
+
+  Future<List<Restaurant>> getRestaurants() async {
+    QuerySnapshot<Map<String, dynamic>> restaurants =
+        await FirebaseFirestore.instance.collection('restaurants').get();
+    List<Restaurant> _restaurants = [];
+    restaurants.docs.forEach((element) {
+      var _restaurantMap = element.data();
+      _restaurants.add(Restaurant.fromJson(_restaurantMap));
+    });
+    return _restaurants;
   }
 }

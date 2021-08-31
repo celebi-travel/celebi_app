@@ -1,33 +1,25 @@
-import 'dart:convert';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class Restaurant {
-  final String name;
-  final List<String> imageUrls;
-  final double rating;
-  final String place;
+  late String restaurantName;
+  late List<dynamic> images;
+  late double rating;
+  late String place;
+  late GeoPoint coordinate;
 
-  Restaurant(this.name, this.imageUrls, this.rating, this.place);
+  Restaurant({
+    required this.restaurantName,
+    required this.images,
+    required this.rating,
+    required this.place,
+    required this.coordinate,
+  });
 
-  Map<String, dynamic> toMap() {
-    return {
-      'name': name,
-      'imageUrls': imageUrls,
-      'rating': rating,
-      'place': place,
-    };
+  Restaurant.fromJson(Map<String, dynamic> json) {
+    restaurantName = json['name'];
+    images = json['imageUrls'];
+    rating = json['rating'];
+    place = json['place'];
+    coordinate = json['coordinate'];
   }
-
-  factory Restaurant.fromMap(Map<String, dynamic> map) {
-    return Restaurant(
-      map['name'],
-      List<String>.from(map['imageUrls']),
-      map['rating'],
-      map['place'],
-    );
-  }
-
-  String toJson() => json.encode(toMap());
-
-  factory Restaurant.fromJson(String source) =>
-      Restaurant.fromMap(json.decode(source));
 }
