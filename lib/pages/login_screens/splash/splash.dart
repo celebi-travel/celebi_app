@@ -1,8 +1,6 @@
 import 'dart:async';
-
+import 'package:celebi_project/extensions/main/bottom_nav_bar/bottom_nav_bar.dart';
 import 'package:celebi_project/pages/login_screens/login_main_page/login_main_page.dart';
-import 'package:celebi_project/pages/login_screens/welcome_page/welcome_view.dart';
-import 'package:celebi_project/pages/main/bottom_nav_bar/bottom_nav_bar.dart';
 import 'package:celebi_project/services/auth_service.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -18,9 +16,11 @@ class _SplashState extends State<Splash> {
   final User? _user = AuthService().getCurrentUser();
   void _check() {
     if (_user == null) {
-      Navigator.push(context, MaterialPageRoute(builder: (context) => LoginMainPage()));
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => LoginMainPage()));
     } else {
-      Navigator.push(context, MaterialPageRoute(builder: (context) => BottomNavBar()));
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => BottomNavBar()));
     }
   }
 

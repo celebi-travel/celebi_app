@@ -1,5 +1,4 @@
 import 'package:celebi_project/pages/login_screens/splash/splash.dart';
-import 'package:celebi_project/pages/main/restaruant_page/restaruant_view.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 

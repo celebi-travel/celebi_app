@@ -1,6 +1,6 @@
+import 'package:celebi_project/extensions/main/bottom_nav_bar/bottom_nav_bar.dart';
 import 'package:celebi_project/pages/login_screens/custom/custom_button.dart';
 import 'package:celebi_project/pages/login_screens/welcome_page/components/forget_password_button.dart';
-import 'package:celebi_project/pages/main/bottom_nav_bar/bottom_nav_bar.dart';
 import 'package:celebi_project/services/auth_service.dart';
 import 'package:flutter/material.dart';
 import '../../../../extensions/context_extension.dart';
@@ -46,10 +46,14 @@ class _WelcomeBackFormState extends State<WelcomeBackForm> {
                       final String email = emailController.text;
                       final String password = passwordController.text;
 
-                      String? result = await AuthService().signIn(email: email, password: password);
+                      String? result = await AuthService()
+                          .signIn(email: email, password: password);
                       print('result = $result');
                       if (result == 'Signed in') {
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => BottomNavBar()));
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => BottomNavBar()));
                       }
                     }
                   }),
@@ -76,7 +80,8 @@ class _WelcomeBackFormState extends State<WelcomeBackForm> {
           ),
         ),
         hintText: 'Email or username',
-        hintStyle: context.textTheme.bodyText2!.copyWith(color: Colors.grey, fontSize: 18),
+        hintStyle: context.textTheme.bodyText2!
+            .copyWith(color: Colors.grey, fontSize: 18),
       ),
     );
   }
@@ -111,7 +116,8 @@ class _WelcomeBackFormState extends State<WelcomeBackForm> {
           ),
         ),
         hintText: 'Password',
-        hintStyle: context.textTheme.bodyText2!.copyWith(color: Colors.grey, fontSize: 18),
+        hintStyle: context.textTheme.bodyText2!
+            .copyWith(color: Colors.grey, fontSize: 18),
       ),
     );
   }

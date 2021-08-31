@@ -1,8 +1,6 @@
 import 'package:celebi_project/pages/login_screens/check_email/check_email.dart';
 import 'package:celebi_project/pages/login_screens/custom/custom_button.dart';
-import 'package:celebi_project/pages/main/bottom_nav_bar/bottom_nav_bar.dart';
 import 'package:celebi_project/services/auth_service.dart';
-import 'package:celebi_project/services/firestore_service.dart';
 import 'package:flutter/material.dart';
 import '../../../../extensions/context_extension.dart';
 
@@ -46,10 +44,17 @@ class _WelcomeBackFormState extends State<RegisterForm> {
                   final String email = emailController.text;
                   final String password = passwordController.text;
 
-                  String? result = await AuthService().signUp(email: email, password: password, username: name, dateOfBirth: date);
+                  String? result = await AuthService().signUp(
+                      email: email,
+                      password: password,
+                      username: name,
+                      dateOfBirth: date);
                   if (result == 'Signed up') {
                     AuthService().sendEmailVerification();
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => CheckEmailView()));
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => CheckEmailView()));
                   }
                 }
               }),
@@ -98,7 +103,8 @@ class _WelcomeBackFormState extends State<RegisterForm> {
           ),
         ),
         hintText: 'Name',
-        hintStyle: context.textTheme.bodyText2!.copyWith(color: Colors.grey, fontSize: 18),
+        hintStyle: context.textTheme.bodyText2!
+            .copyWith(color: Colors.grey, fontSize: 18),
       ),
     );
   }
@@ -126,7 +132,8 @@ TextFormField buildEmailField(BuildContext context) {
         ),
       ),
       hintText: 'Email or phone number',
-      hintStyle: context.textTheme.bodyText2!.copyWith(color: Colors.grey, fontSize: 18),
+      hintStyle: context.textTheme.bodyText2!
+          .copyWith(color: Colors.grey, fontSize: 18),
     ),
   );
 }
@@ -154,7 +161,8 @@ TextFormField buildDateField(BuildContext context) {
       ),
 
       hintText: 'Date of birth',
-      hintStyle: context.textTheme.bodyText2!.copyWith(color: Colors.grey, fontSize: 18),
+      hintStyle: context.textTheme.bodyText2!
+          .copyWith(color: Colors.grey, fontSize: 18),
     ),
   );
 }
@@ -181,7 +189,8 @@ TextFormField buildPasswordField(BuildContext context) {
         ),
       ),
       hintText: 'Password',
-      hintStyle: context.textTheme.bodyText2!.copyWith(color: Colors.grey, fontSize: 18),
+      hintStyle: context.textTheme.bodyText2!
+          .copyWith(color: Colors.grey, fontSize: 18),
     ),
   );
 }

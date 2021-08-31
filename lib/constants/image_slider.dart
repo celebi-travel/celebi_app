@@ -1,5 +1,4 @@
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:celebi_project/pages/main/detail/source/slider_image_list.dart';
 import 'package:flutter/material.dart';
 
 class ImageSlider extends StatefulWidget {
