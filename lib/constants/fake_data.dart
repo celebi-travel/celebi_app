@@ -1,7 +1,7 @@
 import 'package:celebi_project/models/hotel_model.dart';
 
 List hotels = [
-  Hotel(
+/*   Hotel(
     hotelName: 'Hilton Hotel',
     imageURL:
         'https://imgcy.trivago.com/c_limit,d_dummy.jpeg,f_auto,h_1300,q_auto,w_2000/itemimages/25/88/25887_v10.jpeg',
@@ -9,5 +9,5 @@ List hotels = [
     place: 'Şişli',
     description: 'Hilton hotel ...',
     price: 500,
-  ),
+  ), */
 ];

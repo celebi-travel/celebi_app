@@ -1,4 +1,6 @@
 import 'dart:io';
+import 'package:celebi_project/models/hotel_model.dart';
+import 'package:celebi_project/models/restaurant_model.dart';
 import 'package:path/path.dart';
 import 'package:celebi_project/services/auth_service.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -7,6 +9,25 @@ import 'package:firebase_storage/firebase_storage.dart';
 
 class FirestoreService {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+
+  Future<void> saveHotelData({required Hotel hotel}) async {
+    print(hotel.toMap());
+    await _firestore
+        .collection('hotels')
+        .doc(hotel.hotelName.replaceAll(RegExp(' '), '-'))
+        .set(
+          hotel.toMap(),
+        );
+  }
+
+  Future<void> saveRestaurantData({required Restaurant restaurant}) async {
+    await _firestore
+        .collection('restaurants')
+        .doc(restaurant.name.replaceAll(RegExp(' '), '-'))
+        .set(
+          restaurant.toMap(),
+        );
+  }
 
   Future<void> saveNewUserData(
       {required User user,

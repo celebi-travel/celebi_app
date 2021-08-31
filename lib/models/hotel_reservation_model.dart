@@ -5,6 +5,20 @@ enum RoomOptions {
   ultra,
 }
 
+extension RoomOptionExtension on RoomOptions {
+  String get name {
+    switch (this) {
+      case RoomOptions.standart:
+        return 'Standart';
+      case RoomOptions.ultra:
+        return 'Ultra';
+
+      default:
+        return 'null';
+    }
+  }
+}
+
 class HotelReservationModel {
   final Hotel hotel;
 
