@@ -97,7 +97,9 @@ class _MyRoutePageState extends State<MyRoutePage> {
           icon: _markerHotelIcon,
           onTap: () {
             Navigator.push(
-                context, MaterialPageRoute(builder: (context) => HotelPage()));
+                context,
+                MaterialPageRoute(
+                    builder: (context) => HotelPage(hotel: element)));
           },
           position:
               LatLng(element.coordinate.latitude, element.coordinate.longitude),

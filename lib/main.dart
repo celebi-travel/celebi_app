@@ -1,4 +1,5 @@
 import 'package:celebi_project/extensions/context_extension.dart';
+import 'package:celebi_project/pages/login_screens/splash/splash.dart';
 import 'package:celebi_project/pages/main/hotel_page/hotel_page_view.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -15,7 +16,6 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        scaffoldBackgroundColor: Color(0xFFE5E5E5),
         primarySwatch: Colors.blue,
         colorScheme:
             context.theme.colorScheme.copyWith(background: Color(0xFFE5E5E5)),
@@ -37,7 +37,7 @@ class MyApp extends StatelessWidget {
         ),
         textTheme: TextTheme(button: TextStyle(fontSize: 20)),
       ),
-      home: HotelPage(),
+      home: Splash(),
     );
   }
 }

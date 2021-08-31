@@ -1,23 +1,22 @@
-<<<<<<< HEAD:lib/pages/main/hotel_page/hotel_page_view.dart
 import 'package:celebi_project/extensions/context_extension.dart';
+import 'package:celebi_project/models/hotel_model.dart';
 import 'package:celebi_project/models/hotel_reservation_model.dart';
-import 'package:celebi_project/pages/main/detail/components/image_slider.dart';
 import 'package:celebi_project/widgets/custom_alert_dialog.dart';
-=======
 import 'package:celebi_project/constants/image_slider.dart';
 import 'package:celebi_project/extensions/main/detail/source/slider_image_list.dart';
->>>>>>> 17ddb77df165497eee5b5ddb38be655cd17b28c7:lib/extensions/main/hotel_page/hotel_page_view.dart
 import 'package:flutter/material.dart';
 import 'package:fluttericon/entypo_icons.dart';
 import 'package:syncfusion_flutter_datepicker/datepicker.dart';
 
 class HotelPage extends StatefulWidget {
-  const HotelPage({Key? key}) : super(key: key);
+  const HotelPage({Key? key, required this.hotel}) : super(key: key);
+  final Hotel hotel;
   @override
-  _HotelPageState createState() => _HotelPageState();
+  _HotelPageState createState() => _HotelPageState(hotel);
 }
 
 class _HotelPageState extends State<HotelPage> {
+  final Hotel hotel;
   int adults = 2;
   int room = 1;
   int children = 0;
@@ -25,9 +24,11 @@ class _HotelPageState extends State<HotelPage> {
   DateTime? startDate;
   DateTime? endDate;
   late List<int> numbers;
+
+  _HotelPageState(this.hotel);
+
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
   }
@@ -43,297 +44,295 @@ class _HotelPageState extends State<HotelPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: Colors.white,
-        leading: IconButton(
-            onPressed: () {},
-            icon: Icon(
-              Icons.chevron_left,
-              color: Colors.black,
-            )),
-        centerTitle: true,
-        title: Text(
-          "Hilton Hotel",
-          style: TextStyle(color: Colors.black),
+        appBar: AppBar(
+          elevation: 0,
+          backgroundColor: Colors.white,
+          leading: IconButton(
+              onPressed: () {},
+              icon: Icon(
+                Icons.chevron_left,
+                color: Colors.black,
+              )),
+          centerTitle: true,
+          title: Text(
+            hotel.hotelName,
+            style: TextStyle(color: Colors.black),
+          ),
         ),
-      ),
-<<<<<<< HEAD:lib/pages/main/hotel_page/hotel_page_view.dart
-      body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            ImageSlider(),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(left: 10),
-                  child: Chip(
-                      label: Text('Şişli'),
-                      avatar: Icon(Icons.place, color: Colors.red),
-                      backgroundColor: context.colors.background),
-                ),
-                Row(
-                  children: [
-                    Chip(
-                        label: Text('5.0'),
-                        avatar: Icon(Icons.star, color: Colors.yellow),
-                        backgroundColor: context.colors.background),
-                    IconButton(
-                        onPressed: () {},
-                        icon: Icon(Icons.favorite_outline, color: Colors.red)),
-                  ],
-                )
-              ],
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+        body: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              ImageSlider(
+                imagesList: hotel.images,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text('Reservation', style: context.textTheme.headline5),
-                  Align(
-                    alignment: Alignment.center,
-                    child: GestureDetector(
-                      onTap: () => showDialog(
-                        context: context,
-                        builder: (context) => CustomAlertDialog(
-                          height: context.height * 0.4,
-                          content: SfDateRangePicker(
-                            selectionMode: DateRangePickerSelectionMode.range,
-                            onSelectionChanged:
-                                (dateRangePickerSelectionChangedArgs) {
-                              PickerDateRange pickerDateRange =
-                                  dateRangePickerSelectionChangedArgs.value;
-                              setState(() {
-                                startDate = pickerDateRange.startDate;
-                                endDate = pickerDateRange.endDate;
-                              });
-                            },
-                          ),
-                        ),
-                      ),
-                      child: Container(
-                        color: Colors.greenAccent.withOpacity(0.2),
-                        padding: EdgeInsets.symmetric(horizontal: 3),
-                        child: Padding(
-                          padding: const EdgeInsets.all(5),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                              Icon(Icons.local_hotel_outlined),
-                              Text('Select Date Range',
-                                  style: context.textTheme.bodyText1!
-                                      .copyWith(fontWeight: FontWeight.w400)),
-                              Icon(
-                                Icons.arrow_drop_down_sharp,
-                                size: 30,
-                              )
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 10),
+                    child: Chip(
+                        label: Text(hotel.place),
+                        avatar: Icon(Icons.place, color: Colors.red),
+                        backgroundColor: context.colors.background),
                   ),
-                  SizedBox(height: 10),
                   Row(
                     children: [
-                      Expanded(
-                        child: Container(
-                          color: Colors.greenAccent.withOpacity(0.2),
-                          padding: EdgeInsets.symmetric(
-                              horizontal: context.width * 0.08),
-                          child: DropdownButtonHideUnderline(
-                            child: DropdownButton<int>(
-                              menuMaxHeight: 200,
-                              icon: Padding(
-                                padding: const EdgeInsets.only(left: 10),
-                                child: Icon(Entypo.arrow_combo),
-                              ),
-                              elevation: 0,
-                              hint: Text('${adults} Adults',
-                                  style: context.textTheme.bodyText1!
-                                      .copyWith(fontWeight: FontWeight.w400)),
-                              items: numbers.map((int value) {
-                                return DropdownMenuItem<int>(
-                                  value: value,
-                                  child: new Text('$value adults'),
-                                );
-                              }).toList(),
-                              onChanged: (value) {
+                      Chip(
+                          label: Text(hotel.rating.toString()),
+                          avatar: Icon(Icons.star, color: Colors.yellow),
+                          backgroundColor: context.colors.background),
+                      IconButton(
+                          onPressed: () {},
+                          icon:
+                              Icon(Icons.favorite_outline, color: Colors.red)),
+                    ],
+                  )
+                ],
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text('Reservation', style: context.textTheme.headline5),
+                    Align(
+                      alignment: Alignment.center,
+                      child: GestureDetector(
+                        onTap: () => showDialog(
+                          context: context,
+                          builder: (context) => CustomAlertDialog(
+                            height: context.height * 0.4,
+                            content: SfDateRangePicker(
+                              selectionMode: DateRangePickerSelectionMode.range,
+                              onSelectionChanged:
+                                  (dateRangePickerSelectionChangedArgs) {
+                                PickerDateRange pickerDateRange =
+                                    dateRangePickerSelectionChangedArgs.value;
                                 setState(() {
-                                  adults = value as int;
+                                  startDate = pickerDateRange.startDate;
+                                  endDate = pickerDateRange.endDate;
                                 });
                               },
                             ),
                           ),
                         ),
-                      ),
-                      SizedBox(width: 10),
-                      Expanded(
                         child: Container(
                           color: Colors.greenAccent.withOpacity(0.2),
-                          padding: EdgeInsets.symmetric(
-                              horizontal: context.width * 0.08),
-                          child: DropdownButton<int>(
-                            icon: Padding(
-                              padding: const EdgeInsets.only(left: 10),
-                              child: Icon(Entypo.arrow_combo),
-                            ),
-                            elevation: 0,
-                            underline: SizedBox.fromSize(),
-                            hint: isThereChild
-                                ? Text('No Children',
-                                    style: context.textTheme.bodyText1!
-                                        .copyWith(fontWeight: FontWeight.w400))
-                                : Text('$children Children',
+                          padding: EdgeInsets.symmetric(horizontal: 3),
+                          child: Padding(
+                            padding: const EdgeInsets.all(5),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                Icon(Icons.local_hotel_outlined),
+                                Text('Select Date Range',
                                     style: context.textTheme.bodyText1!
                                         .copyWith(fontWeight: FontWeight.w400)),
-                            items: numbers.map((int value) {
-                              return DropdownMenuItem<int>(
-                                value: value,
-                                child: new Text('$value child'),
-                              );
-                            }).toList(),
-                            onChanged: (value) {
-                              setState(() {
-                                children = value as int;
-                              });
-                            },
+                                Icon(
+                                  Icons.arrow_drop_down_sharp,
+                                  size: 30,
+                                )
+                              ],
+                            ),
                           ),
                         ),
                       ),
-                    ],
-                  ),
-                  SizedBox(height: 20),
-                  Row(
-                    children: [
-                      Expanded(
-                        child: Container(
-                          color: Colors.greenAccent.withOpacity(0.2),
-                          padding: EdgeInsets.symmetric(
-                              horizontal: context.width * 0.08),
-                          child: DropdownButton<int>(
-                            icon: Padding(
-                              padding: const EdgeInsets.only(left: 10),
-                              child: Icon(Entypo.arrow_combo),
-                            ),
-                            elevation: 0,
-                            underline: SizedBox.fromSize(),
-                            hint: Text('${room} Room',
-                                style: context.textTheme.bodyText1!
-                                    .copyWith(fontWeight: FontWeight.w400)),
-                            items: numbers.map((int value) {
-                              return DropdownMenuItem<int>(
-                                value: value,
-                                child: new Text('$value room'),
-                              );
-                            }).toList(),
-                            onChanged: (value) {
-                              setState(() {
-                                room = value as int;
-                              });
-                            },
-                          ),
-                        ),
-                      ),
-                      SizedBox(width: 20),
-                      Expanded(
-                        child: Container(
-                          color: Colors.greenAccent.withOpacity(0.2),
-                          padding: EdgeInsets.symmetric(
-                              horizontal: context.width * 0.08),
-                          child: DropdownButton<RoomOptions>(
-                            icon: Padding(
-                              padding: const EdgeInsets.only(left: 10),
-                              child: Icon(Entypo.arrow_combo),
-                            ),
-                            elevation: 0,
-                            underline: SizedBox.fromSize(),
-                            hint: roomOptions == null
-                                ? Text('Room Options',
-                                    style: context.textTheme.bodyText1!
-                                        .copyWith(fontWeight: FontWeight.w400))
-                                : Text('${roomOptions.name}',
+                    ),
+                    SizedBox(height: 10),
+                    Row(
+                      children: [
+                        Expanded(
+                          child: Container(
+                            color: Colors.greenAccent.withOpacity(0.2),
+                            padding: EdgeInsets.symmetric(
+                                horizontal: context.width * 0.08),
+                            child: DropdownButtonHideUnderline(
+                              child: DropdownButton<int>(
+                                menuMaxHeight: 200,
+                                icon: Padding(
+                                  padding: const EdgeInsets.only(left: 10),
+                                  child: Icon(Entypo.arrow_combo),
+                                ),
+                                elevation: 0,
+                                hint: Text('$adults Adults',
                                     style: context.textTheme.bodyText1!
                                         .copyWith(fontWeight: FontWeight.w400)),
-                            items: RoomOptions.values.map((RoomOptions value) {
-                              return DropdownMenuItem<RoomOptions>(
-                                value: value,
-                                child: new Text('${value.name}'),
-                              );
-                            }).toList(),
-                            onChanged: (value) {
-                              setState(() {
-                                roomOptions = value as RoomOptions;
-                              });
-                            },
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  SizedBox(height: 20),
-                  Column(
-                    children: [
-                      Container(
-                        color: context.colors.primary.withOpacity(0.3),
-                        margin: EdgeInsets.symmetric(
-                          horizontal: context.width * 0.1,
-                        ),
-                        child: Center(
-                          child: Column(
-                            children: [
-                              Text(
-                                '546 TL',
-                                style: context.textTheme.headline6!
-                                    .copyWith(color: Colors.white),
+                                items: numbers.map((int value) {
+                                  return DropdownMenuItem<int>(
+                                    value: value,
+                                    child: new Text('$value adults'),
+                                  );
+                                }).toList(),
+                                onChanged: (value) {
+                                  setState(() {
+                                    adults = value as int;
+                                  });
+                                },
                               ),
-                              Text(
-                                'for $room rooms including taxes and fees',
-                                style: context.textTheme.bodyText1,
-                              )
-                            ],
+                            ),
                           ),
                         ),
-                      ),
-                      SizedBox(height: 10),
-                      SizedBox(
-                        width: double.infinity,
-                        child: Center(
-                          child: TextButton(
-                              onPressed: () {},
-                              style: ButtonStyle(
-                                  backgroundColor:
-                                      MaterialStateProperty.all(Colors.red),
-                                  padding: MaterialStateProperty.all(
-                                      EdgeInsets.symmetric(horizontal: 30))),
-                              child: Text(
-                                'MAKE A RESERVATİON',
-                                style: context.textTheme.headline6!.copyWith(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.w400),
-                              )),
+                        SizedBox(width: 10),
+                        Expanded(
+                          child: Container(
+                            color: Colors.greenAccent.withOpacity(0.2),
+                            padding: EdgeInsets.symmetric(
+                                horizontal: context.width * 0.08),
+                            child: DropdownButton<int>(
+                              icon: Padding(
+                                padding: const EdgeInsets.only(left: 10),
+                                child: Icon(Entypo.arrow_combo),
+                              ),
+                              elevation: 0,
+                              underline: SizedBox.fromSize(),
+                              hint: isThereChild
+                                  ? Text('No Children',
+                                      style: context.textTheme.bodyText1!
+                                          .copyWith(
+                                              fontWeight: FontWeight.w400))
+                                  : Text('$children Children',
+                                      style: context.textTheme.bodyText1!
+                                          .copyWith(
+                                              fontWeight: FontWeight.w400)),
+                              items: numbers.map((int value) {
+                                return DropdownMenuItem<int>(
+                                  value: value,
+                                  child: new Text('$value child'),
+                                );
+                              }).toList(),
+                              onChanged: (value) {
+                                setState(() {
+                                  children = value as int;
+                                });
+                              },
+                            ),
+                          ),
                         ),
-                      ),
-                    ],
-                  )
-                ],
+                      ],
+                    ),
+                    SizedBox(height: 20),
+                    Row(
+                      children: [
+                        Expanded(
+                          child: Container(
+                            color: Colors.greenAccent.withOpacity(0.2),
+                            padding: EdgeInsets.symmetric(
+                                horizontal: context.width * 0.08),
+                            child: DropdownButton<int>(
+                              icon: Padding(
+                                padding: const EdgeInsets.only(left: 10),
+                                child: Icon(Entypo.arrow_combo),
+                              ),
+                              elevation: 0,
+                              underline: SizedBox.fromSize(),
+                              hint: Text('$room Room',
+                                  style: context.textTheme.bodyText1!
+                                      .copyWith(fontWeight: FontWeight.w400)),
+                              items: numbers.map((int value) {
+                                return DropdownMenuItem<int>(
+                                  value: value,
+                                  child: new Text('$value room'),
+                                );
+                              }).toList(),
+                              onChanged: (value) {
+                                setState(() {
+                                  room = value as int;
+                                });
+                              },
+                            ),
+                          ),
+                        ),
+                        SizedBox(width: 20),
+                        Expanded(
+                          child: Container(
+                            color: Colors.greenAccent.withOpacity(0.2),
+                            padding: EdgeInsets.symmetric(
+                                horizontal: context.width * 0.08),
+                            child: DropdownButton<RoomOptions>(
+                              icon: Padding(
+                                padding: const EdgeInsets.only(left: 10),
+                                child: Icon(Entypo.arrow_combo),
+                              ),
+                              elevation: 0,
+                              underline: SizedBox.fromSize(),
+                              // ignore: unnecessary_null_comparison
+                              hint: roomOptions == null
+                                  ? Text('Room Options',
+                                      style: context.textTheme.bodyText1!
+                                          .copyWith(
+                                              fontWeight: FontWeight.w400))
+                                  : Text('${roomOptions.name}',
+                                      style: context.textTheme.bodyText1!
+                                          .copyWith(
+                                              fontWeight: FontWeight.w400)),
+                              items:
+                                  RoomOptions.values.map((RoomOptions value) {
+                                return DropdownMenuItem<RoomOptions>(
+                                  value: value,
+                                  child: new Text('${value.name}'),
+                                );
+                              }).toList(),
+                              onChanged: (value) {
+                                setState(() {
+                                  roomOptions = value as RoomOptions;
+                                });
+                              },
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: 20),
+                    Column(
+                      children: [
+                        Container(
+                          color: context.colors.primary.withOpacity(0.3),
+                          margin: EdgeInsets.symmetric(
+                            horizontal: context.width * 0.1,
+                          ),
+                          child: Center(
+                            child: Column(
+                              children: [
+                                Text(
+                                  '${hotel.price} TL',
+                                  style: context.textTheme.headline6!
+                                      .copyWith(color: Colors.white),
+                                ),
+                                Text(
+                                  'for $room rooms including taxes and fees',
+                                  style: context.textTheme.bodyText1,
+                                )
+                              ],
+                            ),
+                          ),
+                        ),
+                        SizedBox(height: 10),
+                        SizedBox(
+                          width: double.infinity,
+                          child: Center(
+                            child: TextButton(
+                                onPressed: () {},
+                                style: ButtonStyle(
+                                    backgroundColor:
+                                        MaterialStateProperty.all(Colors.red),
+                                    padding: MaterialStateProperty.all(
+                                        EdgeInsets.symmetric(horizontal: 30))),
+                                child: Text(
+                                  'MAKE A RESERVATİON',
+                                  style: context.textTheme.headline6!.copyWith(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w400),
+                                )),
+                          ),
+                        ),
+                      ],
+                    )
+                  ],
+                ),
               ),
-            ),
-          ],
-        ),
-=======
-      body: Column(
-        children: [
-          ImageSlider(
-            imagesList: detailimagesList,
-            //BURAYA HOTEL FOTOĞRAFLARININ LİSTESİ GELECEK
+            ],
           ),
-        ],
->>>>>>> 17ddb77df165497eee5b5ddb38be655cd17b28c7:lib/extensions/main/hotel_page/hotel_page_view.dart
-      ),
-    );
+        ));
   }
 }
