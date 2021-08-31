@@ -18,6 +18,7 @@ class _MyHomePageState extends State<ReservationBar> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
+          SizedBox(width: double.infinity),
           Row(
             children: [
               Icon(Icons.accessibility, color: Colors.black, size: 40),

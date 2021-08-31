@@ -1,11 +1,14 @@
 import 'dart:convert';
 
+import 'package:celebi_project/constants/sehirler_icinde_lat_long.dart';
 import 'package:celebi_project/models/filter_category_model.dart';
 import 'package:celebi_project/models/touristic_place.dart';
 import 'package:celebi_project/pages/login_screens/custom/image_with_white_button.dart';
 import 'package:celebi_project/pages/main/my_route_page/my_route_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:random_string/random_string.dart';
 
 import '../../../../extensions/context_extension.dart';
 import 'components/category_item.dart';
@@ -26,6 +29,7 @@ class _RouteFilterPageState extends State<RouteFilterPage> {
   TextEditingController _controller = TextEditingController();
   late Map sehirVerim;
   bool loadingDone = false;
+  List _placeNames = [];
 
   Future<void> decodeJSON() async {
     String jsonString = await rootBundle.loadString('json/sehirler.json');
@@ -33,6 +37,42 @@ class _RouteFilterPageState extends State<RouteFilterPage> {
     sehirVerim = jsonResponse['sehirler'][sehir];
     loadingDone = true;
     setState(() {});
+  }
+
+  void _showMyRoute() {
+    List<LatLng>? randomcoordinates = [];
+    randomLatLongs[sehir]!.forEach((element) {
+      randomcoordinates.add(element);
+    });
+    print('1');
+    print('randomcoordinates = ' + randomcoordinates.toString());
+    List<LatLng>? chosencoordinates = [];
+    print('2');
+    chosencoordinates.add(randomcoordinates.first);
+    print('3');
+    randomcoordinates.remove(randomcoordinates.first);
+    print('4');
+    for (var i = 0; i < _placeNames.length; i++) {
+      int random = randomBetween(0, randomcoordinates.length - 1);
+      chosencoordinates.add(randomcoordinates[random]);
+      randomcoordinates.remove(randomcoordinates[random]);
+    }
+    print('5');
+    List<Map<String, LatLng>> directions = [];
+    print('6');
+    for (var i = 0; i < chosencoordinates.length - 1; i++) {
+      Map<String, LatLng> element = {
+        'origin': chosencoordinates[i],
+        'destination': chosencoordinates[i + 1]
+      };
+      directions.add(element);
+    }
+    print('1');
+
+    Navigator.push(
+        context,
+        MaterialPageRoute(
+            builder: (context) => MyRoutePage(directions: directions)));
   }
 
   @override
@@ -131,6 +171,25 @@ class _RouteFilterPageState extends State<RouteFilterPage> {
                         ],
                       ),
                     ),
+                    Align(
+                      alignment: Alignment.centerRight,
+                      child: Padding(
+                        padding: const EdgeInsets.only(right: 8.0),
+                        child: ElevatedButton(
+                            style: ButtonStyle(
+                                backgroundColor: MaterialStateProperty.all(
+                                    Color(0XFFB6E7DA)),
+                                shape: MaterialStateProperty.all(
+                                    RoundedRectangleBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(50)))),
+                            onPressed:
+                                _placeNames.isNotEmpty ? _showMyRoute : null,
+                            child: Text('Show My Route (${_placeNames.length})',
+                                style: TextStyle(
+                                    fontSize: 12, color: Colors.black))),
+                      ),
+                    ),
                     ListView(
                       physics: NeverScrollableScrollPhysics(),
                       shrinkWrap: true,
@@ -143,12 +202,25 @@ class _RouteFilterPageState extends State<RouteFilterPage> {
                           category: 'Forests\nSirkeci',
                           starsNumber: 4,
                           commentsNumber: 14211,
-                          onTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => MyRoutePage()));
+                          onPressed: () {
+                            if (!_placeNames.contains(
+                                sehirVerim[_categoryName.toLowerCase()][0]
+                                    ['name'])) {
+                              _placeNames.add(
+                                  sehirVerim[_categoryName.toLowerCase()][0]
+                                      ['name']);
+                            } else {
+                              _placeNames.remove(
+                                  sehirVerim[_categoryName.toLowerCase()][0]
+                                      ['name']);
+                            }
+                            setState(() {});
                           },
+                          icon: _placeNames.contains(
+                                  sehirVerim[_categoryName.toLowerCase()][0]
+                                      ['name'])
+                              ? Icons.done
+                              : Icons.add,
                         ),
                         PlaceWidget(
                           name: sehirVerim[_categoryName.toLowerCase()][1]
@@ -158,12 +230,25 @@ class _RouteFilterPageState extends State<RouteFilterPage> {
                           category: 'Historical Places\nBeyoğlu',
                           starsNumber: 5,
                           commentsNumber: 4123,
-                          onTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => MyRoutePage()));
+                          onPressed: () {
+                            if (!_placeNames.contains(
+                                sehirVerim[_categoryName.toLowerCase()][1]
+                                    ['name'])) {
+                              _placeNames.add(
+                                  sehirVerim[_categoryName.toLowerCase()][1]
+                                      ['name']);
+                            } else {
+                              _placeNames.remove(
+                                  sehirVerim[_categoryName.toLowerCase()][1]
+                                      ['name']);
+                            }
+                            setState(() {});
                           },
+                          icon: _placeNames.contains(
+                                  sehirVerim[_categoryName.toLowerCase()][1]
+                                      ['name'])
+                              ? Icons.done
+                              : Icons.add,
                         ),
                         PlaceWidget(
                           name: sehirVerim[_categoryName.toLowerCase()][2]
@@ -173,12 +258,25 @@ class _RouteFilterPageState extends State<RouteFilterPage> {
                           category: 'Architectural Buildings\nSultanahmet',
                           starsNumber: 3,
                           commentsNumber: 5122,
-                          onTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => MyRoutePage()));
+                          onPressed: () {
+                            if (!_placeNames.contains(
+                                sehirVerim[_categoryName.toLowerCase()][2]
+                                    ['name'])) {
+                              _placeNames.add(
+                                  sehirVerim[_categoryName.toLowerCase()][2]
+                                      ['name']);
+                            } else {
+                              _placeNames.remove(
+                                  sehirVerim[_categoryName.toLowerCase()][2]
+                                      ['name']);
+                            }
+                            setState(() {});
                           },
+                          icon: _placeNames.contains(
+                                  sehirVerim[_categoryName.toLowerCase()][2]
+                                      ['name'])
+                              ? Icons.done
+                              : Icons.add,
                         ),
                       ],
                     ),
@@ -233,78 +331,90 @@ Container buildSearchField(searchController) {
 }
 
 class PlaceWidget extends StatelessWidget {
-  const PlaceWidget(
-      {Key? key,
-      required this.name,
-      required this.imgURL,
-      required this.category,
-      required this.starsNumber,
-      required this.commentsNumber,
-      required this.onTap})
-      : super(key: key);
+  const PlaceWidget({
+    Key? key,
+    required this.name,
+    required this.imgURL,
+    required this.category,
+    required this.starsNumber,
+    required this.commentsNumber,
+    required this.icon,
+    required this.onPressed,
+  }) : super(key: key);
   final String name, imgURL, category;
   final int starsNumber, commentsNumber;
-  final VoidCallback onTap;
+  final IconData icon;
+  final VoidCallback onPressed;
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        GestureDetector(
-          onTap: onTap,
-          child: Container(
-              height: 200,
-              margin: EdgeInsets.symmetric(horizontal: 24, vertical: 14),
-              width: double.infinity,
-              child: Row(
-                children: [
-                  Expanded(
-                    child: Container(
+        Container(
+          height: 200,
+          margin: EdgeInsets.symmetric(horizontal: 24, vertical: 14),
+          width: double.infinity,
+          child: Row(
+            children: [
+              Expanded(
+                child: Stack(
+                  children: [
+                    Container(
                         height: 170,
                         color: Colors.blue,
                         child: buildImage(imgURL)),
-                  ),
-                  Expanded(
-                      child: Padding(
-                    padding: const EdgeInsets.all(12),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                    Positioned(
+                      child: CircleAvatar(
+                        child: Icon(Icons.favorite, color: Colors.grey),
+                        backgroundColor: Colors.white,
+                      ),
+                      top: 6,
+                      right: 6,
+                    ),
+                  ],
+                ),
+              ),
+              Expanded(
+                  child: Padding(
+                padding: const EdgeInsets.all(12),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(name,
+                        style: context.textTheme.headline2!
+                            .copyWith(fontSize: 16, color: Colors.black)),
+                    SizedBox(height: 8),
+                    Row(
                       children: [
-                        Text(name,
-                            style: context.textTheme.headline2!
-                                .copyWith(fontSize: 16, color: Colors.black)),
-                        SizedBox(height: 8),
-                        Row(
-                          children: [
-                            StarsBuilder(starsNumber),
-                            SizedBox(width: 8),
-                            Text(commentsNumber.toString()),
-                          ],
-                        ),
-                        SizedBox(height: 8),
-                        Text(
-                          category,
-                          style: context.textTheme.subtitle1!.copyWith(
-                              color: Colors.grey,
-                              fontSize: 14,
-                              fontWeight: FontWeight.w400),
-                        ),
-                        Spacer(),
-                        Align(
-                          alignment: Alignment.centerRight,
-                          child: IconButton(
-                              onPressed: () {},
-                              icon: Icon(
-                                Icons.add,
-                                color: Colors.black,
-                              )),
-                        )
+                        StarsBuilder(starsNumber),
+                        SizedBox(width: 8),
+                        Text(commentsNumber.toString()),
                       ],
                     ),
-                  ))
-                ],
-              )),
+                    SizedBox(height: 8),
+                    Text(
+                      category,
+                      style: context.textTheme.subtitle1!.copyWith(
+                          color: Colors.grey,
+                          fontSize: 14,
+                          fontWeight: FontWeight.w400),
+                    ),
+                    Spacer(),
+                    Align(
+                      alignment: Alignment.centerRight,
+                      child: IconButton(
+                          onPressed: onPressed,
+                          icon: Icon(
+                            icon,
+                            color: Colors.black,
+                          )),
+                    )
+                  ],
+                ),
+              ))
+            ],
+          ),
         ),
         Divider(indent: 20, endIndent: 20),
       ],

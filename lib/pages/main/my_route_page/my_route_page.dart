@@ -1,32 +1,27 @@
 import 'dart:async';
 import 'package:celebi_project/models/filter_category_model.dart';
+import 'package:celebi_project/models/hotel_model.dart';
+import 'package:celebi_project/models/restaurant_model.dart';
+import 'package:celebi_project/pages/main/hotel_page/hotel_page_view.dart';
+import 'package:celebi_project/pages/main/restaruant_page/restaruant_view.dart';
+import 'package:celebi_project/services/firestore_service.dart';
 import 'package:celebi_project/widgets/filter_element.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_polyline_points/flutter_polyline_points.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class MyRoutePage extends StatefulWidget {
-  const MyRoutePage({Key? key}) : super(key: key);
+  const MyRoutePage({Key? key, required this.directions}) : super(key: key);
 
+  final List<Map<String, LatLng>> directions;
   @override
-  _MyRoutePageState createState() => _MyRoutePageState();
+  _MyRoutePageState createState() => _MyRoutePageState(directions);
 }
 
 class _MyRoutePageState extends State<MyRoutePage> {
-  List<Map<String, LatLng>> directions = [
-    {
-      'origin': LatLng(41.015137, 28.979530), // istanbul
-      'destination': LatLng(39.92074323126502, 32.820483946776854) // ankara
-    },
-    {
-      'origin': LatLng(39.92074323126502, 32.820483946776853), // ankara
-      'destination': LatLng(36.896891, 30.713323) // samsun
-    },
-    {
-      'origin': LatLng(36.896891, 30.713323), // samsun
-      'destination': LatLng(38.423733, 27.142826) // izmir
-    },
-  ];
+  final List<Map<String, LatLng>> directions;
+  late BitmapDescriptor _markerHotelIcon;
+  late BitmapDescriptor _markerRestaurantIcon;
 
   CameraPosition _initialPosition = CameraPosition(
     target: LatLng(41.015137, 28.979530),
@@ -34,7 +29,12 @@ class _MyRoutePageState extends State<MyRoutePage> {
   );
 
   var _items = [
-    filterCategories.first,
+    FilterCategory(
+        categoryName: 'Hotels',
+        categoryIcon: Icons.hotel,
+        categoryColor: Colors.blueAccent,
+        goPage: Container(),
+        isSelected: false),
     FilterCategory(
         categoryName: 'Cafe & Restaurant',
         categoryIcon: Icons.restaurant,
@@ -54,16 +54,21 @@ class _MyRoutePageState extends State<MyRoutePage> {
   Set<Polyline> _polylines = {};
   PolylinePoints polylinePoints = PolylinePoints();
   String googleAPIKey = "AIzaSyCgAc5W3Hx4QSRhQFXSASv_prrQp3P9UeQ";
+  List<Hotel> hotels = [];
+  List<Restaurant> restaurants = [];
+  bool showHotels = false;
 
-  void onMapCreated(GoogleMapController controller) {
+  _MyRoutePageState(this.directions);
+
+  Future<void> onMapCreated(GoogleMapController controller) async {
     _controller.complete(controller);
+
     setMapPins();
     setPolylines();
   }
 
   void setMapPins() {
     directions.forEach((element) {
-      print(element);
       _markers.add(Marker(
         markerId: MarkerId(element['origin'].toString()),
         position: element['origin']!,
@@ -74,6 +79,65 @@ class _MyRoutePageState extends State<MyRoutePage> {
       ));
       setState(() {});
     });
+  }
+
+  Future<void> _setCustomMapPin(context) async {
+    final ImageConfiguration _imageConfiguration =
+        createLocalImageConfiguration(context);
+    _markerHotelIcon = await BitmapDescriptor.fromAssetImage(
+        _imageConfiguration, 'asset/icons/location.png');
+    _markerRestaurantIcon = await BitmapDescriptor.fromAssetImage(
+        _imageConfiguration, 'asset/icons/placeholder.png');
+  }
+
+  void setHotelMarkers() {
+    hotels.forEach((element) {
+      _markers.add(Marker(
+          markerId: MarkerId(element.hotelName),
+          icon: _markerHotelIcon,
+          onTap: () {
+            Navigator.push(
+                context, MaterialPageRoute(builder: (context) => HotelPage()));
+          },
+          position:
+              LatLng(element.coordinate.latitude, element.coordinate.longitude),
+          infoWindow: InfoWindow(
+              title: element.hotelName,
+              snippet: 'Standart ${element.price} TL')));
+    });
+    setState(() {});
+  }
+
+  void setRestaurantMarkers() {
+    restaurants.forEach((element) {
+      _markers.add(Marker(
+          markerId: MarkerId(element.restaurantName),
+          icon: _markerRestaurantIcon,
+          onTap: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => RestaruantPage(
+                          restaurant: element,
+                        )));
+          },
+          position:
+              LatLng(element.coordinate.latitude, element.coordinate.longitude),
+          infoWindow: InfoWindow(
+            title: element.restaurantName,
+          )));
+    });
+    setState(() {});
+  }
+
+  void removeHotelMarkers() {
+    _markers.removeWhere((element) => element.icon == _markerHotelIcon);
+    setState(() {});
+  }
+
+  void removeRestaurantMarkers() {
+    _markers.removeWhere((element) => element.icon == _markerRestaurantIcon);
+    setState(() {});
   }
 
   setPolylines() async {
@@ -102,9 +166,24 @@ class _MyRoutePageState extends State<MyRoutePage> {
     setState(() {});
   }
 
+  Future<void> _getHotels() async {
+    hotels = await FirestoreService().getHotels();
+    await _setCustomMapPin(context);
+  }
+
+  Future<void> _getRestaurants() async {
+    restaurants = await FirestoreService().getRestaurants();
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _getRestaurants();
+    _getHotels();
+  }
+
   @override
   Widget build(BuildContext context) {
-    print(_polylines);
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -143,7 +222,13 @@ class _MyRoutePageState extends State<MyRoutePage> {
                 FilterElement(
                   item: _items[0],
                   onTap: () {
-                    _items[0].isSelected = !_items[0].isSelected;
+                    if (_items[0].isSelected) {
+                      _items[0].isSelected = false;
+                      removeHotelMarkers();
+                    } else {
+                      _items[0].isSelected = true;
+                      setHotelMarkers();
+                    }
                     setState(() {});
                   },
                   size: 70,
@@ -151,7 +236,13 @@ class _MyRoutePageState extends State<MyRoutePage> {
                 FilterElement(
                   item: _items[1],
                   onTap: () {
-                    _items[1].isSelected = !_items[1].isSelected;
+                    if (_items[1].isSelected) {
+                      _items[1].isSelected = false;
+                      removeRestaurantMarkers();
+                    } else {
+                      _items[1].isSelected = true;
+                      setRestaurantMarkers();
+                    }
                     setState(() {});
                   },
                   size: 70,

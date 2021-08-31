@@ -80,7 +80,7 @@ TabBar tabBarHeader() {
   );
 }
 
-AppBar buildRestaruantAppbar() {
+AppBar buildRestaruantAppbar(String name) {
   return AppBar(
     elevation: 0,
     backgroundColor: Colors.white,
@@ -92,20 +92,20 @@ AppBar buildRestaruantAppbar() {
         )),
     centerTitle: true,
     title: Text(
-      "Restaruant",
+      name,
       style: TextStyle(color: Colors.black),
     ),
   );
 }
 
-Column buildCityNameAndStar() {
+Column buildCityNameAndStar(String name, double stars) {
   return Column(
     children: [
       Row(
         children: [
           Icon(Icons.location_on, color: Colors.red),
           Text(
-            "CİTY NAME",
+            name,
             style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
           ),
         ],
@@ -118,7 +118,7 @@ Column buildCityNameAndStar() {
               Icons.star,
               color: Colors.orange[700],
             ),
-            Text("5"),
+            Text("$stars"),
           ],
         ),
       )
