@@ -19,7 +19,7 @@ class FilterCategory {
 
 List<FilterCategory> filterCategories = [
   FilterCategory(
-    categoryName: 'Tours',
+    categoryName: 'Guider',
     categoryIcon: Icons.hotel, //local_hotel
     categoryColor: Colors.blueAccent,
     goPage: Container(),

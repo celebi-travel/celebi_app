@@ -191,95 +191,40 @@ class _RouteFilterPageState extends State<RouteFilterPage> {
                                     fontSize: 12, color: Colors.black))),
                       ),
                     ),
-                    ListView(
+                    ListView.builder(
+                      itemCount: sehirVerim.length,
                       physics: NeverScrollableScrollPhysics(),
                       shrinkWrap: true,
-                      children: [
-                        PlaceWidget(
-                          name: sehirVerim[_categoryName.toLowerCase()][0]
+                      itemBuilder: (BuildContext context, int index) {
+                        return PlaceWidget(
+                          name: sehirVerim[_categoryName.toLowerCase()][index]
                               ['name'],
-                          imgURL: sehirVerim[_categoryName.toLowerCase()][0]
+                          imgURL: sehirVerim[_categoryName.toLowerCase()][index]
                               ['imgURL'],
                           category: 'Forests\nSirkeci',
                           starsNumber: 4,
                           commentsNumber: 14211,
                           onPressed: () {
                             if (!_placeNames.contains(
-                                sehirVerim[_categoryName.toLowerCase()][0]
+                                sehirVerim[_categoryName.toLowerCase()][index]
                                     ['name'])) {
                               _placeNames.add(
-                                  sehirVerim[_categoryName.toLowerCase()][0]
+                                  sehirVerim[_categoryName.toLowerCase()][index]
                                       ['name']);
                             } else {
                               _placeNames.remove(
-                                  sehirVerim[_categoryName.toLowerCase()][0]
+                                  sehirVerim[_categoryName.toLowerCase()][index]
                                       ['name']);
                             }
                             setState(() {});
                           },
                           icon: _placeNames.contains(
-                                  sehirVerim[_categoryName.toLowerCase()][0]
+                                  sehirVerim[_categoryName.toLowerCase()][index]
                                       ['name'])
                               ? Icons.done
                               : Icons.add,
-                        ),
-                        PlaceWidget(
-                          name: sehirVerim[_categoryName.toLowerCase()][1]
-                              ['name'],
-                          imgURL: sehirVerim[_categoryName.toLowerCase()][1]
-                              ['imgURL'],
-                          category: 'Historical Places\nBeyoğlu',
-                          starsNumber: 5,
-                          commentsNumber: 4123,
-                          onPressed: () {
-                            if (!_placeNames.contains(
-                                sehirVerim[_categoryName.toLowerCase()][1]
-                                    ['name'])) {
-                              _placeNames.add(
-                                  sehirVerim[_categoryName.toLowerCase()][1]
-                                      ['name']);
-                            } else {
-                              _placeNames.remove(
-                                  sehirVerim[_categoryName.toLowerCase()][1]
-                                      ['name']);
-                            }
-                            setState(() {});
-                          },
-                          icon: _placeNames.contains(
-                                  sehirVerim[_categoryName.toLowerCase()][1]
-                                      ['name'])
-                              ? Icons.done
-                              : Icons.add,
-                        ),
-                        PlaceWidget(
-                          name: sehirVerim[_categoryName.toLowerCase()][2]
-                              ['name'],
-                          imgURL: sehirVerim[_categoryName.toLowerCase()][2]
-                              ['imgURL'],
-                          category: 'Architectural Buildings\nSultanahmet',
-                          starsNumber: 3,
-                          commentsNumber: 5122,
-                          onPressed: () {
-                            if (!_placeNames.contains(
-                                sehirVerim[_categoryName.toLowerCase()][2]
-                                    ['name'])) {
-                              _placeNames.add(
-                                  sehirVerim[_categoryName.toLowerCase()][2]
-                                      ['name']);
-                            } else {
-                              _placeNames.remove(
-                                  sehirVerim[_categoryName.toLowerCase()][2]
-                                      ['name']);
-                            }
-                            setState(() {});
-                          },
-                          icon: _placeNames.contains(
-                                  sehirVerim[_categoryName.toLowerCase()][2]
-                                      ['name'])
-                              ? Icons.done
-                              : Icons.add,
-                        ),
-                      ],
+                        );
+                      },
                     ),
                   ],
                 ),

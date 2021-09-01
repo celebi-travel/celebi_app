@@ -1,8 +1,11 @@
 import 'package:celebi_project/pages/main/home/home_view.dart';
+import 'package:celebi_project/pages/main/route_filter_page/components/rehber_view.dart';
+import 'package:celebi_project/pages/main/route_filter_page/route_filter_page.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
 import 'extensions/context_extension.dart';
+import 'pages/main/create_route/create_route.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -37,7 +40,7 @@ class MyApp extends StatelessWidget {
         ),
         textTheme: TextTheme(button: TextStyle(fontSize: 20)),
       ),
-      home: HomeView(),
+      home: RouteFilterPage(sehir: 'İstanbul'),
     );
   }
 }
