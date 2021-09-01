@@ -1,6 +1,7 @@
-import 'package:celebi_project/extensions/context_extension.dart';
-import 'package:celebi_project/pages/auth/onboard/onboard_model.dart';
-import 'package:celebi_project/pages/login_screens/custom/custom_button.dart';
+import 'package:celebi_project/pages/auth/custom/custom_button.dart';
+
+import '../../../../extensions/context_extension.dart';
+import '../onboard_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 

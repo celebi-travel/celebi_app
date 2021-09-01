@@ -1,6 +1,6 @@
-import 'package:celebi_project/extensions/context_extension.dart';
 import 'package:flutter/material.dart';
 
+import '../../../extensions/context_extension.dart';
 import 'components/otp_form.dart';
 
 class OtpView extends StatelessWidget {

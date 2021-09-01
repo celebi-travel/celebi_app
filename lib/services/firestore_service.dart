@@ -1,12 +1,9 @@
 import 'dart:io';
-import 'package:celebi_project/models/hotel_model.dart';
-import 'package:celebi_project/models/restaurant_model.dart';
-<<<<<<< HEAD
-=======
+import '../models/hotel_model.dart';
+import '../models/restaurant_model.dart';
 import 'package:firebase_storage/firebase_storage.dart';
->>>>>>> 17ddb77df165497eee5b5ddb38be655cd17b28c7
 import 'package:path/path.dart';
-import 'package:celebi_project/services/auth_service.dart';
+import 'auth_service.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -26,7 +23,7 @@ class FirestoreService {
   Future<void> saveRestaurantData({required Restaurant restaurant}) async {
     await _firestore
         .collection('restaurants')
-        .doc(restaurant.name.replaceAll(RegExp(' '), '-'))
+        .doc(restaurant.restaurantName.replaceAll(RegExp(' '), '-'))
         .set(
           restaurant.toMap(),
         );

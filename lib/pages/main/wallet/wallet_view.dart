@@ -1,9 +1,10 @@
 import 'dart:convert';
 
-import 'package:celebi_project/extensions/context_extension.dart';
-import 'package:celebi_project/pages/login_screens/custom/custom_button.dart';
-import 'package:celebi_project/pages/main/wallet/credit_card_form.dart';
-import 'package:celebi_project/pages/main/wallet/credit_card_widget.dart';
+import 'package:celebi_project/pages/auth/custom/custom_button.dart';
+
+import '../../../extensions/context_extension.dart';
+import 'credit_card_form.dart';
+import 'credit_card_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_credit_card/credit_card_model.dart';
 import 'package:http/http.dart' as http;

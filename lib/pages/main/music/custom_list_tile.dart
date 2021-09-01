@@ -1,4 +1,4 @@
-import 'package:celebi_project/extensions/context_extension.dart';
+import '../../../extensions/context_extension.dart';
 import 'package:flutter/material.dart';
 
 import 'music_model.dart';

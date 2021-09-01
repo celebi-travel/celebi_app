@@ -1,7 +1,7 @@
 import 'package:audioplayers/audioplayers.dart';
-import 'package:celebi_project/extensions/context_extension.dart';
-import 'package:celebi_project/pages/main/music/custom_list_tile.dart';
-import 'package:celebi_project/pages/main/music/music_model.dart';
+import '../../../extensions/context_extension.dart';
+import 'custom_list_tile.dart';
+import 'music_model.dart';
 import 'package:flutter/material.dart';
 
 class MusicView extends StatefulWidget {

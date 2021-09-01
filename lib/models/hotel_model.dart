@@ -1,5 +1,6 @@
+import 'dart:convert';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class Hotel {
   late String hotelName;
@@ -29,4 +30,30 @@ class Hotel {
     description = json['description'];
     coordinate = json['coordinate'];
   }
+
+  Map<String, dynamic> toMap() {
+    return {
+      'hotelName': hotelName,
+      'images': images,
+      'rating': rating,
+      'place': place,
+      'description': description,
+      'price': price,
+      'coordinate': coordinate,
+    };
+  }
+
+  factory Hotel.fromMap(Map<String, dynamic> map) {
+    return Hotel(
+      hotelName: map['hotelName'],
+      images: map['images'],
+      rating: map['rating'],
+      place: map['place'],
+      description: map['description'],
+      price: map['price'],
+      coordinate: map['coordinate'],
+    );
+  }
+
+  String toJson() => json.encode(toMap());
 }

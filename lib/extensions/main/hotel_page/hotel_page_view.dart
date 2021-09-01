@@ -1,12 +1,7 @@
-<<<<<<< HEAD:lib/pages/main/hotel_page/hotel_page_view.dart
-import 'package:celebi_project/extensions/context_extension.dart';
-import 'package:celebi_project/models/hotel_reservation_model.dart';
-import 'package:celebi_project/pages/main/detail/components/image_slider.dart';
-import 'package:celebi_project/widgets/custom_alert_dialog.dart';
-=======
-import 'package:celebi_project/constants/image_slider.dart';
-import 'package:celebi_project/extensions/main/detail/source/slider_image_list.dart';
->>>>>>> 17ddb77df165497eee5b5ddb38be655cd17b28c7:lib/extensions/main/hotel_page/hotel_page_view.dart
+import '../../../constants/image_slider.dart';
+import '../../context_extension.dart';
+import '../../../models/hotel_reservation_model.dart';
+import '../../../widgets/custom_alert_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttericon/entypo_icons.dart';
 import 'package:syncfusion_flutter_datepicker/datepicker.dart';
@@ -58,12 +53,11 @@ class _HotelPageState extends State<HotelPage> {
           style: TextStyle(color: Colors.black),
         ),
       ),
-<<<<<<< HEAD:lib/pages/main/hotel_page/hotel_page_view.dart
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            ImageSlider(),
+            ImageSlider(imagesList: []),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -324,15 +318,6 @@ class _HotelPageState extends State<HotelPage> {
             ),
           ],
         ),
-=======
-      body: Column(
-        children: [
-          ImageSlider(
-            imagesList: detailimagesList,
-            //BURAYA HOTEL FOTOĞRAFLARININ LİSTESİ GELECEK
-          ),
-        ],
->>>>>>> 17ddb77df165497eee5b5ddb38be655cd17b28c7:lib/extensions/main/hotel_page/hotel_page_view.dart
       ),
     );
   }

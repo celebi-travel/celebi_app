@@ -1,4 +1,4 @@
-import 'package:celebi_project/pages/auth/onboard/componets/body.dart';
+import 'componets/body.dart';
 import 'package:flutter/material.dart';
 
 class OnboardView extends StatelessWidget {

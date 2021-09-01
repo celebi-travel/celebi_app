@@ -1,7 +1,7 @@
-import 'package:celebi_project/constants/image_slider.dart';
-import 'package:celebi_project/extensions/context_extension.dart';
-import 'package:celebi_project/models/hotel_reservation_model.dart';
-import 'package:celebi_project/widgets/custom_alert_dialog.dart';
+import '../../../constants/image_slider.dart';
+import '../../../extensions/context_extension.dart';
+import '../../../models/hotel_reservation_model.dart';
+import '../../../widgets/custom_alert_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttericon/entypo_icons.dart';
 import 'package:syncfusion_flutter_datepicker/datepicker.dart';
