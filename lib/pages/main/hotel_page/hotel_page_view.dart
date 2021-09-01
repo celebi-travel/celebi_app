@@ -1,3 +1,5 @@
+import 'package:celebi_project/models/hotel_model.dart';
+
 import '../../../constants/image_slider.dart';
 import '../../../extensions/context_extension.dart';
 import '../../../models/hotel_reservation_model.dart';
@@ -7,7 +9,8 @@ import 'package:fluttericon/entypo_icons.dart';
 import 'package:syncfusion_flutter_datepicker/datepicker.dart';
 
 class HotelPage extends StatefulWidget {
-  const HotelPage({Key? key}) : super(key: key);
+  const HotelPage({Key? key,required this.hotel}) : super(key: key);
+  final Hotel hotel;
   @override
   _HotelPageState createState() => _HotelPageState();
 }

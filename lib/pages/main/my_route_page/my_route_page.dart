@@ -1,5 +1,6 @@
 import 'dart:async';
-import '../../../extensions/main/hotel_page/hotel_page_view.dart';
+import 'package:celebi_project/pages/main/hotel_page/hotel_page_view.dart';
+
 import '../../../models/filter_category_model.dart';
 import '../../../models/hotel_model.dart';
 import '../../../models/restaurant_model.dart';
@@ -97,7 +98,9 @@ class _MyRoutePageState extends State<MyRoutePage> {
           icon: _markerHotelIcon,
           onTap: () {
             Navigator.push(
-                context, MaterialPageRoute(builder: (context) => HotelPage()));
+                context,
+                MaterialPageRoute(
+                    builder: (context) => HotelPage(hotel: element)));
           },
           position:
               LatLng(element.coordinate.latitude, element.coordinate.longitude),

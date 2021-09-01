@@ -28,7 +28,7 @@ class _RestaruantPageState extends State<RestaruantPage> {
           length: 2,
           child: Column(
             children: [
-              ImageSlider(imagesList: restaruantImagesList),
+              ImageSlider(imagesList: restaurant.images),
               buildCityNameAndStar(restaurant.place, restaurant.rating),
               tabBarHeader(),
               Expanded(

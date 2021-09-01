@@ -10,8 +10,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 class FirestoreService {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
-  Future<void> saveHotelData({required Hotel hotel}) async {
-    print(hotel.toMap());
+  /*Future<void> saveHotelData({required Hotel hotel}) async {
+   print(hotel.toMap());
     await _firestore
         .collection('hotels')
         .doc(hotel.hotelName.replaceAll(RegExp(' '), '-'))
@@ -28,7 +28,7 @@ class FirestoreService {
           restaurant.toMap(),
         );
   }
-
+*/
   Future<void> saveNewUserData(
       {required User user,
       required String username,

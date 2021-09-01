@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 class ImageSlider extends StatefulWidget {
   const ImageSlider({Key? key, required this.imagesList}) : super(key: key);
 
-  final List<String> imagesList;
+  final List<dynamic> imagesList;
 
   @override
   _ImageSliderState createState() => _ImageSliderState();
@@ -51,7 +51,7 @@ class _ImageSliderState extends State<ImageSlider> {
                     borderRadius: BorderRadius.all(
                       Radius.circular(20),
                     ),
-                    child: Image.asset(
+                    child: Image.network(
                       item,
                       fit: BoxFit.cover,
                     ),
