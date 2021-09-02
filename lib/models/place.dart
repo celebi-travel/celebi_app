@@ -17,7 +17,7 @@ List<PlaceModel> nearbyLocations = [
   PlaceModel('asset/images/nearby5.png', 'Saray', true, 'İstanbul', 2),
 ];
 
-List<PlaceModel> popularPlaces = [
+List<PlaceModel> places = [
   PlaceModel('asset/images/places.png', 'Topkapı', false, 'İstanbul', 2),
   PlaceModel('asset/images/place2.png', 'Peri Bacaları', true, 'Nevşehir', 3),
   PlaceModel('asset/images/place3.png', 'Delikli Taş', false, 'Erzincan', 2),

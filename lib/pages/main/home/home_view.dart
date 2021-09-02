@@ -1,6 +1,7 @@
-
+import 'package:celebi_project/constants/lang/locale_keys.g.dart';
 import 'package:celebi_project/pages/main/detail/detail_view.dart';
 import 'package:celebi_project/pages/main/route_filter_page/route_filter_page.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../extensions/context_extension.dart';
@@ -21,6 +22,7 @@ class _HomeViewState extends State<HomeView> {
   String sehir = 'İstanbul';
   @override
   Widget build(BuildContext context) {
+    
     return SafeArea(
       child: Scaffold(
         resizeToAvoidBottomInset: false,
@@ -44,10 +46,10 @@ class _HomeViewState extends State<HomeView> {
                     Align(
                       alignment: Alignment.centerLeft,
                       child: Text(
-                        'Popular Cities',
+                        LocaleKeys.home_popular_cities,
                         style: context.textTheme.headline6!.copyWith(
                             letterSpacing: 0.3, fontWeight: FontWeight.bold),
-                      ),
+                      ).tr(),
                     ),
                     Expanded(
                         flex: 3,

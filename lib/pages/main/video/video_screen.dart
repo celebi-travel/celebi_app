@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 
 class VideoScreen extends StatefulWidget {
-  const VideoScreen({Key? key}) : super(key: key);
-
+  const VideoScreen({Key? key, required this.videoUrl}) : super(key: key);
+  final String videoUrl;
   @override
   _VideoScreenState createState() => _VideoScreenState();
 }
@@ -18,7 +18,7 @@ class _VideoScreenState extends State<VideoScreen> {
           color: Colors.black,
           child: Center(
             child: VideoItems(
-                videoPlayerController: VideoPlayerController.asset(),
+                videoPlayerController: VideoPlayerController.asset(""),
                 looping: true,
                 autoplay: true),
           ),
