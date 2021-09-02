@@ -2,6 +2,7 @@ import 'package:celebi_project/pages/main/guide_pay/guide_pay_view.dart';
 import 'package:celebi_project/pages/main/home/home_view.dart';
 import 'package:celebi_project/pages/main/route_filter_page/components/rehber_view.dart';
 import 'package:celebi_project/pages/main/route_filter_page/route_filter_page.dart';
+import 'package:celebi_project/pages/main/video/video_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
@@ -41,7 +42,7 @@ class MyApp extends StatelessWidget {
         ),
         textTheme: TextTheme(button: TextStyle(fontSize: 20)),
       ),
-      home: HomeView(),
+      home:
     );
   }
 }
