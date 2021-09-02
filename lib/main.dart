@@ -1,16 +1,21 @@
-import 'package:celebi_project/pages/main/home/home_view.dart';
-import 'package:celebi_project/pages/main/route_filter_page/components/rehber_view.dart';
-import 'package:celebi_project/pages/main/route_filter_page/route_filter_page.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
+import 'constants/lang/language_manager.dart';
 import 'extensions/context_extension.dart';
-import 'pages/main/create_route/create_route.dart';
+import 'pages/main/home/home_view.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  runApp(MyApp());
+  await EasyLocalization.ensureInitialized();
+
+  runApp(EasyLocalization(
+      supportedLocales: LanguageManager.instance.supportedLocales,
+      path: 'asset/translations',
+      fallbackLocale: LanguageManager.instance.trLocale,
+      child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -40,7 +45,10 @@ class MyApp extends StatelessWidget {
         ),
         textTheme: TextTheme(button: TextStyle(fontSize: 20)),
       ),
-      home: RouteFilterPage(sehir: 'İstanbul'),
+      localizationsDelegates: context.localizationDelegates,
+      supportedLocales: context.supportedLocales,
+      locale: context.locale,
+      home: HomeView(),
     );
   }
 }

@@ -1,3 +1,5 @@
+import 'package:celebi_project/constants/lang/locale_keys.g.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../extensions/context_extension.dart';
@@ -17,14 +19,16 @@ class HeadTitle extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text('Hello Azad',
-                  style: context.textTheme.bodyText1!
-                      .copyWith(fontWeight: FontWeight.w400)),
               Text(
-                'Create Your Next\nRoute',
+                '${LocaleKeys.home_hello.tr()} Azad',
+                style: context.textTheme.bodyText1!
+                    .copyWith(fontWeight: FontWeight.w400),
+              ),
+              Text(
+                LocaleKeys.home_title,
                 style:
                     context.textTheme.headline5!.copyWith(color: Colors.blue),
-              ),
+              ).tr(),
             ],
           ),
         ),

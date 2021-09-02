@@ -46,7 +46,7 @@ dependencies:
   syncfusion_flutter_datepicker: ^19.2.59
   fluttericon: ^2.0.0
   video_player: ^2.1.14
-
+  easy_localization: ^3.0.0
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -64,7 +64,7 @@ flutter:
   assets:
     - asset/images/
     - asset/icons/
-    - asset/videos/
+    - asset/translations/
     - json/
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

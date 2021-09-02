@@ -2,10 +2,9 @@ import 'package:celebi_project/pages/main/video/source/video_items.dart';
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 
-
 class VideoScreen extends StatefulWidget {
-  const VideoScreen({Key? key}) : super(key: key);
-
+  const VideoScreen({Key? key, required this.videoUrl}) : super(key: key);
+  final String videoUrl;
   @override
   _VideoScreenState createState() => _VideoScreenState();
 }

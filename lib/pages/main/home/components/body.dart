@@ -1,3 +1,6 @@
+import 'package:celebi_project/models/popular_place_model.dart';
+import 'package:celebi_project/pages/main/video/video_screen.dart';
+
 import '../../../../models/place.dart';
 
 import 'package:flutter/material.dart';
@@ -127,9 +130,10 @@ class PopularPlaces extends StatelessWidget {
       mainAxisSpacing: 8,
       crossAxisSpacing: 8,
       column: 2,
-      children: List.generate(
-        6,
-        (index) => InkWell(
+      children: List.generate(6, (index) {
+        PopularPlaceModel popularPlaceModel = popularPlaces[index];
+
+        return InkWell(
           splashColor: Colors.transparent,
           highlightColor: Colors.transparent,
           child: ClipRRect(
@@ -139,7 +143,7 @@ class PopularPlaces extends StatelessWidget {
                   Container(
                     width: double.infinity,
                     child: Image.asset(
-                      popularPlaces[index].imageUrl!,
+                      popularPlaceModel.imageUrl!,
                       fit: BoxFit.fill,
                     ),
                   ),
@@ -169,8 +173,10 @@ class PopularPlaces extends StatelessWidget {
                           children: [
                             RichText(
                               text: TextSpan(
-                                text: 'Peri Bacaları,\n',
-                                children: [TextSpan(text: 'Nevşehir')],
+                                text: '${popularPlaceModel.placeName},\n',
+                                children: [
+                                  TextSpan(text: popularPlaceModel.city)
+                                ],
                               ),
                             ),
                             CircleAvatar(
@@ -190,15 +196,18 @@ class PopularPlaces extends StatelessWidget {
                 ],
               )),
           onTap: () {
-            /*Navigator.push(
+            print(popularPlaces[index].city);
+            Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => DetailPage(),
+                builder: (context) => VideoScreen(
+                  videoUrl: popularPlaceModel.videoUrl,
+                ),
               ),
-            );*/
+            );
           },
-        ),
-      ),
+        );
+      }),
     );
   }
 }
