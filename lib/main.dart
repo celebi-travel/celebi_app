@@ -1,3 +1,4 @@
+import 'package:celebi_project/pages/main/guide_pay/guide_pay_view.dart';
 import 'package:celebi_project/pages/main/home/home_view.dart';
 import 'package:celebi_project/pages/main/route_filter_page/components/rehber_view.dart';
 import 'package:celebi_project/pages/main/route_filter_page/route_filter_page.dart';
@@ -40,7 +41,7 @@ class MyApp extends StatelessWidget {
         ),
         textTheme: TextTheme(button: TextStyle(fontSize: 20)),
       ),
-      home: RouteFilterPage(sehir: 'İstanbul'),
+      home: HomeView(),
     );
   }
 }
