@@ -95,10 +95,6 @@ class _MusicViewState extends State<MusicView> {
                   min: 0,
                   max: duration.inSeconds.toDouble(),
                   onChanged: (value) {
-                    print(position.inSeconds.toDouble());
-                    print(value);
-                    print(duration.inSeconds.toDouble());
-
                     setState(() async {
                       await audioPlayer.seek(Duration(seconds: value.toInt()));
                       position = Duration(milliseconds: value.toInt());

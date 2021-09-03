@@ -1,7 +1,14 @@
+import 'package:celebi_project/pages/auth/login_main_page/login_main_page.dart';
+import 'package:celebi_project/pages/auth/onboard/onboard_model.dart';
+import 'package:celebi_project/pages/auth/onboard/onboard_view.dart';
+import 'package:celebi_project/pages/auth/splash/splash.dart';
+import 'package:celebi_project/pages/main/detail/detail_view.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
+import 'cache/locale_manager.dart';
 import 'constants/lang/language_manager.dart';
 import 'extensions/context_extension.dart';
 import 'pages/main/home/home_view.dart';
@@ -10,7 +17,9 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   await EasyLocalization.ensureInitialized();
-
+  await Hive.initFlutter();
+  await LocaleManager.preferencesInit();
+  await Hive.openBox('settings');
   runApp(EasyLocalization(
       supportedLocales: LanguageManager.instance.supportedLocales,
       path: 'asset/translations',
@@ -23,32 +32,51 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        colorScheme:
-            context.theme.colorScheme.copyWith(background: Color(0xFFE5E5E5)),
-        inputDecorationTheme: InputDecorationTheme(
-          fillColor: Color(0xFF743F3F).withOpacity(0.2),
-          filled: true,
-          contentPadding: EdgeInsets.symmetric(horizontal: 10),
-          enabledBorder: OutlineInputBorder(
-              borderSide: BorderSide(
-                width: 2,
-              ),
-              borderRadius: BorderRadius.circular(10)),
-          border: OutlineInputBorder(
-              borderSide: BorderSide(),
-              borderRadius: BorderRadius.circular(20)),
-          focusedBorder: OutlineInputBorder(
-              borderSide: BorderSide(),
-              borderRadius: BorderRadius.circular(20)),
-        ),
-        textTheme: TextTheme(button: TextStyle(fontSize: 20)),
-      ),
+      theme: buildThemeData(context),
       localizationsDelegates: context.localizationDelegates,
       supportedLocales: context.supportedLocales,
       locale: context.locale,
-      home: HomeView(),
+      home: OnboardView(),
     );
   }
+
+  ThemeData buildThemeData(BuildContext context) {
+    return ThemeData(
+      primarySwatch: Colors.blue,
+      colorScheme: _appColorScheme,
+      scaffoldBackgroundColor: Colors.white,
+      inputDecorationTheme: InputDecorationTheme(
+        fillColor: Color(0xFF743F3F).withOpacity(0.2),
+        filled: true,
+        contentPadding: EdgeInsets.symmetric(horizontal: 10),
+        enabledBorder: OutlineInputBorder(
+            borderSide: BorderSide(
+              width: 2,
+            ),
+            borderRadius: BorderRadius.circular(10)),
+        border: OutlineInputBorder(
+            borderSide: BorderSide(), borderRadius: BorderRadius.circular(20)),
+        focusedBorder: OutlineInputBorder(
+            borderSide: BorderSide(), borderRadius: BorderRadius.circular(20)),
+      ),
+      textTheme: TextTheme(button: TextStyle(fontSize: 20)),
+    );
+  }
+}
+
+ColorScheme get _appColorScheme {
+  return ColorScheme(
+      primary: Color(0xFF7BC4B2),
+      primaryVariant: Color(0xffB6E7DA), //xx
+      secondary: Color(0xff1A81F3),
+      secondaryVariant: Color(0xffE28989),
+      surface: Color(0xff455A64), //xx
+      background: Color(0xffE5E5E5), //xx
+      error: Color(0xffEB5757),
+      onPrimary: Colors.greenAccent,
+      onSecondary: Colors.black, //x
+      onSurface: Color(0xffB1B1B1),
+      onBackground: Color(0xff311b92),
+      onError: Color(0xffFF9555), //xx
+      brightness: Brightness.light);
 }

@@ -1,0 +1,149 @@
+{
+  "home": {
+    "title": "Erstellen Sie Ihre nächste Route",
+    "hello": "Hallo",
+    "popular_cities": "Beliebte Städte",
+    "search": "Suche nach Ort, Hotel, Essen, Flug ...",
+    "nearby_locations": "Orte in der Nähe",
+    "like_these": "Diese könnten dir gefallen"
+  },
+  "onboard": {
+    "page1": {
+      "title": "Planen Sie Ihre Reise",
+      "content": "Lassen Sie sich von uns das für Ihren Reiseplan erforderliche Budget berechnen."
+    },
+    "page2": {
+      "title": "Planen Sie Ihre Reise",
+      "content": "Hier finden Sie alles, was Sie für einen sicheren, ruhigen und komfortablen Urlaub brauchen!"
+    },
+    "page3": {
+      "title": "Entdecken Sie die Türkei mit uns",
+      "content": "Buchen Sie ganz einfach Restaurants und Hotels und entdecken Sie die Naturgeschichte und die kulturellen Schönheiten der Türkei. Sammeln Sie unvergessliche Erinnerungen, indem Sie von den Erfahrungen von Millionen von Menschen profitieren"
+    }
+  },
+  "detail_page": {
+    "create_route": "Erstellen Sie Ihre Route",
+    "products": "Produkte",
+    "post": "Beiträge",
+    "alert": {
+      "title": "Erzähl uns etwas über deine Fotos",
+      "content": "Teilen Sie hier einige Details zu Ihren Fotos mit.",
+      "locaitiontext": "Füge einen Ort hinzu",
+      "btn": "Hochladen"
+    },
+    "btn_upload": "Lade ein Foto hoch"
+  },
+  "login1": {
+    "title": "Verbinde dich mit den besten Mentoren",
+    "subtitle": "Einfache Möglichkeit, sich mit dem Mentor zu verbinden und eine Designlösung zu erhalten.",
+    "googlebtn": "Mit Google anmelden",
+    "mailbtn": "Mit E-Mail anmelden"
+  },
+  "login": {
+    "title": "Willkommen zurück",
+    "email_field": "E-Mail Adresse oder Benutzername",
+    "password_field": "Passwort",
+    "forget_password": "Passwort vergessen",
+    "login": "Anmeldung",
+    "not_account": "Sie haben kein Konto? Anmelden"
+  },
+  "register": {
+    "title": "Registrieren Sie sich, um fortzufahren",
+    "name": "Name",
+    "email_username": "E-Mail Adresse oder Benutzername",
+    "date": "Geburtsdatum",
+    "password": "Passwort",
+    "agree": "Ich stimme den Nutzungsbedingungen & Datenschutzbestimmungen zu",
+    "register": "Registrieren"
+  },
+  "forget_password": {
+    "title": "Passwort vergessen",
+    "subtitle": "Geben Sie unten Ihre registrierte E-Mail-Adresse ein, um die Anweisungen zum Zurücksetzen des Passworts zu erhalten",
+    "email": "Email",
+    "send": "Senden",
+    "back_to_login": "Zurück zur Anmeldung"
+  },
+  "check_email": {
+    "title": "Überprüfen Sie Ihren Posteingang",
+    "content": "Wir haben eine Anleitung zur Passwortwiederherstellung an Ihre E-Mail gesendet",
+    "btn": "Okay"
+  },
+  "create_password": {
+    "title": "Neues Passwort erstellen",
+    "content": "Ihr neues Passwort muss sich von zuvor verwendeten Passwörtern unterscheiden.",
+    "pass1": "Passwort",
+    "pass2": "Passwort wiederholen",
+    "btn": "Schaffen"
+  },
+  "profile": {
+    "edit_profile": "Profil bearbeiten",
+    "settings": "Einstellungen",
+    "invite": "Lade deine Freunde ein",
+    "help": "Hilfe",
+    "logout": "Ausloggen",
+    "alert": {
+      "title": "Ausloggen?",
+      "content": "Möchten Sie sich wirklich abmelden?",
+      "yes": "Jawohl",
+      "No": "Nein"
+    }
+  },
+  "bottombar": {
+    "home": "Heim",
+    "Wallets": "Geldbörsen",
+    "routes": "Routen",
+    "qr": "QR",
+    "account": "Konto"
+  },
+  "route_filter": {
+    "guider": "Führer",
+    "history": "Geschichte",
+    "outdoors": "Draußen",
+    "entertainment": "Entertainment",
+    "search": "Suche",
+    "subtitle": "Touristenführer",
+    "filter_subtitle": " Orte sortiert nach Reisefavoriten",
+    "btn": "Meine Route anzeigen"
+  },
+  "map": {
+    "title": "Meine Route",
+    "filter": "Filter",
+    "hotels": "Hotels",
+    "caferestaurant": "Café & Restaurant",
+    "beaches": "Strände",
+    "btn": "Gehe zu Route"
+  },
+  "hotel": {
+    "reservation": "Reservierung",
+    "date": "Datum auswählen",
+    "adults": "Erwachsene",
+    "children": "Kinder",
+    "nochild": "Keine Kinder",
+    "room": "Zimmer",
+    "room_options": "Zimmeroptionen",
+    "btn_make": "Eine Reservierung machen",
+    "desc": "  für 0 Zimmer inklusive Steuern und Gebühren"
+  },
+  "restaurant": {
+    "people": "0 Personen",
+    "menu": "Speisekarte",
+    "reservation": "Reservieren Sie einen Tisch für 00:00",
+    "day": "Heute ist DY"
+  },
+  "payment": {
+    "btn": "Bestätige Zahlung",
+    "card_no": "Karten-Nr",
+    "validity": "Gültigkeit",
+    "holder_name": "Name des Karteninhabers",
+    "checkout": "Auschecken"
+  },
+  "travels": {
+    "trips": "Reisen",
+    "bookings": "Buchungen",
+    "my_saves": "Meine Speicherstände",
+    "recently": "zuletzt angesehen"
+  },
+  "music": {
+    "desc": "Volkslieder spezifisch für die Region Südostanatolien"
+  }
+}

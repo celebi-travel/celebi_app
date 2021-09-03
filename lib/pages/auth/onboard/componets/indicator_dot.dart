@@ -10,10 +10,12 @@ class IndicatorDot extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CircleAvatar(
-      radius: isSelected ? 8 : 5,
-      backgroundColor:
-          isSelected ? Colors.orange : Colors.orange.withOpacity(0.3),
+    return Container(
+      height: 30,
+      width: 20,
+      decoration: BoxDecoration(
+          color: isSelected ? Colors.orange : Colors.orange.withOpacity(0.3),
+          borderRadius: BorderRadius.circular(20)),
     );
   }
 }

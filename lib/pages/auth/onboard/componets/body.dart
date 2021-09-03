@@ -1,4 +1,10 @@
+import 'dart:ui';
+
+import 'package:celebi_project/cache/locale_manager.dart';
+import 'package:celebi_project/constants/preferences_keys.dart';
 import 'package:celebi_project/pages/auth/custom/custom_button.dart';
+import 'package:celebi_project/pages/main/bottom_nav_bar/bottom_nav_bar.dart';
+import 'package:celebi_project/pages/main/home/home_view.dart';
 
 import '../../../../extensions/context_extension.dart';
 import '../onboard_model.dart';
@@ -26,32 +32,52 @@ class _BodyState extends State<Body> {
     });
   }
 
-  Future<void> completeOnBoard() async {}
+  LocaleManager localeManager = LocaleManager.instance;
 
+  Future<void> completeOnBoard() async {
+    if (currentPageIndex == (onBoardItems.length - 1)) {
+      await localeManager.setBoolValue(PreferencesKeys.IS_FIRST_APP, true);
+      Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => BottomNavBar(),
+          ));
+    } else {
+      controller.nextPage(
+          duration: Duration(milliseconds: 200), curve: Curves.easeIn);
+    }
+  }
+
+  final PageController controller =
+      PageController(initialPage: 0, keepPage: false);
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          // Sayfanın yukarısında farklı ekranlara uyumlu bir boşluk
-          Expanded(flex: 2, child: Container()),
           // Gerkli resimlerin ve resim altı yazının bulunduğu bölüm
           Expanded(
               flex: 8,
               child: PageView.builder(
+                controller: controller,
                 itemCount: onBoardItems.length,
                 onPageChanged: (value) => onPageChanged(value),
                 itemBuilder: (context, index) => Container(
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       //Resim
                       Expanded(
                           flex: 4,
-                          child:
-                              SvgPicture.asset(onBoardItems[index].imageUrl!)),
+                          child: Container(
+                              width: double.infinity,
+                              child: Image.asset(onBoardItems[index].imageUrl!,
+                                  fit: BoxFit.cover))),
                       // Boşluk
-                      SizedBox(height: context.height * 0.03),
+                      SizedBox(
+                        height: context.normalValue * 1.5,
+                      ),
                       // Yazı
                       Expanded(
                         flex: 2,
@@ -60,17 +86,23 @@ class _BodyState extends State<Body> {
                           children: [
                             Text(
                               onBoardItems[index].title ?? "",
-                              style: context.textTheme.headline5!
-                                  .copyWith(color: Colors.black),
+                              style: context.textTheme.headline4!.copyWith(
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.w500),
+                            ),
+                            SizedBox(
+                              height: context.normalValue,
                             ),
                             Align(
                               alignment: Alignment.center,
                               child: Padding(
-                                padding:
-                                    const EdgeInsets.only(left: 8, right: 8),
+                                padding: EdgeInsets.symmetric(
+                                    horizontal: context.normalValue),
                                 child: Text(
                                   onBoardItems[index].content ?? "",
-                                  style: TextStyle(),
+                                  textAlign: TextAlign.center,
+                                  style: context.textTheme.headline5!
+                                      .copyWith(color: context.colors.surface),
                                 ),
                               ),
                             )
@@ -85,27 +117,40 @@ class _BodyState extends State<Body> {
           // test yorum satırı
           Expanded(
             flex: 1,
-            child: Center(
-                child: ListView.builder(
-              shrinkWrap: true,
-              itemCount: onBoardItems.length,
-              scrollDirection: Axis.horizontal,
-              itemBuilder: (context, index) => Padding(
-                  padding: EdgeInsets.all(10),
-                  child: IndicatorDot(
-                    isSelected: currentPageIndex == index,
-                  )),
-            )),
+            child: Column(
+              children: [
+                Expanded(
+                  child: ListView.builder(
+                    shrinkWrap: true,
+                    itemCount: onBoardItems.length,
+                    scrollDirection: Axis.horizontal,
+                    itemBuilder: (context, index) => Padding(
+                        padding: EdgeInsets.all(10),
+                        child: IndicatorDot(
+                          isSelected: currentPageIndex == index,
+                        )),
+                  ),
+                ), // Next Butonu
+                Expanded(
+                  flex: 3,
+                  child: Padding(
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+                    child: CustomButton(
+                      text: currentPageIndex != (onBoardItems.length - 1)
+                          ? 'Next'
+                          : 'Get Started',
+                      /*  color: currentPageIndex == (onBoardItems.length - 1)
+                      ? Color(0xFFF08A5D)
+                      : Color(0xFF7BC4B2), */
+                      onPressed: () => completeOnBoard(),
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
-
-          // Next Butonu
-          CustomButton(
-            text: 'Get Started',
-            /*  color: currentPageIndex == (onBoardItems.length - 1)
-                ? Color(0xFFF08A5D)
-                : Color(0xFF7BC4B2), */
-            onPressed: () => completeOnBoard(),
-          ),
+          TextButton(onPressed: () {}, child: Text('Skip for now')),
           // Sayfanın aşağısında farklı ekranlara uyumlu bir boşluk
           Expanded(flex: 1, child: Container()),
         ],

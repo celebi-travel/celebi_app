@@ -4,11 +4,11 @@ import '../../../../extensions/context_extension.dart';
 import 'package:flutter/material.dart';
 
 class NearbyLocations extends StatelessWidget {
-  const NearbyLocations({
+   NearbyLocations({
     Key? key,
     required this.onTap,
   }) : super(key: key);
-
+  
   final VoidCallback onTap;
 
   @override
@@ -89,7 +89,8 @@ class HeadText extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       text,
-      style: context.textTheme.bodyText2!.copyWith(color: Colors.white, fontSize: 10),
+      style: context.textTheme.bodyText2!
+          .copyWith(color: Colors.white, fontSize: 10),
     );
   }
 }

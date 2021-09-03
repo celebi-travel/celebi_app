@@ -2,7 +2,148 @@
   "home": {
     "popular_cities": "Popular Cities",
     "title": "Create Your Next Route",
-    "subtitle": "Search",
-    "hello": "Hello"
+    "hello": "Hello",
+    "search": "Search for Place, Hotel, Food, Flight ...",
+    "nearby_locations": "Nearby Locations",
+    "like_these": "You might like these"
+  },
+  "detail_page": {
+    "create_route": "Create Your Route",
+    "products": "Products",
+    "post": "Posts",
+    "alert": {
+      "title": "Tell us a bit about your photos",
+      "content": "Share some details about your photos here.",
+      "locaitiontext": "Add a location",
+      "btn": "Upload"
+    },
+    "btn_upload": "Upload a photo"
+  },
+  "onboard": {
+    "page1": {
+      "title": "Plan Your Travel",
+      "content": "Let us calculate the budget required for your travel plan for you."
+    },
+    "page2": {
+      "title": "Plan Your Travel",
+      "content": "Everything you need to have a safe, peaceful and comfortable holiday is here!"
+    },
+    "page3": {
+      "title": "Explore Turkey with us",
+      "content": "Book restaurants and hotels easily while discovering the natural history and cultural beauties of Turkey. Collect unforgettable memories by benefiting from the experiences of millions of people"
+    }
+  },
+  "login1": {
+    "title": "Get Connect to the best Mentors",
+    "subtitle": "Easy way to connect to mentor and get advise solution of design.",
+    "googlebtn": "Login with Google",
+    "mailbtn": "Login with Email"
+  },
+  "login": {
+    "title": "Welcome back",
+    "email_field": "Email or username",
+    "password_field": "Password",
+    "forget_password": "Forget password",
+    "login": "Login",
+    "not_account": "Don't have an account? Sing up"
+  },
+  "register": {
+    "title": "Register to Continue",
+    "name": "Name",
+    "email_username": "Email or username",
+    "date": "Date of birth",
+    "password": "Password",
+    "agree": "I agree with the Terms of service & privacy policy",
+    "register": "Register"
+  },
+  "forget_password": {
+    "title": "Forget password",
+    "subtitle": "Enter your registered email below to recieve password reset instruction",
+    "email": "Email",
+    "send": "Send",
+    "back_to_login": "Back to login"
+  },
+  "check_email": {
+    "title": "Check your email",
+    "content": "We have sent a password recovery instruction to your email",
+    "btn": "Ok"
+  },
+  "create_password": {
+    "title": "Create new password",
+    "content": "Your new pasword must be different from previously used passwords.",
+    "pass1": "Password",
+    "pass2": "Repeat password",
+    "btn": "Create"
+  },
+  "profile": {
+    "edit_profile": "Edit Profile",
+    "settings": "Settings",
+    "invite": "İnvite your friends",
+    "help": "Help",
+    "logout": "Logout",
+    "alert": {
+      "title": "Logout?",
+      "content": "Are you sure to logout?",
+      "yes": "Yes",
+      "No": "No"
+    }
+  },
+  "bottombar": {
+    "home": "Home",
+    "Wallets": "Wallets",
+    "routes": "Routes",
+    "qr": "QR",
+    "account": "Account"
+  },
+  "route_filter": {
+    "guider": "Guider",
+    "history": "History",
+    "outdoors": "Outdoors",
+    "entertainment": "Entertainment",
+    "search": "Search",
+    "subtitle": "Tourist Guides",
+    "filter_subtitle": " places sorted by travel favorites",
+    "btn": "Show my route"
+  },
+  "map": {
+    "title": "My Route",
+    "filter": "Filters",
+    "hotels": "Hotels",
+    "caferestaurant": "Cafe & Restaurant",
+    "beaches": "Beaches",
+    "btn": "Go To Route"
+  },
+  "hotel": {
+    "reservation": "Reservation",
+    "date": "Select Date",
+    "adults": "Adults",
+    "children": "Children",
+    "nochild": "No Children",
+    "room": "Room",
+    "room_options": "Room Options",
+    "btn_make": "Make a reservation",
+    "desc": "  for 0 rooms including taxes and fees"
+  },
+  "restaurant": {
+    "people": "0 People",
+    "menu": "Menu",
+    "reservation": "Book a table for 00:00",
+    "day": "Today is DY"
+  },
+  "payment": {
+    "btn": "Confirm Payment",
+    "card_no": "Card No",
+    "validity": "Validity",
+    "holder_name": "Card Holder Name",
+    "checkout": "Checkout"
+  },
+  "travels": {
+    "trips": "Trips",
+    "bookings": "Bookings",
+    "my_saves": "My Saves",
+    "recently": "Recently Viewed"
+  },
+  "music": {
+    "desc": "Folk songs specific to the Southeastern Anatolia Region"
   }
 }

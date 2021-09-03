@@ -1,8 +1,149 @@
 {
   "home": {
     "popular_cities": "Popüler Şehirler",
-    "title": "Sonraki Rotanı Oluştur",
-    "subtitle": "Arama",
-    "hello": "Merhaba"
+    "title": "Sonraki Rotanızı Oluşturun",
+    "hello": "Merhaba",
+    "search": "Yer, Otel, Yemek, Uçuş Arayın...",
+    "nearby_locations": "Yakın Konumlar",
+    "like_these": "Bunları beğenebilirsin"
+  },
+  "detail_page": {
+    "create_route": "Rotanızı Oluşturun",
+    "products": "Ürün:% s",
+    "post": "Gönderiler",
+    "alert": {
+      "title": "Bize biraz fotoğraflarınız hakkında bilgi verin",
+      "content": "Fotoğraflarınızla ilgili bazı ayrıntıları burada paylaşın.",
+      "locaitiontext": "Bir yer ekleyin",
+      "btn": "Yüklemek"
+    },
+    "btn_upload": "Bir fotoğraf yükle"
+  },
+  "onboard": {
+    "page1": {
+      "title": "Seyahatinizi Planlayın",
+      "content": "Seyahat planınız için gereken bütçeyi sizin için hesaplayalım."
+    },
+    "page2": {
+      "title": "Seyahatinizi Planlayın",
+      "content": "Güvenli, huzurlu ve konforlu bir tatil geçirmeniz için ihtiyacınız olan her şey burada!"
+    },
+    "page3": {
+      "title": "Türkiye'yi bizimle keşfedin",
+      "content": "Türkiye'nin doğal tarihini ve kültürel güzelliklerini keşfederken kolayca restoran ve otel rezervasyonu yapın. Milyonlarca kişinin deneyimlerinden yararlanarak unutulmaz anılar biriktirin"
+    }
+  },
+  "login1": {
+    "title": "En İyi Mentorlara Bağlanın",
+    "subtitle": "Mentora bağlanmanın ve tasarım çözümü için tavsiye almanın kolay yolu.",
+    "googlebtn": "Google ile giriş yapın",
+    "mailbtn": "E-posta ile giriş yapın"
+  },
+  "login": {
+    "title": "Tekrar hoşgeldiniz",
+    "email_field": "E-posta ya da kullanıcı adı",
+    "password_field": "Parola",
+    "forget_password": "Şifreyi unut",
+    "login": "Giriş",
+    "not_account": "Hesabınız yok mu? Üye Ol"
+  },
+  "register": {
+    "title": "Devam etmek için kaydolun",
+    "name": "İsim",
+    "email_username": "E-posta ya da kullanıcı adı",
+    "date": "Doğum tarihi",
+    "password": "Parola",
+    "agree": "Hizmet Şartları ve gizlilik politikasını kabul ediyorum",
+    "register": "Kayıt olmak"
+  },
+  "forget_password": {
+    "title": "Şifreyi unut",
+    "subtitle": "Parola sıfırlama talimatını almak için kayıtlı e-postanızı aşağıya girin",
+    "email": "E-posta",
+    "send": "Göndermek",
+    "back_to_login": "Girişe geri dön"
+  },
+  "check_email": {
+    "title": "E-postanı kontrol et",
+    "content": "E-postanıza bir şifre kurtarma talimatı gönderdik",
+    "btn": "Tamam"
+  },
+  "create_password": {
+    "title": "Yeni şifre oluştur",
+    "content": "Yeni şifreniz daha önce kullandığınız şifrelerden farklı olmalıdır.",
+    "pass1": "Parola",
+    "pass2": "Şifreyi tekrar girin",
+    "btn": "Oluşturmak"
+  },
+  "profile": {
+    "edit_profile": "Profili Düzenle",
+    "settings": "Ayarlar",
+    "invite": "Arkadaşlarını davet et",
+    "help": "Yardım",
+    "logout": "Çıkış Yap",
+    "alert": {
+      "title": "Çıkış Yap?",
+      "content": "Oturumu kapattığınızdan emin misiniz?",
+      "yes": "Evet",
+      "No": "Numara"
+    }
+  },
+  "bottombar": {
+    "home": "Ev",
+    "Wallets": "Cüzdanlar",
+    "routes": "Rotalar",
+    "qr": "QR",
+    "account": "Hesap"
+  },
+  "route_filter": {
+    "guider": "rehber",
+    "history": "Tarih",
+    "outdoors": "Açık havada",
+    "entertainment": "Eğlence",
+    "search": "Arama",
+    "subtitle": "Turist rehberi",
+    "filter_subtitle": " seyahat favorilerine göre sıralanmış yerler",
+    "btn": "Rotamı göster"
+  },
+  "map": {
+    "title": "Rotam",
+    "filter": "Filtreler",
+    "hotels": "Oteller",
+    "caferestaurant": "Kafe & Restoran",
+    "beaches": "Sahiller",
+    "btn": "Rotaya Git"
+  },
+  "hotel": {
+    "reservation": "Rezervasyon",
+    "date": "Tarih seç",
+    "adults": "yetişkinler",
+    "children": "Çocuklar",
+    "nochild": "Evlat yok",
+    "room": "Oda",
+    "room_options": "Oda Seçenekleri",
+    "btn_make": "Rezervasyon yaptırmak",
+    "desc": "  0 oda için vergiler ve ücretler dahil"
+  },
+  "restaurant": {
+    "people": "0 Kişi",
+    "menu": "Menü",
+    "reservation": "00:00 için bir masa ayırtın",
+    "day": "Bugün DY"
+  },
+  "payment": {
+    "btn": "Ödemeyi Onaylayın",
+    "card_no": "Kart No",
+    "validity": "Geçerlilik",
+    "holder_name": "Kart Sahibinin Adı",
+    "checkout": "Ödeme"
+  },
+  "travels": {
+    "trips": "Geziler",
+    "bookings": "Rezervasyonlar",
+    "my_saves": "Kaydettiklerim",
+    "recently": "Son Görüntülenen"
+  },
+  "music": {
+    "desc": "Güneydoğu Anadolu Bölgesine özgü türküler"
   }
 }
