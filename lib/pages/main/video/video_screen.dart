@@ -18,9 +18,8 @@ class _VideoScreenState extends State<VideoScreen> {
           color: Colors.black,
           child: Center(
             child: VideoItems(
-                videoPlayerController: VideoPlayerController.asset(
-                  "asset/videos/nevsehir.mp4",
-                ),
+                videoPlayerController:
+                    VideoPlayerController.network(widget.videoUrl),
                 looping: true,
                 autoplay: true),
           ),

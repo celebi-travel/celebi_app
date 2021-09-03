@@ -1,16 +1,20 @@
 import '../../../../models/place.dart';
-
 import '../../../../extensions/context_extension.dart';
 import 'package:flutter/material.dart';
 
-class NearbyLocations extends StatelessWidget {
-   NearbyLocations({
+class NearbyLocations extends StatefulWidget {
+  NearbyLocations({
     Key? key,
     required this.onTap,
   }) : super(key: key);
   
   final VoidCallback onTap;
 
+  @override
+  _NearbyLocationsState createState() => _NearbyLocationsState();
+}
+
+class _NearbyLocationsState extends State<NearbyLocations> {
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -24,7 +28,7 @@ class NearbyLocations extends StatelessWidget {
             physics: BouncingScrollPhysics(),
             itemBuilder: (context, index) => Stack(children: <Widget>[
               GestureDetector(
-                onTap: onTap,
+                onTap: widget.onTap,
                 child: Container(
                   alignment: Alignment.bottomLeft,
                   width: context.height * 0.08,
@@ -42,7 +46,7 @@ class NearbyLocations extends StatelessWidget {
                 ),
               ),
               GestureDetector(
-                onTap: onTap,
+                onTap: widget.onTap,
                 child: Container(
                   alignment: Alignment.bottomLeft,
                   width: context.height * 0.08,
@@ -66,7 +70,7 @@ class NearbyLocations extends StatelessWidget {
                     ),
                   ),
                   child: HeadText(
-                    text: nearbyLocations[index].placeName!,
+                    text: nearbyLocations[index].city!,
                   ),
                 ),
               )

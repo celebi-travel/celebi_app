@@ -15,10 +15,14 @@ import 'components/appbar.dart';
 import 'components/icon_buttons.dart';
 import '../../../constants/image_slider.dart';
 
+// ignore: must_be_immutable
 class DetailPage extends StatefulWidget {
   final VoidCallback changePageFunc;
 
-  const DetailPage({Key? key, required this.changePageFunc}) : super(key: key);
+  const DetailPage({
+    Key? key,
+    required this.changePageFunc,
+  }) : super(key: key);
   @override
   _DetailPageState createState() => _DetailPageState(changePageFunc);
 }
