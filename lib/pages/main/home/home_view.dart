@@ -1,11 +1,13 @@
 import 'package:celebi_project/constants/lang/locale_keys.g.dart';
+import 'package:celebi_project/models/place.dart';
 import 'package:celebi_project/pages/main/detail/detail_view.dart';
+import 'package:celebi_project/pages/main/home/components/pop_near_text.dart';
 import 'package:celebi_project/pages/main/route_filter_page/route_filter_page.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../extensions/context_extension.dart';
-import 'components/body.dart';
+import 'components/popular_places.dart';
 import 'components/head_title.dart';
 import 'components/nearby_locations.dart';
 
@@ -22,7 +24,6 @@ class _HomeViewState extends State<HomeView> {
   String sehir = 'İstanbul';
   @override
   Widget build(BuildContext context) {
-    
     return SafeArea(
       child: Scaffold(
         resizeToAvoidBottomInset: false,
@@ -38,6 +39,8 @@ class _HomeViewState extends State<HomeView> {
                     Expanded(
                         flex: 3,
                         child: NearbyLocations(onTap: () {
+                          //NEARBY
+
                           _pageIndex = 1;
                           print('_pageIndex = $_pageIndex');
                           setState(() {});
@@ -54,6 +57,7 @@ class _HomeViewState extends State<HomeView> {
                     Expanded(
                         flex: 3,
                         child: NearbyLocations(onTap: () {
+                          //POPULAR
                           _pageIndex = 1;
                           print('_pageIndex = $_pageIndex');
                           setState(() {});
@@ -75,31 +79,6 @@ class _HomeViewState extends State<HomeView> {
                     setState(() {});
                   })
                 : RouteFilterPage(sehir: sehir),
-      ),
-    );
-  }
-
-  Row buildPopularPlaceText(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Text(
-          'Popular Places',
-          style: context.textTheme.headline6!
-              .copyWith(letterSpacing: 0.3, fontWeight: FontWeight.bold),
-        ),
-        TextButton(onPressed: () {}, child: Text('See All')),
-      ],
-    );
-  }
-
-  Align buildNearbyLocationsText(BuildContext context) {
-    return Align(
-      alignment: Alignment.centerLeft,
-      child: Text(
-        'Nearby Locations',
-        style: context.textTheme.headline6!
-            .copyWith(letterSpacing: 0.3, fontWeight: FontWeight.bold),
       ),
     );
   }

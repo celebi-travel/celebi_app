@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../home/components/body.dart';
+import '../home/components/popular_places.dart';
 
 class PopularPlacesView extends StatelessWidget {
   const PopularPlacesView({Key? key}) : super(key: key);

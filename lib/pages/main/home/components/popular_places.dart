@@ -1,8 +1,5 @@
 import 'package:celebi_project/models/popular_place_model.dart';
 import 'package:celebi_project/pages/main/video/video_screen.dart';
-
-import '../../../../models/place.dart';
-
 import 'package:flutter/material.dart';
 import 'package:masonry_grid/masonry_grid.dart';
 
@@ -142,7 +139,7 @@ class PopularPlaces extends StatelessWidget {
                 children: [
                   Container(
                     width: double.infinity,
-                    child: Image.asset(
+                    child: Image.network(
                       popularPlaceModel.imageUrl!,
                       fit: BoxFit.fill,
                     ),
@@ -197,11 +194,12 @@ class PopularPlaces extends StatelessWidget {
               )),
           onTap: () {
             print(popularPlaces[index].city);
+            print(popularPlaces[index].videoUrl);
             Navigator.push(
               context,
               MaterialPageRoute(
                 builder: (context) => VideoScreen(
-                  videoUrl: popularPlaceModel.videoUrl,
+                  videoUrl: popularPlaces[index].videoUrl,
                 ),
               ),
             );

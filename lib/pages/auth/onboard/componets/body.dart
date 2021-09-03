@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 import 'indicator_dot.dart';
-import 'onboard_page_view.dart';
 
 class Body extends StatefulWidget {
   Body({
