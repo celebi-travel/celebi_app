@@ -61,7 +61,7 @@ class _WelcomeBackFormState extends State<RegisterForm> {
           Row(
             children: [
               Checkbox(
-                activeColor: Color(0xFFB6DAE6),
+                activeColor: Color(0xFF7BC4B2),
                 value: this.value,
                 onChanged: (value) {
                   setState(() {
@@ -69,14 +69,20 @@ class _WelcomeBackFormState extends State<RegisterForm> {
                   });
                 },
               ), //Checkbox
-              Text('I agrre with the'),
+              Text(
+                'I agrre with the',
+                style: TextStyle(fontSize: 20),
+              ),
               TextButton(
                   onPressed: () {},
                   child: Text(
                     'Terms of service',
-                    style: TextStyle(fontSize: 13),
+                    style: TextStyle(fontSize: 20),
                   )),
-              Text('&pivacy policy'),
+              Text(
+                '&pivacy policy',
+                style: TextStyle(fontSize: 20),
+              ),
             ],
           ),
         ],
@@ -160,7 +166,7 @@ TextFormField buildDateField(BuildContext context) {
         ),
       ),
 
-      hintText: 'Date of birth',
+      hintText: 'Date of birth(00/00/0000)',
       hintStyle: context.textTheme.bodyText2!
           .copyWith(color: Colors.grey, fontSize: 18),
     ),

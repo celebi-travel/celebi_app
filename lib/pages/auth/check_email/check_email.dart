@@ -28,7 +28,8 @@ class _CheckEmailViewState extends State<CheckEmailView> {
                     );
                   }
                   return Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 20, vertical: 10),
                     child: Column(
                       children: [
                         buildForgetPasswordImage(
@@ -36,27 +37,34 @@ class _CheckEmailViewState extends State<CheckEmailView> {
                         ),
                         Text(
                           'Check your email',
-                          style: TextStyle(fontSize: 25, color: Colors.black, fontWeight: FontWeight.bold),
+                          style: TextStyle(
+                              fontSize: 40,
+                              color: Colors.black,
+                              fontWeight: FontWeight.bold),
                         ),
                         Padding(
                           padding: EdgeInsets.only(top: 30),
                           child: Align(
                             alignment: Alignment.center,
                             child: Text(
-                              'We have sent a password recovery instruciton to your email',
-                              style: TextStyle(fontSize: 18, color: Colors.grey),
+                              '    We have sent a password recovery instruciton to your email',
+                              style: TextStyle(
+                                  fontSize: 25,
+                                  color: Colors.grey,
+                                  height: 1.5),
                             ),
                           ),
                         ),
                         Spacer(
-                          flex: 4,
+                          flex: 3,
                         ),
                         CustomButton(
                             text: 'Register',
                             onPressed: () {
                               Navigator.push(
                                 context,
-                                MaterialPageRoute(builder: (context) => CheckEmailView()),
+                                MaterialPageRoute(
+                                    builder: (context) => CheckEmailView()),
                               );
                             }),
                         Spacer()

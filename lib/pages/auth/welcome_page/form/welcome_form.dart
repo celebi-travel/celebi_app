@@ -72,7 +72,6 @@ class _WelcomeBackFormState extends State<WelcomeBackForm> {
         }
       },
       decoration: InputDecoration(
-        //contentPadding: EdgeInsets.symmetric(horizontal: 10),
         prefixIcon: Padding(
           padding: const EdgeInsets.only(left: 20),
           child: Icon(

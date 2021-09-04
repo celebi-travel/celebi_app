@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:celebi_project/pages/main/detail/source/slider_image_list.dart';
 
 import '../../../services/firestore_service.dart';
@@ -21,8 +20,10 @@ class DetailPage extends StatefulWidget {
 
   const DetailPage({
     Key? key,
+    // required this.city,
     required this.changePageFunc,
   }) : super(key: key);
+  //final PlaceModel city;
   @override
   _DetailPageState createState() => _DetailPageState(changePageFunc);
 }
