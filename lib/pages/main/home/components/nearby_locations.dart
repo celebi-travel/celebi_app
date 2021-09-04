@@ -1,3 +1,5 @@
+import 'package:celebi_project/pages/main/detail/detail_view.dart';
+
 import '../../../../models/place.dart';
 import '../../../../extensions/context_extension.dart';
 import 'package:flutter/material.dart';
@@ -7,7 +9,7 @@ class NearbyLocations extends StatefulWidget {
     Key? key,
     required this.onTap,
   }) : super(key: key);
-  
+
   final VoidCallback onTap;
 
   @override
@@ -28,7 +30,14 @@ class _NearbyLocationsState extends State<NearbyLocations> {
             physics: BouncingScrollPhysics(),
             itemBuilder: (context, index) => Stack(children: <Widget>[
               GestureDetector(
-                onTap: widget.onTap,
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => DetailPage(
+                                placeModel: nearbyLocations[index],
+                              )));
+                },
                 child: Container(
                   alignment: Alignment.bottomLeft,
                   width: context.height * 0.08,
@@ -46,7 +55,14 @@ class _NearbyLocationsState extends State<NearbyLocations> {
                 ),
               ),
               GestureDetector(
-                onTap: widget.onTap,
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => DetailPage(
+                                placeModel: nearbyLocations[index],
+                              )));
+                },
                 child: Container(
                   alignment: Alignment.bottomLeft,
                   width: context.height * 0.08,

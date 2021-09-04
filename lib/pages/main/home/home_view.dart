@@ -44,12 +44,7 @@ class _HomeViewState extends State<HomeView> {
                     child: NearbyLocations(onTap: () {
                       //NEARBY
                       _pageIndex = 1;
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => DetailPage(
-                                    changePageFunc: () {},
-                                  )));
+                      
                       print('_pageIndex = $_pageIndex');
                     })),
                 Spacer(),

@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:celebi_project/models/place.dart';
 import 'package:celebi_project/pages/main/bottom_nav_bar/bottom_nav_bar.dart';
 import 'package:celebi_project/pages/main/detail/source/slider_image_list.dart';
 
@@ -17,25 +18,22 @@ import '../../../constants/image_slider.dart';
 
 // ignore: must_be_immutable
 class DetailPage extends StatefulWidget {
-  final VoidCallback changePageFunc;
+  final PlaceModel placeModel;
 
   const DetailPage({
     Key? key,
     // required this.city,
-    required this.changePageFunc,
+    required this.placeModel,
   }) : super(key: key);
   //final PlaceModel city;
   @override
-  _DetailPageState createState() => _DetailPageState(changePageFunc);
+  _DetailPageState createState() => _DetailPageState();
 }
 
 class _DetailPageState extends State<DetailPage> {
   ScrollController scrollController = ScrollController(keepScrollOffset: true);
-  final VoidCallback changePageFunc;
 
   final ImagePicker _picker = ImagePicker();
-
-  _DetailPageState(this.changePageFunc);
 
   List<String> images = [];
 
@@ -74,7 +72,9 @@ class _DetailPageState extends State<DetailPage> {
                   Text('Nemrut Mountain',
                       style: context.textTheme.bodyText1!
                           .copyWith(fontWeight: FontWeight.w700, fontSize: 16)),
-                  BuildIconButton(),
+                  BuildIconButton(
+                    placeModel: widget.placeModel,
+                  ),
                   buildReadMoreText(context),
                   SizedBox(height: 14),
                   Text('Product',

@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:celebi_project/models/place.dart';
 import 'package:celebi_project/pages/auth/custom/image_with_white_button.dart';
 import 'package:celebi_project/pages/main/bottom_nav_bar/bottom_nav_bar.dart';
 import 'package:celebi_project/pages/main/my_route_page/my_route_page.dart';
@@ -17,15 +18,15 @@ import 'components/category_item.dart';
 import 'components/stars_builder.dart';
 
 class RouteFilterPage extends StatefulWidget {
-  final String sehir;
-  const RouteFilterPage({Key? key, required this.sehir}) : super(key: key);
+  final PlaceModel placeModel;
+  const RouteFilterPage({Key? key, required this.placeModel}) : super(key: key);
 
   @override
-  _RouteFilterPageState createState() => _RouteFilterPageState(sehir);
+  _RouteFilterPageState createState() => _RouteFilterPageState(placeModel);
 }
 
 class _RouteFilterPageState extends State<RouteFilterPage> {
-  final String sehir;
+  final PlaceModel placeModel;
   String _categoryName = 'Outdoors';
   int _currentSelectedCategoryIndex = 1;
   TextEditingController _controller = TextEditingController();
@@ -36,14 +37,14 @@ class _RouteFilterPageState extends State<RouteFilterPage> {
   Future<void> decodeJSON() async {
     String jsonString = await rootBundle.loadString('json/sehirler.json');
     final jsonResponse = json.decode(jsonString);
-    sehirVerim = jsonResponse['sehirler'][sehir];
+    sehirVerim = jsonResponse['sehirler'][placeModel.city];
     loadingDone = true;
     setState(() {});
   }
 
   void _showMyRoute() {
     List<LatLng>? randomcoordinates = [];
-    randomLatLongs[sehir]!.forEach((element) {
+    randomLatLongs[placeModel.city]!.forEach((element) {
       randomcoordinates.add(element);
     });
     print('1');
@@ -83,7 +84,7 @@ class _RouteFilterPageState extends State<RouteFilterPage> {
     decodeJSON();
   }
 
-  _RouteFilterPageState(this.sehir);
+  _RouteFilterPageState(this.placeModel);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -92,7 +93,7 @@ class _RouteFilterPageState extends State<RouteFilterPage> {
             centerTitle: true,
             elevation: 0,
             title: Text(
-              sehir,
+              placeModel.city!,
               style: context.textTheme.bodyText1!
                   .copyWith(color: Colors.black, fontSize: 20),
             )),

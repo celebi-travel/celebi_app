@@ -12,7 +12,7 @@ class BottomNavBarViewModel = _BottomNavBarViewModelBase
 abstract class _BottomNavBarViewModelBase with Store {
   List pages = [
     HomeView(),
-    CreateRoutePage(),
+    Container(child: Center(child:Text('Saves')),),
     Container(
       child: Center(),
     ),
@@ -35,6 +35,7 @@ abstract class _BottomNavBarViewModelBase with Store {
 
   @observable
   int currentIndex = 0;
+  
   @action
   void changeCurrentIndex(i,context) {
     currentIndex = i;
