@@ -27,12 +27,6 @@ class _HomeViewState extends State<HomeView> {
   String sehir = 'İstanbul';
 
   @override
-  void initState() {
-    super.initState();
-    FirestoreService().getMusics();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
@@ -46,14 +40,7 @@ class _HomeViewState extends State<HomeView> {
                 buildSearchField(searchController),
                 Spacer(),
                 buildNearbyLocationsText(context),
-                Expanded(
-                    flex: 3,
-                    child: NearbyLocations(onTap: () {
-                      //NEARBY
-                      _pageIndex = 1;
-
-                      print('_pageIndex = $_pageIndex');
-                    })),
+                Expanded(flex: 3, child: NearbyLocations()),
                 Spacer(),
                 Align(
                   alignment: Alignment.centerLeft,
@@ -63,14 +50,7 @@ class _HomeViewState extends State<HomeView> {
                         letterSpacing: 0.3, fontWeight: FontWeight.bold),
                   ).tr(),
                 ),
-                Expanded(
-                    flex: 3,
-                    child: NearbyLocations(onTap: () {
-                      //POPULAR
-                      _pageIndex = 1;
-                      print('_pageIndex = $_pageIndex');
-                      setState(() {});
-                    })),
+                Expanded(flex: 3, child: PopularLocations()),
                 Spacer(),
                 buildPopularPlaceText(context),
                 Expanded(
@@ -81,6 +61,92 @@ class _HomeViewState extends State<HomeView> {
               ],
             ),
           )),
+    );
+  }
+}
+
+class PopularLocations extends StatelessWidget {
+  const PopularLocations({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Expanded(
+          child: ListView.builder(
+            padding: EdgeInsets.only(left: 8, top: 10),
+            itemCount: nearbyLocations.length,
+            scrollDirection: Axis.horizontal,
+            physics: BouncingScrollPhysics(),
+            itemBuilder: (context, index) => Stack(children: <Widget>[
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => DetailPage(
+                                placeModel: places[index],
+                              )));
+                },
+                child: Container(
+                  alignment: Alignment.bottomLeft,
+                  width: context.height * 0.08,
+                  height: context.height * 0.08,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(12),
+                    color: Colors.transparent,
+                    image: DecorationImage(
+                      fit: BoxFit.fill,
+                      image: AssetImage(
+                        places[index].imageUrl!,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => DetailPage(
+                                placeModel: places[index],
+                              )));
+                },
+                child: Container(
+                  alignment: Alignment.bottomLeft,
+                  width: context.height * 0.08,
+                  height: context.height * 0.08,
+                  margin: EdgeInsets.only(right: 10),
+                  padding: EdgeInsets.only(left: 5, bottom: 5),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(12),
+                    gradient: LinearGradient(
+                      begin: FractionalOffset.center,
+                      end: FractionalOffset.bottomCenter,
+                      colors: [
+                        Colors.grey.withOpacity(0.0),
+                        Colors.black,
+                      ],
+                      stops: [
+                        0.0,
+                        1.0,
+                      ],
+                    ),
+                  ),
+                  child: HeadText(
+                    text: places[index].city!,
+                  ),
+                ),
+              )
+            ]),
+          ),
+        ),
+      ],
     );
   }
 }

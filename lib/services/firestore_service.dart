@@ -73,23 +73,31 @@ class FirestoreService {
     return _querySnapshot.docs;
   }
 
-  Future<void> saveImage(File image) async {
+  Future<void> saveImage(String city, File image) async {
     final FirebaseStorage _storage = FirebaseStorage.instance;
     File file = File(image.path);
     var snap = await _storage
         .ref()
         .child("images/${image.path}/${basename(file.path)}")
         .putFile(file);
-
     String url = await snap.ref.getDownloadURL();
-
+    var res = await FirebaseFirestore.instance
+        .collection('Detail')
+        .doc(city.toLowerCase())
+        .get();
+    List images = (res.data() as Map)['postImage'];
+    images.add(url);
     print(
         'file = $file, file.path = ${file.path}, image.path = ${image.path}, url ? $url');
 
     await FirebaseFirestore.instance
-        .collection('images')
-        .doc()
-        .set({"url": url, "name": basename(file.path)});
+        .collection('Detail')
+        .doc(city.toLowerCase())
+        .update(
+      {
+        'postImage': images,
+      },
+    );
   }
 
   Future<List<Hotel>> getHotels() async {
@@ -121,6 +129,16 @@ class FirestoreService {
       String url = await result.items[i].getDownloadURL();
       print('$i, url = $url');
     }
+  }
+
+  Future<Map<String, dynamic>> getDetailDataOfCity(String city) async {
+    print('city = $city, + ${city.toLowerCase()}');
+    DocumentSnapshot<Map<String, dynamic>> _data = await FirebaseFirestore
+        .instance
+        .collection('Detail')
+        .doc(city.toLowerCase())
+        .get();
+    return _data.data()!;
   }
 }
 

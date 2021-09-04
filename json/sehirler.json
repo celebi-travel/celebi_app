@@ -1,6 +1,6 @@
 {
     "sehirler": {
-        "Bursa": {
+        "bursa": {
             "history": [{
                 "name": "Koza Han",
                 "imgURL": "https://www.dergibursa.com.tr/wp-content/uploads/2017/02/Aykut-G%C3%BCng%C3%B6r-Koza-Han-May%C4%B1s-2008.jpg"
@@ -32,7 +32,7 @@
                 "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/02/kulturpark-acikhava-tiyatrosu.png"
             }]
         },
-        "Balıkesir": {
+        "balıkesir": {
             "history": [{
                 "name": "Balıkesir Saat Kulesi",
                 "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/08/balikesir-saat-kulesi--scaled.jpg"
@@ -65,7 +65,7 @@
                 "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2019/09/yazoren-magarasi.jpg"
             }]
         },
-        "Sakarya": {
+        "sakarya": {
             "history": [{
                 "name": "Beşköprü (Justinianus Köprüsü)",
                 "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/06/beskopru-scaled.jpg"
@@ -97,7 +97,7 @@
                 "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/06/golbasi-park-696x464.jpg"
             }]
         },
-        "Çanakkale": {
+        "canakkale": {
             "history": [{
                 "name": "Çanakkale Şehitliği ve Şehitler Anıtı",
                 "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/04/canakkale-sehitligi-scaled.jpg"
@@ -129,7 +129,7 @@
                 "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2018/04/canakkale-kordon--scaled.jpg"
             }]
         },
-        "İstanbul": {
+        "istanbul": {
             "history": [{
                 "name": "Anadolu Hisarı",
                 "imgURL": "https://media-cdn.tripadvisor.com/media/photo-m/1280/15/fd/b7/50/anadolu-hisari.jpg"
@@ -161,7 +161,7 @@
                 "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/02/beyoglu-sanat-galerisi-scaled.jpg"
             }]
         },
-        "Antalya": {
+        "antalya": {
             "history": [{
                 "name": "Alanya Atatürk Evi Müzesi",
                 "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/01/alanya-ataturk-evi-muzesi-scaled.jpg"
@@ -193,7 +193,7 @@
                 "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2017/07/7-Soba-M%C3%BCzesi.jpg"
             }]
         },
-        "Edirne": {
+        "edirne": {
             "history": [{
                 "name": "Edirne Evleri",
                 "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/06/edirne-evleri-scaled.jpg"
@@ -225,7 +225,7 @@
                 "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/06/edirne-saglik-muzesi-scaled.jpg"
             }]
         },
-        "Trabzon": {
+        "trabzon": {
             "history": [{
                 "name": "Sümela Manastırı",
                 "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/05/sumela-manastiri-scaled.jpg"

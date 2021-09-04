@@ -10,7 +10,7 @@ class PlaceModel {
 List<PlaceModel> nearbyLocations = [
   PlaceModel('asset/images/nearby1.png', false, 'BURSA', 2),
   PlaceModel('asset/images/nearby2.png', true, 'BALIKESİR', 3),
-  PlaceModel('asset/images/nearby3.png', false, 'ÇANAKKALE', 2),
+  PlaceModel('asset/images/nearby3.png', false, 'CANAKKALE', 2),
   PlaceModel('asset/images/nearby4.png', true, 'SAKARYA', 5),
 ];
 
