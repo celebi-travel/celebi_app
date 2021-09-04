@@ -49,6 +49,7 @@ dependencies:
   fluttericon: ^2.0.0
   video_player: ^2.1.14
   country_icons: ^2.0.2
+  translator: ^0.1.7
 
   easy_localization: ^3.0.0
 dev_dependencies:

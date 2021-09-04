@@ -1,3 +1,5 @@
+import 'package:celebi_project/constants/lang/locale_keys.g.dart';
+
 class OnBoardModel {
   String? title;
   String? content;
@@ -11,18 +13,15 @@ class OnBoardModel {
 
 List<OnBoardModel> onBoardItems = [
   OnBoardModel(
-      title: 'Plan Your Travel',
-      content:
-          'Let us calculate the budget required for your travel plan for you.',
+      title: LocaleKeys.onboard_page1_title,
+      content: LocaleKeys.onboard_page1_content,
       imageUrl: 'asset/images/onboard1.png'),
   OnBoardModel(
-      title: 'Enjoy Your Travel',
-      content:
-          'Everything you need to have a safe, peaceful and comfortable holiday is here!',
+      title: LocaleKeys.onboard_page2_title,
+      content: LocaleKeys.onboard_page2_content,
       imageUrl: 'asset/images/onboard2.png'),
   OnBoardModel(
-      title: 'Explore Turkey with us',
-      content:
-          'Book restaurants and hotels easily while discovering the natural history and cultural beauties of Turkey. Collect unforgettable memories by benefiting from the experiences of millions of people',
+      title: LocaleKeys.onboard_page3_title,
+      content: LocaleKeys.onboard_page3_content,
       imageUrl: 'asset/images/onboard3.png'),
 ];

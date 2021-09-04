@@ -120,7 +120,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.15.0"
-<<<<<<< HEAD
   convert:
     dependency: transitive
     description:
@@ -128,7 +127,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.0.1"
-=======
   country_icons:
     dependency: "direct main"
     description:
@@ -136,7 +134,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.2"
->>>>>>> c2c5f28edf429e889dda6ba69b261c389508c5a7
   cross_file:
     dependency: transitive
     description:
@@ -743,6 +740,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.3.0"
+  translator:
+    dependency: "direct main"
+    description:
+      name: translator
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.1.7"
   typed_data:
     dependency: transitive
     description:

@@ -31,7 +31,10 @@
     "page3": {
       "title": "Explore Turkey with us",
       "content": "Book restaurants and hotels easily while discovering the natural history and cultural beauties of Turkey. Collect unforgettable memories by benefiting from the experiences of millions of people"
-    }
+    },
+    "btn_next": "Next",
+    "btn_skip": "Skip for now",
+    "btn_next2": "Start"
   },
   "login1": {
     "title": "Get Connect to the best Mentors",

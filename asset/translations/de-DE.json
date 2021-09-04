@@ -19,7 +19,10 @@
     "page3": {
       "title": "Entdecken Sie die Türkei mit uns",
       "content": "Buchen Sie ganz einfach Restaurants und Hotels und entdecken Sie die Naturgeschichte und die kulturellen Schönheiten der Türkei. Sammeln Sie unvergessliche Erinnerungen, indem Sie von den Erfahrungen von Millionen von Menschen profitieren"
-    }
+    },
+    "btn_next": "Nächste",
+    "btn_skip": "Für jetzt überspringen",
+    "btn_next2": "Start"
   },
   "detail_page": {
     "create_route": "Erstellen Sie Ihre Route",

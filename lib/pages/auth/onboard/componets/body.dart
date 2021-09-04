@@ -1,10 +1,13 @@
 import 'dart:ui';
 
 import 'package:celebi_project/cache/locale_manager.dart';
+import 'package:celebi_project/constants/lang/language_manager.dart';
+import 'package:celebi_project/constants/lang/locale_keys.g.dart';
 import 'package:celebi_project/constants/preferences_keys.dart';
 import 'package:celebi_project/pages/auth/custom/custom_button.dart';
 import 'package:celebi_project/pages/main/bottom_nav_bar/bottom_nav_bar.dart';
 import 'package:celebi_project/pages/main/home/home_view.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 import '../../../../extensions/context_extension.dart';
 import '../onboard_model.dart';
@@ -88,7 +91,7 @@ class _BodyState extends State<Body> {
                               style: context.textTheme.headline4!.copyWith(
                                   color: Colors.black,
                                   fontWeight: FontWeight.w500),
-                            ),
+                            ).tr(),
                             SizedBox(
                               height: context.normalValue,
                             ),
@@ -102,7 +105,7 @@ class _BodyState extends State<Body> {
                                   textAlign: TextAlign.center,
                                   style: context.textTheme.headline5!
                                       .copyWith(color: context.colors.surface),
-                                ),
+                                ).tr(),
                               ),
                             )
                           ],
@@ -137,19 +140,22 @@ class _BodyState extends State<Body> {
                         const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
                     child: CustomButton(
                       text: currentPageIndex != (onBoardItems.length - 1)
-                          ? 'Next'
-                          : 'Get Started',
+                          ? LocaleKeys.onboard_btn_next.tr()
+                          : LocaleKeys.onboard_btn_next2.tr(),
                       /*  color: currentPageIndex == (onBoardItems.length - 1)
                       ? Color(0xFFF08A5D)
                       : Color(0xFF7BC4B2), */
-                      onPressed: () => completeOnBoard(),
+                      onPressed: () {
+                        completeOnBoard();
+                      },
                     ),
                   ),
                 ),
               ],
             ),
           ),
-          TextButton(onPressed: () {}, child: Text('Skip for now')),
+          TextButton(
+              onPressed: () {}, child: Text(LocaleKeys.onboard_btn_skip.tr())),
           // Sayfanın aşağısında farklı ekranlara uyumlu bir boşluk
           Expanded(flex: 1, child: Container()),
         ],

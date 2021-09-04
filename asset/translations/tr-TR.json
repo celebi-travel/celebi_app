@@ -31,7 +31,10 @@
     "page3": {
       "title": "Türkiye'yi bizimle keşfedin",
       "content": "Türkiye'nin doğal tarihini ve kültürel güzelliklerini keşfederken kolayca restoran ve otel rezervasyonu yapın. Milyonlarca kişinin deneyimlerinden yararlanarak unutulmaz anılar biriktirin"
-    }
+    },
+    "btn_next": "Sonraki",
+    "btn_skip": "Şimdilik geç",
+    "btn_next2": "Başlangıç"
   },
   "login1": {
     "title": "En İyi Mentorlara Bağlanın",
