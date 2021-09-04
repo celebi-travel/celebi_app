@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:celebi_project/pages/auth/custom/image_with_white_button.dart';
+import 'package:celebi_project/pages/main/bottom_nav_bar/bottom_nav_bar.dart';
 import 'package:celebi_project/pages/main/my_route_page/my_route_page.dart';
 
 import '../../../constants/sehirler_icinde_lat_long.dart';
@@ -95,6 +96,7 @@ class _RouteFilterPageState extends State<RouteFilterPage> {
               style: context.textTheme.bodyText1!
                   .copyWith(color: Colors.black, fontSize: 20),
             )),
+        bottomNavigationBar: bottomBarMethod(context),
         body: loadingDone
             ? SingleChildScrollView(
                 child: Column(

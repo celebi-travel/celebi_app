@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:celebi_project/pages/main/bottom_nav_bar/bottom_nav_bar.dart';
 import 'package:celebi_project/pages/main/detail/source/slider_image_list.dart';
 
 import '../../../services/firestore_service.dart';
@@ -58,6 +59,7 @@ class _DetailPageState extends State<DetailPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: buildAppBar(context),
+      bottomNavigationBar: bottomBarMethod(context),
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -72,7 +74,7 @@ class _DetailPageState extends State<DetailPage> {
                   Text('Nemrut Mountain',
                       style: context.textTheme.bodyText1!
                           .copyWith(fontWeight: FontWeight.w700, fontSize: 16)),
-                  BuildIconButton(changePageFunc: changePageFunc),
+                  BuildIconButton(),
                   buildReadMoreText(context),
                   SizedBox(height: 14),
                   Text('Product',

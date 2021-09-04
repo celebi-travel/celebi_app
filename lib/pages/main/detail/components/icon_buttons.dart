@@ -1,21 +1,9 @@
+import 'package:celebi_project/pages/main/route_filter_page/route_filter_page.dart';
+
 import '../../../../extensions/context_extension.dart';
 import 'package:flutter/material.dart';
 
-class BuildIconButton extends StatefulWidget {
-  final VoidCallback changePageFunc;
-  const BuildIconButton({
-    Key? key,
-    required this.changePageFunc,
-  }) : super(key: key);
-
-  @override
-  _BuildIconButtonState createState() => _BuildIconButtonState(changePageFunc);
-}
-
-class _BuildIconButtonState extends State<BuildIconButton> {
-  final VoidCallback changePageFunc;
-
-  _BuildIconButtonState(this.changePageFunc);
+class BuildIconButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -28,7 +16,13 @@ class _BuildIconButtonState extends State<BuildIconButton> {
         Row(
           children: [
             TextButton(
-              onPressed: changePageFunc,
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => RouteFilterPage(sehir: 'İstanbul'),
+                    ));
+              },
               child: Text('Create Your Route',
                   style: context.textTheme.bodyText2!
                       .copyWith(fontSize: 14, color: Colors.white)),
@@ -36,7 +30,14 @@ class _BuildIconButtonState extends State<BuildIconButton> {
                   backgroundColor: MaterialStateProperty.all(Colors.red)),
             ),
             IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) =>
+                            RouteFilterPage(sehir: 'İstanbul'),
+                      ));
+                },
                 icon: Icon(
                   Icons.favorite,
                   color: Colors.pink,

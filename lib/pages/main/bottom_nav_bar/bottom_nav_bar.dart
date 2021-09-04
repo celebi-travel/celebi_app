@@ -1,59 +1,48 @@
 import 'package:celebi_project/pages/auth/login_main_page/login_main_page.dart';
+import 'package:celebi_project/pages/main/bottom_nav_bar/bottom_nav_bar_view_model.dart';
 import 'package:celebi_project/pages/main/create_route/create_route.dart';
 import 'package:celebi_project/pages/main/home/home_view.dart';
+import 'package:celebi_project/services/locators.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 
 import '../../../services/auth_service.dart';
 import '../../../services/firestore_service.dart';
 import 'package:flutter/material.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 
-class BottomNavBar extends StatefulWidget {
+class BottomNavBar extends StatelessWidget {
   const BottomNavBar({Key? key}) : super(key: key);
 
   @override
-  _BottomNavBarState createState() => _BottomNavBarState();
+  Widget build(BuildContext context) {
+    return Observer(builder: (_) {
+      return Scaffold(
+        bottomNavigationBar: bottomBarMethod(context),
+        body: bottomNavBarViewModel.pages[bottomNavBarViewModel.currentIndex],
+      );
+    });
+  }
 }
 
-class _BottomNavBarState extends State<BottomNavBar> {
-  List<SalomonBottomBarItem> bottomNavBarElementsList = [
-    SalomonBottomBarItem(icon: Icon(Icons.home), title: Text('Home')),
-    SalomonBottomBarItem(
-        icon: Icon(Icons.router_outlined), title: Text('Routes')),
-    SalomonBottomBarItem(
-        icon: Icon(Icons.wallet_giftcard), title: Text('Wallets')),
-    SalomonBottomBarItem(icon: Icon(Icons.qr_code), title: Text('QR')),
-    SalomonBottomBarItem(icon: Icon(Icons.person), title: Text('Account')),
-  ];
-  int _currentIndex = 0;
-  List _pages = [
-    HomeView(),
-    CreateRoutePage(),
-    Container(
-      child: Center(),
-    ),
-    Container(
-      child: Center(
-        child: Text('QR'),
-      ),
-    ),
-    AccountPage(),
-  ];
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      bottomNavigationBar: bottomBarMethod(),
-      body: _pages[_currentIndex],
-    );
-  }
-
-  SalomonBottomBar bottomBarMethod() {
+List<SalomonBottomBarItem> bottomNavBarElementsList = [
+  SalomonBottomBarItem(icon: Icon(Icons.home), title: Text('Home')),
+  SalomonBottomBarItem(
+      icon: Icon(Icons.router_outlined), title: Text('Routes')),
+  SalomonBottomBarItem(
+      icon: Icon(Icons.wallet_giftcard), title: Text('Wallets')),
+  SalomonBottomBarItem(icon: Icon(Icons.qr_code), title: Text('QR')),
+  SalomonBottomBarItem(icon: Icon(Icons.person), title: Text('Account')),
+];
+BottomNavBarViewModel bottomNavBarViewModel = BottomNavBarViewModel();
+Widget bottomBarMethod(BuildContext context) {
+  return Observer(builder: (_) {
     return SalomonBottomBar(
       selectedItemColor: Colors.indigo,
-      currentIndex: _currentIndex,
-      onTap: (i) => setState(() => _currentIndex = i),
+      currentIndex: bottomNavBarViewModel.currentIndex,
+      onTap: (i) => bottomNavBarViewModel.changeCurrentIndex(i, context),
       items: bottomNavBarElementsList,
     );
-  }
+  });
 }
 
 class AccountPage extends StatefulWidget {

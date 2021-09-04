@@ -5,7 +5,9 @@ import 'package:celebi_project/pages/auth/onboard/onboard_view.dart';
 import 'package:celebi_project/pages/auth/splash/splash.dart';
 import 'package:celebi_project/pages/main/bottom_nav_bar/bottom_nav_bar.dart';
 import 'package:celebi_project/pages/main/detail/detail_view.dart';
+import 'package:celebi_project/pages/main/home/home_view.dart';
 import 'package:celebi_project/pages/main/profile/proflle_view.dart';
+import 'package:celebi_project/services/locators.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -17,6 +19,7 @@ import 'constants/lang/language_manager.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
+  LocatorInjector.setupLocator();
   await EasyLocalization.ensureInitialized();
   await Hive.initFlutter();
   await LocaleManager.preferencesInit();
@@ -37,7 +40,7 @@ class MyApp extends StatelessWidget {
       localizationsDelegates: context.localizationDelegates,
       supportedLocales: context.supportedLocales,
       locale: context.locale,
-      home: CheckEmailView(),
+      home: HomeView(),
     );
   }
 
