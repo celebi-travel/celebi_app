@@ -1,16 +1,11 @@
 import 'dart:ui';
-
 import 'package:celebi_project/cache/locale_manager.dart';
 import 'package:celebi_project/constants/preferences_keys.dart';
 import 'package:celebi_project/pages/auth/custom/custom_button.dart';
 import 'package:celebi_project/pages/main/bottom_nav_bar/bottom_nav_bar.dart';
-import 'package:celebi_project/pages/main/home/home_view.dart';
-
 import '../../../../extensions/context_extension.dart';
 import '../onboard_model.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-
 import 'indicator_dot.dart';
 
 class Body extends StatefulWidget {
@@ -68,11 +63,14 @@ class _BodyState extends State<Body> {
                     children: [
                       //Resim
                       Expanded(
-                          flex: 4,
-                          child: Container(
-                              width: double.infinity,
-                              child: Image.asset(onBoardItems[index].imageUrl!,
-                                  fit: BoxFit.cover))),
+                          flex: 6,
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.only(
+                                bottomRight: Radius.circular(40),
+                                bottomLeft: Radius.circular(40)),
+                            child: Image.asset(onBoardItems[index].imageUrl!,
+                                fit: BoxFit.cover),
+                          )),
                       // Boşluk
                       SizedBox(
                         height: context.normalValue * 1.5,

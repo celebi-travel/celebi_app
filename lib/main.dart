@@ -1,8 +1,4 @@
-import 'package:celebi_project/pages/auth/login_main_page/login_main_page.dart';
-import 'package:celebi_project/pages/auth/onboard/onboard_model.dart';
-import 'package:celebi_project/pages/auth/onboard/onboard_view.dart';
-import 'package:celebi_project/pages/auth/splash/splash.dart';
-import 'package:celebi_project/pages/main/detail/detail_view.dart';
+import 'package:celebi_project/pages/auth/check_email/check_email.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -10,8 +6,6 @@ import 'package:hive_flutter/hive_flutter.dart';
 
 import 'cache/locale_manager.dart';
 import 'constants/lang/language_manager.dart';
-import 'extensions/context_extension.dart';
-import 'pages/main/home/home_view.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -36,7 +30,7 @@ class MyApp extends StatelessWidget {
       localizationsDelegates: context.localizationDelegates,
       supportedLocales: context.supportedLocales,
       locale: context.locale,
-      home: OnboardView(),
+      home: CheckEmailView(),
     );
   }
 
@@ -53,7 +47,7 @@ class MyApp extends StatelessWidget {
             borderSide: BorderSide(
               width: 2,
             ),
-            borderRadius: BorderRadius.circular(10)),
+            borderRadius: BorderRadius.circular(20)),
         border: OutlineInputBorder(
             borderSide: BorderSide(), borderRadius: BorderRadius.circular(20)),
         focusedBorder: OutlineInputBorder(

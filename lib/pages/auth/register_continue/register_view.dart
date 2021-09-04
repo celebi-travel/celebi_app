@@ -21,21 +21,24 @@ class _RegisterToContuniState extends State<RegisterPage> {
               child: Stack(
                 fit: StackFit.loose,
                 children: [
-                  SafeArea(
-                    child: Container(
-                      child: buildImage(
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      buildImage(
                         "asset/images/register_continue.png",
                       ),
-                    ),
+                    ],
                   ),
                   Positioned(
-                    top: 260,
+                    top: 360,
                     child: Container(
                       height: 500,
                       width: MediaQuery.of(context).size.width,
                       decoration: BoxDecoration(
                           color: Colors.white,
-                          borderRadius: new BorderRadius.only(topLeft: const Radius.circular(40), topRight: const Radius.circular(40))),
+                          borderRadius: new BorderRadius.only(
+                              topLeft: const Radius.circular(40),
+                              topRight: const Radius.circular(40))),
                       child: Padding(
                         padding: EdgeInsets.only(right: 20, left: 20, top: 50),
                         child: SingleChildScrollView(
@@ -43,7 +46,6 @@ class _RegisterToContuniState extends State<RegisterPage> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               RegisterForm(),
-                              SizedBox(height: 200),
                             ],
                           ),
                         ),

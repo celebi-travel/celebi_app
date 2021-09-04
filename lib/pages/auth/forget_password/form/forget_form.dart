@@ -51,3 +51,16 @@ TextFormField buildNameField(BuildContext context) {
     ),
   );
 }
+
+TextButton backToLoginButton() {
+  return TextButton(
+    onPressed: () {},
+    child: Padding(
+      padding: EdgeInsets.only(top: 250),
+      child: Text(
+        'Back To Login',
+        style: TextStyle(color: Color(0xFF7BC4B2)),
+      ),
+    ),
+  );
+}

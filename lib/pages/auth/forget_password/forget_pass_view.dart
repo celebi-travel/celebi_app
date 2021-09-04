@@ -23,9 +23,9 @@ class _ForgetPasswordPageState extends State<ForgetPasswordPage> {
                 "asset/images/forget_password.png",
               ),
               Text(
-                'Forget Password',
+                'Forget Password ?',
                 style: TextStyle(
-                    fontSize: 25,
+                    fontSize: 40,
                     color: Colors.black,
                     fontWeight: FontWeight.bold),
               ),
@@ -35,11 +35,12 @@ class _ForgetPasswordPageState extends State<ForgetPasswordPage> {
                   padding: EdgeInsets.only(left: 20),
                   child: Text(
                     'Enter your registered email below to receive\t\t password reset instruction',
-                    style: TextStyle(fontSize: 18, color: Colors.grey),
+                    style: TextStyle(fontSize: 25, color: Colors.grey),
                   ),
                 ),
               ),
               ForgetForm(),
+              backToLoginButton(),
             ],
           ),
         ),

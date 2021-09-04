@@ -9,7 +9,7 @@ import 'package:fluttericon/entypo_icons.dart';
 import 'package:syncfusion_flutter_datepicker/datepicker.dart';
 
 class HotelPage extends StatefulWidget {
-  const HotelPage({Key? key,required this.hotel}) : super(key: key);
+  const HotelPage({Key? key, required this.hotel}) : super(key: key);
   final Hotel hotel;
   @override
   _HotelPageState createState() => _HotelPageState();
@@ -25,7 +25,6 @@ class _HotelPageState extends State<HotelPage> {
   late List<int> numbers;
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
   }

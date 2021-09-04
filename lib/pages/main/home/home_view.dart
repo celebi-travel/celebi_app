@@ -20,6 +20,7 @@ class HomeView extends StatefulWidget {
 
 class _HomeViewState extends State<HomeView> {
   final searchController = TextEditingController();
+  PlaceModel? currentCity;
   int _pageIndex = 0;
   String sehir = 'İstanbul';
 
@@ -41,7 +42,6 @@ class _HomeViewState extends State<HomeView> {
                         flex: 3,
                         child: NearbyLocations(onTap: () {
                           //NEARBY
-
                           _pageIndex = 1;
                           print('_pageIndex = $_pageIndex');
                           setState(() {});

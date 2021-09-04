@@ -18,11 +18,14 @@ class _WecomeBackPageState extends State<WelcomeBackPage> {
       child: Scaffold(
         body: SingleChildScrollView(
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              buildImage("asset/images/welcome_back.png"),
+              buildImage(
+                "asset/images/welcome_back.png",
+              ),
               Column(children: [
                 Padding(
-                  padding: EdgeInsets.only(bottom: 10, top: 20),
+                  padding: EdgeInsets.only(bottom: 10, top: 80),
                   child: WelcomeBackForm(),
                 ),
                 Padding(
@@ -30,7 +33,8 @@ class _WecomeBackPageState extends State<WelcomeBackPage> {
                   child: Row(
                     children: [
                       Text("Don't have an account?",
-                          style: TextStyle(color: Colors.grey)),
+                          style:
+                              TextStyle(color: Colors.grey[600], fontSize: 25)),
                       TextButton(
                         onPressed: () {
                           Navigator.push(
@@ -41,7 +45,7 @@ class _WecomeBackPageState extends State<WelcomeBackPage> {
                         child: Text(
                           'Sign up',
                           style:
-                              TextStyle(color: Colors.grey[600], fontSize: 14),
+                              TextStyle(color: Colors.grey[600], fontSize: 25),
                         ),
                       ),
                     ],

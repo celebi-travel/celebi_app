@@ -1,4 +1,3 @@
-import 'package:celebi_project/pages/main/restaruant_page/source/restaruant_slider.dart';
 import 'package:celebi_project/pages/main/restaruant_page/widgets/components/widgets.dart';
 import 'package:celebi_project/pages/main/restaruant_page/widgets/tabbar/reservation.dart';
 import 'package:flutter/material.dart';
