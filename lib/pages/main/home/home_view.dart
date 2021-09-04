@@ -4,6 +4,7 @@ import 'package:celebi_project/pages/main/bottom_nav_bar/bottom_nav_bar.dart';
 import 'package:celebi_project/pages/main/detail/detail_view.dart';
 import 'package:celebi_project/pages/main/home/components/pop_near_text.dart';
 import 'package:celebi_project/pages/main/route_filter_page/route_filter_page.dart';
+import 'package:celebi_project/services/firestore_service.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
@@ -26,6 +27,12 @@ class _HomeViewState extends State<HomeView> {
   String sehir = 'İstanbul';
 
   @override
+  void initState() {
+    super.initState();
+    FirestoreService().getMusics();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
@@ -44,7 +51,7 @@ class _HomeViewState extends State<HomeView> {
                     child: NearbyLocations(onTap: () {
                       //NEARBY
                       _pageIndex = 1;
-                      
+
                       print('_pageIndex = $_pageIndex');
                     })),
                 Spacer(),

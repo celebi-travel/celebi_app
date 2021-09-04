@@ -80,6 +80,7 @@ class FirestoreService {
         .ref()
         .child("images/${image.path}/${basename(file.path)}")
         .putFile(file);
+
     String url = await snap.ref.getDownloadURL();
 
     print(
@@ -112,4 +113,20 @@ class FirestoreService {
     });
     return _restaurants;
   }
+
+  Future<void> getMusics() async {
+    final FirebaseStorage _storage = FirebaseStorage.instance;
+    ListResult result = await _storage.ref().child('musics').list();
+    for (var i = 0; i < result.items.length; i++) {
+      String url = await result.items[i].getDownloadURL();
+      print('$i, url = $url');
+    }
+  }
 }
+
+List urls = [
+  'https://firebasestorage.googleapis.com/v0/b/celebi-9ee0d.appspot.com/o/musics%2FSelda%20Bagcan%20-%20Gesi%20Ba%C4%9Flar%C4%B1.mp3?alt=media&token=16a30aaa-2343-4d04-846c-d9c87f5a53e1'
+      'https://drive.google.com/file/d/1y0bh8JlXd6Wwq6FGJfxEqjA2T6AEqi5v/view?usp=sharing',
+  'https://www.youtube.com/watch?v=2aoRw_h_8es',
+  'https://soundcloud.com/mirsaid-733633977/selda-bagcan-gesi-baglari-1',
+];
