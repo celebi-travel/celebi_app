@@ -30,8 +30,8 @@ class _HomeViewState extends State<HomeView> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-          resizeToAvoidBottomInset: false,
           bottomNavigationBar: bottomBarMethod(context),
+          resizeToAvoidBottomInset: false,
           body: Padding(
             padding: context.paddingNormalHorizontal,
             child: Column(

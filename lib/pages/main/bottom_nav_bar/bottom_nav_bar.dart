@@ -27,7 +27,7 @@ class BottomNavBar extends StatelessWidget {
 List<SalomonBottomBarItem> bottomNavBarElementsList = [
   SalomonBottomBarItem(icon: Icon(Icons.home), title: Text('Home')),
   SalomonBottomBarItem(
-      icon: Icon(Icons.router_outlined), title: Text('Travels')),
+      icon: Icon(Icons.favorite_outline), title: Text('Travels')),
   SalomonBottomBarItem(
       icon: Icon(Icons.wallet_giftcard), title: Text('Wallets')),
   SalomonBottomBarItem(icon: Icon(Icons.qr_code), title: Text('QR')),
