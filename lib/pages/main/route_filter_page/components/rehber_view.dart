@@ -6,6 +6,7 @@ class RehberView extends StatelessWidget {
   const RehberView({Key? key}) : super(key: key);
 
   @override
+  
   Widget build(BuildContext context) {
     return Container(
       child: Expanded(

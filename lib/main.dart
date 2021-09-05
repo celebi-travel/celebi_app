@@ -1,7 +1,9 @@
+import 'package:celebi_project/extensions/context_extension.dart';
 import 'package:celebi_project/pages/auth/check_email/check_email.dart';
 import 'package:celebi_project/pages/auth/login_main_page/login_main_page.dart';
 import 'package:celebi_project/pages/auth/onboard/onboard_model.dart';
 import 'package:celebi_project/pages/auth/onboard/onboard_view.dart';
+import 'package:celebi_project/pages/auth/register_continue/register_view.dart';
 import 'package:celebi_project/pages/auth/splash/splash.dart';
 import 'package:celebi_project/pages/main/bottom_nav_bar/bottom_nav_bar.dart';
 import 'package:celebi_project/pages/main/detail/detail_view.dart';
@@ -50,18 +52,25 @@ class MyApp extends StatelessWidget {
       colorScheme: _appColorScheme,
       scaffoldBackgroundColor: Colors.white,
       inputDecorationTheme: InputDecorationTheme(
-        fillColor: Color(0xFF743F3F).withOpacity(0.2),
+        fillColor: context.colors.primary.withOpacity(0.2),
         filled: true,
         contentPadding: EdgeInsets.symmetric(horizontal: 10),
         enabledBorder: OutlineInputBorder(
             borderSide: BorderSide(
+              color: context.colors.primary,
               width: 2,
             ),
             borderRadius: BorderRadius.circular(20)),
         border: OutlineInputBorder(
-            borderSide: BorderSide(), borderRadius: BorderRadius.circular(20)),
+            borderSide: BorderSide(
+              color: context.colors.primary,
+            ),
+            borderRadius: BorderRadius.circular(20)),
         focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(), borderRadius: BorderRadius.circular(20)),
+            borderSide: BorderSide(
+              color: context.colors.primary,
+            ),
+            borderRadius: BorderRadius.circular(20)),
       ),
       textTheme: TextTheme(button: TextStyle(fontSize: 20)),
     );
