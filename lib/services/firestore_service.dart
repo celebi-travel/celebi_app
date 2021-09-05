@@ -9,26 +9,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 
 class FirestoreService {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
-
-  /*Future<void> saveHotelData({required Hotel hotel}) async {
-   print(hotel.toMap());
-    await _firestore
-        .collection('hotels')
-        .doc(hotel.hotelName.replaceAll(RegExp(' '), '-'))
-        .set(
-          hotel.toMap(),
-        );
-  }
-
-  Future<void> saveRestaurantData({required Restaurant restaurant}) async {
-    await _firestore
-        .collection('restaurants')
-        .doc(restaurant.restaurantName.replaceAll(RegExp(' '), '-'))
-        .set(
-          restaurant.toMap(),
-        );
-  }
-*/
   Future<void> saveNewUserData(
       {required User user,
       required String username,
@@ -139,6 +119,51 @@ class FirestoreService {
         .doc(city.toLowerCase())
         .get();
     return _data.data()!;
+  }
+
+  Future<void> makeReservation({
+    required Hotel hotel,
+    required DateTime startDate,
+    required DateTime endDate,
+    required int adultNumber,
+    required int childNumber,
+    required int roomNumber,
+    required String type,
+    required String hotelImageUrl,
+    required int price,
+  }) async {
+    String username = await FirestoreService().getCurrentUsersUsername();
+    String uid = AuthService().getCurrentUser()!.uid;
+    await FirebaseFirestore.instance
+        .collection('hotel-reservations')
+        .doc('${hotel.hotelName}-$startDate-$endDate')
+        .set(
+      {
+        'hotelName': hotel.hotelName,
+        'startDate': Timestamp.fromDate(startDate),
+        'endDate': Timestamp.fromDate(endDate),
+        'adultNumber': adultNumber,
+        'childNumber': childNumber,
+        'roomNumber': roomNumber,
+        'type': type,
+        'price': price,
+        'username': username,
+        'uid': uid,
+        'hotelImageUrl': hotelImageUrl,
+      },
+    );
+  }
+
+  Future<List<QueryDocumentSnapshot<Map<String, dynamic>>>>
+      getMyReservations() async {
+    String uid = AuthService().getCurrentUser()!.uid;
+    QuerySnapshot<Map<String, dynamic>> result = await FirebaseFirestore
+        .instance
+        .collection('hotel-reservations')
+        .where('uid', isEqualTo: uid)
+        .get();
+
+    return result.docs;
   }
 }
 

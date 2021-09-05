@@ -1,4 +1,5 @@
 import 'package:celebi_project/models/hotel_model.dart';
+import 'package:celebi_project/services/firestore_service.dart';
 
 import '../../../constants/image_slider.dart';
 import '../../../extensions/context_extension.dart';
@@ -21,8 +22,8 @@ class _HotelPageState extends State<HotelPage> {
   int room = 1;
   int children = 0;
   RoomOptions roomOptions = RoomOptions.standart;
-  DateTime? startDate;
-  DateTime? endDate;
+  DateTime? startDate = DateTime.now().add(Duration(days: 1));
+  DateTime? endDate = DateTime.now().add(Duration(days: 4));
   late List<int> numbers;
 
   _HotelPageState(this.hotel);
@@ -302,7 +303,23 @@ class _HotelPageState extends State<HotelPage> {
                         width: double.infinity,
                         child: Center(
                           child: TextButton(
-                              onPressed: () {},
+                              onPressed: () async {
+                                await FirestoreService().makeReservation(
+                                  hotel: hotel,
+                                  startDate: startDate!,
+                                  endDate: endDate!,
+                                  adultNumber: adults,
+                                  childNumber: children,
+                                  roomNumber: room,
+                                  type: roomOptions.name,
+                                  price: hotel.price,
+                                  hotelImageUrl: hotel.images.first,
+                                );
+
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                    SnackBar(
+                                        content: Text('Reservation send')));
+                              },
                               style: ButtonStyle(
                                   backgroundColor:
                                       MaterialStateProperty.all(Colors.red),
