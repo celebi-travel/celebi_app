@@ -1,15 +1,8 @@
 import 'package:celebi_project/extensions/context_extension.dart';
-import 'package:celebi_project/pages/auth/check_email/check_email.dart';
-import 'package:celebi_project/pages/auth/login_main_page/login_main_page.dart';
-import 'package:celebi_project/pages/auth/onboard/onboard_model.dart';
-import 'package:celebi_project/pages/auth/onboard/onboard_view.dart';
-import 'package:celebi_project/pages/auth/register_continue/register_view.dart';
-import 'package:celebi_project/pages/auth/splash/splash.dart';
-import 'package:celebi_project/pages/main/bottom_nav_bar/bottom_nav_bar.dart';
-import 'package:celebi_project/pages/main/detail/detail_view.dart';
 import 'package:celebi_project/pages/main/home/home_view.dart';
-import 'package:celebi_project/pages/main/profile/proflle_view.dart';
+import 'package:celebi_project/pages/main/music/music_view.dart';
 import 'package:celebi_project/services/locators.dart';
+import 'package:celebi_project/services/translator.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -42,7 +35,7 @@ class MyApp extends StatelessWidget {
       localizationsDelegates: context.localizationDelegates,
       supportedLocales: context.supportedLocales,
       locale: context.locale,
-      home: Splash(),
+      home: HomeView(),
     );
   }
 

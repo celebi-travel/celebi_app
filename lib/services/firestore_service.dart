@@ -86,6 +86,7 @@ class FirestoreService {
     List<Hotel> _hotels = [];
     hotels.docs.forEach((element) {
       var _hotelMap = element.data();
+
       _hotels.add(Hotel.fromJson(_hotelMap));
     });
     return _hotels;
@@ -118,6 +119,7 @@ class FirestoreService {
         .collection('Detail')
         .doc(city.toLowerCase())
         .get();
+    print(_data.data()!);
     return _data.data()!;
   }
 
