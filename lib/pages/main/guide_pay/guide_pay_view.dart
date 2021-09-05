@@ -18,27 +18,27 @@ class _GuidePayPageState extends State<GuidePayPage> {
   String tourPricesTitle = "Tour Prices";
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        appBar: AppBar(
-          elevation: 0,
-          backgroundColor: Colors.white,
-          centerTitle: true,
-          title: Text(
-            appBarTitle,
-            style: TextStyle(color: Colors.black),
-          ),
-          leading: IconButton(
-            icon: Icon(Icons.chevron_left, color: Colors.black),
-            onPressed: () {},
-          ),
+    return Scaffold(
+      appBar: AppBar(
+        elevation: 0,
+        backgroundColor: Colors.white,
+        centerTitle: true,
+        title: Text(
+          appBarTitle,
+          style: TextStyle(color: Colors.black),
         ),
-        body: Padding(
+        leading: IconButton(
+          icon: Icon(Icons.chevron_left, color: Colors.black),
+          onPressed: () {},
+        ),
+      ),
+      body: SafeArea(
+        child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 20),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              bookNowButton(),
+              bookNowButton(context),
               buildDivider(),
               buildTourPricesHead(),
               AllTours(),
