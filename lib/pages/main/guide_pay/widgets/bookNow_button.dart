@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-bookNowButton(context) {
+bookNowButton(context, selected) {
   String bookNowTitle = "Book Now";
   return Padding(
     padding: EdgeInsets.only(left: 245, top: 20),
@@ -10,7 +10,7 @@ bookNowButton(context) {
           SnackBar(
             backgroundColor: Color(0XFFB6E7DA),
             content: Text(
-              'Booked',
+              'Booked, $selected tl',
               style: TextStyle(color: Colors.black),
             ),
           ),
