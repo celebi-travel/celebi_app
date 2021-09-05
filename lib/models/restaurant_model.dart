@@ -25,6 +25,8 @@ class Restaurant {
     coordinate = json['coordinate'];
   }
 
+  get hotelName => null;
+
   Map<String, dynamic> toMap() {
     return {
       'restaurantName': restaurantName,
@@ -39,12 +41,11 @@ class Restaurant {
     return Restaurant(
       restaurantName: map['restaurantName'],
       images: map['images'],
-      rating:map['rating'],
-      place:map['place'],
-      coordinate:map['coordinate'],
+      rating: map['rating'],
+      place: map['place'],
+      coordinate: map['coordinate'],
     );
   }
 
   String toJson() => json.encode(toMap());
-
 }

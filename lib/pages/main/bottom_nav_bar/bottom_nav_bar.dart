@@ -17,7 +17,6 @@ class BottomNavBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Observer(builder: (_) {
       return Scaffold(
-        bottomNavigationBar: bottomBarMethod(context),
         body: bottomNavBarViewModel.pages[bottomNavBarViewModel.currentIndex],
       );
     });

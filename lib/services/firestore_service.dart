@@ -9,26 +9,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 
 class FirestoreService {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
-
-  /*Future<void> saveHotelData({required Hotel hotel}) async {
-   print(hotel.toMap());
-    await _firestore
-        .collection('hotels')
-        .doc(hotel.hotelName.replaceAll(RegExp(' '), '-'))
-        .set(
-          hotel.toMap(),
-        );
-  }
-
-  Future<void> saveRestaurantData({required Restaurant restaurant}) async {
-    await _firestore
-        .collection('restaurants')
-        .doc(restaurant.restaurantName.replaceAll(RegExp(' '), '-'))
-        .set(
-          restaurant.toMap(),
-        );
-  }
-*/
   Future<void> saveNewUserData(
       {required User user,
       required String username,
@@ -38,7 +18,13 @@ class FirestoreService {
         'uid': user.uid,
         'email': user.email,
         'username': username,
-        'dateOfBirth': dateOfBirth
+        'dateOfBirth': dateOfBirth,
+        'savedData': {
+          'cities': [],
+          'hotels': [],
+          'restaurants': [],
+          'favoritePlaces': [],
+        }
       },
     );
   }
@@ -140,11 +126,155 @@ class FirestoreService {
         .get();
     return _data.data()!;
   }
-}
 
-List urls = [
-  'https://firebasestorage.googleapis.com/v0/b/celebi-9ee0d.appspot.com/o/musics%2FSelda%20Bagcan%20-%20Gesi%20Ba%C4%9Flar%C4%B1.mp3?alt=media&token=16a30aaa-2343-4d04-846c-d9c87f5a53e1'
-      'https://drive.google.com/file/d/1y0bh8JlXd6Wwq6FGJfxEqjA2T6AEqi5v/view?usp=sharing',
-  'https://www.youtube.com/watch?v=2aoRw_h_8es',
-  'https://soundcloud.com/mirsaid-733633977/selda-bagcan-gesi-baglari-1',
-];
+  Future<void> makeReservation({
+    required Hotel hotel,
+    required DateTime startDate,
+    required DateTime endDate,
+    required int adultNumber,
+    required int childNumber,
+    required int roomNumber,
+    required String type,
+    required String hotelImageUrl,
+    required int price,
+  }) async {
+    String username = await FirestoreService().getCurrentUsersUsername();
+    String uid = AuthService().getCurrentUser()!.uid;
+    await FirebaseFirestore.instance
+        .collection('hotel-reservations')
+        .doc('${hotel.hotelName}-$startDate-$endDate')
+        .set(
+      {
+        'hotelName': hotel.hotelName,
+        'startDate': Timestamp.fromDate(startDate),
+        'endDate': Timestamp.fromDate(endDate),
+        'adultNumber': adultNumber,
+        'childNumber': childNumber,
+        'roomNumber': roomNumber,
+        'type': type,
+        'price': price,
+        'username': username,
+        'uid': uid,
+        'hotelImageUrl': hotelImageUrl,
+      },
+    );
+  }
+
+  Future<List<QueryDocumentSnapshot<Map<String, dynamic>>>>
+      getMyReservations() async {
+    String uid = AuthService().getCurrentUser()!.uid;
+    QuerySnapshot<Map<String, dynamic>> result = await FirebaseFirestore
+        .instance
+        .collection('hotel-reservations')
+        .where('uid', isEqualTo: uid)
+        .get();
+
+    return result.docs;
+  }
+
+  Future<void> saveViewedHotel(String name) async {
+    String uid = AuthService().getCurrentUser()!.uid;
+    DocumentSnapshot<Map<String, dynamic>> documentSnapshot =
+        await FirebaseFirestore.instance.collection('users').doc(uid).get();
+    Map savedData = (documentSnapshot.data() as Map)['savedData'];
+    savedData['hotels'].add(name);
+    await FirebaseFirestore.instance.collection('users').doc(uid).update(
+      {'savedData': savedData},
+    );
+  }
+
+  Future<void> saveViewedRestaurant(String name) async {
+    String uid = AuthService().getCurrentUser()!.uid;
+    DocumentSnapshot<Map<String, dynamic>> documentSnapshot =
+        await FirebaseFirestore.instance.collection('users').doc(uid).get();
+    Map savedData = (documentSnapshot.data() as Map)['savedData'];
+    savedData['restaurants'].add(name);
+    await FirebaseFirestore.instance.collection('users').doc(uid).update(
+      {'savedData': savedData},
+    );
+  }
+
+  Future<void> saveViewedCity(String name) async {
+    String uid = AuthService().getCurrentUser()!.uid;
+    DocumentSnapshot<Map<String, dynamic>> documentSnapshot =
+        await FirebaseFirestore.instance.collection('users').doc(uid).get();
+    Map savedData = (documentSnapshot.data() as Map)['savedData'];
+    savedData['cities'].add(name);
+    await FirebaseFirestore.instance.collection('users').doc(uid).update(
+      {'savedData': savedData},
+    );
+  }
+
+  Future<Map> getSavedData() async {
+    String uid = AuthService().getCurrentUser()!.uid;
+    DocumentSnapshot<Map<String, dynamic>> documentSnapshot =
+        await FirebaseFirestore.instance.collection('users').doc(uid).get();
+    Map savedData = (documentSnapshot.data() as Map)['savedData'];
+    if (savedData['hotels'].length > 3) {
+      for (var i = 0; i < savedData['hotels'].length - 3; i++) {
+        savedData['hotels'].removeAt(0);
+      }
+    }
+
+    if (savedData['restaurants'].length > 3) {
+      for (var i = 0; i < savedData['restaurants'].length - 3; i++) {
+        savedData['restaurants'].removeAt(0);
+      }
+    }
+    if (savedData['cities'].length > 3) {
+      for (var i = 0; i < savedData['cities'].length - 3; i++) {
+        savedData['cities'].removeAt(0);
+      }
+    }
+    return savedData;
+  }
+
+  Future<String> getHotelImagefromName(String name) async {
+    name = name.replaceAll(' ', '-');
+    DocumentSnapshot<Map<String, dynamic>> documentSnapshot =
+        await FirebaseFirestore.instance.collection('hotels').doc(name).get();
+
+    return (documentSnapshot.data() as Map)['images'].first;
+  }
+
+  Future<String> getRestaurantImagefromName(String name) async {
+    name = name.replaceAll(' ', '-');
+    DocumentSnapshot<Map<String, dynamic>> documentSnapshot =
+        await FirebaseFirestore.instance
+            .collection('restaurants')
+            .doc(name)
+            .get();
+
+    return (documentSnapshot.data() as Map)['imageUrls'].first;
+  }
+
+  Future<String> getCityImagefromName(String name) async {
+    DocumentSnapshot<Map<String, dynamic>> documentSnapshot =
+        await FirebaseFirestore.instance
+            .collection('Detail')
+            .doc(name.toLowerCase())
+            .get();
+
+    return (documentSnapshot.data() as Map)['generalImage'].first;
+  }
+
+  Future<void> saveFavoritePlace(
+      String city, String category, String name) async {
+    String uid = AuthService().getCurrentUser()!.uid;
+    DocumentSnapshot<Map<String, dynamic>> documentSnapshot =
+        await FirebaseFirestore.instance.collection('users').doc(uid).get();
+    Map savedData = (documentSnapshot.data() as Map)['savedData'];
+    savedData['favoritePlaces'].add('$city&$category&$name');
+    await FirebaseFirestore.instance.collection('users').doc(uid).update(
+      {'savedData': savedData},
+    );
+  }
+
+  Future<List> getFavoritePlaces() async {
+    String uid = AuthService().getCurrentUser()!.uid;
+    DocumentSnapshot<Map<String, dynamic>> documentSnapshot =
+        await FirebaseFirestore.instance.collection('users').doc(uid).get();
+    Map savedData = (documentSnapshot.data() as Map)['savedData'];
+    return savedData['favoritePlaces'];
+  }
+}
