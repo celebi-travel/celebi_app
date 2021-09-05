@@ -1,5 +1,6 @@
 import 'package:celebi_project/pages/main/restaruant_page/widgets/components/widgets.dart';
 import 'package:celebi_project/pages/main/restaruant_page/widgets/tabbar/reservation.dart';
+import 'package:celebi_project/services/firestore_service.dart';
 import 'package:flutter/material.dart';
 
 import '../../../constants/image_slider.dart';
@@ -17,6 +18,13 @@ class _RestaruantPageState extends State<RestaruantPage> {
   final Restaurant restaurant;
 
   _RestaruantPageState(this.restaurant);
+
+  @override
+  void initState() {
+    super.initState();
+    FirestoreService().saveViewedRestaurant(restaurant.restaurantName);
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(

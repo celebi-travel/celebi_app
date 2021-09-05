@@ -4,6 +4,7 @@ import 'package:celebi_project/models/place.dart';
 import 'package:celebi_project/pages/auth/custom/image_with_white_button.dart';
 import 'package:celebi_project/pages/main/bottom_nav_bar/bottom_nav_bar.dart';
 import 'package:celebi_project/pages/main/my_route_page/my_route_page.dart';
+import 'package:celebi_project/services/firestore_service.dart';
 
 import '../../../constants/sehirler_icinde_lat_long.dart';
 import '../../../models/filter_category_model.dart';
@@ -44,27 +45,19 @@ class _RouteFilterPageState extends State<RouteFilterPage> {
   }
 
   void _showMyRoute() {
-    print('...');
     List<LatLng>? randomcoordinates = [];
     randomLatLongs[placeModel.city!.toLowerCase()]!.forEach((element) {
       randomcoordinates.add(element);
     });
-    print('1');
-    print('randomcoordinates = ' + randomcoordinates.toString());
     List<LatLng>? chosencoordinates = [];
-    print('2');
     chosencoordinates.add(randomcoordinates.first);
-    print('3');
     randomcoordinates.remove(randomcoordinates.first);
-    print('4');
     for (var i = 0; i < _placeNames.length; i++) {
       int random = randomBetween(0, randomcoordinates.length - 1);
       chosencoordinates.add(randomcoordinates[random]);
       randomcoordinates.remove(randomcoordinates[random]);
     }
-    print('5');
     List<Map<String, LatLng>> directions = [];
-    print('6');
     for (var i = 0; i < chosencoordinates.length - 1; i++) {
       Map<String, LatLng> element = {
         'origin': chosencoordinates[i],
@@ -72,7 +65,6 @@ class _RouteFilterPageState extends State<RouteFilterPage> {
       };
       directions.add(element);
     }
-    print('1');
 
     Navigator.push(
       context,
@@ -91,6 +83,7 @@ class _RouteFilterPageState extends State<RouteFilterPage> {
   void initState() {
     super.initState();
     decodeJSON();
+    FirestoreService().saveViewedCity(placeModel.city!);
   }
 
   _RouteFilterPageState(this.placeModel);
@@ -214,9 +207,12 @@ class _RouteFilterPageState extends State<RouteFilterPage> {
                                 ['name'],
                             imgURL: sehirVerim[_categoryName.toLowerCase()]
                                 [index]['imgURL'],
-                            category: 'Forests\nSirkeci',
-                            starsNumber: 4,
-                            commentsNumber: 14211,
+                            category: ' ',
+                            starsNumber: sehirVerim[_categoryName.toLowerCase()]
+                                [index]['stars'],
+                            commentsNumber:
+                                sehirVerim[_categoryName.toLowerCase()][index]
+                                    ['commentsNumber'],
                             onPressed: () {
                               if (!_placeNames.contains(
                                   sehirVerim[_categoryName.toLowerCase()][index]
@@ -224,11 +220,31 @@ class _RouteFilterPageState extends State<RouteFilterPage> {
                                 _placeNames.add(
                                     sehirVerim[_categoryName.toLowerCase()]
                                         [index]['name']);
+
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(
+                                    backgroundColor: Color(0XFFB6E7DA),
+                                    content: Text(
+                                      'Place Added to list',
+                                      style: TextStyle(color: Colors.black),
+                                    ),
+                                  ),
+                                );
                               } else {
                                 _placeNames.remove(
                                     sehirVerim[_categoryName.toLowerCase()]
                                         [index]['name']);
+
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(
+                                    backgroundColor: Colors.red,
+                                    content: Text(
+                                      'Place Removed from list',
+                                    ),
+                                  ),
+                                );
                               }
+
                               setState(() {});
                             },
                             icon: _placeNames.contains(

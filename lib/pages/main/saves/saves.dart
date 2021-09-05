@@ -1,5 +1,6 @@
 import 'package:celebi_project/pages/main/bottom_nav_bar/bottom_nav_bar.dart';
 import 'package:celebi_project/pages/main/saves/pages/bookings_page.dart';
+import 'package:celebi_project/pages/main/saves/pages/recently_viewed.dart';
 import 'package:celebi_project/pages/main/saves/pages/trips_page.dart';
 import 'package:flutter/material.dart';
 
@@ -46,7 +47,7 @@ class _SavesState extends State<Saves> {
             TripsPage(),
             BookingsPage(),
             Icon(Icons.directions_car, size: 350),
-            Icon(Icons.directions_car, size: 350),
+            RecentlyViewed(),
           ],
         ),
       ),

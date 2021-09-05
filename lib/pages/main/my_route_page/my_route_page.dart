@@ -105,8 +105,8 @@ class _MyRoutePageState extends State<MyRoutePage> {
           position:
               LatLng(element.coordinate.latitude, element.coordinate.longitude),
           infoWindow: InfoWindow(
-              title: element.hotelName,
-              snippet: 'Standart ${element.price} TL')));
+            title: element.hotelName,
+          )));
     });
     setState(() {});
   }
@@ -153,6 +153,7 @@ class _MyRoutePageState extends State<MyRoutePage> {
           PointLatLng(directions[i]['destination']!.latitude,
               directions[i]['destination']!.longitude));
       if (result.status == 'OK') {
+        print('status ok');
         result.points.forEach((_element) {
           polylineCoordinates
               .add(LatLng(_element.latitude, _element.longitude));
@@ -165,8 +166,11 @@ class _MyRoutePageState extends State<MyRoutePage> {
           points: polylineCoordinates,
           width: 5);
       _polylines.add(polyline);
+      _polylines.forEach((element) {
+        print(element.polylineId);
+      });
+      setState(() {});
     }
-    setState(() {});
   }
 
   Future<void> _getHotels() async {
