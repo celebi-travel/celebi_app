@@ -35,6 +35,7 @@ class _RouteFilterPageState extends State<RouteFilterPage> {
   late Map sehirVerim;
   bool loadingDone = false;
   List _placeNames = [];
+  List favoritePlaces = [];
 
   Future<void> decodeJSON() async {
     String jsonString = await rootBundle.loadString('json/sehirler.json');
@@ -79,9 +80,15 @@ class _RouteFilterPageState extends State<RouteFilterPage> {
     );
   }
 
+  Future<void> getFavoritePlaces() async {
+    favoritePlaces = await FirestoreService().getFavoritePlaces();
+    setState(() {});
+  }
+
   @override
   void initState() {
     super.initState();
+    getFavoritePlaces();
     decodeJSON();
     FirestoreService().saveViewedCity(placeModel.city!);
   }
@@ -203,6 +210,10 @@ class _RouteFilterPageState extends State<RouteFilterPage> {
                         shrinkWrap: true,
                         itemBuilder: (BuildContext context, int index) {
                           return PlaceWidget(
+                            favoriteButtonColor: favoritePlaces.contains(
+                                    "${placeModel.city!.toLowerCase()}&${_categoryName.toLowerCase()}&${sehirVerim[_categoryName.toLowerCase()][index]['name']}")
+                                ? Colors.pink
+                                : Colors.grey,
                             name: sehirVerim[_categoryName.toLowerCase()][index]
                                 ['name'],
                             imgURL: sehirVerim[_categoryName.toLowerCase()]
@@ -246,6 +257,17 @@ class _RouteFilterPageState extends State<RouteFilterPage> {
                               }
 
                               setState(() {});
+                            },
+                            favoriteButton: () async {
+                              if (!favoritePlaces.contains(
+                                  "${placeModel.city!.toLowerCase()}&${_categoryName.toLowerCase()}&${sehirVerim[_categoryName.toLowerCase()][index]['name']}")) {
+                                await FirestoreService().saveFavoritePlace(
+                                    placeModel.city!.toLowerCase(),
+                                    _categoryName.toLowerCase(),
+                                    sehirVerim[_categoryName.toLowerCase()]
+                                        [index]['name']);
+                              }
+                              getFavoritePlaces();
                             },
                             icon: _placeNames.contains(
                                     sehirVerim[_categoryName.toLowerCase()]
@@ -317,11 +339,14 @@ class PlaceWidget extends StatelessWidget {
     required this.commentsNumber,
     required this.icon,
     required this.onPressed,
+    required this.favoriteButton,
+    required this.favoriteButtonColor,
   }) : super(key: key);
   final String name, imgURL, category;
   final int starsNumber, commentsNumber;
   final IconData icon;
-  final VoidCallback onPressed;
+  final Color favoriteButtonColor;
+  final VoidCallback onPressed, favoriteButton;
 
   @override
   Widget build(BuildContext context) {
@@ -344,9 +369,13 @@ class PlaceWidget extends StatelessWidget {
                           fit: BoxFit.cover,
                         )),
                     Positioned(
-                      child: CircleAvatar(
-                        child: Icon(Icons.favorite, color: Colors.grey),
-                        backgroundColor: Colors.white,
+                      child: GestureDetector(
+                        onTap: favoriteButton,
+                        child: CircleAvatar(
+                          child:
+                              Icon(Icons.favorite, color: favoriteButtonColor),
+                          backgroundColor: Colors.white,
+                        ),
                       ),
                       top: 6,
                       right: 6,

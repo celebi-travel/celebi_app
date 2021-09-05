@@ -19,7 +19,12 @@ class FirestoreService {
         'email': user.email,
         'username': username,
         'dateOfBirth': dateOfBirth,
-        'savedData': {'cities': [], 'hotels': [], 'restaurants': []}
+        'savedData': {
+          'cities': [],
+          'hotels': [],
+          'restaurants': [],
+          'favoritePlaces': [],
+        }
       },
     );
   }
@@ -251,5 +256,25 @@ class FirestoreService {
             .get();
 
     return (documentSnapshot.data() as Map)['generalImage'].first;
+  }
+
+  Future<void> saveFavoritePlace(
+      String city, String category, String name) async {
+    String uid = AuthService().getCurrentUser()!.uid;
+    DocumentSnapshot<Map<String, dynamic>> documentSnapshot =
+        await FirebaseFirestore.instance.collection('users').doc(uid).get();
+    Map savedData = (documentSnapshot.data() as Map)['savedData'];
+    savedData['favoritePlaces'].add('$city&$category&$name');
+    await FirebaseFirestore.instance.collection('users').doc(uid).update(
+      {'savedData': savedData},
+    );
+  }
+
+  Future<List> getFavoritePlaces() async {
+    String uid = AuthService().getCurrentUser()!.uid;
+    DocumentSnapshot<Map<String, dynamic>> documentSnapshot =
+        await FirebaseFirestore.instance.collection('users').doc(uid).get();
+    Map savedData = (documentSnapshot.data() as Map)['savedData'];
+    return savedData['favoritePlaces'];
   }
 }
