@@ -4,6 +4,7 @@ import 'package:celebi_project/pages/main/bottom_nav_bar/bottom_nav_bar.dart';
 import 'package:celebi_project/pages/main/detail/detail_view.dart';
 import 'package:celebi_project/pages/main/home/components/pop_near_text.dart';
 import 'package:celebi_project/pages/main/route_filter_page/route_filter_page.dart';
+import 'package:celebi_project/services/auth_service.dart';
 import 'package:celebi_project/services/firestore_service.dart';
 import 'package:celebi_project/services/translator.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -24,13 +25,16 @@ class HomeView extends StatefulWidget {
 class _HomeViewState extends State<HomeView> {
   final searchController = TextEditingController();
   PlaceModel? currentCity;
-  int _pageIndex = 0;
-  String sehir = 'İstanbul';
+
+  Future<void> username() async {
+    String uid = AuthService().getCurrentUser()!.uid;
+    print(uid);
+  }
+
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
-    print(TranslatorManager.instance.translate(context, 'Merhaba! nasılsın?'));
+    username();
   }
 
   @override

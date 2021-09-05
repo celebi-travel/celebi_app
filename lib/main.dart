@@ -1,6 +1,6 @@
 import 'package:celebi_project/extensions/context_extension.dart';
+import 'package:celebi_project/pages/auth/check_email/check_email.dart';
 import 'package:celebi_project/pages/main/home/home_view.dart';
-import 'package:celebi_project/pages/main/music/music_view.dart';
 import 'package:celebi_project/services/locators.dart';
 import 'package:celebi_project/services/translator.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -12,6 +12,7 @@ import 'cache/locale_manager.dart';
 import 'constants/lang/language_manager.dart';
 
 Future<void> main() async {
+  
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   LocatorInjector.setupLocator();

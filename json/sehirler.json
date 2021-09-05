@@ -3,33 +3,51 @@
         "bursa": {
             "history": [{
                 "name": "Koza Han",
-                "imgURL": "https://www.dergibursa.com.tr/wp-content/uploads/2017/02/Aykut-G%C3%BCng%C3%B6r-Koza-Han-May%C4%B1s-2008.jpg"
+                "imgURL": "https://www.dergibursa.com.tr/wp-content/uploads/2017/02/Aykut-G%C3%BCng%C3%B6r-Koza-Han-May%C4%B1s-2008.jpg",
+                "commentsNumber": 1231,
+                "stars": 4
             }, {
                 "name": "Ulu Camii",
-                "imgURL": "https://somuncubabaturbesi.com/wp-content/uploads/2018/03/bursa-ulu-camii-fotograf-somuncu-baba.jpg"
+                "imgURL": "https://somuncubabaturbesi.com/wp-content/uploads/2018/03/bursa-ulu-camii-fotograf-somuncu-baba.jpg",
+                "commentsNumber": 6214,
+                "stars": 3
             }, {
                 "name": "Muradiye Külliyesi",
-                "imgURL": "https://www.bursageziyorum.com/wp-content/uploads/Muradiye-K%C3%BClliyesi-Bursa-min.jpg"
+                "imgURL": "https://www.bursageziyorum.com/wp-content/uploads/Muradiye-K%C3%BClliyesi-Bursa-min.jpg",
+                "commentsNumber": 5123,
+                "stars": 5
             }],
             "outdoors": [{
                 "name": "Bursa Tarihi Evleri",
-                "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/02/bursa-tarihi-evleri-scaled.jpg"
+                "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/02/bursa-tarihi-evleri-scaled.jpg",
+                "commentsNumber": 5434,
+                "stars": 3
             }, {
                 "name": "Bakacak Seyir Noktası",
-                "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/02/bakacak-seyir-terasi-768x475.png"
+                "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/02/bakacak-seyir-terasi-768x475.png",
+                "commentsNumber": 12412,
+                "stars": 4
             }, {
                 "name": "Bursa Teleferik",
-                "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/02/bursa-teleferik-scaled.jpg"
+                "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/02/bursa-teleferik-scaled.jpg",
+                "commentsNumber": 5341,
+                "stars": 3
             }],
             "entertainment": [{
                 "name": "Ahmet Vefik Paşa Tiyatrosu",
-                "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/02/ahmet-vefik-pasa-tiyatrosu-696x522.jpg"
+                "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/02/ahmet-vefik-pasa-tiyatrosu-696x522.jpg",
+                "commentsNumber": 12412,
+                "stars": 5
             }, {
                 "name": "Tayyare Kültür Merkezi",
-                "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/02/teyyare-kultur-merkezi-scaled.jpg"
+                "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/02/teyyare-kultur-merkezi-scaled.jpg",
+                "commentsNumber": 4123,
+                "stars": 2
             }, {
                 "name": "Kültürpark Açıkhava Tiyatrosu",
-                "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/02/kulturpark-acikhava-tiyatrosu.png"
+                "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/02/kulturpark-acikhava-tiyatrosu.png",
+                "commentsNumber": 2412,
+                "stars": 4
             }]
         },
         "balikesir": {
