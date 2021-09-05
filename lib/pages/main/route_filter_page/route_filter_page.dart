@@ -38,8 +38,6 @@ class _RouteFilterPageState extends State<RouteFilterPage> {
   Future<void> decodeJSON() async {
     String jsonString = await rootBundle.loadString('json/sehirler.json');
     final jsonResponse = json.decode(jsonString);
-    print(
-        'decode şehir 1. ${placeModel.city!} toLowerCase = ${placeModel.city!.toLowerCase()}');
     sehirVerim = jsonResponse['sehirler'][placeModel.city!.toLowerCase()];
     loadingDone = true;
     setState(() {});
@@ -77,9 +75,16 @@ class _RouteFilterPageState extends State<RouteFilterPage> {
     print('1');
 
     Navigator.push(
-        context,
-        MaterialPageRoute(
-            builder: (context) => MyRoutePage(directions: directions)));
+      context,
+      MaterialPageRoute(
+        builder: (context) => MyRoutePage(
+          directions: directions,
+          initialPosition: CameraPosition(
+              target: randomLatLongs[placeModel.city!.toLowerCase()]![0],
+              zoom: 10),
+        ),
+      ),
+    );
   }
 
   @override

@@ -12,10 +12,11 @@ class HotelPage extends StatefulWidget {
   const HotelPage({Key? key, required this.hotel}) : super(key: key);
   final Hotel hotel;
   @override
-  _HotelPageState createState() => _HotelPageState();
+  _HotelPageState createState() => _HotelPageState(hotel);
 }
 
 class _HotelPageState extends State<HotelPage> {
+  final Hotel hotel;
   int adults = 2;
   int room = 1;
   int children = 0;
@@ -23,6 +24,8 @@ class _HotelPageState extends State<HotelPage> {
   DateTime? startDate;
   DateTime? endDate;
   late List<int> numbers;
+
+  _HotelPageState(this.hotel);
   @override
   void initState() {
     super.initState();
@@ -51,7 +54,7 @@ class _HotelPageState extends State<HotelPage> {
             )),
         centerTitle: true,
         title: Text(
-          "Hilton Hotel",
+          hotel.hotelName,
           style: TextStyle(color: Colors.black),
         ),
       ),
@@ -59,21 +62,21 @@ class _HotelPageState extends State<HotelPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            ImageSlider(imagesList: []),
+            ImageSlider(imagesList: hotel.images),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Padding(
                   padding: const EdgeInsets.only(left: 10),
                   child: Chip(
-                      label: Text('Şişli'),
+                      label: Text(hotel.place),
                       avatar: Icon(Icons.place, color: Colors.red),
                       backgroundColor: context.colors.background),
                 ),
                 Row(
                   children: [
                     Chip(
-                        label: Text('5.0'),
+                        label: Text(hotel.rating.toString()),
                         avatar: Icon(Icons.star, color: Colors.yellow),
                         backgroundColor: context.colors.background),
                     IconButton(
@@ -282,7 +285,7 @@ class _HotelPageState extends State<HotelPage> {
                           child: Column(
                             children: [
                               Text(
-                                '546 TL',
+                                '${hotel.price} TL',
                                 style: context.textTheme.headline6!
                                     .copyWith(color: Colors.white),
                               ),

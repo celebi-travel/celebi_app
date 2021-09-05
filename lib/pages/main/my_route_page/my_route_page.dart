@@ -12,11 +12,14 @@ import 'package:flutter_polyline_points/flutter_polyline_points.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class MyRoutePage extends StatefulWidget {
-  const MyRoutePage({Key? key, required this.directions}) : super(key: key);
-
+  const MyRoutePage(
+      {Key? key, required this.directions, required this.initialPosition})
+      : super(key: key);
+  final CameraPosition initialPosition;
   final List<Map<String, LatLng>> directions;
   @override
-  _MyRoutePageState createState() => _MyRoutePageState(directions);
+  _MyRoutePageState createState() =>
+      _MyRoutePageState(directions, initialPosition);
 }
 
 class _MyRoutePageState extends State<MyRoutePage> {
@@ -24,10 +27,7 @@ class _MyRoutePageState extends State<MyRoutePage> {
   late BitmapDescriptor _markerHotelIcon;
   late BitmapDescriptor _markerRestaurantIcon;
 
-  CameraPosition _initialPosition = CameraPosition(
-    target: LatLng(41.015137, 28.979530),
-    zoom: 10,
-  );
+  final CameraPosition _initialPosition;
 
   var _items = [
     FilterCategory(
@@ -59,7 +59,7 @@ class _MyRoutePageState extends State<MyRoutePage> {
   List<Restaurant> restaurants = [];
   bool showHotels = false;
 
-  _MyRoutePageState(this.directions);
+  _MyRoutePageState(this.directions, this._initialPosition);
 
   Future<void> onMapCreated(GoogleMapController controller) async {
     _controller.complete(controller);
