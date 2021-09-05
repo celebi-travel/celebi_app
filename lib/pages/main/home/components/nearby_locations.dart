@@ -7,10 +7,7 @@ import 'package:flutter/material.dart';
 class NearbyLocations extends StatefulWidget {
   NearbyLocations({
     Key? key,
-    required this.onTap,
   }) : super(key: key);
-
-  final VoidCallback onTap;
 
   @override
   _NearbyLocationsState createState() => _NearbyLocationsState();

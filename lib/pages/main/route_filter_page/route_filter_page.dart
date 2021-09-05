@@ -15,6 +15,7 @@ import 'package:random_string/random_string.dart';
 
 import '../../../../extensions/context_extension.dart';
 import 'components/category_item.dart';
+import 'components/rehber_view.dart';
 import 'components/stars_builder.dart';
 
 class RouteFilterPage extends StatefulWidget {
@@ -27,8 +28,8 @@ class RouteFilterPage extends StatefulWidget {
 
 class _RouteFilterPageState extends State<RouteFilterPage> {
   final PlaceModel placeModel;
-  String _categoryName = 'Outdoors';
-  int _currentSelectedCategoryIndex = 1;
+  String _categoryName = 'Guider';
+  int _currentSelectedCategoryIndex = 0;
   TextEditingController _controller = TextEditingController();
   late Map sehirVerim;
   bool loadingDone = false;
@@ -37,14 +38,15 @@ class _RouteFilterPageState extends State<RouteFilterPage> {
   Future<void> decodeJSON() async {
     String jsonString = await rootBundle.loadString('json/sehirler.json');
     final jsonResponse = json.decode(jsonString);
-    sehirVerim = jsonResponse['sehirler'][placeModel.city];
+    sehirVerim = jsonResponse['sehirler'][placeModel.city!.toLowerCase()];
     loadingDone = true;
     setState(() {});
   }
 
   void _showMyRoute() {
+    print('...');
     List<LatLng>? randomcoordinates = [];
-    randomLatLongs[placeModel.city]!.forEach((element) {
+    randomLatLongs[placeModel.city!.toLowerCase()]!.forEach((element) {
       randomcoordinates.add(element);
     });
     print('1');
@@ -73,9 +75,16 @@ class _RouteFilterPageState extends State<RouteFilterPage> {
     print('1');
 
     Navigator.push(
-        context,
-        MaterialPageRoute(
-            builder: (context) => MyRoutePage(directions: directions)));
+      context,
+      MaterialPageRoute(
+        builder: (context) => MyRoutePage(
+          directions: directions,
+          initialPosition: CameraPosition(
+              target: randomLatLongs[placeModel.city!.toLowerCase()]![0],
+              zoom: 10),
+        ),
+      ),
+    );
   }
 
   @override
@@ -194,41 +203,44 @@ class _RouteFilterPageState extends State<RouteFilterPage> {
                                     fontSize: 12, color: Colors.black))),
                       ),
                     ),
-                    ListView.builder(
-                      itemCount: sehirVerim.length,
-                      physics: NeverScrollableScrollPhysics(),
-                      shrinkWrap: true,
-                      itemBuilder: (BuildContext context, int index) {
-                        return PlaceWidget(
-                          name: sehirVerim[_categoryName.toLowerCase()][index]
-                              ['name'],
-                          imgURL: sehirVerim[_categoryName.toLowerCase()][index]
-                              ['imgURL'],
-                          category: 'Forests\nSirkeci',
-                          starsNumber: 4,
-                          commentsNumber: 14211,
-                          onPressed: () {
-                            if (!_placeNames.contains(
-                                sehirVerim[_categoryName.toLowerCase()][index]
-                                    ['name'])) {
-                              _placeNames.add(
+                    if (_currentSelectedCategoryIndex != 0)
+                      ListView.builder(
+                        itemCount: sehirVerim.length,
+                        physics: NeverScrollableScrollPhysics(),
+                        shrinkWrap: true,
+                        itemBuilder: (BuildContext context, int index) {
+                          return PlaceWidget(
+                            name: sehirVerim[_categoryName.toLowerCase()][index]
+                                ['name'],
+                            imgURL: sehirVerim[_categoryName.toLowerCase()]
+                                [index]['imgURL'],
+                            category: 'Forests\nSirkeci',
+                            starsNumber: 4,
+                            commentsNumber: 14211,
+                            onPressed: () {
+                              if (!_placeNames.contains(
                                   sehirVerim[_categoryName.toLowerCase()][index]
-                                      ['name']);
-                            } else {
-                              _placeNames.remove(
-                                  sehirVerim[_categoryName.toLowerCase()][index]
-                                      ['name']);
-                            }
-                            setState(() {});
-                          },
-                          icon: _placeNames.contains(
-                                  sehirVerim[_categoryName.toLowerCase()][index]
-                                      ['name'])
-                              ? Icons.done
-                              : Icons.add,
-                        );
-                      },
-                    ),
+                                      ['name'])) {
+                                _placeNames.add(
+                                    sehirVerim[_categoryName.toLowerCase()]
+                                        [index]['name']);
+                              } else {
+                                _placeNames.remove(
+                                    sehirVerim[_categoryName.toLowerCase()]
+                                        [index]['name']);
+                              }
+                              setState(() {});
+                            },
+                            icon: _placeNames.contains(
+                                    sehirVerim[_categoryName.toLowerCase()]
+                                        [index]['name'])
+                                ? Icons.done
+                                : Icons.add,
+                          );
+                        },
+                      )
+                    else
+                      RehberView(),
                   ],
                 ),
               )
@@ -311,7 +323,10 @@ class PlaceWidget extends StatelessWidget {
                     Container(
                         height: 170,
                         color: Colors.blue,
-                        child: buildImage(imgURL)),
+                        child: Image.network(
+                          imgURL,
+                          fit: BoxFit.cover,
+                        )),
                     Positioned(
                       child: CircleAvatar(
                         child: Icon(Icons.favorite, color: Colors.grey),
