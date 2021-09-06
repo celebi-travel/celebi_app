@@ -1,11 +1,9 @@
-import 'package:celebi_project/pages/auth/check_email/check_email.dart';
 import 'package:celebi_project/pages/main/home/home_view.dart';
 import 'package:celebi_project/services/locators.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-
 import 'cache/locale_manager.dart';
 import 'constants/lang/language_manager.dart';
 

@@ -25,7 +25,7 @@ class _NearbyLocationsState extends State<NearbyLocations> {
             itemCount: nearbyLocations.length,
             scrollDirection: Axis.horizontal,
             physics: BouncingScrollPhysics(),
-            itemBuilder: (context, index) => Stack(children: <Widget>[
+            itemBuilder: (context, index) => Stack(children: [
               GestureDetector(
                 onTap: () {
                   Navigator.push(
@@ -37,7 +37,7 @@ class _NearbyLocationsState extends State<NearbyLocations> {
                 },
                 child: Container(
                   alignment: Alignment.bottomLeft,
-                  width: context.height * 0.11,
+                  width: context.height * 0.135,
                   height: context.height * 0.24,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(12),
@@ -62,7 +62,7 @@ class _NearbyLocationsState extends State<NearbyLocations> {
                 },
                 child: Container(
                   alignment: Alignment.bottomLeft,
-                  width: context.height * 0.11,
+                  width: context.height * 0.135,
                   height: context.height * 0.24,
                   margin: EdgeInsets.only(right: 10),
                   padding: EdgeInsets.only(left: 5, bottom: 5),
@@ -107,7 +107,7 @@ class HeadText extends StatelessWidget {
     return Text(
       text,
       style: context.textTheme.bodyText2!.copyWith(
-          color: Colors.white, fontSize: 13, fontWeight: FontWeight.bold),
+          color: Colors.white, fontSize: 10, fontWeight: FontWeight.bold),
     );
   }
 }

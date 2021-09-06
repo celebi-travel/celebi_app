@@ -14,13 +14,6 @@ buildAppBar(context) {
         color: Colors.black,
       ),
     ),
-    actions: [
-      Row(
-        children: [
-          IconButton(onPressed: () {}, icon: Icon(Icons.notifications_active), color: Colors.black),
-          IconButton(onPressed: () {}, icon: Icon(Icons.more_vert), color: Colors.black),
-        ],
-      )
-    ],
+    actions: [],
   );
 }

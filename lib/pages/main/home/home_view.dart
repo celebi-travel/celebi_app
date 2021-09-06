@@ -50,7 +50,7 @@ class _HomeViewState extends State<HomeView> {
                 buildSearchField(searchController),
                 Spacer(),
                 buildNearbyLocationsText(context),
-                Expanded(flex: 3, child: NearbyLocations()),
+                Expanded(flex: 6, child: NearbyLocations()),
                 Spacer(),
                 Align(
                   alignment: Alignment.centerLeft,
@@ -59,10 +59,10 @@ class _HomeViewState extends State<HomeView> {
                     style: context.textTheme.headline6!.copyWith(
                         letterSpacing: 0.3,
                         fontWeight: FontWeight.bold,
-                        fontSize: 22),
+                        fontSize: 20),
                   ).tr(),
                 ),
-                Expanded(flex: 3, child: PopularLocations()),
+                Expanded(flex: 6, child: PopularLocations()),
                 Spacer(),
                 buildPopularPlaceText(context),
                 Expanded(
@@ -105,7 +105,7 @@ class PopularLocations extends StatelessWidget {
                 },
                 child: Container(
                   alignment: Alignment.bottomLeft,
-                  width: context.height * 0.11,
+                  width: context.height * 0.135,
                   height: context.height * 0.19,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(12),
@@ -130,7 +130,7 @@ class PopularLocations extends StatelessWidget {
                 },
                 child: Container(
                   alignment: Alignment.bottomLeft,
-                  width: context.height * 0.11,
+                  width: context.height * 0.135,
                   height: context.height * 0.19,
                   margin: EdgeInsets.only(right: 10),
                   padding: EdgeInsets.only(left: 5, bottom: 5),
