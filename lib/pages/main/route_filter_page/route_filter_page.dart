@@ -299,7 +299,7 @@ Container buildSearchField(searchController) {
   return Container(
     height: 50,
     decoration: BoxDecoration(
-        color: Colors.white, borderRadius: BorderRadius.circular(20)),
+        color: Colors.white, borderRadius: BorderRadius.circular(15)),
     margin: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
     child: Center(
       child: TextFormField(

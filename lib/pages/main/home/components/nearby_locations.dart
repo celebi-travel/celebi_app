@@ -37,14 +37,14 @@ class _NearbyLocationsState extends State<NearbyLocations> {
                 },
                 child: Container(
                   alignment: Alignment.bottomLeft,
-                  width: context.height * 0.08,
-                  height: context.height * 0.08,
+                  width: context.height * 0.11,
+                  height: context.height * 0.24,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(12),
                     color: Colors.transparent,
                     image: DecorationImage(
-                      fit: BoxFit.fill,
-                      image: AssetImage(
+                      fit: BoxFit.cover,
+                      image: NetworkImage(
                         nearbyLocations[index].imageUrl!,
                       ),
                     ),
@@ -62,8 +62,8 @@ class _NearbyLocationsState extends State<NearbyLocations> {
                 },
                 child: Container(
                   alignment: Alignment.bottomLeft,
-                  width: context.height * 0.08,
-                  height: context.height * 0.08,
+                  width: context.height * 0.11,
+                  height: context.height * 0.24,
                   margin: EdgeInsets.only(right: 10),
                   padding: EdgeInsets.only(left: 5, bottom: 5),
                   decoration: BoxDecoration(
@@ -106,8 +106,8 @@ class HeadText extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       text,
-      style: context.textTheme.bodyText2!
-          .copyWith(color: Colors.white, fontSize: 10),
+      style: context.textTheme.bodyText2!.copyWith(
+          color: Colors.white, fontSize: 13, fontWeight: FontWeight.bold),
     );
   }
 }

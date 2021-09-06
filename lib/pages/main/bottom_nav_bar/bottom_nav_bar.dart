@@ -1,10 +1,6 @@
 import 'package:celebi_project/pages/auth/login_main_page/login_main_page.dart';
 import 'package:celebi_project/pages/main/bottom_nav_bar/bottom_nav_bar_view_model.dart';
-import 'package:celebi_project/pages/main/create_route/create_route.dart';
-import 'package:celebi_project/pages/main/home/home_view.dart';
-import 'package:celebi_project/services/locators.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-
 import '../../../services/auth_service.dart';
 import '../../../services/firestore_service.dart';
 import 'package:flutter/material.dart';
