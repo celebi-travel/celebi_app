@@ -15,6 +15,7 @@ class HeadTitle extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Container(
+          //margin: EdgeInsets.only(top: 40),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.center,
