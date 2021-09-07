@@ -1,3 +1,5 @@
+import 'package:celebi_project/constants/lang/locale_keys.g.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../extensions/context_extension.dart';
@@ -31,20 +33,21 @@ class _LoginMainPageState extends State<LoginMainPage> {
                     Image.asset('asset/images/login.png', fit: BoxFit.contain),
               ),
               Spacer(),
-              Text('Get connect to the best Mentors',
-                  textAlign: TextAlign.center,
-                  style: context.textTheme.headline2!
-                      .copyWith(color: Colors.black)),
+              Text(LocaleKeys.login1_title,
+                      textAlign: TextAlign.center,
+                      style: context.textTheme.headline2!
+                          .copyWith(color: Colors.black))
+                  .tr(),
               Spacer(),
-              Text(
-                  'Easy way to conenct to mentor and get advise solution of design.',
-                  textAlign: TextAlign.center,
-                  style: context.textTheme.headline5!.copyWith(
-                      color: Colors.blueGrey[400],
-                      fontWeight: FontWeight.w400)),
+              Text(LocaleKeys.login1_subtitle,
+                      textAlign: TextAlign.center,
+                      style: context.textTheme.headline5!.copyWith(
+                          color: Colors.blueGrey[400],
+                          fontWeight: FontWeight.w400))
+                  .tr(),
               Spacer(),
               LoginButton(
-                name: 'Login with Google',
+                name: LocaleKeys.login1_googlebtn.tr(),
                 imagePath: 'asset/icons/google.png',
                 color: Color(0xff1A81F3),
                 avatarColor: Colors.white.withOpacity(0.15),
@@ -54,7 +57,7 @@ class _LoginMainPageState extends State<LoginMainPage> {
                 },
               ),
               LoginButton(
-                name: 'Login with Email',
+                name: LocaleKeys.login1_mailbtn.tr(),
                 imagePath: 'asset/icons/email.png',
                 color: Colors.grey[200]!,
                 avatarColor: Color(0xff1A81F3),

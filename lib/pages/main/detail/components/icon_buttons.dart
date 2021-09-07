@@ -1,5 +1,7 @@
+import 'package:celebi_project/constants/lang/locale_keys.g.dart';
 import 'package:celebi_project/models/place.dart';
 import 'package:celebi_project/pages/main/route_filter_page/route_filter_page.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 import '../../../../extensions/context_extension.dart';
 import 'package:flutter/material.dart';
@@ -28,7 +30,7 @@ class BuildIconButton extends StatelessWidget {
                           RouteFilterPage(placeModel: placeModel),
                     ));
               },
-              child: Text('Create Your Route',
+              child: Text(LocaleKeys.detail_page_create_route.tr(),
                   style: context.textTheme.bodyText2!
                       .copyWith(fontSize: 14, color: Colors.white)),
               style: ButtonStyle(

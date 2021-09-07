@@ -95,6 +95,7 @@ class FirestoreService {
 
       _hotels.add(Hotel.fromJson(_hotelMap));
     });
+  
     return _hotels;
   }
 

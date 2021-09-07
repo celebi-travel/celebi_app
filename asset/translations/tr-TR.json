@@ -9,7 +9,7 @@
   },
   "detail_page": {
     "create_route": "Rotanızı Oluşturun",
-    "products": "Ürün:% s",
+    "products": "Ürünler",
     "post": "Gönderiler",
     "alert": {
       "title": "Bize biraz fotoğraflarınız hakkında bilgi verin",
@@ -46,7 +46,7 @@
     "title": "Tekrar hoşgeldiniz",
     "email_field": "E-posta ya da kullanıcı adı",
     "password_field": "Parola",
-    "forget_password": "Şifreyi unut",
+    "forget_password": "Şifreyi unuttun mu",
     "login": "Giriş",
     "not_account": "Hesabınız yok mu? Üye Ol"
   },
@@ -57,13 +57,13 @@
     "date": "Doğum tarihi",
     "password": "Parola",
     "agree": "Hizmet Şartları ve gizlilik politikasını kabul ediyorum",
-    "register": "Kayıt olmak"
+    "register": "Kayıt ol"
   },
   "forget_password": {
     "title": "Şifreyi unut",
     "subtitle": "Parola sıfırlama talimatını almak için kayıtlı e-postanızı aşağıya girin",
     "email": "E-posta",
-    "send": "Göndermek",
+    "send": "Gönder",
     "back_to_login": "Girişe geri dön"
   },
   "check_email": {

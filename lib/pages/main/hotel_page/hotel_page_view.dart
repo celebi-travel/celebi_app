@@ -1,5 +1,7 @@
+import 'package:celebi_project/constants/lang/locale_keys.g.dart';
 import 'package:celebi_project/models/hotel_model.dart';
 import 'package:celebi_project/services/firestore_service.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 import '../../../constants/image_slider.dart';
 import '../../../extensions/context_extension.dart';
@@ -93,7 +95,8 @@ class _HotelPageState extends State<HotelPage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('Reservation', style: context.textTheme.headline5),
+                  Text(LocaleKeys.hotel_reservation.tr(),
+                      style: context.textTheme.headline5),
                   Align(
                     alignment: Alignment.center,
                     child: GestureDetector(
@@ -124,7 +127,7 @@ class _HotelPageState extends State<HotelPage> {
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
                               Icon(Icons.local_hotel_outlined),
-                              Text('Select Date Range',
+                              Text(LocaleKeys.hotel_date.tr(),
                                   style: context.textTheme.bodyText1!
                                       .copyWith(fontWeight: FontWeight.w400)),
                               Icon(
@@ -185,7 +188,7 @@ class _HotelPageState extends State<HotelPage> {
                             elevation: 0,
                             underline: SizedBox.fromSize(),
                             hint: isThereChild
-                                ? Text('No Children',
+                                ? Text(LocaleKeys.hotel_nochild.tr(),
                                     style: context.textTheme.bodyText1!
                                         .copyWith(fontWeight: FontWeight.w400))
                                 : Text('$children Children',

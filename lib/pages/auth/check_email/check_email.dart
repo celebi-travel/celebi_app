@@ -1,3 +1,5 @@
+import 'package:celebi_project/constants/lang/locale_keys.g.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 import '../../../services/auth_service.dart';
@@ -36,7 +38,7 @@ class _CheckEmailViewState extends State<CheckEmailView> {
                           "asset/images/forget_password.png",
                         ),
                         Text(
-                          'Check your email',
+                          LocaleKeys.check_email_title.tr(),
                           style: TextStyle(
                               fontSize: 40,
                               color: Colors.black,
@@ -47,7 +49,7 @@ class _CheckEmailViewState extends State<CheckEmailView> {
                           child: Align(
                             alignment: Alignment.center,
                             child: Text(
-                              '    We have sent a password recovery instruciton to your email',
+                              LocaleKeys.check_email_content,
                               style: TextStyle(
                                   fontSize: 25,
                                   color: Colors.grey,

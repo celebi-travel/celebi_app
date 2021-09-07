@@ -31,6 +31,7 @@ class _ChangePasswordViewState extends State<ChangePasswordView> {
                     ),
                     Text(
                       'Change New Password',
+                      textAlign: TextAlign.center,
                       style: TextStyle(
                           fontSize: 25,
                           color: Colors.black,
@@ -42,6 +43,7 @@ class _ChangePasswordViewState extends State<ChangePasswordView> {
                         alignment: Alignment.center,
                         child: Text(
                           'Your new password must be different from previously passwords.',
+                          textAlign: TextAlign.center,
                           style: TextStyle(fontSize: 18, color: Colors.grey),
                         ),
                       ),
@@ -55,14 +57,6 @@ class _ChangePasswordViewState extends State<ChangePasswordView> {
                 SizedBox(
                   height: context.height * 0.15,
                 ),
-                CustomButton(
-                    text: 'Register',
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => CheckEmailView()));
-                    })
               ],
             ),
           ),
@@ -103,6 +97,7 @@ class _ChangePasswordFormState extends State<ChangePasswordForm> {
           buildNewPasswordField(context),
           SizedBox(height: 20),
           repeatPasswordField(context),
+          SizedBox(height: context.height * 0.2),
           CustomButton(
               text: 'Register',
               onPressed: () {
@@ -111,6 +106,10 @@ class _ChangePasswordFormState extends State<ChangePasswordForm> {
                   final String newPassword = newPasswordController.text;
                   final String repeatPassword = repeatPasswordController.text;
                   print(oldPassword);
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => CheckEmailView()));
                 }
               }),
         ],

@@ -1,3 +1,6 @@
+import 'package:celebi_project/constants/lang/locale_keys.g.dart';
+import 'package:easy_localization/easy_localization.dart';
+
 import '../../check_email/check_email.dart';
 import '../../custom/custom_button.dart';
 import '../../../../services/auth_service.dart';
@@ -36,7 +39,7 @@ class _WelcomeBackFormState extends State<RegisterForm> {
           buildPasswordField(context),
           SizedBox(height: 20),
           CustomButton(
-              text: 'Register',
+              text: LocaleKeys.register_register.tr(),
               onPressed: () async {
                 if (formKey.currentState!.validate() && value) {
                   final String name = nameController.text;
@@ -69,20 +72,13 @@ class _WelcomeBackFormState extends State<RegisterForm> {
                   });
                 },
               ), //Checkbox
-              Text(
-                'I agrre with the',
-                style: TextStyle(fontSize: 20),
-              ),
+
               TextButton(
                   onPressed: () {},
                   child: Text(
-                    'Terms of service',
-                    style: TextStyle(fontSize: 20),
+                    LocaleKeys.register_agree.tr(),
+                    style: TextStyle(fontSize: 18),
                   )),
-              Text(
-                '&pivacy policy',
-                style: TextStyle(fontSize: 20),
-              ),
             ],
           ),
         ],
@@ -108,7 +104,7 @@ class _WelcomeBackFormState extends State<RegisterForm> {
             color: Colors.teal[200],
           ),
         ),
-        hintText: 'Name',
+        hintText: LocaleKeys.register_name.tr(),
         hintStyle: context.textTheme.bodyText2!
             .copyWith(color: Colors.grey, fontSize: 18),
       ),
@@ -137,7 +133,7 @@ TextFormField buildEmailField(BuildContext context) {
           color: Colors.teal[200],
         ),
       ),
-      hintText: 'Email or phone number',
+      hintText: LocaleKeys.register_email_username.tr(),
       hintStyle: context.textTheme.bodyText2!
           .copyWith(color: Colors.grey, fontSize: 18),
     ),
@@ -166,7 +162,7 @@ TextFormField buildDateField(BuildContext context) {
         ),
       ),
 
-      hintText: 'Date of birth(00/00/0000)',
+      hintText: LocaleKeys.register_date.tr(),
       hintStyle: context.textTheme.bodyText2!
           .copyWith(color: Colors.grey, fontSize: 18),
     ),
@@ -194,7 +190,7 @@ TextFormField buildPasswordField(BuildContext context) {
           color: Colors.teal[200],
         ),
       ),
-      hintText: 'Password',
+      hintText: LocaleKeys.register_password.tr(),
       hintStyle: context.textTheme.bodyText2!
           .copyWith(color: Colors.grey, fontSize: 18),
     ),
