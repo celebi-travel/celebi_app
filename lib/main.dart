@@ -1,5 +1,7 @@
 import 'package:celebi_project/extensions/context_extension.dart';
+import 'package:celebi_project/pages/auth/login_main_page/login_main_page.dart';
 import 'package:celebi_project/pages/auth/splash/splash.dart';
+import 'package:celebi_project/pages/auth/welcome_page/welcome_view.dart';
 
 import 'package:celebi_project/pages/main/home/home_view.dart';
 import 'package:celebi_project/pages/main/payment/payment_view.dart';
