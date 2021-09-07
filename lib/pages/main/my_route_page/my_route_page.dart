@@ -152,6 +152,7 @@ class _MyRoutePageState extends State<MyRoutePage> {
               directions[i]['origin']!.longitude),
           PointLatLng(directions[i]['destination']!.latitude,
               directions[i]['destination']!.longitude));
+      print(result.status! + result.errorMessage.toString());
       if (result.status == 'OK') {
         print('status ok');
         result.points.forEach((_element) {
