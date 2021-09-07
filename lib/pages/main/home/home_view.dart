@@ -58,7 +58,9 @@ class _HomeViewState extends State<HomeView> {
                   child: Text(
                     LocaleKeys.home_popular_cities,
                     style: context.textTheme.headline6!.copyWith(
-                        letterSpacing: 0.3, fontWeight: FontWeight.bold),
+                        letterSpacing: 0.3,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 22),
                   ).tr(),
                 ),
                 Expanded(flex: 3, child: PopularLocations()),
@@ -104,14 +106,14 @@ class PopularLocations extends StatelessWidget {
                 },
                 child: Container(
                   alignment: Alignment.bottomLeft,
-                  width: context.height * 0.08,
-                  height: context.height * 0.08,
+                  width: context.height * 0.11,
+                  height: context.height * 0.19,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(12),
                     color: Colors.transparent,
                     image: DecorationImage(
                       fit: BoxFit.fill,
-                      image: AssetImage(
+                      image: NetworkImage(
                         places[index].imageUrl!,
                       ),
                     ),
@@ -129,8 +131,8 @@ class PopularLocations extends StatelessWidget {
                 },
                 child: Container(
                   alignment: Alignment.bottomLeft,
-                  width: context.height * 0.08,
-                  height: context.height * 0.08,
+                  width: context.height * 0.11,
+                  height: context.height * 0.19,
                   margin: EdgeInsets.only(right: 10),
                   padding: EdgeInsets.only(left: 5, bottom: 5),
                   decoration: BoxDecoration(

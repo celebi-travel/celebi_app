@@ -7,8 +7,8 @@ Row buildPopularPlaceText(BuildContext context) {
     children: [
       Text(
         'Popular Places',
-        style: context.textTheme.headline6!
-            .copyWith(letterSpacing: 0.3, fontWeight: FontWeight.bold),
+        style: context.textTheme.headline6!.copyWith(
+            letterSpacing: 0.3, fontWeight: FontWeight.bold, fontSize: 22),
       ),
       TextButton(onPressed: () {}, child: Text('See All')),
     ],
@@ -20,8 +20,8 @@ Align buildNearbyLocationsText(BuildContext context) {
     alignment: Alignment.centerLeft,
     child: Text(
       'Nearby Locations',
-      style: context.textTheme.headline6!
-          .copyWith(letterSpacing: 0.3, fontWeight: FontWeight.bold),
+      style: context.textTheme.headline6!.copyWith(
+          letterSpacing: 0.3, fontWeight: FontWeight.bold, fontSize: 22),
     ),
   );
 }
