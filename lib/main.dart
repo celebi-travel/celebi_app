@@ -1,4 +1,5 @@
 import 'package:celebi_project/extensions/context_extension.dart';
+import 'package:celebi_project/pages/auth/splash/splash.dart';
 
 import 'package:celebi_project/pages/main/home/home_view.dart';
 import 'package:celebi_project/pages/main/payment/payment_view.dart';
@@ -39,7 +40,7 @@ class MyApp extends StatelessWidget {
       localizationsDelegates: context.localizationDelegates,
       supportedLocales: context.supportedLocales,
       locale: context.locale,
-      home: PaymentScreen(),
+      home: Splash(),
     );
   }
 

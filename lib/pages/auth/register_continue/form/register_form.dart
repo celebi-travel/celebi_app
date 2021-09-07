@@ -53,7 +53,7 @@ class _WelcomeBackFormState extends State<RegisterForm> {
                       username: name,
                       dateOfBirth: date);
                   if (result == 'Signed up') {
-                    AuthService().sendEmailVerification();
+                    await AuthService().sendEmailVerification();
                     Navigator.push(
                         context,
                         MaterialPageRoute(

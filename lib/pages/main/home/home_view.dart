@@ -39,41 +39,40 @@ class _HomeViewState extends State<HomeView> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-          bottomNavigationBar: bottomBarMethod(context),
-          resizeToAvoidBottomInset: false,
-          body: Padding(
-            padding: context.paddingNormalHorizontal,
-            child: Column(
-              children: [
-                Expanded(flex: 4, child: HeadTitle()),
-                buildSearchField(searchController),
-                Spacer(),
-                buildNearbyLocationsText(context),
-                Expanded(flex: 6, child: NearbyLocations()),
-                Spacer(),
-                Align(
-                  alignment: Alignment.centerLeft,
-                  child: Text(
-                    LocaleKeys.home_popular_cities,
-                    style: context.textTheme.headline6!.copyWith(
-                        letterSpacing: 0.3,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20),
-                  ).tr(),
-                ),
-                Expanded(flex: 6, child: PopularLocations()),
-                Spacer(),
-                buildPopularPlaceText(context),
-                Expanded(
-                    flex: 17,
-                    child: SingleChildScrollView(
-                        physics: BouncingScrollPhysics(),
-                        child: PopularPlaces()))
-              ],
+    return Scaffold(
+      bottomNavigationBar: bottomBarMethod(context),
+      resizeToAvoidBottomInset: false,
+      body: SafeArea(
+          child: Padding(
+        padding: context.paddingNormalHorizontal,
+        child: Column(
+          children: [
+            Expanded(flex: 4, child: HeadTitle()),
+            buildSearchField(searchController),
+            Spacer(),
+            buildNearbyLocationsText(context),
+            Expanded(flex: 6, child: NearbyLocations()),
+            Spacer(),
+            Align(
+              alignment: Alignment.centerLeft,
+              child: Text(
+                LocaleKeys.home_popular_cities,
+                style: context.textTheme.headline6!.copyWith(
+                    letterSpacing: 0.3,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 20),
+              ).tr(),
             ),
-          )),
+            Expanded(flex: 6, child: PopularLocations()),
+            Spacer(),
+            buildPopularPlaceText(context),
+            Expanded(
+                flex: 17,
+                child: SingleChildScrollView(
+                    physics: BouncingScrollPhysics(), child: PopularPlaces()))
+          ],
+        ),
+      )),
     );
   }
 }
