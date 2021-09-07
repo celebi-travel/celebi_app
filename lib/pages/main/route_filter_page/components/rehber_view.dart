@@ -7,6 +7,7 @@ class RehberView extends StatelessWidget {
   const RehberView({Key? key}) : super(key: key);
 
   @override
+  
   Widget build(BuildContext context) {
     return ListView.builder(
       shrinkWrap: true,

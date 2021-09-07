@@ -64,16 +64,17 @@ class Rehber {
 
 List rehberList = [
   Rehber(
-      'Azad',
-      'https://pbs.twimg.com/profile_images/1422304925044854784/UpTPdQSo_400x400.jpg',
-      'Yazılım Mühendisi',
-      10.0,
-      [Language(flagUrl: 'bayrak_url', language: 'Türkçe')],
-      [Tour('Night Tour', 230, '21.00', '04:00')],
-      '5416744984',
-      'azadderdogan@gmail.com',
-      true,
-      true),
+    'Azad',
+    'https://pbs.twimg.com/profile_images/1422304925044854784/UpTPdQSo_400x400.jpg',
+    'Yazılım Mühendisi',
+    10.0,
+    [Language(flagUrl: 'bayrak_url', language: 'Türkçe')],
+    [Tour('Night Tour', 230, '21.00', '04:00')],
+    '5416744984',
+    'azadderdogan@gmail.com',
+    true,
+    true,
+  ),
   Rehber(
       'Mirsaid',
       'https://images.pexels.com/photos/775358/pexels-photo-775358.jpeg',

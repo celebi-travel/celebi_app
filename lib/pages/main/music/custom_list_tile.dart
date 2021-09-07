@@ -22,9 +22,7 @@ class CustomListTile extends StatelessWidget {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(16),
                 image: DecorationImage(
-                    image: NetworkImage(
-                      music.coverUrl,
-                    ),
+                    image: AssetImage('asset/images/logo.jpg'),
                     fit: BoxFit.cover),
               ),
             ),

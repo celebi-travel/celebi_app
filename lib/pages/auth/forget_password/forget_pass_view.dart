@@ -1,3 +1,5 @@
+import 'package:celebi_project/constants/lang/locale_keys.g.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 import '../custom/image_with_blue_button.dart';
@@ -23,7 +25,7 @@ class _ForgetPasswordPageState extends State<ForgetPasswordPage> {
                 "asset/images/forget_password.png",
               ),
               Text(
-                'Forget Password ?',
+                LocaleKeys.forget_password_title.tr() + '?',
                 style: TextStyle(
                     fontSize: 40,
                     color: Colors.black,
@@ -34,8 +36,9 @@ class _ForgetPasswordPageState extends State<ForgetPasswordPage> {
                 child: Padding(
                   padding: EdgeInsets.only(left: 20),
                   child: Text(
-                    'Enter your registered email below to receive\t\t password reset instruction',
+                    LocaleKeys.forget_password_subtitle.tr(),
                     style: TextStyle(fontSize: 25, color: Colors.grey),
+                    textAlign: TextAlign.center,
                   ),
                 ),
               ),

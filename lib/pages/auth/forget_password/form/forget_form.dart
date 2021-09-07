@@ -1,3 +1,6 @@
+import 'package:celebi_project/constants/lang/locale_keys.g.dart';
+import 'package:easy_localization/easy_localization.dart';
+
 import '../../custom/custom_button.dart';
 import 'package:flutter/material.dart';
 import '../../../../extensions/context_extension.dart';
@@ -29,7 +32,7 @@ class _ForgetFormState extends State<ForgetForm> {
                   final String forgetEmail = forgetPassController.text;
                   if (formKey.currentState!.validate()) {}
                 },
-                text: "Send"),
+                text: LocaleKeys.forget_password_send.tr()),
           ],
         ),
       ),
@@ -45,7 +48,7 @@ TextFormField buildNameField(BuildContext context) {
         Icons.markunread,
         color: Colors.teal[200],
       ),
-      hintText: 'Email',
+      hintText: LocaleKeys.forget_password_email.tr(),
       hintStyle: context.textTheme.bodyText2!
           .copyWith(color: Colors.grey, fontSize: 18),
     ),
@@ -58,7 +61,7 @@ TextButton backToLoginButton() {
     child: Padding(
       padding: EdgeInsets.only(top: 250),
       child: Text(
-        'Back To Login',
+        LocaleKeys.forget_password_back_to_login.tr(),
         style: TextStyle(color: Color(0xFF7BC4B2)),
       ),
     ),

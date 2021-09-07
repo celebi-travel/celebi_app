@@ -113,9 +113,7 @@ class _MusicViewState extends State<MusicView> {
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(6),
                           image: DecorationImage(
-                              image: NetworkImage(
-                                currentMusic.coverUrl,
-                              ),
+                              image: AssetImage('asset/images/logo.jpg'),
                               fit: BoxFit.cover),
                         ),
                       ),

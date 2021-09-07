@@ -1,5 +1,9 @@
+import 'package:celebi_project/extensions/context_extension.dart';
+
 import 'package:celebi_project/pages/main/home/home_view.dart';
+import 'package:celebi_project/pages/main/payment/payment_view.dart';
 import 'package:celebi_project/services/locators.dart';
+import 'package:celebi_project/services/translator.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -8,6 +12,15 @@ import 'cache/locale_manager.dart';
 import 'constants/lang/language_manager.dart';
 
 Future<void> main() async {
+  await init();
+  runApp(EasyLocalization(
+      supportedLocales: LanguageManager.instance.supportedLocales,
+      path: 'asset/translations',
+      fallbackLocale: LanguageManager.instance.trLocale,
+      child: MyApp()));
+}
+
+Future<void> init() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   LocatorInjector.setupLocator();
@@ -15,11 +28,6 @@ Future<void> main() async {
   await Hive.initFlutter();
   await LocaleManager.preferencesInit();
   await Hive.openBox('settings');
-  runApp(EasyLocalization(
-      supportedLocales: LanguageManager.instance.supportedLocales,
-      path: 'asset/translations',
-      fallbackLocale: LanguageManager.instance.trLocale,
-      child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -31,7 +39,7 @@ class MyApp extends StatelessWidget {
       localizationsDelegates: context.localizationDelegates,
       supportedLocales: context.supportedLocales,
       locale: context.locale,
-      home: HomeView(),
+      home: PaymentScreen(),
     );
   }
 
@@ -41,18 +49,25 @@ class MyApp extends StatelessWidget {
       colorScheme: _appColorScheme,
       scaffoldBackgroundColor: Colors.white,
       inputDecorationTheme: InputDecorationTheme(
-        fillColor: Color(0xFF743F3F).withOpacity(0.2),
+        fillColor: Color(0xFF7BC4B2).withOpacity(0.2),
         filled: true,
         contentPadding: EdgeInsets.symmetric(horizontal: 10),
         enabledBorder: OutlineInputBorder(
             borderSide: BorderSide(
+              color: Color(0xFF7BC4B2),
               width: 2,
             ),
             borderRadius: BorderRadius.circular(20)),
         border: OutlineInputBorder(
-            borderSide: BorderSide(), borderRadius: BorderRadius.circular(20)),
+            borderSide: BorderSide(
+              color: Color(0xFF7BC4B2),
+            ),
+            borderRadius: BorderRadius.circular(20)),
         focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(), borderRadius: BorderRadius.circular(20)),
+            borderSide: BorderSide(
+              color: Color(0xFF7BC4B2),
+            ),
+            borderRadius: BorderRadius.circular(20)),
       ),
       textTheme: TextTheme(button: TextStyle(fontSize: 20)),
     );
