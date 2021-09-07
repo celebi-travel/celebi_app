@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:celebi_project/pages/main/bottom_nav_bar/bottom_nav_bar.dart';
 import 'package:celebi_project/pages/main/hotel_page/hotel_page_view.dart';
 
 import '../../../models/filter_category_model.dart';
@@ -192,7 +193,7 @@ class _MyRoutePageState extends State<MyRoutePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return Scaffold(bottomNavigationBar: bottomBarMethod(context),
       backgroundColor: Colors.white,
       appBar: AppBar(
           centerTitle: true,

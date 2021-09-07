@@ -1,5 +1,6 @@
 import 'package:celebi_project/constants/lang/locale_keys.g.dart';
 import 'package:celebi_project/models/hotel_model.dart';
+import 'package:celebi_project/pages/main/bottom_nav_bar/bottom_nav_bar.dart';
 import 'package:celebi_project/services/firestore_service.dart';
 import 'package:easy_localization/easy_localization.dart';
 
@@ -46,7 +47,7 @@ class _HotelPageState extends State<HotelPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return Scaffold(bottomNavigationBar: bottomBarMethod(context),
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.white,
