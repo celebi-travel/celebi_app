@@ -1,4 +1,5 @@
 import 'package:celebi_project/extensions/context_extension.dart';
+import 'package:celebi_project/models/place.dart';
 import 'package:celebi_project/pages/auth/account_page/account_page.dart';
 import 'package:celebi_project/pages/auth/login_main_page/login_main_page.dart';
 import 'package:celebi_project/pages/auth/splash/splash.dart';
@@ -6,6 +7,8 @@ import 'package:celebi_project/pages/auth/welcome_page/welcome_view.dart';
 
 import 'package:celebi_project/pages/main/home/home_view.dart';
 import 'package:celebi_project/pages/main/payment/payment_view.dart';
+import 'package:celebi_project/pages/main/profile/proflle_view.dart';
+import 'package:celebi_project/pages/main/route_filter_page/route_filter_page.dart';
 import 'package:celebi_project/services/locators.dart';
 import 'package:celebi_project/services/translator.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -43,7 +46,7 @@ class MyApp extends StatelessWidget {
       localizationsDelegates: context.localizationDelegates,
       supportedLocales: context.supportedLocales,
       locale: context.locale,
-      home: Splash(),
+      home: AccountPage(),
     );
   }
 

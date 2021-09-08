@@ -1,3 +1,6 @@
+import 'package:celebi_project/cache/locale_manager.dart';
+import 'package:celebi_project/constants/lang/language_manager.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 class LanguagePage extends StatefulWidget {
@@ -26,15 +29,25 @@ class _LanguagePageState extends State<LanguagePage> {
           children: [
             Text("Select Your Language", style: TextStyle(color: Colors.black)),
             SizedBox(height: 90),
-            buildAllLanguages('icons/flags/png/tr.png', " Turkısh", () {}),
+            buildAllLanguages('icons/flags/png/tr.png', " Turkısh", () {
+              context.setLocale(LanguageManager.instance.trLocale);
+            }),
             buildLanguageDivider(),
-            buildAllLanguages('icons/flags/png/us.png', " English", () {}),
+            buildAllLanguages('icons/flags/png/us.png', " English", () {
+              context.setLocale(LanguageManager.instance.enLocale);
+            }),
             buildLanguageDivider(),
-            buildAllLanguages('icons/flags/png/ru.png', " Russian", () {}),
+            buildAllLanguages('icons/flags/png/ru.png', " Russian", () {
+              context.setLocale(LanguageManager.instance.ruLocale);
+            }),
             buildLanguageDivider(),
-            buildAllLanguages('icons/flags/png/de.png', " German", () {}),
+            buildAllLanguages('icons/flags/png/de.png', " German", () {
+              context.setLocale(LanguageManager.instance.deLocale);
+            }),
             buildLanguageDivider(),
-            buildAllLanguages('icons/flags/png/bg.png', " Bulgarian", () {}),
+            buildAllLanguages('icons/flags/png/bg.png', " Bulgarian", () {
+              context.setLocale(LanguageManager.instance.bgLocale);
+            }),
           ],
         ),
       ),

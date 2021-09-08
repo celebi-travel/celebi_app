@@ -77,7 +77,7 @@ List rehberList = [
   ),
   Rehber(
       'Afşın Dalgıç',
-      'https://images.pexels.com/photos/775358/pexels-photo-775358.jpeg',
+      'https://pbs.twimg.com/profile_images/927275814026203141/mTLFXflg.jpg',
       'My name is Afşın Dalgıç and I was born on Jan 20th. I grew up in one of the most beautiful cities in Turkey: Istanbul, historically also called Smyrna. Since the early childhood I always enjoyed travelling and exploring the ancient civilisations all around Turkey and the world. I studied English and...',
       10.0,
       [Language(flagUrl: 'bayrak_url', language: 'Türkçe')],
