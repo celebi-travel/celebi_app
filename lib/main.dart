@@ -1,4 +1,5 @@
 import 'package:celebi_project/extensions/context_extension.dart';
+import 'package:celebi_project/pages/auth/account_page/account_page.dart';
 import 'package:celebi_project/pages/auth/login_main_page/login_main_page.dart';
 import 'package:celebi_project/pages/auth/splash/splash.dart';
 import 'package:celebi_project/pages/auth/welcome_page/welcome_view.dart';
@@ -57,10 +58,10 @@ class MyApp extends StatelessWidget {
         contentPadding: EdgeInsets.symmetric(horizontal: 10),
         enabledBorder: OutlineInputBorder(
             borderSide: BorderSide(
-              color: Color(0xFF7BC4B2),
-              width: 2,
+              color: Color(0xFFAFE1E7),
+              width: 1,
             ),
-            borderRadius: BorderRadius.circular(20)),
+            borderRadius: BorderRadius.circular(15)),
         border: OutlineInputBorder(
             borderSide: BorderSide(
               color: Color(0xFF7BC4B2),
@@ -70,7 +71,7 @@ class MyApp extends StatelessWidget {
             borderSide: BorderSide(
               color: Color(0xFF7BC4B2),
             ),
-            borderRadius: BorderRadius.circular(20)),
+            borderRadius: BorderRadius.circular(15)),
       ),
       textTheme: TextTheme(button: TextStyle(fontSize: 20)),
     );

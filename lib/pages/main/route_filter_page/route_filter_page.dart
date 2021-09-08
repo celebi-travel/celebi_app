@@ -1,11 +1,8 @@
 import 'dart:convert';
-
 import 'package:celebi_project/models/place.dart';
-import 'package:celebi_project/pages/auth/custom/image_with_white_button.dart';
 import 'package:celebi_project/pages/main/bottom_nav_bar/bottom_nav_bar.dart';
 import 'package:celebi_project/pages/main/my_route_page/my_route_page.dart';
 import 'package:celebi_project/services/firestore_service.dart';
-
 import '../../../constants/sehirler_icinde_lat_long.dart';
 import '../../../models/filter_category_model.dart';
 import '../../../models/touristic_place.dart';
@@ -13,7 +10,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:random_string/random_string.dart';
-
 import '../../../../extensions/context_extension.dart';
 import 'components/category_item.dart';
 import 'components/rehber_view.dart';
@@ -104,7 +100,7 @@ class _RouteFilterPageState extends State<RouteFilterPage> {
             title: Text(
               placeModel.city!,
               style: context.textTheme.bodyText1!
-                  .copyWith(color: Colors.black, fontSize: 20),
+                  .copyWith(color: Colors.black, fontSize: 16),
             )),
         bottomNavigationBar: bottomBarMethod(context),
         body: loadingDone
@@ -112,7 +108,7 @@ class _RouteFilterPageState extends State<RouteFilterPage> {
                 child: Column(
                   children: [
                     SizedBox(
-                        height: 140,
+                        height: 110,
                         child: Row(
                           children: [
                             Expanded(
@@ -126,7 +122,7 @@ class _RouteFilterPageState extends State<RouteFilterPage> {
                                   });
                                 },
                                 isSelected: _currentSelectedCategoryIndex == 0,
-                                size: 70,
+                                size: 50,
                               ),
                             ),
                             Expanded(
@@ -140,7 +136,7 @@ class _RouteFilterPageState extends State<RouteFilterPage> {
                                   });
                                 },
                                 isSelected: _currentSelectedCategoryIndex == 1,
-                                size: 70,
+                                size: 50,
                               ),
                             ),
                             Expanded(
@@ -154,7 +150,7 @@ class _RouteFilterPageState extends State<RouteFilterPage> {
                                   });
                                 },
                                 isSelected: _currentSelectedCategoryIndex == 2,
-                                size: 70,
+                                size: 50,
                               ),
                             ),
                             Expanded(
@@ -168,17 +164,20 @@ class _RouteFilterPageState extends State<RouteFilterPage> {
                                   });
                                 },
                                 isSelected: _currentSelectedCategoryIndex == 3,
-                                size: 70,
+                                size: 50,
                               ),
                             ),
                           ],
                         )),
                     buildSearchField(_controller),
                     Padding(
-                      padding: const EdgeInsets.all(20),
+                      padding: EdgeInsets.only(left: 30),
                       child: Row(
                         children: [
-                          Text('3 placed sorted by travel favorites'),
+                          Text(
+                            '3 placed sorted by travel favorites',
+                            style: TextStyle(fontSize: 12),
+                          ),
                           SizedBox(width: 8),
                           Icon(Icons.info),
                         ],
@@ -187,20 +186,24 @@ class _RouteFilterPageState extends State<RouteFilterPage> {
                     Align(
                       alignment: Alignment.centerRight,
                       child: Padding(
-                        padding: const EdgeInsets.only(right: 8.0),
-                        child: ElevatedButton(
-                            style: ButtonStyle(
-                                backgroundColor: MaterialStateProperty.all(
-                                    Color(0XFFB6E7DA)),
-                                shape: MaterialStateProperty.all(
-                                    RoundedRectangleBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(50)))),
-                            onPressed:
-                                _placeNames.isNotEmpty ? _showMyRoute : null,
-                            child: Text('Show My Route (${_placeNames.length})',
-                                style: TextStyle(
-                                    fontSize: 12, color: Colors.black))),
+                        padding: EdgeInsets.only(top: 30, right: 25),
+                        child: SizedBox(
+                          height: 25,
+                          child: ElevatedButton(
+                              style: ButtonStyle(
+                                  backgroundColor: MaterialStateProperty.all(
+                                      Color(0XFFB6E7DA)),
+                                  shape: MaterialStateProperty.all(
+                                      RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(20)))),
+                              onPressed:
+                                  _placeNames.isNotEmpty ? _showMyRoute : null,
+                              child: Text(
+                                  'Show My Route (${_placeNames.length})',
+                                  style: TextStyle(
+                                      fontSize: 12, color: Colors.black))),
+                        ),
                       ),
                     ),
                     if (_currentSelectedCategoryIndex != 0)
@@ -289,7 +292,7 @@ class _RouteFilterPageState extends State<RouteFilterPage> {
 
   Container buildImage(TouristicPlace _item) {
     return Container(
-      height: 200,
+      height: 150,
       child: Image.asset(_item.imageName, fit: BoxFit.cover),
     );
   }
@@ -297,10 +300,13 @@ class _RouteFilterPageState extends State<RouteFilterPage> {
 
 Container buildSearchField(searchController) {
   return Container(
-    height: 50,
+    height: 35,
     decoration: BoxDecoration(
-        color: Colors.white, borderRadius: BorderRadius.circular(15)),
-    margin: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+        border: Border.all(
+          color: Colors.white,
+        ),
+        borderRadius: BorderRadius.circular(15)),
+    margin: EdgeInsets.symmetric(horizontal: 20),
     child: Center(
       child: TextFormField(
         keyboardType: TextInputType.text,
@@ -353,7 +359,7 @@ class PlaceWidget extends StatelessWidget {
     return Column(
       children: [
         Container(
-          height: 200,
+          height: 160,
           margin: EdgeInsets.symmetric(horizontal: 24, vertical: 14),
           width: double.infinity,
           child: Row(
@@ -362,7 +368,8 @@ class PlaceWidget extends StatelessWidget {
                 child: Stack(
                   children: [
                     Container(
-                        height: 170,
+                        width: 160,
+                        height: 160,
                         color: Colors.blue,
                         child: Image.network(
                           imgURL,
@@ -372,8 +379,12 @@ class PlaceWidget extends StatelessWidget {
                       child: GestureDetector(
                         onTap: favoriteButton,
                         child: CircleAvatar(
-                          child:
-                              Icon(Icons.favorite, color: favoriteButtonColor),
+                          radius: 12,
+                          child: Icon(
+                            Icons.favorite,
+                            color: favoriteButtonColor,
+                            size: 15,
+                          ),
                           backgroundColor: Colors.white,
                         ),
                       ),
@@ -385,14 +396,14 @@ class PlaceWidget extends StatelessWidget {
               ),
               Expanded(
                   child: Padding(
-                padding: const EdgeInsets.all(12),
+                padding: const EdgeInsets.only(left: 10),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(name,
                         style: context.textTheme.headline2!
-                            .copyWith(fontSize: 16, color: Colors.black)),
+                            .copyWith(fontSize: 14, color: Colors.black)),
                     SizedBox(height: 8),
                     Row(
                       children: [
@@ -406,7 +417,7 @@ class PlaceWidget extends StatelessWidget {
                       category,
                       style: context.textTheme.subtitle1!.copyWith(
                           color: Colors.grey,
-                          fontSize: 14,
+                          fontSize: 12,
                           fontWeight: FontWeight.w400),
                     ),
                     Spacer(),
@@ -425,7 +436,7 @@ class PlaceWidget extends StatelessWidget {
             ],
           ),
         ),
-        Divider(indent: 20, endIndent: 20),
+        Divider(color: Colors.black54, indent: 20, endIndent: 20),
       ],
     );
   }

@@ -47,7 +47,7 @@ class _HomeViewState extends State<HomeView> {
         padding: context.paddingNormalHorizontal,
         child: Column(
           children: [
-            Expanded(flex: 4, child: HeadTitle()),
+            Expanded(flex: 6, child: HeadTitle()),
             buildSearchField(searchController),
             Spacer(),
             buildNearbyLocationsText(context),
@@ -60,7 +60,7 @@ class _HomeViewState extends State<HomeView> {
                 style: context.textTheme.headline6!.copyWith(
                     letterSpacing: 0.3,
                     fontWeight: FontWeight.bold,
-                    fontSize: 20),
+                    fontSize: 15),
               ).tr(),
             ),
             Expanded(flex: 6, child: PopularLocations()),

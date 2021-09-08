@@ -15,7 +15,7 @@ class HeadTitle extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Container(
-          //margin: EdgeInsets.only(top: 40),
+          margin: EdgeInsets.only(top: 30),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.center,
@@ -36,7 +36,7 @@ class HeadTitle extends StatelessWidget {
           ),
         ),
         Container(
-          margin: EdgeInsets.only(top: 10),
+          margin: EdgeInsets.only(top: 30),
           height: 40,
           width: 40,
           child: ClipRRect(

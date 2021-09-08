@@ -7,7 +7,7 @@ class CategoryItem extends StatelessWidget {
     required FilterCategory item,
     required this.onPressed,
     required this.isSelected,
-    this.size = 90,
+    this.size = 70,
   })  : _item = item,
         super(key: key);
 
@@ -31,7 +31,7 @@ class CategoryItem extends StatelessWidget {
                 borderRadius: BorderRadius.circular(12),
               ),
               child: Center(
-                child: Icon(_item.categoryIcon, size: 40, color: Colors.white),
+                child: Icon(_item.categoryIcon, size: 30, color: Colors.white),
               ),
             ),
           ],

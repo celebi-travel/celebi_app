@@ -1,3 +1,5 @@
+import 'package:celebi_project/pages/auth/languages_page/language_page.dart';
+import 'package:celebi_project/pages/main/bottom_nav_bar/bottom_nav_bar.dart';
 import 'package:flutter/material.dart';
 
 import 'components/settings_divider.dart';
@@ -9,16 +11,18 @@ class AccountPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: bottomBarMethod(context),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
             children: [
-              SizedBox(height: 150),
               Container(
                 width: double.infinity,
                 height: 100,
-                margin: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
-                decoration: BoxDecoration(color: Colors.grey[200], borderRadius: BorderRadius.circular(12)),
+                margin: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+                decoration: BoxDecoration(
+                    color: Colors.grey[200],
+                    borderRadius: BorderRadius.circular(12)),
                 child: Center(
                   child: ListTile(
                     leading: CircleAvatar(
@@ -27,36 +31,68 @@ class AccountPage extends StatelessWidget {
                     ),
                     title: Text('Jennifer Salma'),
                     subtitle: Text('salma@gmail.com'),
-                    trailing: IconButton(onPressed: () {}, icon: Icon(Icons.keyboard_arrow_right)),
+                    trailing: IconButton(
+                        onPressed: () {},
+                        icon: Icon(Icons.keyboard_arrow_right)),
                   ),
                 ),
               ),
               Container(
                   width: double.infinity,
                   margin: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
-                  decoration: BoxDecoration(color: Colors.grey[200], borderRadius: BorderRadius.circular(12)),
+                  decoration: BoxDecoration(
+                      color: Colors.grey[200],
+                      borderRadius: BorderRadius.circular(12)),
                   child: Column(
                     children: [
-                      SettingsElement(name: 'Edit Profile', icon: Icons.person, onPressed: () {}),
+                      SettingsElement(
+                          name: 'Edit Profile',
+                          icon: Icons.person,
+                          onPressed: () {}),
                       SettingsDivider(),
-                      SettingsElement(name: 'Language', icon: Icons.language, onPressed: () {}),
+                      SettingsElement(
+                          name: 'Language',
+                          icon: Icons.language,
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => LanguagePage()));
+                          }),
                       SettingsDivider(),
-                      SettingsElement(name: 'Settings', icon: Icons.settings, onPressed: () {}),
+                      SettingsElement(
+                          name: 'Settings',
+                          icon: Icons.settings,
+                          onPressed: () {}),
                     ],
                   )),
               Container(
                   width: double.infinity,
                   margin: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
-                  decoration: BoxDecoration(color: Colors.grey[200], borderRadius: BorderRadius.circular(12)),
+                  decoration: BoxDecoration(
+                      color: Colors.grey[200],
+                      borderRadius: BorderRadius.circular(12)),
                   child: Column(
                     children: [
-                      SettingsElement(name: 'Invite your friends', icon: Icons.person, onPressed: () {}),
+                      SettingsElement(
+                          name: 'Invite your friends',
+                          icon: Icons.person,
+                          onPressed: () {}),
                       SettingsDivider(),
-                      SettingsElement(name: 'privacy Policy', icon: Icons.language, onPressed: () {}),
+                      SettingsElement(
+                          name: 'privacy Policy',
+                          icon: Icons.language,
+                          onPressed: () {}),
                       SettingsDivider(),
-                      SettingsElement(name: 'Terms of Use', icon: Icons.settings, onPressed: () {}),
+                      SettingsElement(
+                          name: 'Terms of Use',
+                          icon: Icons.settings,
+                          onPressed: () {}),
                       SettingsDivider(),
-                      SettingsElement(name: 'Help', icon: Icons.question_answer, onPressed: () {}),
+                      SettingsElement(
+                          name: 'Help',
+                          icon: Icons.question_answer,
+                          onPressed: () {}),
                     ],
                   ))
             ],

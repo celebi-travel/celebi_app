@@ -38,13 +38,15 @@ class FilterElement extends StatelessWidget {
                     child: Container(
                         decoration: BoxDecoration(
                           color: Colors.white,
-                          border: Border.all(color: _item.categoryColor, width: 2),
+                          border:
+                              Border.all(color: _item.categoryColor, width: 2),
                           borderRadius: BorderRadius.circular(20),
                         ),
                         child: Center(
                           child: Padding(
                             padding: const EdgeInsets.all(2),
-                            child: Icon(Icons.check, size: 18, color: _item.categoryColor),
+                            child: Icon(Icons.check,
+                                size: 18, color: _item.categoryColor),
                           ),
                         )),
                     top: 3,

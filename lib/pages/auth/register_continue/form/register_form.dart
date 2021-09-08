@@ -31,13 +31,13 @@ class _WelcomeBackFormState extends State<RegisterForm> {
       child: Column(
         children: [
           buildNameField(context),
-          SizedBox(height: 20),
+          SizedBox(height: 15),
           buildEmailField(context),
-          SizedBox(height: 20),
+          SizedBox(height: 15),
           buildDateField(context),
-          SizedBox(height: 20),
+          SizedBox(height: 15),
           buildPasswordField(context),
-          SizedBox(height: 20),
+          SizedBox(height: 30),
           CustomButton(
               text: LocaleKeys.register_register.tr(),
               onPressed: () async {
@@ -77,7 +77,7 @@ class _WelcomeBackFormState extends State<RegisterForm> {
                   onPressed: () {},
                   child: Text(
                     LocaleKeys.register_agree.tr(),
-                    style: TextStyle(fontSize: 18),
+                    style: TextStyle(fontSize: 10),
                   )),
             ],
           ),
@@ -100,7 +100,7 @@ class _WelcomeBackFormState extends State<RegisterForm> {
         prefixIcon: Padding(
           padding: const EdgeInsets.only(left: 20),
           child: Icon(
-            Icons.navigate_before,
+            Icons.person,
             color: Colors.teal[200],
           ),
         ),
@@ -129,7 +129,7 @@ TextFormField buildEmailField(BuildContext context) {
       prefixIcon: Padding(
         padding: const EdgeInsets.only(left: 20),
         child: Icon(
-          Icons.navigate_before,
+          Icons.markunread,
           color: Colors.teal[200],
         ),
       ),
@@ -153,15 +153,13 @@ TextFormField buildDateField(BuildContext context) {
     },
     keyboardType: TextInputType.datetime,
     decoration: InputDecoration(
-      //contentPadding: EdgeInsets.symmetric(horizontal: 10),
       prefixIcon: Padding(
         padding: const EdgeInsets.only(left: 20),
         child: Icon(
-          Icons.navigate_before,
+          Icons.date_range,
           color: Colors.teal[200],
         ),
       ),
-
       hintText: LocaleKeys.register_date.tr(),
       hintStyle: context.textTheme.bodyText2!
           .copyWith(color: Colors.grey, fontSize: 18),
@@ -182,11 +180,10 @@ TextFormField buildPasswordField(BuildContext context) {
     },
     keyboardType: TextInputType.visiblePassword,
     decoration: InputDecoration(
-      //contentPadding: EdgeInsets.symmetric(horizontal: 10),
       prefixIcon: Padding(
         padding: const EdgeInsets.only(left: 20),
         child: Icon(
-          Icons.navigate_before,
+          Icons.lock,
           color: Colors.teal[200],
         ),
       ),

@@ -4,10 +4,13 @@ TextButton buildForgetPasswordButton() {
   return TextButton(
     onPressed: () {},
     child: Padding(
-      padding: EdgeInsets.only(left: 300),
+      padding: EdgeInsets.only(left: 170),
       child: Text(
         'Forget Password',
-        style: TextStyle(color: Color(0xFF415486)),
+        style: TextStyle(
+          color: Color(0xFF415486),
+          fontSize: 15,
+        ),
       ),
     ),
   );

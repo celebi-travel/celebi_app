@@ -10,9 +10,9 @@ Column buildAllLanguages() {
         style: TextStyle(
             color: Colors.teal.shade200,
             fontWeight: FontWeight.bold,
-            fontSize: 20),
+            fontSize: 18),
       ),
-      buildLanguages('icons/flags/png/gb.png', " English"),
+      buildLanguages("icons/flags/png/gb.png", " English"),
       buildLanguages("icons/flags/png/fr.png", " French"),
       buildLanguages("icons/flags/png/ru.png", " Russian")
     ],
@@ -27,8 +27,8 @@ buildLanguages(String assetImage, String countryName) {
         Image.asset(
           assetImage,
           package: 'country_icons',
-          height: 40,
-          width: 50,
+          height: 30,
+          width: 40,
         ),
         Text(countryName,
             style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold)),

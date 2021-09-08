@@ -2,7 +2,6 @@ import 'dart:io';
 import 'package:celebi_project/constants/lang/locale_keys.g.dart';
 import 'package:celebi_project/models/place.dart';
 import 'package:celebi_project/pages/main/bottom_nav_bar/bottom_nav_bar.dart';
-import 'package:celebi_project/pages/main/detail/source/slider_image_list.dart';
 import 'package:easy_localization/easy_localization.dart';
 
 import '../../../services/firestore_service.dart';
@@ -77,13 +76,14 @@ class _DetailPageState extends State<DetailPage> {
                           children: [
                             Text(placeModel.city!,
                                 style: context.textTheme.bodyText1!.copyWith(
-                                    fontWeight: FontWeight.w700, fontSize: 16)),
+                                    fontWeight: FontWeight.w700, fontSize: 20)),
                             BuildIconButton(placeModel: placeModel),
                             buildReadMoreText(context, info),
-                            SizedBox(height: 14),
+                            SizedBox(height: 10),
                             Text(LocaleKeys.detail_page_products.tr(),
                                 style: context.textTheme.bodyText1!.copyWith(
-                                    fontWeight: FontWeight.w700, fontSize: 18)),
+                                    fontWeight: FontWeight.w500, fontSize: 16)),
+                            SizedBox(height: 7),
                             SizedBox(
                               height: 120,
                               child: ListView(
@@ -94,15 +94,14 @@ class _DetailPageState extends State<DetailPage> {
                                     context, productImages),
                               ),
                             ),
-                            SizedBox(height: 14),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Text(
                                   LocaleKeys.detail_page_post.tr(),
                                   style: context.textTheme.bodyText1!.copyWith(
-                                      fontWeight: FontWeight.w700,
-                                      fontSize: 18),
+                                      fontWeight: FontWeight.w500,
+                                      fontSize: 16),
                                 ),
                                 TextButton(
                                     onPressed: () async {
@@ -116,7 +115,9 @@ class _DetailPageState extends State<DetailPage> {
                                     },
                                     child: Text(
                                       LocaleKeys.detail_page_btn_upload.tr(),
-                                      style: TextStyle(fontSize: 14),
+                                      style: TextStyle(
+                                          fontSize: 12,
+                                          color: Colors.blue[900]),
                                     ))
                               ],
                             ),

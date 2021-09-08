@@ -1,3 +1,4 @@
+import 'package:celebi_project/pages/main/bottom_nav_bar/bottom_nav_bar.dart';
 import 'package:celebi_project/pages/main/guide_pay/widgets/all_features.dart';
 import 'package:celebi_project/pages/main/guide_pay/widgets/all_tours.dart';
 import 'package:celebi_project/pages/main/guide_pay/widgets/bookNow_button.dart';
@@ -33,17 +34,23 @@ class _GuidePayPageState extends State<GuidePayPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: bottomBarMethod(context),
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.white,
         centerTitle: true,
         title: Text(
           appBarTitle,
-          style: TextStyle(color: Colors.black),
+          style: TextStyle(color: Colors.black, fontSize: 12),
         ),
         leading: IconButton(
-          icon: Icon(Icons.chevron_left, color: Colors.black),
-          onPressed: () {},
+          icon: Icon(
+            Icons.chevron_left,
+            color: Colors.black,
+          ),
+          onPressed: () {
+            Navigator.pop(context);
+          },
         ),
       ),
       body: SafeArea(
@@ -54,12 +61,14 @@ class _GuidePayPageState extends State<GuidePayPage> {
             children: [
               bookNowButton(context, value[selected]),
               buildDivider(),
+              SizedBox(height: 10),
               buildTourPricesHead(),
+              SizedBox(height: 10),
               Column(
                 children: [
                   buildPriceAndHours(
                     selected == 'full'
-                        ? Colors.green[300]!
+                        ? Color(0xffB6E7DA)
                         : Colors.grey.shade200,
                     "$full TL Full day tour",
                     "Between 14:00 and 04:00",
@@ -69,7 +78,7 @@ class _GuidePayPageState extends State<GuidePayPage> {
                     },
                   ),
                   buildPriceAndHours(
-                    selected == 'city' ? Colors.green[300]! : Colors.white,
+                    selected == 'city' ? Color(0xffB6E7DA) : Colors.white,
                     "$city TL City tour",
                     "Between 12:00 and 20:00",
                     () {
@@ -79,7 +88,7 @@ class _GuidePayPageState extends State<GuidePayPage> {
                   ),
                   buildPriceAndHours(
                     selected == 'night'
-                        ? Colors.green[300]!
+                        ? Color(0xffB6E7DA)
                         : Colors.grey.shade200,
                     "$night TL Night tour",
                     "Between 20:00 and 04:00",
@@ -89,7 +98,7 @@ class _GuidePayPageState extends State<GuidePayPage> {
                     },
                   ),
                   buildPriceAndHours(
-                    selected == 'morning' ? Colors.green[300]! : Colors.white,
+                    selected == 'morning' ? Color(0xffB6E7DA) : Colors.white,
                     "$morning TL Morning City tour",
                     "Between 09:00 and 14:00",
                     () {
@@ -105,7 +114,7 @@ class _GuidePayPageState extends State<GuidePayPage> {
                   buildAllFeatures(),
                 ],
               ),
-              buildNewContactInfo(),
+              buildSecurityAndNewContactInfo(),
             ],
           ),
         ),

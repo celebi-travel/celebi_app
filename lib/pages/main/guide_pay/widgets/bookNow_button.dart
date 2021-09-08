@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 bookNowButton(context, selected) {
   String bookNowTitle = "Book Now";
   return Padding(
-    padding: EdgeInsets.only(left: 245, top: 20),
+    padding: EdgeInsets.only(left: 190, top: 10),
     child: ElevatedButton(
       onPressed: () {
         ScaffoldMessenger.of(context).showSnackBar(
@@ -16,7 +16,10 @@ bookNowButton(context, selected) {
           ),
         );
       },
-      child: Text(bookNowTitle),
+      child: Text(
+        bookNowTitle,
+        style: TextStyle(color: Colors.white),
+      ),
       style: ButtonStyle(
           shape: MaterialStateProperty.all(
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(20))),

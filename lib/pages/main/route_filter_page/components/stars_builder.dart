@@ -13,13 +13,14 @@ class StarsBuilder extends StatelessWidget {
     if (starsNumber == 1) {
       return Container(
         width: 90,
-        decoration: BoxDecoration(borderRadius: BorderRadius.circular(6), color: Colors.grey[200]),
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(6), color: Colors.grey[200]),
         height: 30,
         child: Center(
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Icon(Icons.star, color: Colors.blue, size: 16),
+              Icon(Icons.star, color: Color(0xFF7BC4B2), size: 16),
               Icon(Icons.star, color: Colors.white, size: 16),
               Icon(Icons.star, color: Colors.white, size: 16),
               Icon(Icons.star, color: Colors.white, size: 16),
@@ -31,14 +32,15 @@ class StarsBuilder extends StatelessWidget {
     } else if (starsNumber == 2) {
       return Container(
         width: 90,
-        decoration: BoxDecoration(borderRadius: BorderRadius.circular(6), color: Colors.grey[200]),
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(6), color: Colors.grey[200]),
         height: 30,
         child: Center(
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Icon(Icons.star, color: Colors.blue, size: 16),
-              Icon(Icons.star, color: Colors.blue, size: 16),
+              Icon(Icons.star, color: Color(0xFF7BC4B2), size: 16),
+              Icon(Icons.star, color: Color(0xFF7BC4B2), size: 16),
               Icon(Icons.star, color: Colors.white, size: 16),
               Icon(Icons.star, color: Colors.white, size: 16),
               Icon(Icons.star, color: Colors.white, size: 16),
@@ -49,15 +51,16 @@ class StarsBuilder extends StatelessWidget {
     } else if (starsNumber == 3) {
       return Container(
         width: 90,
-        decoration: BoxDecoration(borderRadius: BorderRadius.circular(6), color: Colors.grey[200]),
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(6), color: Colors.grey[200]),
         height: 30,
         child: Center(
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Icon(Icons.star, color: Colors.blue, size: 16),
-              Icon(Icons.star, color: Colors.blue, size: 16),
-              Icon(Icons.star, color: Colors.blue, size: 16),
+              Icon(Icons.star, color: Color(0xFF7BC4B2), size: 16),
+              Icon(Icons.star, color: Color(0xFF7BC4B2), size: 16),
+              Icon(Icons.star, color: Color(0xFF7BC4B2), size: 16),
               Icon(Icons.star, color: Colors.white, size: 16),
               Icon(Icons.star, color: Colors.white, size: 16),
             ],
@@ -67,16 +70,17 @@ class StarsBuilder extends StatelessWidget {
     } else if (starsNumber == 4) {
       return Container(
         width: 90,
-        decoration: BoxDecoration(borderRadius: BorderRadius.circular(6), color: Colors.grey[200]),
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(6), color: Colors.grey[200]),
         height: 30,
         child: Center(
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Icon(Icons.star, color: Colors.blue, size: 16),
-              Icon(Icons.star, color: Colors.blue, size: 16),
-              Icon(Icons.star, color: Colors.blue, size: 16),
-              Icon(Icons.star, color: Colors.blue, size: 16),
+              Icon(Icons.star, color: Color(0xFF7BC4B2), size: 16),
+              Icon(Icons.star, color: Color(0xFF7BC4B2), size: 16),
+              Icon(Icons.star, color: Color(0xFF7BC4B2), size: 16),
+              Icon(Icons.star, color: Color(0xFF7BC4B2), size: 16),
               Icon(Icons.star, color: Colors.white, size: 16),
             ],
           ),
@@ -85,17 +89,18 @@ class StarsBuilder extends StatelessWidget {
     } else if (starsNumber == 5) {
       return Container(
         width: 90,
-        decoration: BoxDecoration(borderRadius: BorderRadius.circular(6), color: Colors.grey[200]),
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(6), color: Colors.grey[200]),
         height: 30,
         child: Center(
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Icon(Icons.star, color: Colors.blue, size: 16),
-              Icon(Icons.star, color: Colors.blue, size: 16),
-              Icon(Icons.star, color: Colors.blue, size: 16),
-              Icon(Icons.star, color: Colors.blue, size: 16),
-              Icon(Icons.star, color: Colors.blue, size: 16),
+              Icon(Icons.star, color: Color(0xFF7BC4B2), size: 16),
+              Icon(Icons.star, color: Color(0xFF7BC4B2), size: 16),
+              Icon(Icons.star, color: Color(0xFF7BC4B2), size: 16),
+              Icon(Icons.star, color: Color(0xFF7BC4B2), size: 16),
+              Icon(Icons.star, color: Color(0xFF7BC4B2), size: 16),
             ],
           ),
         ),

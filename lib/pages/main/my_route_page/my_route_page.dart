@@ -34,19 +34,19 @@ class _MyRoutePageState extends State<MyRoutePage> {
     FilterCategory(
         categoryName: 'Hotels',
         categoryIcon: Icons.hotel,
-        categoryColor: Colors.blueAccent,
+        categoryColor: Colors.blue.shade300,
         goPage: Container(),
         isSelected: false),
     FilterCategory(
         categoryName: 'Cafe & Restaurant',
         categoryIcon: Icons.restaurant,
-        categoryColor: Colors.pink,
+        categoryColor: Colors.deepOrange.shade300,
         goPage: Container(),
         isSelected: false),
     FilterCategory(
         categoryName: 'Beaches',
         categoryIcon: Icons.beach_access,
-        categoryColor: Colors.yellow[800]!,
+        categoryColor: Colors.yellow.shade300,
         goPage: Container(),
         isSelected: false),
   ];
@@ -193,7 +193,7 @@ class _MyRoutePageState extends State<MyRoutePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(bottomNavigationBar: bottomBarMethod(context),
+    return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
           centerTitle: true,
@@ -224,7 +224,7 @@ class _MyRoutePageState extends State<MyRoutePage> {
                 style: TextStyle(color: Colors.black, fontSize: 20)),
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10),
+            padding: const EdgeInsets.symmetric(horizontal: 30),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -240,7 +240,7 @@ class _MyRoutePageState extends State<MyRoutePage> {
                     }
                     setState(() {});
                   },
-                  size: 70,
+                  size: 50,
                 ),
                 FilterElement(
                   item: _items[1],
@@ -254,7 +254,7 @@ class _MyRoutePageState extends State<MyRoutePage> {
                     }
                     setState(() {});
                   },
-                  size: 70,
+                  size: 50,
                 ),
                 FilterElement(
                   item: _items[2],
@@ -262,22 +262,28 @@ class _MyRoutePageState extends State<MyRoutePage> {
                     _items[2].isSelected = !_items[2].isSelected;
                     setState(() {});
                   },
-                  size: 70,
+                  size: 50,
                 )
               ],
             ),
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 10),
-            child: ElevatedButton(
-              onPressed: () {},
-              child: Text('Go To Route'),
-              style: ButtonStyle(
-                shape: MaterialStateProperty.all(RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(40))),
-                minimumSize:
-                    MaterialStateProperty.all(Size(double.infinity, 60)),
-                backgroundColor: MaterialStateProperty.all(Color(0xFF7BC4B2)),
+            padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 14),
+            child: SizedBox(
+              height: 35,
+              child: ElevatedButton(
+                onPressed: () {},
+                child: Text(
+                  'Go To Route',
+                  style: TextStyle(color: Colors.white),
+                ),
+                style: ButtonStyle(
+                  shape: MaterialStateProperty.all(RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30))),
+                  minimumSize:
+                      MaterialStateProperty.all(Size(double.infinity, 60)),
+                  backgroundColor: MaterialStateProperty.all(Color(0xFF7BC4B2)),
+                ),
               ),
             ),
           )

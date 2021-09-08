@@ -21,7 +21,7 @@ buildPriceAndHours(
             children: [
               Text(
                 priceTitle,
-                style: TextStyle(color: Colors.black, fontSize: 15),
+                style: TextStyle(color: Colors.black, fontSize: 12),
               ),
               Text(hourTitle),
             ],
