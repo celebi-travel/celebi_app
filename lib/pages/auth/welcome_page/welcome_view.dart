@@ -25,16 +25,16 @@ class _WecomeBackPageState extends State<WelcomeBackPage> {
               ),
               Column(children: [
                 Padding(
-                  padding: EdgeInsets.only(bottom: 10, top: 80),
+                  padding: EdgeInsets.only(bottom: 10, top: 60),
                   child: WelcomeBackForm(),
                 ),
                 Padding(
-                  padding: EdgeInsets.only(left: 100),
+                  padding: EdgeInsets.only(left: 50),
                   child: Row(
                     children: [
-                      Text("Don't have an account?",
+                      Text("Don't have an account ?",
                           style:
-                              TextStyle(color: Colors.grey[600], fontSize: 25)),
+                              TextStyle(color: Colors.grey[600], fontSize: 17)),
                       TextButton(
                         onPressed: () {
                           Navigator.push(
@@ -45,7 +45,7 @@ class _WecomeBackPageState extends State<WelcomeBackPage> {
                         child: Text(
                           'Sign up',
                           style:
-                              TextStyle(color: Colors.grey[600], fontSize: 25),
+                              TextStyle(color: Colors.grey[600], fontSize: 20),
                         ),
                       ),
                     ],

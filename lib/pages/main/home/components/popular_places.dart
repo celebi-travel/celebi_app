@@ -124,12 +124,11 @@ class PopularPlaces extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MasonryGrid(
-      mainAxisSpacing: 8,
-      crossAxisSpacing: 8,
+      mainAxisSpacing: 20,
+      crossAxisSpacing: 15,
       column: 2,
       children: List.generate(6, (index) {
         PopularPlaceModel popularPlaceModel = popularPlaces[index];
-
         return InkWell(
           splashColor: Colors.transparent,
           highlightColor: Colors.transparent,
@@ -155,7 +154,7 @@ class PopularPlaces extends StatelessWidget {
                           end: FractionalOffset.bottomCenter,
                           colors: [
                             Colors.grey.withOpacity(0.0),
-                            Colors.black.withOpacity(0.4),
+                            Colors.black,
                           ],
                           stops: [
                             0.0,
@@ -164,15 +163,21 @@ class PopularPlaces extends StatelessWidget {
                         ),
                       ),
                       child: Padding(
-                        padding: const EdgeInsets.fromLTRB(8, 12, 8, 8),
+                        padding: const EdgeInsets.fromLTRB(8, 12, 12, 8),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             RichText(
                               text: TextSpan(
                                 text: '${popularPlaceModel.placeName},\n',
+                                style: TextStyle(
+                                    fontSize: 12, fontWeight: FontWeight.bold),
                                 children: [
-                                  TextSpan(text: popularPlaceModel.city)
+                                  TextSpan(
+                                      text: popularPlaceModel.city,
+                                      style: TextStyle(
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.bold))
                                 ],
                               ),
                             ),

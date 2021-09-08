@@ -5,13 +5,13 @@ Column buildAllFeatures() {
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
       Padding(
-        padding: EdgeInsets.only(left: 90, top: 20),
+        padding: EdgeInsets.only(left: 70, top: 20),
         child: Text(
           "Features",
           style: TextStyle(
               color: Colors.teal.shade200,
               fontWeight: FontWeight.bold,
-              fontSize: 20),
+              fontSize: 18),
         ),
       ),
       buildFeaturestType(Icons.airplanemode_active, "Airport Pick Up"),
@@ -27,7 +27,7 @@ Column buildAllFeatures() {
 
 buildFeaturestType(IconData icon, String title) {
   return Padding(
-    padding: EdgeInsets.only(top: 5, left: 90),
+    padding: EdgeInsets.only(top: 3, left: 70),
     child: Row(
       children: [
         Icon(icon),
@@ -35,7 +35,7 @@ buildFeaturestType(IconData icon, String title) {
           padding: EdgeInsets.only(left: 12),
           child: Text(
             title,
-            style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
+            style: TextStyle(fontSize: 10, fontWeight: FontWeight.bold),
           ),
         ),
       ],

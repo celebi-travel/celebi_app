@@ -20,19 +20,24 @@ class BottomNavBar extends StatelessWidget {
 }
 
 List<SalomonBottomBarItem> bottomNavBarElementsList = [
-  SalomonBottomBarItem(icon: Icon(Icons.home), title: Text('Home')),
   SalomonBottomBarItem(
-      icon: Icon(Icons.favorite_outline), title: Text('Travels')),
+      icon: Icon(Icons.home, color: Colors.black), title: Text('Home')),
   SalomonBottomBarItem(
-      icon: Icon(Icons.wallet_giftcard), title: Text('Wallets')),
-  SalomonBottomBarItem(icon: Icon(Icons.qr_code), title: Text('QR')),
-  SalomonBottomBarItem(icon: Icon(Icons.person), title: Text('Account')),
+      icon: Icon(Icons.favorite_outline, color: Colors.black),
+      title: Text('Travels')),
+  SalomonBottomBarItem(
+      icon: Icon(Icons.wallet_travel, color: Colors.black),
+      title: Text('Wallets')),
+  SalomonBottomBarItem(
+      icon: Icon(Icons.qr_code, color: Colors.black), title: Text('QR')),
+  SalomonBottomBarItem(
+      icon: Icon(Icons.person, color: Colors.black), title: Text('Account')),
 ];
 BottomNavBarViewModel bottomNavBarViewModel = BottomNavBarViewModel();
 Widget bottomBarMethod(BuildContext context) {
   return Observer(builder: (_) {
     return SalomonBottomBar(
-      selectedItemColor: Colors.indigo,
+      selectedItemColor: Color(0xFF7BC4B2),
       currentIndex: bottomNavBarViewModel.currentIndex,
       onTap: (i) => bottomNavBarViewModel.changeCurrentIndex(i, context),
       items: bottomNavBarElementsList,

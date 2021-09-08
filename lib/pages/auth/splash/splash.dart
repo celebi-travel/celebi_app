@@ -16,7 +16,8 @@ class Splash extends StatefulWidget {
 
 class _SplashState extends State<Splash> {
   final User? _user = AuthService().getCurrentUser();
-  void _check() {
+  Future<void> _check() async {
+    // await AuthService().signOut();
     if (_user == null) {
       Navigator.push(
           context, MaterialPageRoute(builder: (context) => LoginMainPage()));

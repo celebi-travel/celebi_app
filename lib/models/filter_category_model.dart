@@ -19,30 +19,30 @@ class FilterCategory {
 
 List<FilterCategory> filterCategories = [
   FilterCategory(
-    categoryName: 'Guider',
+    categoryName: 'Guide',
     categoryIcon: Icons.hotel, //local_hotel
-    categoryColor: Colors.blueAccent,
+    categoryColor: Color(0xFF8BCC78),
     goPage: Container(),
     isSelected: false,
   ),
   FilterCategory(
     categoryName: 'Outdoors',
     categoryIcon: Icons.outdoor_grill,
-    categoryColor: Colors.indigo,
+    categoryColor: Color(0xFFF7685E),
     goPage: Container(),
     isSelected: false,
   ),
   FilterCategory(
     categoryName: 'Entertainment',
     categoryIcon: Icons.golf_course,
-    categoryColor: Colors.redAccent,
+    categoryColor: Color(0xFFAF78CF),
     goPage: Container(),
     isSelected: false,
   ),
   FilterCategory(
     categoryName: 'History',
     categoryIcon: Icons.account_balance,
-    categoryColor: Colors.brown,
+    categoryColor: Color(0xFF966238),
     goPage: Container(),
     isSelected: false,
   ),

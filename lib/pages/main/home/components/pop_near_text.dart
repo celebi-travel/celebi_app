@@ -1,17 +1,14 @@
 import 'package:flutter/material.dart';
 import '../../../../extensions/context_extension.dart';
 
-Row buildPopularPlaceText(BuildContext context) {
-  return Row(
-    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-    children: [
-      Text(
-        'Popular Places',
-        style: context.textTheme.headline6!.copyWith(
-            letterSpacing: 0.3, fontWeight: FontWeight.bold, fontSize: 22),
-      ),
-      TextButton(onPressed: () {}, child: Text('See All')),
-    ],
+buildPopularPlaceText(BuildContext context) {
+  return Padding(
+    padding: EdgeInsets.only(right: 125, top: 20, bottom: 10),
+    child: Text(
+      'You mighth Like This',
+      style: context.textTheme.headline6!.copyWith(
+          letterSpacing: 0.3, fontWeight: FontWeight.bold, fontSize: 20),
+    ),
   );
 }
 
@@ -21,7 +18,7 @@ Align buildNearbyLocationsText(BuildContext context) {
     child: Text(
       'Nearby Locations',
       style: context.textTheme.headline6!.copyWith(
-          letterSpacing: 0.3, fontWeight: FontWeight.bold, fontSize: 22),
+          letterSpacing: 0.3, fontWeight: FontWeight.bold, fontSize: 15),
     ),
   );
 }

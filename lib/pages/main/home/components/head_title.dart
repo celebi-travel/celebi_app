@@ -15,6 +15,7 @@ class HeadTitle extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Container(
+          margin: EdgeInsets.only(top: 30),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.center,
@@ -22,29 +23,27 @@ class HeadTitle extends StatelessWidget {
               Text(
                 '${LocaleKeys.home_hello.tr()} Azad',
                 style: context.textTheme.bodyText1!
-                    .copyWith(fontWeight: FontWeight.w400, fontSize: 25),
+                    .copyWith(fontWeight: FontWeight.w400, fontSize: 15),
               ),
               Text(
                 LocaleKeys.home_title,
                 style: context.textTheme.headline5!.copyWith(
                     color: Color(0xFF000C74),
-                    fontSize: 30,
+                    fontSize: 20,
                     fontWeight: FontWeight.bold),
               ).tr(),
             ],
           ),
         ),
         Container(
-          height: 140,
-          width: 120,
-          child: Padding(
-            padding: EdgeInsets.all(25),
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(60),
-              child: Image.network(
-                'https://pbs.twimg.com/profile_images/1347941491889549318/uvn8isXg_400x400.jpg',
-                fit: BoxFit.cover,
-              ),
+          margin: EdgeInsets.only(top: 30),
+          height: 40,
+          width: 40,
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(60),
+            child: Image.network(
+              'https://pbs.twimg.com/profile_images/1347941491889549318/uvn8isXg_400x400.jpg',
+              fit: BoxFit.cover,
             ),
           ),
         ),

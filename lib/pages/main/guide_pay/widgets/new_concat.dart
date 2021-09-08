@@ -1,28 +1,60 @@
 import 'package:flutter/material.dart';
+import 'package:fluttericon/font_awesome_icons.dart';
 
-buildNewContactInfo() {
+buildSecurityAndNewContactInfo() {
   return Padding(
-    padding: EdgeInsets.only(top: 20, left: 180),
-    child: Column(
+    padding: EdgeInsets.only(top: 10),
+    child: Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Text(
-          "New Contact",
-          style: TextStyle(
-              color: Colors.red, fontSize: 15, fontWeight: FontWeight.bold),
+        Column(
+          children: [
+            Text(
+              "Security Checks",
+              style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
+            ),
+            Row(
+              children: [
+                Icon(
+                  FontAwesome.ok,
+                  color: Colors.green,
+                ),
+                Text("Valid Mobile Phone", style: TextStyle(fontSize: 10)),
+              ],
+            ),
+            Row(
+              children: [
+                Icon(
+                  FontAwesome.ok,
+                  color: Colors.green,
+                ),
+                Text("Valid Mobile Phone", style: TextStyle(fontSize: 10)),
+              ],
+            )
+          ],
         ),
-        Text(
-          "+905555-555-5555",
-          style: TextStyle(
-            color: Colors.black,
-            fontSize: 15,
-          ),
-        ),
-        Text(
-          "malikBudak@gmail.com",
-          style: TextStyle(
-            color: Colors.black,
-            fontSize: 15,
-          ),
+        Column(
+          children: [
+            Text(
+              "New Contact",
+              style: TextStyle(
+                  color: Colors.red, fontSize: 12, fontWeight: FontWeight.bold),
+            ),
+            Text(
+              "+905555-555-5555",
+              style: TextStyle(
+                color: Colors.black,
+                fontSize: 12,
+              ),
+            ),
+            Text(
+              "malikBudak@gmail.com",
+              style: TextStyle(
+                color: Colors.black,
+                fontSize: 12,
+              ),
+            ),
+          ],
         ),
       ],
     ),

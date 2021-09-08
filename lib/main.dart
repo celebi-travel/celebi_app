@@ -1,4 +1,8 @@
 import 'package:celebi_project/extensions/context_extension.dart';
+import 'package:celebi_project/pages/auth/account_page/account_page.dart';
+import 'package:celebi_project/pages/auth/login_main_page/login_main_page.dart';
+import 'package:celebi_project/pages/auth/splash/splash.dart';
+import 'package:celebi_project/pages/auth/welcome_page/welcome_view.dart';
 
 import 'package:celebi_project/pages/main/home/home_view.dart';
 import 'package:celebi_project/pages/main/payment/payment_view.dart';
@@ -8,7 +12,6 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-
 import 'cache/locale_manager.dart';
 import 'constants/lang/language_manager.dart';
 
@@ -29,7 +32,6 @@ Future<void> init() async {
   await Hive.initFlutter();
   await LocaleManager.preferencesInit();
   await Hive.openBox('settings');
-  
 }
 
 class MyApp extends StatelessWidget {
@@ -41,7 +43,7 @@ class MyApp extends StatelessWidget {
       localizationsDelegates: context.localizationDelegates,
       supportedLocales: context.supportedLocales,
       locale: context.locale,
-      home: PaymentScreen(),
+      home: Splash(),
     );
   }
 
@@ -56,10 +58,10 @@ class MyApp extends StatelessWidget {
         contentPadding: EdgeInsets.symmetric(horizontal: 10),
         enabledBorder: OutlineInputBorder(
             borderSide: BorderSide(
-              color: Color(0xFF7BC4B2),
-              width: 2,
+              color: Color(0xFFAFE1E7),
+              width: 1,
             ),
-            borderRadius: BorderRadius.circular(20)),
+            borderRadius: BorderRadius.circular(15)),
         border: OutlineInputBorder(
             borderSide: BorderSide(
               color: Color(0xFF7BC4B2),
@@ -69,7 +71,7 @@ class MyApp extends StatelessWidget {
             borderSide: BorderSide(
               color: Color(0xFF7BC4B2),
             ),
-            borderRadius: BorderRadius.circular(20)),
+            borderRadius: BorderRadius.circular(15)),
       ),
       textTheme: TextTheme(button: TextStyle(fontSize: 20)),
     );

@@ -1,10 +1,8 @@
 import 'package:celebi_project/pages/auth/account_page/account_page.dart';
-import 'package:celebi_project/pages/main/create_route/create_route.dart';
 import 'package:celebi_project/pages/main/home/home_view.dart';
 import 'package:celebi_project/pages/main/saves/saves.dart';
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
-import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 part 'bottom_nav_bar_view_model.g.dart';
 
 class BottomNavBarViewModel = _BottomNavBarViewModelBase

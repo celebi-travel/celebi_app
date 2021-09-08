@@ -1,279 +1,962 @@
 {
     "sehirler": {
         "bursa": {
-            "history": [{
-                "name": "Koza Han",
-                "imgURL": "https://www.dergibursa.com.tr/wp-content/uploads/2017/02/Aykut-G%C3%BCng%C3%B6r-Koza-Han-May%C4%B1s-2008.jpg",
-                "commentsNumber": 1231,
-                "stars": 4
-            }, {
-                "name": "Ulu Camii",
-                "imgURL": "https://somuncubabaturbesi.com/wp-content/uploads/2018/03/bursa-ulu-camii-fotograf-somuncu-baba.jpg",
-                "commentsNumber": 6214,
-                "stars": 3
-            }, {
-                "name": "Muradiye Külliyesi",
-                "imgURL": "https://www.bursageziyorum.com/wp-content/uploads/Muradiye-K%C3%BClliyesi-Bursa-min.jpg",
-                "commentsNumber": 5123,
-                "stars": 5
-            }],
-            "outdoors": [{
-                "name": "Bursa Tarihi Evleri",
-                "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/02/bursa-tarihi-evleri-scaled.jpg",
-                "commentsNumber": 5434,
-                "stars": 3
-            }, {
-                "name": "Bakacak Seyir Noktası",
-                "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/02/bakacak-seyir-terasi-768x475.png",
-                "commentsNumber": 12412,
-                "stars": 4
-            }, {
-                "name": "Bursa Teleferik",
-                "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/02/bursa-teleferik-scaled.jpg",
-                "commentsNumber": 5341,
-                "stars": 3
-            }],
-            "entertainment": [{
-                "name": "Ahmet Vefik Paşa Tiyatrosu",
-                "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/02/ahmet-vefik-pasa-tiyatrosu-696x522.jpg",
-                "commentsNumber": 12412,
-                "stars": 5
-            }, {
-                "name": "Tayyare Kültür Merkezi",
-                "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/02/teyyare-kultur-merkezi-scaled.jpg",
-                "commentsNumber": 4123,
-                "stars": 2
-            }, {
-                "name": "Kültürpark Açıkhava Tiyatrosu",
-                "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/02/kulturpark-acikhava-tiyatrosu.png",
-                "commentsNumber": 2412,
-                "stars": 4
-            }]
+            "history": [
+                {
+                    "name": "Koza Han",
+                    "imgURL": "https://www.dergibursa.com.tr/wp-content/uploads/2017/02/Aykut-G%C3%BCng%C3%B6r-Koza-Han-May%C4%B1s-2008.jpg",
+                    "commentsNumber": 1231,
+                    "stars": 4
+                },
+                {
+                    "name": "Ulu Camii",
+                    "imgURL": "https://somuncubabaturbesi.com/wp-content/uploads/2018/03/bursa-ulu-camii-fotograf-somuncu-baba.jpg",
+                    "commentsNumber": 6214,
+                    "stars": 3
+                },
+                {
+                    "name": "Muradiye Külliyesi",
+                    "imgURL": "https://www.bursageziyorum.com/wp-content/uploads/Muradiye-K%C3%BClliyesi-Bursa-min.jpg",
+                    "commentsNumber": 5123,
+                    "stars": 5
+                },
+                {
+                    "name": "Fransız Kilisesi ",
+                    "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/12/fransiz-kilisesi.jpg",
+                    "commentsNumber": 1013,
+                    "stars": 2
+                },
+                {
+                    "name": "Atatürk Evi Müzesi",
+                    "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/02/ataturk-evi-1068x558.jpg",
+                    "commentsNumber": 20334,
+                    "stars": 5
+                },
+                {
+                    "name": "Panorama 1326 Bursa Fetih Müzesi",
+                    "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/06/panorama-1326-768x401.jpg",
+                    "commentsNumber": 68534,
+                    "stars": 4
+                },
+                {
+                    "name": "Bursa Kalesi",
+                    "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/06/bursa-kalesi-768x401.jpg",
+                    "commentsNumber": 5897,
+                    "stars": 3
+                }
+            ],
+            "outdoors": [
+                {
+                    "name": "Bursa Tarihi Evleri",
+                    "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/02/bursa-tarihi-evleri-scaled.jpg",
+                    "commentsNumber": 5434,
+                    "stars": 3
+                },
+                {
+                    "name": "Bakacak Seyir Noktası",
+                    "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/02/bakacak-seyir-terasi-768x475.png",
+                    "commentsNumber": 12412,
+                    "stars": 4
+                },
+                {
+                    "name": "Bursa Teleferik",
+                    "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/02/bursa-teleferik-scaled.jpg",
+                    "commentsNumber": 5341,
+                    "stars": 3
+                },
+                {
+                    "name": "Cumalıkızık",
+                    "imgURL": "https://blog.obilet.com/wp-content/uploads/2020/08/Cumal%C4%B1k%C4%B1z%C4%B1k-K%C3%B6y%C3%BC-Bursa-1-scaled.jpeg",
+                    "commentsNumber": 7234,
+                    "stars": 5
+                },
+                {
+                    "name": "",
+                    "imgURL": "",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                },
+                {
+                    "name": "",
+                    "imgURL": "",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                },
+                {
+                    "name": "",
+                    "imgURL": "",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                }
+            ],
+            "entertainment": [
+                {
+                    "name": "Ahmet Vefik Paşa Tiyatrosu",
+                    "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/02/ahmet-vefik-pasa-tiyatrosu-696x522.jpg",
+                    "commentsNumber": 12412,
+                    "stars": 5
+                },
+                {
+                    "name": "Tayyare Kültür Merkezi",
+                    "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/02/teyyare-kultur-merkezi-scaled.jpg",
+                    "commentsNumber": 4123,
+                    "stars": 2
+                },
+                {
+                    "name": "Kültürpark Açıkhava Tiyatrosu",
+                    "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/02/kulturpark-acikhava-tiyatrosu.png",
+                    "commentsNumber": 2412,
+                    "stars": 4
+                },
+                {
+                    "name": "",
+                    "imgURL": "",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                },
+                {
+                    "name": "",
+                    "imgURL": "",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                },
+                {
+                    "name": "",
+                    "imgURL": "",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                }
+            ]
         },
         "balikesir": {
-            "history": [{
-                "name": "Balıkesir Saat Kulesi",
-                "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/08/balikesir-saat-kulesi--scaled.jpg"
-            }, {
-                "name": "İlk Kurşun Tepesi",
-                "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/08/ilk-kursun-tepesi-.jpg"
-
-            }, {
-                "name": "Yedi Şehitler Anıtı",
-                "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/08/yedi-sehitler-aniti--scaled.jpg"
-            }],
-            "outdoors": [{
-                "name": "Hasan Boğuldu Göleti",
-                "imgURL": "https://www.kucukkuyutur.net/wp-content/uploads/2020/03/hasanboguldu-goleti.jpg"
-            }, {
-                "name": "Altınova Plajı",
-                "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2019/09/altinova-plaji.jpg"
-            }, {
-                "name": "Saraylar Açık Hava Müzesi",
-                "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/08/saraylar-acik-hava-muzesi-balikesir-scaled.jpg"
-            }],
-            "entertainment": [{
-                "name": "Güre Gelinçamı Piknik Yeri",
-                "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2017/07/gure-piknik.jpg"
-            }, {
-                "name": "Sütüven Şelalesi",
-                "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2019/09/sutuven-selalesi-696x383.jpg"
-            }, {
-                "name": "Yazören Mağarası",
-                "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2019/09/yazoren-magarasi.jpg"
-            }]
+            "history": [
+                {
+                    "name": "Balıkesir Saat Kulesi",
+                    "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/08/balikesir-saat-kulesi--scaled.jpg",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                },
+                {
+                    "name": "İlk Kurşun Tepesi",
+                    "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/08/ilk-kursun-tepesi-.jpg",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                },
+                {
+                    "name": "Yedi Şehitler Anıtı",
+                    "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/08/yedi-sehitler-aniti--scaled.jpg",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                },
+                {
+                    "name": "",
+                    "imgURL": "",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                },
+                {
+                    "name": "",
+                    "imgURL": "",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                },
+                {
+                    "name": "",
+                    "imgURL": "",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                }
+            ],
+            "outdoors": [
+                {
+                    "name": "Hasan Boğuldu Göleti",
+                    "imgURL": "https://www.kucukkuyutur.net/wp-content/uploads/2020/03/hasanboguldu-goleti.jpg",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                },
+                {
+                    "name": "Altınova Plajı",
+                    "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2019/09/altinova-plaji.jpg",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                },
+                {
+                    "name": "Saraylar Açık Hava Müzesi",
+                    "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/08/saraylar-acik-hava-muzesi-balikesir-scaled.jpg",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                },
+                {
+                    "name": "",
+                    "imgURL": "",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                },
+                {
+                    "name": "",
+                    "imgURL": "",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                },
+                {
+                    "name": "",
+                    "imgURL": "",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                }
+            ],
+            "entertainment": [
+                {
+                    "name": "Güre Gelinçamı Piknik Yeri",
+                    "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2017/07/gure-piknik.jpg",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                },
+                {
+                    "name": "Sütüven Şelalesi",
+                    "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2019/09/sutuven-selalesi-696x383.jpg",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                },
+                {
+                    "name": "Yazören Mağarası",
+                    "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2019/09/yazoren-magarasi.jpg",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                },
+                {
+                    "name": "",
+                    "imgURL": "",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                },
+                {
+                    "name": "",
+                    "imgURL": "",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                },
+                {
+                    "name": "",
+                    "imgURL": "",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                }
+            ]
         },
         "sakarya": {
-            "history": [{
-                "name": "Beşköprü (Justinianus Köprüsü)",
-                "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/06/beskopru-scaled.jpg"
-            }, {
-                "name": "Taraklı",
-                "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/06/tarakli-scaled.jpg"
-            }, {
-                "name": "Hendek",
-                "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/06/hendek-scaled.jpg"
-            }],
-            "outdoors": [{
-                "name": "Çark Caddesi",
-                "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/06/cark-caddesi-scaled.jpg"
-            }, {
-                "name": "Kırkpınar Mahallesi",
-                "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/06/kirkpinar-mahallesi-scaled.jpg"
-            }, {
-                "name": "Kuzuluk Kaplıcaları",
-                "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/06/akyazi-kuzuluk-scaled.jpg"
-            }],
-            "entertainment": [{
-                "name": "Deprem ve Kültür Müzesi",
-                "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/06/deprem-ve-kultur-muzesi.jpg"
-            }, {
-                "name": "Karasu Plajı",
-                "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/06/karasu-plaji-scaled.jpg"
-            }, {
-                "name": "Gölbaşı Park",
-                "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/06/golbasi-park-696x464.jpg"
-            }]
+            "history": [
+                {
+                    "name": "Beşköprü (Justinianus Köprüsü)",
+                    "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/06/beskopru-scaled.jpg",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                },
+                {
+                    "name": "Taraklı",
+                    "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/06/tarakli-scaled.jpg",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                },
+                {
+                    "name": "Hendek",
+                    "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/06/hendek-scaled.jpg",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                },
+                {
+                    "name": "",
+                    "imgURL": "",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                },
+                {
+                    "name": "",
+                    "imgURL": "",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                },
+                {
+                    "name": "",
+                    "imgURL": "",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                }
+            ],
+            "outdoors": [
+                {
+                    "name": "Çark Caddesi",
+                    "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/06/cark-caddesi-scaled.jpg",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                },
+                {
+                    "name": "Kırkpınar Mahallesi",
+                    "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/06/kirkpinar-mahallesi-scaled.jpg",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                },
+                {
+                    "name": "Kuzuluk Kaplıcaları",
+                    "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/06/akyazi-kuzuluk-scaled.jpg",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                },
+                {
+                    "name": "",
+                    "imgURL": "",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                },
+                {
+                    "name": "",
+                    "imgURL": "",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                },
+                {
+                    "name": "",
+                    "imgURL": "",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                }
+            ],
+            "entertainment": [
+                {
+                    "name": "Deprem ve Kültür Müzesi",
+                    "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/06/deprem-ve-kultur-muzesi.jpg",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                },
+                {
+                    "name": "Karasu Plajı",
+                    "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/06/karasu-plaji-scaled.jpg",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                },
+                {
+                    "name": "Gölbaşı Park",
+                    "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/06/golbasi-park-696x464.jpg",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                },
+                {
+                    "name": "",
+                    "imgURL": "",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                },
+                {
+                    "name": "",
+                    "imgURL": "",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                },
+                {
+                    "name": "",
+                    "imgURL": "",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                }
+            ]
         },
         "canakkale": {
-            "history": [{
-                "name": "Çanakkale Şehitliği ve Şehitler Anıtı",
-                "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/04/canakkale-sehitligi-scaled.jpg"
-            }, {
-                "name": "Aynalı Çarşı",
-                "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/04/Aynali-carsi-canakkale-scaled.jpg"
-            }, {
-                "name": "Truva (Troya) Antik Kenti",
-                "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/04/Aynali-carsi-canakkale-scaled.jpg"
-            }],
-            "outdoors": [{
-                "name": "Assos (Assos Antik Kenti) ",
-                "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/04/assos-antik-liman-scaled.jpg"
-            }, {
-                "name": "Bozcaada",
-                "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2019/12/bozcaada-canakkale-scaled.jpg"
-            }, {
-                "name": "Gökçeada",
-                "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2018/08/gokceada-canakkale-scaled.jpg"
-            }],
-            "entertainment": [{
-                "name": "Çanakkale Seramik Müzesi",
-                "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/04/canakkale-seramik-muzesi--scaled.jpg"
-            }, {
-                "name": "Çanakkale Deniz Müzesi",
-                "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/04/canakkale-deniz-muzesi-scaled.jpg"
-            }, {
-                "name": "Kordon",
-                "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2018/04/canakkale-kordon--scaled.jpg"
-            }]
+            "history": [
+                {
+                    "name": "Çanakkale Şehitliği ve Şehitler Anıtı",
+                    "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/04/canakkale-sehitligi-scaled.jpg",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                },
+                {
+                    "name": "Aynalı Çarşı",
+                    "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/04/Aynali-carsi-canakkale-scaled.jpg",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                },
+                {
+                    "name": "Truva (Troya) Antik Kenti",
+                    "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/04/Aynali-carsi-canakkale-scaled.jpg",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                },
+                {
+                    "name": "",
+                    "imgURL": "",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                },
+                {
+                    "name": "",
+                    "imgURL": "",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                },
+                {
+                    "name": "",
+                    "imgURL": "",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                }
+            ],
+            "outdoors": [
+                {
+                    "name": "Assos (Assos Antik Kenti) ",
+                    "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/04/assos-antik-liman-scaled.jpg",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                },
+                {
+                    "name": "Bozcaada",
+                    "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2019/12/bozcaada-canakkale-scaled.jpg",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                },
+                {
+                    "name": "Gökçeada",
+                    "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2018/08/gokceada-canakkale-scaled.jpg",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                },
+                {
+                    "name": "",
+                    "imgURL": "",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                },
+                {
+                    "name": "",
+                    "imgURL": "",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                },
+                {
+                    "name": "",
+                    "imgURL": "",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                }
+            ],
+            "entertainment": [
+                {
+                    "name": "Çanakkale Seramik Müzesi",
+                    "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/04/canakkale-seramik-muzesi--scaled.jpg",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                },
+                {
+                    "name": "Çanakkale Deniz Müzesi",
+                    "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/04/canakkale-deniz-muzesi-scaled.jpg",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                },
+                {
+                    "name": "Kordon",
+                    "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2018/04/canakkale-kordon--scaled.jpg",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                },
+                {
+                    "name": "",
+                    "imgURL": "",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                },
+                {
+                    "name": "",
+                    "imgURL": "",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                },
+                {
+                    "name": "",
+                    "imgURL": "",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                }
+            ]
         },
         "istanbul": {
-            "history": [{
-                "name": "Anadolu Hisarı",
-                "imgURL": "https://media-cdn.tripadvisor.com/media/photo-m/1280/15/fd/b7/50/anadolu-hisari.jpg"
-            }, {
-                "name": "Topkapı Sarayı",
-                "imgURL": "https://muzeler.org/images/google-place-images/topkapi-sarayi-muzesi.jpg"
-            }, {
-                "name": "Yedikule Hisarı ve Zindanları",
-                "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/06/yedikule-zindanlari-scaled.jpg"
-            }],
-            "outdoors": [{
-                "name": "Belgrad Ormanı",
-                "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/02/Belgrad-ormani.jpg"
-            }, {
-                "name": "Miniatürk",
-                "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/02/miniaturk-scaled.jpg"
-            }, {
-                "name": "Yıldız Sarayı",
-                "imgURL": "https://www.gezilesiyer.com/wp-content/uploads/2019/11/yildiz-sarayi-gezilesiyer.jpg"
-            }],
-            "entertainment": [{
-                "name": "Büyükada Yörükali Plajı",
-                "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/02/yorukali-plaji-scaled.jpg"
-            }, {
-                "name": "Rahmi M. Koç Müzesi",
-                "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/02/rahmi-m-koc-muzesi-scaled.jpg"
-            }, {
-                "name": "Beyoğlu Sanat Galerisi",
-                "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/02/beyoglu-sanat-galerisi-scaled.jpg"
-            }]
+            "history": [
+                {
+                    "name": "Anadolu Hisarı",
+                    "imgURL": "https://media-cdn.tripadvisor.com/media/photo-m/1280/15/fd/b7/50/anadolu-hisari.jpg",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                },
+                {
+                    "name": "Topkapı Sarayı",
+                    "imgURL": "https://muzeler.org/images/google-place-images/topkapi-sarayi-muzesi.jpg",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                },
+                {
+                    "name": "Yedikule Hisarı ve Zindanları",
+                    "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/06/yedikule-zindanlari-scaled.jpg",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                },
+                {
+                    "name": "",
+                    "imgURL": "",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                },
+                {
+                    "name": "",
+                    "imgURL": "",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                },
+                {
+                    "name": "",
+                    "imgURL": "",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                }
+            ],
+            "outdoors": [
+                {
+                    "name": "Belgrad Ormanı",
+                    "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/02/Belgrad-ormani.jpg",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                },
+                {
+                    "name": "Miniatürk",
+                    "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/02/miniaturk-scaled.jpg",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                },
+                {
+                    "name": "Yıldız Sarayı",
+                    "imgURL": "https://www.gezilesiyer.com/wp-content/uploads/2019/11/yildiz-sarayi-gezilesiyer.jpg",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                },
+                {
+                    "name": "",
+                    "imgURL": "",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                },
+                {
+                    "name": "",
+                    "imgURL": "",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                },
+                {
+                    "name": "",
+                    "imgURL": "",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                }
+            ],
+            "entertainment": [
+                {
+                    "name": "Büyükada Yörükali Plajı",
+                    "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/02/yorukali-plaji-scaled.jpg",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                },
+                {
+                    "name": "Rahmi M. Koç Müzesi",
+                    "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/02/rahmi-m-koc-muzesi-scaled.jpg",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                },
+                {
+                    "name": "Beyoğlu Sanat Galerisi",
+                    "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/02/beyoglu-sanat-galerisi-scaled.jpg",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                },
+                {
+                    "name": "",
+                    "imgURL": "",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                },
+                {
+                    "name": "",
+                    "imgURL": "",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                },
+                {
+                    "name": "",
+                    "imgURL": "",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                }
+            ]
         },
         "antalya": {
-            "history": [{
-                "name": "Alanya Atatürk Evi Müzesi",
-                "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/01/alanya-ataturk-evi-muzesi-scaled.jpg"
-            }, {
-                "name": "Karain Mağarası",
-                "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/01/karain-magarasi-scaled.jpg"
-            }, {
-                "name": "Damlataş Mağarası",
-                "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/01/damla-tas-magarasi-scaled.jpg"
-            }],
-            "outdoors": [{
-                "name": "Kaleiçi ",
-                "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/01/kale-ici-scaled.jpg"
-            }, {
-                "name": "Tekirova Plajları",
-                "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/01/tekirova-plajlari-scaled.jpg"
-            }, {
-                "name": "Adrasan Kıyıları",
-                "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/01/adrasan-kiyilari-scaled.jpg"
-            }],
-            "entertainment": [{
-                "name": "Side Sualtı Müzesi",
-                "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/01/side-su-alti-muzesi-scaled.jpg"
-            }, {
-                "name": "Oyuncak Müzesi",
-                "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/01/oyuncak-muzesi.jpg"
-            }, {
-                "name": "Soba Müzesi",
-                "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2017/07/7-Soba-M%C3%BCzesi.jpg"
-            }]
+            "history": [
+                {
+                    "name": "Alanya Atatürk Evi Müzesi",
+                    "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/01/alanya-ataturk-evi-muzesi-scaled.jpg",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                },
+                {
+                    "name": "Karain Mağarası",
+                    "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/01/karain-magarasi-scaled.jpg",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                },
+                {
+                    "name": "Damlataş Mağarası",
+                    "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/01/damla-tas-magarasi-scaled.jpg",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                },
+                {
+                    "name": "",
+                    "imgURL": "",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                },
+                {
+                    "name": "",
+                    "imgURL": "",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                },
+                {
+                    "name": "",
+                    "imgURL": "",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                }
+            ],
+            "outdoors": [
+                {
+                    "name": "Kaleiçi ",
+                    "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/01/kale-ici-scaled.jpg",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                },
+                {
+                    "name": "Tekirova Plajları",
+                    "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/01/tekirova-plajlari-scaled.jpg",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                },
+                {
+                    "name": "Adrasan Kıyıları",
+                    "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/01/adrasan-kiyilari-scaled.jpg",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                },
+                {
+                    "name": "",
+                    "imgURL": "",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                },
+                {
+                    "name": "",
+                    "imgURL": "",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                },
+                {
+                    "name": "",
+                    "imgURL": "",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                }
+            ],
+            "entertainment": [
+                {
+                    "name": "Side Sualtı Müzesi",
+                    "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/01/side-su-alti-muzesi-scaled.jpg",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                },
+                {
+                    "name": "Oyuncak Müzesi",
+                    "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/01/oyuncak-muzesi.jpg",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                },
+                {
+                    "name": "Soba Müzesi",
+                    "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2017/07/7-Soba-M%C3%BCzesi.jpg",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                },
+                {
+                    "name": "",
+                    "imgURL": "",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                },
+                {
+                    "name": "",
+                    "imgURL": "",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                },
+                {
+                    "name": "",
+                    "imgURL": "",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                }
+            ]
         },
         "edirne": {
-            "history": [{
-                "name": "Edirne Evleri",
-                "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/06/edirne-evleri-scaled.jpg"
-            }, {
-                "name": "Lozan Anıtı",
-                "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/06/lozan-aniti-scaled.jpg"
-            }, {
-                "name": "Hafızağa Konağı",
-                "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/06/hafizaga-konagi-scaled.jpg"
-            }],
-            "outdoors": [{
-                "name": "Kırkpınar Er Meydanı",
-                "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/06/kirkpinar-er-meydani-scaled.jpg"
-            }, {
-                "name": "Karaağaç Mahallesi",
-                "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/06/karaagac-scaled.jpg"
-            }, {
-                "name": "Edirne Saraçlar Caddesi",
-                "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/06/edirne-saraclar-caddesi-scaled.jpg"
-            }],
-            "entertainment": [{
-                "name": "Selimiye Vakfı Müzesi",
-                "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/06/edirne-selimiye-vakfi-muzesi-696x464.jpg"
-            }, {
-                "name": "Edirne Müzesi",
-                "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/06/Edirne-muzesi-scaled.jpg"
-            }, {
-                "name": "Edirne Sağlık Müzesi",
-                "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/06/edirne-saglik-muzesi-scaled.jpg"
-            }]
+            "history": [
+                {
+                    "name": "Edirne Evleri",
+                    "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/06/edirne-evleri-scaled.jpg",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                },
+                {
+                    "name": "Lozan Anıtı",
+                    "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/06/lozan-aniti-scaled.jpg",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                },
+                {
+                    "name": "Hafızağa Konağı",
+                    "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/06/hafizaga-konagi-scaled.jpg",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                },
+                {
+                    "name": "",
+                    "imgURL": "",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                },
+                {
+                    "name": "",
+                    "imgURL": "",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                },
+                {
+                    "name": "",
+                    "imgURL": "",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                }
+            ],
+            "outdoors": [
+                {
+                    "name": "Kırkpınar Er Meydanı",
+                    "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/06/kirkpinar-er-meydani-scaled.jpg",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                },
+                {
+                    "name": "Karaağaç Mahallesi",
+                    "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/06/karaagac-scaled.jpg",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                },
+                {
+                    "name": "Edirne Saraçlar Caddesi",
+                    "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/06/edirne-saraclar-caddesi-scaled.jpg",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                },
+                {
+                    "name": "",
+                    "imgURL": "",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                },
+                {
+                    "name": "",
+                    "imgURL": "",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                },
+                {
+                    "name": "",
+                    "imgURL": "",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                }
+            ],
+            "entertainment": [
+                {
+                    "name": "Selimiye Vakfı Müzesi",
+                    "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/06/edirne-selimiye-vakfi-muzesi-696x464.jpg",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                },
+                {
+                    "name": "Edirne Müzesi",
+                    "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/06/Edirne-muzesi-scaled.jpg",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                },
+                {
+                    "name": "Edirne Sağlık Müzesi",
+                    "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/06/edirne-saglik-muzesi-scaled.jpg",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                },
+                {
+                    "name": "",
+                    "imgURL": "",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                },
+                {
+                    "name": "",
+                    "imgURL": "",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                },
+                {
+                    "name": "",
+                    "imgURL": "",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                }
+            ]
         },
         "trabzon": {
-            "history": [{
-                "name": "Sümela Manastırı",
-                "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/05/sumela-manastiri-scaled.jpg"
-            }, {
-                "name": "Trabzon Ayasofya Müzesi",
-                "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/05/trabzon-ayasofya-muzesi-scaled.jpg"
-            }, {
-                "name": "Ortamahalle",
-                "imgURL": "https://i4.hurimg.com/i/hurriyet/75/1110x740/5f3686d50f2543203c5aa6f5.jpg"
-            }],
-            "outdoors": [{
-                "name": "Boztepe",
-                "imgURL": "https://cdnuploads.aa.com.tr/uploads/Contents/2019/10/06/thumbs_b_c_0371b492b40dc268e6850ff2d1a9f968.jpg?v=134759"
-            }, {
-                "name": "Yalıncak Aile Plajı",
-                "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/05/yalincak-aile-plaji-scaled.jpg"
-            }, {
-                "name": "Albatros Plajı",
-                "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/05/albatros-plaji.jpg"
-            }],
-            "entertainment": [{
-                "name": "Trabzon Müzesi (Kostaki Konağı)",
-                "imgURL": "https://www.kulturportali.gov.tr/repoKulturPortali/large/SehirRehberi//GezilecekYer/20170227084600997_Untitled%202.jpg?format=jpg&quality=50"
-            }, {
-                "name": "Trabzonspor Müzesi (Şamil Ekinci Müzesi)",
-                "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/05/trabzonspor-muzesi-scaled.jpg"
-            }, {
-                "name": "Trabzon Tarih Müzesi",
-                "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/05/trabzon-tarih-muzesi.jpg"
-            }]
+            "history": [
+                {
+                    "name": "Sümela Manastırı",
+                    "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/05/sumela-manastiri-scaled.jpg",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                },
+                {
+                    "name": "Trabzon Ayasofya Müzesi",
+                    "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/05/trabzon-ayasofya-muzesi-scaled.jpg",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                },
+                {
+                    "name": "Ortamahalle",
+                    "imgURL": "https://i4.hurimg.com/i/hurriyet/75/1110x740/5f3686d50f2543203c5aa6f5.jpg",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                },
+                {
+                    "name": "",
+                    "imgURL": "",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                },
+                {
+                    "name": "",
+                    "imgURL": "",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                },
+                {
+                    "name": "",
+                    "imgURL": "",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                }
+            ],
+            "outdoors": [
+                {
+                    "name": "Boztepe",
+                    "imgURL": "https://cdnuploads.aa.com.tr/uploads/Contents/2019/10/06/thumbs_b_c_0371b492b40dc268e6850ff2d1a9f968.jpg?v=134759",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                },
+                {
+                    "name": "Yalıncak Aile Plajı",
+                    "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/05/yalincak-aile-plaji-scaled.jpg",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                },
+                {
+                    "name": "Albatros Plajı",
+                    "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/05/albatros-plaji.jpg",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                },
+                {
+                    "name": "",
+                    "imgURL": "",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                },
+                {
+                    "name": "",
+                    "imgURL": "",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                },
+                {
+                    "name": "",
+                    "imgURL": "",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                }
+            ],
+            "entertainment": [
+                {
+                    "name": "Trabzon Müzesi (Kostaki Konağı)",
+                    "imgURL": "https://www.kulturportali.gov.tr/repoKulturPortali/large/SehirRehberi//GezilecekYer/20170227084600997_Untitled%202.jpg?format=jpg&quality=50",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                },
+                {
+                    "name": "Trabzonspor Müzesi (Şamil Ekinci Müzesi)",
+                    "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/05/trabzonspor-muzesi-scaled.jpg",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                },
+                {
+                    "name": "Trabzon Tarih Müzesi",
+                    "imgURL": "https://blog.biletbayi.com/wp-content/uploads/2020/05/trabzon-tarih-muzesi.jpg",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                },
+                {
+                    "name": "",
+                    "imgURL": "",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                },
+                {
+                    "name": "",
+                    "imgURL": "",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                },
+                {
+                    "name": "",
+                    "imgURL": "",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                },
+                {
+                    "name": "",
+                    "imgURL": "",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                },
+                {
+                    "name": "",
+                    "imgURL": "",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                },
+                {
+                    "name": "",
+                    "imgURL": "",
+                    "commentsNumber": 102334,
+                    "stars": 4
+                }
+            ]
         }
     }
 }

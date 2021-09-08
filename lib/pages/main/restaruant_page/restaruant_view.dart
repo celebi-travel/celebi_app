@@ -1,3 +1,4 @@
+import 'package:celebi_project/pages/main/bottom_nav_bar/bottom_nav_bar.dart';
 import 'package:celebi_project/pages/main/restaruant_page/widgets/components/widgets.dart';
 import 'package:celebi_project/pages/main/restaruant_page/widgets/tabbar/reservation.dart';
 import 'package:celebi_project/services/firestore_service.dart';
@@ -29,6 +30,7 @@ class _RestaruantPageState extends State<RestaruantPage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        bottomNavigationBar: bottomBarMethod(context),
         backgroundColor: Colors.white,
         appBar: buildRestaruantAppbar(restaurant.restaurantName),
         body: DefaultTabController(

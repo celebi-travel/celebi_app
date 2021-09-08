@@ -21,7 +21,7 @@ class _LoginMainPageState extends State<LoginMainPage> {
       backgroundColor: Colors.white,
       body: Center(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
+          padding: EdgeInsets.symmetric(horizontal: 20),
           child: Column(
             children: [
               Spacer(
@@ -36,15 +36,16 @@ class _LoginMainPageState extends State<LoginMainPage> {
               Text(LocaleKeys.login1_title,
                       textAlign: TextAlign.center,
                       style: context.textTheme.headline2!
-                          .copyWith(color: Colors.black))
+                          .copyWith(color: Colors.black, fontSize: 30))
                   .tr(),
               Spacer(),
               Text(LocaleKeys.login1_subtitle,
-                      textAlign: TextAlign.center,
-                      style: context.textTheme.headline5!.copyWith(
-                          color: Colors.blueGrey[400],
-                          fontWeight: FontWeight.w400))
-                  .tr(),
+                  textAlign: TextAlign.center,
+                  style: context.textTheme.headline5!.copyWith(
+                    color: Colors.blueGrey[400],
+                    fontWeight: FontWeight.w400,
+                    fontSize: 20,
+                  )).tr(),
               Spacer(),
               LoginButton(
                 name: LocaleKeys.login1_googlebtn.tr(),

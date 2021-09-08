@@ -34,20 +34,8 @@ class BuildIconButton extends StatelessWidget {
                   style: context.textTheme.bodyText2!
                       .copyWith(fontSize: 14, color: Colors.white)),
               style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(Colors.red)),
+                  backgroundColor: MaterialStateProperty.all(Colors.blue[900])),
             ),
-            IconButton(
-                onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) =>
-                              RouteFilterPage(placeModel: placeModel)));
-                },
-                icon: Icon(
-                  Icons.favorite,
-                  color: Colors.pink,
-                )),
           ],
         )
       ],

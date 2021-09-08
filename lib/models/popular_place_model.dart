@@ -44,7 +44,7 @@ List<PopularPlaceModel> popularPlaces = [
     'https://www.youtube.com/watch?v=J6yYIVKy36s',
   ),
   PopularPlaceModel(
-    'https://pbs.twimg.com/media/BKKQBGoCcAAAQsi.jpg',
+    'https://i.pinimg.com/originals/48/fe/ea/48feeafde1b98ad401c72c625dc6a8a7.jpg',
     'Peri Bacaları',
     false,
     'Nevşehir',
