@@ -4,7 +4,7 @@ import 'package:celebi_project/models/video_response_model.dart';
 import 'package:vexana/vexana.dart';
 
 class NetworkService {
-  static final String baseUrl = "https://48ad-31-223-67-205.ngrok.io/";
+  static final String baseUrl = "https://beaf-31-223-67-205.ngrok.io/";
   INetworkManager networkManager = NetworkManager(
       options: BaseOptions(
     baseUrl: baseUrl,

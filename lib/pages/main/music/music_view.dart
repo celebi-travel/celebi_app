@@ -25,6 +25,7 @@ class _MusicViewState extends State<MusicView> {
   void dispose() {
     // TODO: implement dispose
     super.dispose();
+    print('dispose worked');
     audioPlayer.dispose();
   }
 

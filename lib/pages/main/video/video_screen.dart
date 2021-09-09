@@ -10,6 +10,23 @@ class VideoScreen extends StatefulWidget {
 }
 
 class _VideoScreenState extends State<VideoScreen> {
+  VideoPlayerController? _controller;
+  @override
+  void initState() {
+    super.initState();
+    _controller = VideoPlayerController.network(widget.videoUrl)
+      ..initialize().then((_) {
+        // Ensure the first frame is shown after the video is initialized, even before the play button has been pressed.
+        setState(() {});
+      });
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _controller!.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -18,8 +35,7 @@ class _VideoScreenState extends State<VideoScreen> {
           color: Colors.black,
           child: Center(
             child: VideoItems(
-                videoPlayerController:
-                    VideoPlayerController.network(widget.videoUrl),
+                videoPlayerController: _controller!,
                 looping: true,
                 autoplay: true),
           ),

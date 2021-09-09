@@ -228,8 +228,6 @@ class _PopularPlacesState extends State<PopularPlaces> {
                       ],
                     )),
                 onTap: () {
-                  print(popularPlaces[index].city);
-                  print(popularPlaces[index].videoUrl);
                   Navigator.push(
                     context,
                     MaterialPageRoute(
