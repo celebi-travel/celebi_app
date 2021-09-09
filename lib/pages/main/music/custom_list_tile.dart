@@ -1,3 +1,5 @@
+import 'package:celebi_project/models/music_response_model.dart';
+
 import '../../../extensions/context_extension.dart';
 import 'package:flutter/material.dart';
 
@@ -6,7 +8,7 @@ import 'music_model.dart';
 class CustomListTile extends StatelessWidget {
   const CustomListTile({Key? key, required this.music, required this.onTap})
       : super(key: key);
-  final MusicModel music;
+  final MusicResponseModel music;
   final VoidCallback onTap;
   @override
   Widget build(BuildContext context) {
@@ -31,12 +33,12 @@ class CustomListTile extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  music.title,
+                  music.musicName!,
                   style: context.textTheme.bodyText1,
                 ),
                 SizedBox(height: 5),
                 Text(
-                  music.singer,
+                  music.singerName!,
                   style: context.textTheme.bodyText2,
                 )
               ],

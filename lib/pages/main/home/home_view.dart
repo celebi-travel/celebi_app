@@ -6,6 +6,7 @@ import 'package:celebi_project/pages/main/home/components/pop_near_text.dart';
 import 'package:celebi_project/pages/main/route_filter_page/route_filter_page.dart';
 import 'package:celebi_project/services/auth_service.dart';
 import 'package:celebi_project/services/firestore_service.dart';
+import 'package:celebi_project/services/network_service.dart';
 import 'package:celebi_project/services/translator.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -35,6 +36,7 @@ class _HomeViewState extends State<HomeView> {
   void initState() {
     super.initState();
     username();
+   
   }
 
   @override

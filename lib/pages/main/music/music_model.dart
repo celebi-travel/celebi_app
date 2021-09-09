@@ -10,7 +10,7 @@ class MusicModel {
       required this.url,
       required this.coverUrl});
 }
-
+/* 
 List musicList = <MusicModel>[
   MusicModel(
       title: 'Ankaranın Bağları',
@@ -74,3 +74,4 @@ List musicList = <MusicModel>[
       coverUrl:
           'https://image.freepik.com/free-photo/african-american-jazz-musician-playing-pipe_155003-29982.jpg'),
 ];
+ */

@@ -6,6 +6,7 @@ import 'package:celebi_project/pages/auth/splash/splash.dart';
 import 'package:celebi_project/pages/auth/welcome_page/welcome_view.dart';
 
 import 'package:celebi_project/pages/main/home/home_view.dart';
+import 'package:celebi_project/pages/main/music/music_view.dart';
 import 'package:celebi_project/pages/main/payment/payment_view.dart';
 import 'package:celebi_project/pages/main/profile/proflle_view.dart';
 import 'package:celebi_project/pages/main/route_filter_page/route_filter_page.dart';

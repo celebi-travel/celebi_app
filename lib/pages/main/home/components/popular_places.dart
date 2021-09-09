@@ -1,5 +1,7 @@
 import 'package:celebi_project/models/popular_place_model.dart';
+import 'package:celebi_project/models/video_response_model.dart';
 import 'package:celebi_project/pages/main/video/video_screen.dart';
+import 'package:celebi_project/services/network_service.dart';
 import 'package:flutter/material.dart';
 import 'package:masonry_grid/masonry_grid.dart';
 
@@ -116,101 +118,128 @@ class _BodyState extends State<Body> {
 }
 */
 
-class PopularPlaces extends StatelessWidget {
+class PopularPlaces extends StatefulWidget {
   const PopularPlaces({
     Key? key,
   }) : super(key: key);
 
   @override
+  _PopularPlacesState createState() => _PopularPlacesState();
+}
+
+class _PopularPlacesState extends State<PopularPlaces> {
+  late NetworkService networkService;
+  List<VideoResponseModel>? videoList = [];
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    networkService = NetworkService();
+    networkService.getVideos().then((value) {
+      setState(() {
+        videoList = value;
+        videoList!;
+      });
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return MasonryGrid(
-      mainAxisSpacing: 20,
-      crossAxisSpacing: 15,
-      column: 2,
-      children: List.generate(6, (index) {
-        PopularPlaceModel popularPlaceModel = popularPlaces[index];
-        return InkWell(
-          splashColor: Colors.transparent,
-          highlightColor: Colors.transparent,
-          child: ClipRRect(
-              borderRadius: BorderRadius.circular(14.0),
-              child: Stack(
-                children: [
-                  Container(
-                    width: double.infinity,
-                    child: Image.network(
-                      popularPlaceModel.imageUrl!,
-                      fit: BoxFit.fill,
-                    ),
-                  ),
-                  Positioned(
-                    bottom: 0,
-                    right: 8,
-                    left: 0,
-                    child: Container(
-                      decoration: BoxDecoration(
-                        gradient: LinearGradient(
-                          begin: FractionalOffset.center,
-                          end: FractionalOffset.bottomCenter,
-                          colors: [
-                            Colors.grey.withOpacity(0.0),
-                            Colors.black,
-                          ],
-                          stops: [
-                            0.0,
-                            1.0,
-                          ],
+    print(videoList);
+    return videoList!.length == 0
+        ? Center(
+            child: CircularProgressIndicator(),
+          )
+        : MasonryGrid(
+            mainAxisSpacing: 20,
+            crossAxisSpacing: 15,
+            column: 2,
+            children: List.generate(6, (index) {
+              print(index);
+              VideoResponseModel popularPlaceModel = videoList![index];
+              return InkWell(
+                splashColor: Colors.transparent,
+                highlightColor: Colors.transparent,
+                child: ClipRRect(
+                    borderRadius: BorderRadius.circular(14.0),
+                    child: Stack(
+                      children: [
+                        Container(
+                          width: double.infinity,
+                          child: Image.network(
+                            popularPlaceModel.image!,
+                            fit: BoxFit.fill,
+                          ),
                         ),
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.fromLTRB(8, 12, 12, 8),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            RichText(
-                              text: TextSpan(
-                                text: '${popularPlaceModel.placeName},\n',
-                                style: TextStyle(
-                                    fontSize: 12, fontWeight: FontWeight.bold),
-                                children: [
-                                  TextSpan(
-                                      text: popularPlaceModel.city,
-                                      style: TextStyle(
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.bold))
+                        Positioned(
+                          bottom: 0,
+                          right: 8,
+                          left: 0,
+                          child: Container(
+                            decoration: BoxDecoration(
+                              gradient: LinearGradient(
+                                begin: FractionalOffset.center,
+                                end: FractionalOffset.bottomCenter,
+                                colors: [
+                                  Colors.grey.withOpacity(0.0),
+                                  Colors.black,
+                                ],
+                                stops: [
+                                  0.0,
+                                  1.0,
                                 ],
                               ),
                             ),
-                            CircleAvatar(
-                              minRadius: 13,
-                              backgroundColor: Colors.white,
-                              child: Icon(
-                                Icons.favorite,
-                                color: Colors.red,
-                                size: 15,
+                            child: Padding(
+                              padding: const EdgeInsets.fromLTRB(8, 12, 12, 8),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  RichText(
+                                    text: TextSpan(
+                                      text: '${popularPlaceModel.place},\n',
+                                      style: TextStyle(
+                                          fontSize: 12,
+                                          fontWeight: FontWeight.bold),
+                                      children: [
+                                        TextSpan(
+                                            text: popularPlaceModel.city,
+                                            style: TextStyle(
+                                                fontSize: 16,
+                                                fontWeight: FontWeight.bold))
+                                      ],
+                                    ),
+                                  ),
+                                  CircleAvatar(
+                                    minRadius: 13,
+                                    backgroundColor: Colors.white,
+                                    child: Icon(
+                                      Icons.favorite,
+                                      color: Colors.red,
+                                      size: 15,
+                                    ),
+                                  )
+                                ],
                               ),
-                            )
-                          ],
-                        ),
-                      ),
+                            ),
+                          ),
+                        )
+                      ],
+                    )),
+                onTap: () {
+                  print(popularPlaces[index].city);
+                  print(popularPlaces[index].videoUrl);
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) =>
+                          VideoScreen(videoUrl: videoList![index].video!),
                     ),
-                  )
-                ],
-              )),
-          onTap: () {
-            print(popularPlaces[index].city);
-            print(popularPlaces[index].videoUrl);
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => VideoScreen(
-                  videoUrl: popularPlaces[index].videoUrl,
-                ),
-              ),
-            );
-          },
-        );
-      }),
-    );
+                  );
+                },
+              );
+            }),
+          );
   }
 }

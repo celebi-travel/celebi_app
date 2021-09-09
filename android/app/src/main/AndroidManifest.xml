@@ -4,7 +4,8 @@
    <application
         android:label="celebi_project"
           android:usesCleartextTraffic="true"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/ic_launcher"
+        android:usesCleartextTraffic="true">
         <meta-data android:name="com.google.android.geo.API_KEY"
                android:value="AIzaSyCgAc5W3Hx4QSRhQFXSASv_prrQp3P9UeQ"/>
         <activity
