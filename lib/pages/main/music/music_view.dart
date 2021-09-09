@@ -20,7 +20,7 @@ class _MusicViewState extends State<MusicView> {
   AudioPlayer audioPlayer = AudioPlayer(mode: PlayerMode.MEDIA_PLAYER);
   bool isPlaying = false;
   List<MusicResponseModel>? musicList = [];
-  late NetworkService networkService;git 
+  late NetworkService networkService;
   @override
   void dispose() {
     // TODO: implement dispose
