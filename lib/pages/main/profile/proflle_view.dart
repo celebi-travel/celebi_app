@@ -1,3 +1,4 @@
+import 'package:celebi_project/pages/auth/change_password/change_password.dart';
 import 'package:celebi_project/pages/auth/custom/custom_button.dart';
 import 'package:celebi_project/pages/main/bottom_nav_bar/bottom_nav_bar.dart';
 import 'package:celebi_project/pages/main/bottom_nav_bar/bottom_nav_bar_view_model.dart';

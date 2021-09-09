@@ -1,4 +1,10 @@
+import 'package:celebi_project/constants/lang/language_manager.dart';
+import 'package:celebi_project/extensions/context_extension.dart';
+import 'package:celebi_project/pages/auth/change_password/change_password.dart';
+import 'package:celebi_project/pages/auth/custom/custom_button.dart';
 import 'package:celebi_project/pages/main/bottom_nav_bar/bottom_nav_bar.dart';
+import 'package:celebi_project/widgets/custom_alert_dialog.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 class SettingsPage extends StatefulWidget {
@@ -16,7 +22,6 @@ class _SettingsPageState extends State<SettingsPage> {
       appBar: AppBar(
           backgroundColor: Colors.white,
           elevation: 0,
-          leading: Icon(Icons.arrow_back, color: Colors.black),
           title: Text("Back", style: TextStyle(color: Colors.black))),
       body: Padding(
         padding: EdgeInsets.only(left: 20, right: 20),
@@ -56,11 +61,14 @@ class _SettingsPageState extends State<SettingsPage> {
                 borderRadius: BorderRadius.circular(15),
               ))),
           child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              SizedBox(width: 90),
-              Icon(
-                Icons.note,
-                color: Colors.green,
+              CircleAvatar(
+                backgroundColor: context.colors.primary,
+                child: Icon(
+                  Icons.logout,
+                  color: Colors.white,
+                ),
               ),
               SizedBox(width: 20),
               Text(
@@ -103,38 +111,130 @@ class _SettingsPageState extends State<SettingsPage> {
       child: Column(
         children: [
           buildSettingsSections(
-              Icons.verified_user, "Change Password", Icons.verified_user),
+              Icons.lock, "Change Password", Icons.arrow_forward_ios_outlined,
+              () {
+            Navigator.of(context).push(MaterialPageRoute(
+              builder: (context) => ChangePasswordView(),
+            ));
+          }),
           buildDivider(),
           buildSettingsSections(
-              Icons.verified_user, "Language", Icons.verified_user),
+              Icons.language, "Language", Icons.arrow_forward_ios_outlined, () {
+            showDialog(
+                context: context,
+                builder: (context) => CustomAlertDialog(
+                      height: context.height * 0.4,
+                      width: context.width * 0.8,
+                      content: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Text("Select Your Language",
+                              style: TextStyle(color: Colors.black)),
+                          SizedBox(height: 90),
+                          buildAllLanguages(
+                              'icons/flags/png/tr.png', " Turkısh", () {
+                            context
+                                .setLocale(LanguageManager.instance.trLocale);
+                          }),
+                          buildLanguageDivider(),
+                          buildAllLanguages(
+                              'icons/flags/png/us.png', " English", () {
+                            context
+                                .setLocale(LanguageManager.instance.enLocale);
+                          }),
+                          buildLanguageDivider(),
+                          buildAllLanguages(
+                              'icons/flags/png/ru.png', " Russian", () {
+                            context
+                                .setLocale(LanguageManager.instance.ruLocale);
+                          }),
+                          buildLanguageDivider(),
+                          buildAllLanguages('icons/flags/png/de.png', " German",
+                              () {
+                            context
+                                .setLocale(LanguageManager.instance.deLocale);
+                          }),
+                          buildLanguageDivider(),
+                          buildAllLanguages(
+                              'icons/flags/png/bg.png', " Bulgarian", () {
+                            context
+                                .setLocale(LanguageManager.instance.bgLocale);
+                          }),
+                          SizedBox(
+                            height: 40,
+                            width: 100,
+                            child: CustomButton(
+                                onPressed: () => Navigator.of(context).pop(),
+                                text: 'Ok'),
+                          )
+                        ],
+                      ),
+                    ));
+          }),
           buildDivider(),
-          buildSettingsSections(
-              Icons.verified_user, "Privacy and Security", Icons.verified_user),
+          buildSettingsSections(Icons.privacy_tip, "Privacy and Security",
+              Icons.arrow_forward_ios_outlined, () {}),
         ],
       ),
     );
   }
 
-  Padding buildDivider() {
+  buildAllLanguages(String flagImage, String languageName, Function() onPress) {
     return Padding(
-      padding: EdgeInsets.only(right: 20, left: 20),
-      child: Divider(
-        height: 3,
-        color: Colors.black,
+      padding: EdgeInsets.symmetric(horizontal: 90),
+      child: Row(
+        children: [
+          ClipRRect(
+            borderRadius: BorderRadius.circular(90),
+            child: Image.asset(
+              flagImage,
+              package: 'country_icons',
+              height: 40,
+              width: 60,
+            ),
+          ),
+          TextButton(
+            onPressed: onPress,
+            child: Text(
+              languageName,
+              style:
+                  TextStyle(color: Colors.black, fontWeight: FontWeight.w300),
+            ),
+          ),
+        ],
       ),
     );
   }
+}
 
-  Column buildSettingsSections(
-      IconData leadingIcon, String title, IconData trailingIcon) {
-    return Column(
-      children: [
-        ListTile(
-          leading: Icon(leadingIcon),
-          title: Text(title),
-          trailing: Icon(trailingIcon),
-        ),
-      ],
-    );
-  }
+Padding buildDivider() {
+  return Padding(
+    padding: EdgeInsets.only(right: 20, left: 20),
+    child: Divider(
+      height: 3,
+      color: Colors.black,
+    ),
+  );
+}
+
+Divider buildLanguageDivider() {
+  return Divider(
+    endIndent: 40,
+    indent: 40,
+    color: Colors.black54,
+  );
+}
+
+Column buildSettingsSections(IconData leadingIcon, String title,
+    IconData trailingIcon, VoidCallback onPressed) {
+  return Column(
+    children: [
+      ListTile(
+        onTap: onPressed,
+        leading: Icon(leadingIcon),
+        title: Text(title),
+        trailing: Icon(trailingIcon),
+      ),
+    ],
+  );
 }

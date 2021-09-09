@@ -99,17 +99,13 @@ class _ChangePasswordFormState extends State<ChangePasswordForm> {
           repeatPasswordField(context),
           SizedBox(height: context.height * 0.2),
           CustomButton(
-              text: 'Register',
+              text: 'Change Password',
               onPressed: () {
                 if (formKey.currentState!.validate()) {
                   final String oldPassword = oldPasswordController.text;
                   final String newPassword = newPasswordController.text;
                   final String repeatPassword = repeatPasswordController.text;
                   print(oldPassword);
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => CheckEmailView()));
                 }
               }),
         ],

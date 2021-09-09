@@ -1,3 +1,4 @@
+import 'package:celebi_project/extensions/context_extension.dart';
 import 'package:flutter/material.dart';
 
 class CustomAlertDialog extends StatelessWidget {
@@ -17,8 +18,8 @@ class CustomAlertDialog extends StatelessWidget {
     return AlertDialog(
       title: title ?? null,
       content: Container(
-          width: width ?? 260.0,
-          height: height ?? 100.0,
+          width: width ?? context.height * 0.3,
+          height: height ?? context.height * 0.4,
           decoration: new BoxDecoration(
             shape: BoxShape.rectangle,
             color: const Color(0xFFFFFF),

@@ -9,6 +9,7 @@ import 'package:celebi_project/pages/main/home/home_view.dart';
 import 'package:celebi_project/pages/main/payment/payment_view.dart';
 import 'package:celebi_project/pages/main/profile/proflle_view.dart';
 import 'package:celebi_project/pages/main/route_filter_page/route_filter_page.dart';
+import 'package:celebi_project/pages/main/settings_page/settings_page_view.dart';
 import 'package:celebi_project/services/locators.dart';
 import 'package:celebi_project/services/translator.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -46,13 +47,17 @@ class MyApp extends StatelessWidget {
       localizationsDelegates: context.localizationDelegates,
       supportedLocales: context.supportedLocales,
       locale: context.locale,
-      home: AccountPage(),
+      home: Splash(),
     );
   }
 
   ThemeData buildThemeData(BuildContext context) {
     return ThemeData(
       primarySwatch: Colors.blue,
+      appBarTheme: AppBarTheme(
+        color: Colors.white,
+        iconTheme: IconThemeData(color: Colors.black),
+      ),
       colorScheme: _appColorScheme,
       scaffoldBackgroundColor: Colors.white,
       inputDecorationTheme: InputDecorationTheme(

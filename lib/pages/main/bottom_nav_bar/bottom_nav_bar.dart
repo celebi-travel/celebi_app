@@ -1,5 +1,7 @@
+import 'package:celebi_project/constants/lang/locale_keys.g.dart';
 import 'package:celebi_project/pages/auth/login_main_page/login_main_page.dart';
 import 'package:celebi_project/pages/main/bottom_nav_bar/bottom_nav_bar_view_model.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import '../../../services/auth_service.dart';
 import '../../../services/firestore_service.dart';
@@ -21,17 +23,23 @@ class BottomNavBar extends StatelessWidget {
 
 List<SalomonBottomBarItem> bottomNavBarElementsList = [
   SalomonBottomBarItem(
-      icon: Icon(Icons.home, color: Colors.black), title: Text('Home')),
+    icon: Icon(Icons.home, color: Colors.black),
+    title: Text(LocaleKeys.bottombar_home.tr()),
+  ),
   SalomonBottomBarItem(
       icon: Icon(Icons.favorite_outline, color: Colors.black),
-      title: Text('Travels')),
+      title: Text(LocaleKeys.bottombar_routes.tr())),
   SalomonBottomBarItem(
-      icon: Icon(Icons.wallet_travel, color: Colors.black),
-      title: Text('Wallets')),
+    icon: Icon(Icons.wallet_travel, color: Colors.black),
+    title: Text(LocaleKeys.bottombar_Wallets.tr()),
+  ),
   SalomonBottomBarItem(
-      icon: Icon(Icons.qr_code, color: Colors.black), title: Text('QR')),
+    icon: Icon(Icons.qr_code, color: Colors.black),
+    title: Text(LocaleKeys.bottombar_qr.tr()),
+  ),
   SalomonBottomBarItem(
-      icon: Icon(Icons.person, color: Colors.black), title: Text('Account')),
+      icon: Icon(Icons.person, color: Colors.black),
+      title: Text(LocaleKeys.bottombar_account.tr())),
 ];
 BottomNavBarViewModel bottomNavBarViewModel = BottomNavBarViewModel();
 Widget bottomBarMethod(BuildContext context) {

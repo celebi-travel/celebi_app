@@ -16,7 +16,7 @@ class TranslatorManager {
   Future<String> translate(BuildContext context, String text) async {
     String to = _getLocale(context).languageCode;
     Translation translation =
-        await _translator.translate(text, from: 'tr', to: to);
+        await _translator.translate(text, from: 'en', to: to);
     print(translation.toString());
     return translation.toString();
   }

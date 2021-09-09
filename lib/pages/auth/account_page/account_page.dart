@@ -1,5 +1,7 @@
 import 'package:celebi_project/pages/auth/languages_page/language_page.dart';
 import 'package:celebi_project/pages/main/bottom_nav_bar/bottom_nav_bar.dart';
+import 'package:celebi_project/pages/main/profile_edit/profile_edit_view.dart';
+import 'package:celebi_project/pages/main/settings_page/settings_page_view.dart';
 import 'package:flutter/material.dart';
 
 import 'components/settings_divider.dart';
@@ -48,22 +50,20 @@ class AccountPage extends StatelessWidget {
                       SettingsElement(
                           name: 'Edit Profile',
                           icon: Icons.person,
-                          onPressed: () {}),
-                      SettingsDivider(),
-                      SettingsElement(
-                          name: 'Language',
-                          icon: Icons.language,
                           onPressed: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => LanguagePage()));
+                            Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => ProfileEditView(),
+                            ));
                           }),
                       SettingsDivider(),
                       SettingsElement(
                           name: 'Settings',
                           icon: Icons.settings,
-                          onPressed: () {}),
+                          onPressed: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => SettingsPage(),
+                            ));
+                          }),
                     ],
                   )),
               Container(
