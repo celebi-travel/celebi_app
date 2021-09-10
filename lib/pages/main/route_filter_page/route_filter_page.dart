@@ -1,8 +1,8 @@
 import 'dart:convert';
-import 'package:celebi_project/models/place.dart';
-import 'package:celebi_project/pages/main/bottom_nav_bar/bottom_nav_bar.dart';
-import 'package:celebi_project/pages/main/my_route_page/my_route_page.dart';
-import 'package:celebi_project/services/firestore_service.dart';
+import '../../../models/place.dart';
+import '../bottom_nav_bar/bottom_nav_bar.dart';
+import '../my_route_page/my_route_page.dart';
+import '../../../services/firestore_service.dart';
 import '../../../constants/sehirler_icinde_lat_long.dart';
 import '../../../models/filter_category_model.dart';
 import '../../../models/touristic_place.dart';

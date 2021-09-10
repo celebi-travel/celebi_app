@@ -1,7 +1,7 @@
-import 'package:celebi_project/models/popular_place_model.dart';
-import 'package:celebi_project/models/video_response_model.dart';
-import 'package:celebi_project/pages/main/video/video_screen.dart';
-import 'package:celebi_project/services/network_service.dart';
+import '../../../../models/popular_place_model.dart';
+import '../../../../models/video_response_model.dart';
+import '../../video/video_screen.dart';
+import '../../../../services/network_service.dart';
 import 'package:flutter/material.dart';
 import 'package:masonry_grid/masonry_grid.dart';
 

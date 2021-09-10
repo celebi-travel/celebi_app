@@ -1,4 +1,4 @@
-import 'package:celebi_project/pages/main/detail/detail_view.dart';
+import '../../detail/detail_view.dart';
 
 import '../../../../models/place.dart';
 import '../../../../extensions/context_extension.dart';

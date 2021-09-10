@@ -1,4 +1,4 @@
-import 'package:celebi_project/models/music_response_model.dart';
+import '../../../models/music_response_model.dart';
 
 import '../../../extensions/context_extension.dart';
 import 'package:flutter/material.dart';

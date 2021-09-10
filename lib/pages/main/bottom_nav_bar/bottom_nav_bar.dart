@@ -1,6 +1,6 @@
-import 'package:celebi_project/constants/lang/locale_keys.g.dart';
-import 'package:celebi_project/pages/auth/login_main_page/login_main_page.dart';
-import 'package:celebi_project/pages/main/bottom_nav_bar/bottom_nav_bar_view_model.dart';
+import '../../../constants/lang/locale_keys.g.dart';
+import '../../auth/login_main_page/login_main_page.dart';
+import 'bottom_nav_bar_view_model.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import '../../../services/auth_service.dart';

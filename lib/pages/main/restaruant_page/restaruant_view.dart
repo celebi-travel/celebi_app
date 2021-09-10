@@ -1,7 +1,7 @@
-import 'package:celebi_project/pages/main/bottom_nav_bar/bottom_nav_bar.dart';
-import 'package:celebi_project/pages/main/restaruant_page/widgets/components/widgets.dart';
-import 'package:celebi_project/pages/main/restaruant_page/widgets/tabbar/reservation.dart';
-import 'package:celebi_project/services/firestore_service.dart';
+import '../bottom_nav_bar/bottom_nav_bar.dart';
+import 'widgets/components/widgets.dart';
+import 'widgets/tabbar/reservation.dart';
+import '../../../services/firestore_service.dart';
 import 'package:flutter/material.dart';
 
 import '../../../constants/image_slider.dart';

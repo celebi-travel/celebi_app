@@ -1,4 +1,4 @@
-import 'package:celebi_project/constants/lang/locale_keys.g.dart';
+import '../../../constants/lang/locale_keys.g.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 

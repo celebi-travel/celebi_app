@@ -1,6 +1,7 @@
-import 'package:celebi_project/extensions/context_extension.dart';
-import 'package:celebi_project/pages/auth/custom/custom_button.dart';
 import 'package:flutter/material.dart';
+
+import '../../../extensions/context_extension.dart';
+import '../../auth/custom/custom_button.dart';
 
 class ProfileEditView extends StatelessWidget {
   const ProfileEditView({Key? key}) : super(key: key);

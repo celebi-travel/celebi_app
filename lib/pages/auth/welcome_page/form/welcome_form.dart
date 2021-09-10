@@ -1,4 +1,4 @@
-import 'package:celebi_project/pages/main/bottom_nav_bar/bottom_nav_bar.dart';
+import '../../../main/bottom_nav_bar/bottom_nav_bar.dart';
 
 import '../../custom/custom_button.dart';
 import '../components/forget_password_button.dart';

@@ -1,7 +1,7 @@
 import 'dart:convert';
 
-import 'package:celebi_project/models/language_model.dart';
-import 'package:celebi_project/models/tour_model.dart';
+import 'language_model.dart';
+import 'tour_model.dart';
 
 class Rehber {
   final String name;

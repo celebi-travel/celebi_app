@@ -1,4 +1,4 @@
-import 'package:celebi_project/pages/main/video/source/video_items.dart';
+import 'package:chewie/chewie.dart';
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 
@@ -10,21 +10,35 @@ class VideoScreen extends StatefulWidget {
 }
 
 class _VideoScreenState extends State<VideoScreen> {
-  VideoPlayerController? _controller;
+  late VideoPlayerController videoPlayerController;
+  ChewieController? _chewieController;
   @override
   void initState() {
     super.initState();
-    _controller = VideoPlayerController.network(widget.videoUrl)
-      ..initialize().then((_) {
-        // Ensure the first frame is shown after the video is initialized, even before the play button has been pressed.
-        setState(() {});
-      });
+
+    initializePlayer();
+  }
+
+  Future<void> initializePlayer() async {
+    videoPlayerController = VideoPlayerController.network(widget.videoUrl);
+    await Future.wait([videoPlayerController.initialize()]);
+
+    _chewieController = ChewieController(
+      aspectRatio: 5 / 10,
+      videoPlayerController: videoPlayerController,
+      autoPlay: true,
+      autoInitialize: true,
+      looping: true,
+    );
+    setState(() {});
+    print(_chewieController);
   }
 
   @override
   void dispose() {
     super.dispose();
-    _controller!.dispose();
+    videoPlayerController.dispose();
+    _chewieController?.dispose();
   }
 
   @override
@@ -32,14 +46,23 @@ class _VideoScreenState extends State<VideoScreen> {
     return SafeArea(
       child: Scaffold(
         body: Container(
-          color: Colors.black,
-          child: Center(
-            child: VideoItems(
-                videoPlayerController: _controller!,
-                looping: true,
-                autoplay: true),
-          ),
-        ),
+            color: Colors.black,
+            child: Center(
+              child: _chewieController != null &&
+                      _chewieController!
+                          .videoPlayerController.value.isInitialized
+                  ? Chewie(
+                      controller: _chewieController!,
+                    )
+                  : Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: const [
+                        CircularProgressIndicator(),
+                        SizedBox(height: 20),
+                        Text('Loading'),
+                      ],
+                    ),
+            )),
       ),
     );
   }

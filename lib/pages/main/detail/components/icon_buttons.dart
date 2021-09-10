@@ -1,6 +1,6 @@
-import 'package:celebi_project/constants/lang/locale_keys.g.dart';
-import 'package:celebi_project/models/place.dart';
-import 'package:celebi_project/pages/main/route_filter_page/route_filter_page.dart';
+import '../../../../constants/lang/locale_keys.g.dart';
+import '../../../../models/place.dart';
+import '../../route_filter_page/route_filter_page.dart';
 import 'package:easy_localization/easy_localization.dart';
 
 import '../../../../extensions/context_extension.dart';

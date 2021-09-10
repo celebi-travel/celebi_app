@@ -1,7 +1,7 @@
-import 'package:celebi_project/constants/lang/locale_keys.g.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
+import '../../../constants/lang/locale_keys.g.dart';
 import '../../../services/auth_service.dart';
 import '../custom/custom_button.dart';
 import '../custom/image_with_blue_button.dart';

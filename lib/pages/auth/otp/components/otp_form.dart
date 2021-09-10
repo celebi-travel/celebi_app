@@ -1,9 +1,9 @@
-import 'package:celebi_project/pages/auth/custom/custom_button.dart';
+import 'package:flutter/material.dart';
 
 import '../../../../extensions/context_extension.dart';
-import '../../../main/profile/proflle_view.dart';
 import '../../../../widgets/custom_alert_dialog.dart';
-import 'package:flutter/material.dart';
+import '../../../main/profile/proflle_view.dart';
+import '../../custom/custom_button.dart';
 
 class OtpForm extends StatefulWidget {
   const OtpForm({

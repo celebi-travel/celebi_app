@@ -1,10 +1,10 @@
-import 'package:celebi_project/constants/music_category.dart';
-import 'package:celebi_project/models/music_response_model.dart';
-import 'package:celebi_project/models/video_response_model.dart';
+import '../constants/music_category.dart';
+import '../models/music_response_model.dart';
+import '../models/video_response_model.dart';
 import 'package:vexana/vexana.dart';
 
 class NetworkService {
-  static final String baseUrl = "https://beaf-31-223-67-205.ngrok.io/";
+  static final String baseUrl = "https://85ed-37-155-170-180.ngrok.io/";
   INetworkManager networkManager = NetworkManager(
       options: BaseOptions(
     baseUrl: baseUrl,

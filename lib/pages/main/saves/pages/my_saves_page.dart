@@ -1,7 +1,7 @@
 import 'dart:convert';
 
-import 'package:celebi_project/pages/main/route_filter_page/route_filter_page.dart';
-import 'package:celebi_project/services/firestore_service.dart';
+import '../../route_filter_page/route_filter_page.dart';
+import '../../../../services/firestore_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 

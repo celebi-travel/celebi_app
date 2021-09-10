@@ -1,8 +1,8 @@
-import 'package:celebi_project/pages/auth/change_password/change_password.dart';
-import 'package:celebi_project/pages/auth/custom/custom_button.dart';
-import 'package:celebi_project/pages/main/bottom_nav_bar/bottom_nav_bar.dart';
-import 'package:celebi_project/pages/main/bottom_nav_bar/bottom_nav_bar_view_model.dart';
-import 'package:celebi_project/services/locators.dart';
+import '../../auth/change_password/change_password.dart';
+import '../../auth/custom/custom_button.dart';
+import '../bottom_nav_bar/bottom_nav_bar.dart';
+import '../bottom_nav_bar/bottom_nav_bar_view_model.dart';
+import '../../../services/locators.dart';
 import 'package:flutter/material.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 

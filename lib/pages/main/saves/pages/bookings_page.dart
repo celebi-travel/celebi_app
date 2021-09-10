@@ -1,4 +1,4 @@
-import 'package:celebi_project/services/firestore_service.dart';
+import '../../../../services/firestore_service.dart';
 import 'package:flutter/material.dart';
 
 class BookingsPage extends StatefulWidget {

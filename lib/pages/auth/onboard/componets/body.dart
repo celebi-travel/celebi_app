@@ -1,11 +1,11 @@
 import 'dart:ui';
-import 'package:celebi_project/cache/locale_manager.dart';
-import 'package:celebi_project/constants/lang/language_manager.dart';
-import 'package:celebi_project/constants/lang/locale_keys.g.dart';
-import 'package:celebi_project/constants/preferences_keys.dart';
-import 'package:celebi_project/pages/auth/custom/custom_button.dart';
-import 'package:celebi_project/pages/main/bottom_nav_bar/bottom_nav_bar.dart';
-import 'package:celebi_project/pages/main/home/home_view.dart';
+import '../../../../cache/locale_manager.dart';
+import '../../../../constants/lang/language_manager.dart';
+import '../../../../constants/lang/locale_keys.g.dart';
+import '../../../../constants/preferences_keys.dart';
+import '../../custom/custom_button.dart';
+import '../../../main/bottom_nav_bar/bottom_nav_bar.dart';
+import '../../../main/home/home_view.dart';
 import 'package:easy_localization/easy_localization.dart';
 
 import '../../../../extensions/context_extension.dart';

@@ -1,6 +1,6 @@
 import 'dart:async';
-import 'package:celebi_project/pages/main/bottom_nav_bar/bottom_nav_bar.dart';
-import 'package:celebi_project/pages/main/hotel_page/hotel_page_view.dart';
+import '../bottom_nav_bar/bottom_nav_bar.dart';
+import '../hotel_page/hotel_page_view.dart';
 
 import '../../../models/filter_category_model.dart';
 import '../../../models/hotel_model.dart';

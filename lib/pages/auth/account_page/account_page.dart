@@ -1,7 +1,7 @@
-import 'package:celebi_project/pages/auth/languages_page/language_page.dart';
-import 'package:celebi_project/pages/main/bottom_nav_bar/bottom_nav_bar.dart';
-import 'package:celebi_project/pages/main/profile_edit/profile_edit_view.dart';
-import 'package:celebi_project/pages/main/settings_page/settings_page_view.dart';
+import '../languages_page/language_page.dart';
+import '../../main/bottom_nav_bar/bottom_nav_bar.dart';
+import '../../main/profile_edit/profile_edit_view.dart';
+import '../../main/settings_page/settings_page_view.dart';
 import 'package:flutter/material.dart';
 
 import 'components/settings_divider.dart';

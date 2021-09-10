@@ -1,4 +1,4 @@
-import 'package:celebi_project/pages/main/restaruant_page/source/drop_down_list.dart';
+import '../../source/drop_down_list.dart';
 import 'package:flutter/material.dart';
 
 class ReservationBar extends StatefulWidget {

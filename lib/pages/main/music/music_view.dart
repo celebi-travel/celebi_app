@@ -1,7 +1,7 @@
 import 'package:audioplayers/audioplayers.dart';
-import 'package:celebi_project/constants/music_category.dart';
-import 'package:celebi_project/models/music_response_model.dart';
-import 'package:celebi_project/services/network_service.dart';
+import '../../../constants/music_category.dart';
+import '../../../models/music_response_model.dart';
+import '../../../services/network_service.dart';
 import '../../../extensions/context_extension.dart';
 import 'custom_list_tile.dart';
 import 'music_model.dart';

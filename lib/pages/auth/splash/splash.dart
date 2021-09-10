@@ -1,10 +1,10 @@
 import 'dart:async';
 
-import 'package:celebi_project/pages/main/bottom_nav_bar/bottom_nav_bar.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import '../../../services/auth_service.dart';
+import '../../main/bottom_nav_bar/bottom_nav_bar.dart';
 import '../login_main_page/login_main_page.dart';
 
 class Splash extends StatefulWidget {

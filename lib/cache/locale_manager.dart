@@ -1,4 +1,4 @@
-import 'package:celebi_project/constants/preferences_keys.dart';
+import '../constants/preferences_keys.dart';
 import 'package:hive/hive.dart';
 
 /// Eğer auth manager gibi bir servis yazılacaksa

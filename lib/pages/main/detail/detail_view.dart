@@ -1,7 +1,7 @@
 import 'dart:io';
-import 'package:celebi_project/constants/lang/locale_keys.g.dart';
-import 'package:celebi_project/models/place.dart';
-import 'package:celebi_project/pages/main/bottom_nav_bar/bottom_nav_bar.dart';
+import '../../../constants/lang/locale_keys.g.dart';
+import '../../../models/place.dart';
+import '../bottom_nav_bar/bottom_nav_bar.dart';
 import 'package:easy_localization/easy_localization.dart';
 
 import '../../../services/firestore_service.dart';

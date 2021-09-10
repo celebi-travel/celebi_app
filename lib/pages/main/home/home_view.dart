@@ -1,13 +1,13 @@
-import 'package:celebi_project/constants/lang/locale_keys.g.dart';
-import 'package:celebi_project/models/place.dart';
-import 'package:celebi_project/pages/main/bottom_nav_bar/bottom_nav_bar.dart';
-import 'package:celebi_project/pages/main/detail/detail_view.dart';
-import 'package:celebi_project/pages/main/home/components/pop_near_text.dart';
-import 'package:celebi_project/pages/main/route_filter_page/route_filter_page.dart';
-import 'package:celebi_project/services/auth_service.dart';
-import 'package:celebi_project/services/firestore_service.dart';
-import 'package:celebi_project/services/network_service.dart';
-import 'package:celebi_project/services/translator.dart';
+import '../../../constants/lang/locale_keys.g.dart';
+import '../../../models/place.dart';
+import '../bottom_nav_bar/bottom_nav_bar.dart';
+import '../detail/detail_view.dart';
+import 'components/pop_near_text.dart';
+import '../route_filter_page/route_filter_page.dart';
+import '../../../services/auth_service.dart';
+import '../../../services/firestore_service.dart';
+import '../../../services/network_service.dart';
+import '../../../services/translator.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 

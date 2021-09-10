@@ -1,9 +1,9 @@
-import 'package:celebi_project/pages/main/bottom_nav_bar/bottom_nav_bar.dart';
-import 'package:celebi_project/pages/main/guide_pay/widgets/all_features.dart';
-import 'package:celebi_project/pages/main/guide_pay/widgets/all_tours.dart';
-import 'package:celebi_project/pages/main/guide_pay/widgets/bookNow_button.dart';
-import 'package:celebi_project/pages/main/guide_pay/widgets/languages.dart';
-import 'package:celebi_project/pages/main/guide_pay/widgets/new_concat.dart';
+import '../bottom_nav_bar/bottom_nav_bar.dart';
+import 'widgets/all_features.dart';
+import 'widgets/all_tours.dart';
+import 'widgets/bookNow_button.dart';
+import 'widgets/languages.dart';
+import 'widgets/new_concat.dart';
 import 'package:flutter/material.dart';
 
 class GuidePayPage extends StatefulWidget {

@@ -1,4 +1,4 @@
-import 'package:celebi_project/pages/main/home/components/head_title.dart';
+import '../home/components/head_title.dart';
 
 import '../../../constants/iller_listesi.dart';
 import '../../../models/filter_category_model.dart';

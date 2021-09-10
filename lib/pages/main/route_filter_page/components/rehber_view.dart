@@ -1,7 +1,8 @@
-import 'package:celebi_project/extensions/context_extension.dart';
-import 'package:celebi_project/models/rehber_model.dart';
-import 'package:celebi_project/pages/main/guide_pay/guide_pay_view.dart';
 import 'package:flutter/material.dart';
+
+import '../../../../extensions/context_extension.dart';
+import '../../../../models/rehber_model.dart';
+import '../../guide_pay/guide_pay_view.dart';
 
 class RehberView extends StatelessWidget {
   const RehberView({Key? key}) : super(key: key);

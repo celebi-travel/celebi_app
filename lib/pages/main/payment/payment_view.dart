@@ -1,7 +1,8 @@
-import 'package:celebi_project/extensions/context_extension.dart';
-import 'package:celebi_project/pages/auth/custom/custom_button.dart';
-import 'package:celebi_project/pages/main/payment/service/payment.dart';
 import 'package:flutter/material.dart';
+
+import '../../../extensions/context_extension.dart';
+import '../../auth/custom/custom_button.dart';
+import 'service/payment.dart';
 
 class PaymentScreen extends StatefulWidget {
   @override
