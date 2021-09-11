@@ -1,6 +1,4 @@
 import 'dart:convert';
-import 'package:celebi_project/services/translator.dart';
-
 import '../../../models/place.dart';
 import '../bottom_nav_bar/bottom_nav_bar.dart';
 import '../my_route_page/my_route_page.dart';
@@ -337,7 +335,7 @@ Container buildSearchField(searchController) {
   );
 }
 
-class PlaceWidget extends StatefulWidget {
+class PlaceWidget extends StatelessWidget {
   const PlaceWidget({
     Key? key,
     required this.name,
@@ -357,26 +355,6 @@ class PlaceWidget extends StatefulWidget {
   final VoidCallback onPressed, favoriteButton;
 
   @override
-  State<PlaceWidget> createState() => _PlaceWidgetState();
-}
-
-class _PlaceWidgetState extends State<PlaceWidget> {
-  late String name;
-  bool nameTranslated = false;
-
-  Future<void> translateName() async {
-    name = await TranslatorManager.instance.translate(context, widget.name);
-    nameTranslated = true;
-    setState(() {});
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    translateName();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Column(
       children: [
@@ -394,17 +372,17 @@ class _PlaceWidgetState extends State<PlaceWidget> {
                         height: 160,
                         color: Colors.blue,
                         child: Image.network(
-                          widget.imgURL,
+                          imgURL,
                           fit: BoxFit.cover,
                         )),
                     Positioned(
                       child: GestureDetector(
-                        onTap: widget.favoriteButton,
+                        onTap: favoriteButton,
                         child: CircleAvatar(
                           radius: 12,
                           child: Icon(
                             Icons.favorite,
-                            color: widget.favoriteButtonColor,
+                            color: favoriteButtonColor,
                             size: 15,
                           ),
                           backgroundColor: Colors.white,
@@ -423,20 +401,20 @@ class _PlaceWidgetState extends State<PlaceWidget> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(nameTranslated ? name : '',
+                    Text(name,
                         style: context.textTheme.headline2!
                             .copyWith(fontSize: 14, color: Colors.black)),
                     SizedBox(height: 8),
                     Row(
                       children: [
-                        StarsBuilder(widget.starsNumber),
+                        StarsBuilder(starsNumber),
                         SizedBox(width: 8),
-                        Text(widget.commentsNumber.toString()),
+                        Text(commentsNumber.toString()),
                       ],
                     ),
                     SizedBox(height: 8),
                     Text(
-                      widget.category,
+                      category,
                       style: context.textTheme.subtitle1!.copyWith(
                           color: Colors.grey,
                           fontSize: 12,
@@ -446,9 +424,9 @@ class _PlaceWidgetState extends State<PlaceWidget> {
                     Align(
                       alignment: Alignment.centerRight,
                       child: IconButton(
-                          onPressed: widget.onPressed,
+                          onPressed: onPressed,
                           icon: Icon(
-                            widget.icon,
+                            icon,
                             color: Colors.black,
                           )),
                     )
