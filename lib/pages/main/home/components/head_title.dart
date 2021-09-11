@@ -7,7 +7,10 @@ import '../../../../extensions/context_extension.dart';
 class HeadTitle extends StatelessWidget {
   const HeadTitle({
     Key? key,
+    required this.name,
+    required this.imageUrl,
   }) : super(key: key);
+  final String name, imageUrl;
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +24,7 @@ class HeadTitle extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                '${LocaleKeys.home_hello.tr()} Azad',
+                '${LocaleKeys.home_hello.tr()} $name',
                 style: context.textTheme.bodyText1!
                     .copyWith(fontWeight: FontWeight.w400, fontSize: 15),
               ),
@@ -42,7 +45,7 @@ class HeadTitle extends StatelessWidget {
           child: ClipRRect(
             borderRadius: BorderRadius.circular(60),
             child: Image.network(
-              'https://pbs.twimg.com/profile_images/1347941491889549318/uvn8isXg_400x400.jpg',
+              imageUrl,
               fit: BoxFit.cover,
             ),
           ),

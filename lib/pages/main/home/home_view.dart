@@ -27,55 +27,73 @@ class _HomeViewState extends State<HomeView> {
   final searchController = TextEditingController();
   PlaceModel? currentCity;
 
-  Future<void> username() async {
-    String uid = AuthService().getCurrentUser()!.uid;
-    print(uid);
+  late String username;
+  bool nameGet = false;
+
+  String profilePicUrl = '';
+  bool profilePicget = false;
+
+  Future<void> getProfilePic() async {
+    profilePicUrl = await FirestoreService().getProfilePicture();
+    profilePicget = true;
+    setState(() {});
+  }
+
+  Future<void> getusername() async {
+    username = await FirestoreService().getCurrentUsersUsername();
+    print('username = $username');
+    nameGet = true;
+    setState(() {});
   }
 
   @override
   void initState() {
     super.initState();
-    username();
-   
+    getusername().then((value) => getProfilePic());
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: bottomBarMethod(context),
-      resizeToAvoidBottomInset: false,
-      body: SafeArea(
-          child: Padding(
-        padding: context.paddingNormalHorizontal,
-        child: Column(
-          children: [
-            Expanded(flex: 6, child: HeadTitle()),
-            buildSearchField(searchController),
-            Spacer(),
-            buildNearbyLocationsText(context),
-            Expanded(flex: 6, child: NearbyLocations()),
-            Spacer(),
-            Align(
-              alignment: Alignment.centerLeft,
-              child: Text(
-                LocaleKeys.home_popular_cities,
-                style: context.textTheme.headline6!.copyWith(
-                    letterSpacing: 0.3,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 15),
-              ).tr(),
-            ),
-            Expanded(flex: 6, child: PopularLocations()),
-            Spacer(),
-            buildPopularPlaceText(context),
-            Expanded(
-                flex: 17,
-                child: SingleChildScrollView(
-                    physics: BouncingScrollPhysics(), child: PopularPlaces()))
-          ],
-        ),
-      )),
-    );
+        bottomNavigationBar: bottomBarMethod(context),
+        resizeToAvoidBottomInset: false,
+        body: nameGet // && profilePicget
+            ? SafeArea(
+                child: Padding(
+                padding: context.paddingNormalHorizontal,
+                child: Column(
+                  children: [
+                    Expanded(
+                        flex: 6,
+                        child:
+                            HeadTitle(imageUrl: profilePicUrl, name: username)),
+                    buildSearchField(searchController),
+                    Spacer(),
+                    buildNearbyLocationsText(context),
+                    Expanded(flex: 6, child: NearbyLocations()),
+                    Spacer(),
+                    Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        LocaleKeys.home_popular_cities,
+                        style: context.textTheme.headline6!.copyWith(
+                            letterSpacing: 0.3,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 15),
+                      ).tr(),
+                    ),
+                    Expanded(flex: 6, child: PopularLocations()),
+                    Spacer(),
+                    buildPopularPlaceText(context),
+                    Expanded(
+                        flex: 17,
+                        child: SingleChildScrollView(
+                            physics: BouncingScrollPhysics(),
+                            child: PopularPlaces()))
+                  ],
+                ),
+              ))
+            : Center(child: CircularProgressIndicator()));
   }
 }
 

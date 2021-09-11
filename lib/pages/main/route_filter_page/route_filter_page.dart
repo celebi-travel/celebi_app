@@ -1,4 +1,6 @@
 import 'dart:convert';
+import 'package:celebi_project/services/translator.dart';
+
 import '../../../models/place.dart';
 import '../bottom_nav_bar/bottom_nav_bar.dart';
 import '../my_route_page/my_route_page.dart';
@@ -335,7 +337,7 @@ Container buildSearchField(searchController) {
   );
 }
 
-class PlaceWidget extends StatelessWidget {
+class PlaceWidget extends StatefulWidget {
   const PlaceWidget({
     Key? key,
     required this.name,
@@ -355,6 +357,26 @@ class PlaceWidget extends StatelessWidget {
   final VoidCallback onPressed, favoriteButton;
 
   @override
+  State<PlaceWidget> createState() => _PlaceWidgetState();
+}
+
+class _PlaceWidgetState extends State<PlaceWidget> {
+  late String name;
+  bool nameTranslated = false;
+
+  Future<void> translateName() async {
+    name = await TranslatorManager.instance.translate(context, widget.name);
+    nameTranslated = true;
+    setState(() {});
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    translateName();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Column(
       children: [
@@ -372,17 +394,17 @@ class PlaceWidget extends StatelessWidget {
                         height: 160,
                         color: Colors.blue,
                         child: Image.network(
-                          imgURL,
+                          widget.imgURL,
                           fit: BoxFit.cover,
                         )),
                     Positioned(
                       child: GestureDetector(
-                        onTap: favoriteButton,
+                        onTap: widget.favoriteButton,
                         child: CircleAvatar(
                           radius: 12,
                           child: Icon(
                             Icons.favorite,
-                            color: favoriteButtonColor,
+                            color: widget.favoriteButtonColor,
                             size: 15,
                           ),
                           backgroundColor: Colors.white,
@@ -401,20 +423,20 @@ class PlaceWidget extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(name,
+                    Text(nameTranslated ? name : '',
                         style: context.textTheme.headline2!
                             .copyWith(fontSize: 14, color: Colors.black)),
                     SizedBox(height: 8),
                     Row(
                       children: [
-                        StarsBuilder(starsNumber),
+                        StarsBuilder(widget.starsNumber),
                         SizedBox(width: 8),
-                        Text(commentsNumber.toString()),
+                        Text(widget.commentsNumber.toString()),
                       ],
                     ),
                     SizedBox(height: 8),
                     Text(
-                      category,
+                      widget.category,
                       style: context.textTheme.subtitle1!.copyWith(
                           color: Colors.grey,
                           fontSize: 12,
@@ -424,9 +446,9 @@ class PlaceWidget extends StatelessWidget {
                     Align(
                       alignment: Alignment.centerRight,
                       child: IconButton(
-                          onPressed: onPressed,
+                          onPressed: widget.onPressed,
                           icon: Icon(
-                            icon,
+                            widget.icon,
                             color: Colors.black,
                           )),
                     )

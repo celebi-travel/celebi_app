@@ -1,4 +1,6 @@
 import 'dart:io';
+import 'package:celebi_project/services/translator.dart';
+
 import '../../../constants/lang/locale_keys.g.dart';
 import '../../../models/place.dart';
 import '../bottom_nav_bar/bottom_nav_bar.dart';
@@ -45,6 +47,7 @@ class _DetailPageState extends State<DetailPage> {
         await FirestoreService().getDetailDataOfCity(placeModel.city!);
     sliderImages = _result['generalImage'];
     info = _result['information'];
+    info = await TranslatorManager.instance.translate(context, info);
     productImages = _result['productImage'];
     postImages = _result['postImage'];
     loaded = true;

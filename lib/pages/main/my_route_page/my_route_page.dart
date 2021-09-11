@@ -55,7 +55,7 @@ class _MyRoutePageState extends State<MyRoutePage> {
   Set<Marker> _markers = {};
   Set<Polyline> _polylines = {};
   PolylinePoints polylinePoints = PolylinePoints();
-  String googleAPIKey = "AIzaSyCgAc5W3Hx4QSRhQFXSASv_prrQp3P9UeQ";
+  String googleAPIKey = "AIzaSyDycGQFkOkji1gy56kmBErZb0W-PBXCV";
   List<Hotel> hotels = [];
   List<Restaurant> restaurants = [];
   bool showHotels = false;
