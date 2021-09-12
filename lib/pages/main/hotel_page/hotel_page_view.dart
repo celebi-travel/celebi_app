@@ -1,3 +1,5 @@
+import 'package:celebi_project/pages/main/wallet/wallet_view.dart';
+
 import '../../../constants/lang/locale_keys.g.dart';
 import '../../../models/hotel_model.dart';
 import '../bottom_nav_bar/bottom_nav_bar.dart';
@@ -47,7 +49,8 @@ class _HotelPageState extends State<HotelPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(bottomNavigationBar: bottomBarMethod(context),
+    return Scaffold(
+      bottomNavigationBar: bottomBarMethod(context),
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.white,
@@ -324,6 +327,12 @@ class _HotelPageState extends State<HotelPage> {
                                 ScaffoldMessenger.of(context).showSnackBar(
                                     SnackBar(
                                         content: Text('Reservation send')));
+
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => WalletView(
+                                            ucret: hotel.price.toDouble())));
                               },
                               style: ButtonStyle(
                                   backgroundColor:

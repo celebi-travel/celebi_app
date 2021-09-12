@@ -67,7 +67,7 @@ class _HomeViewState extends State<HomeView> {
                         flex: 8,
                         child:
                             HeadTitle(imageUrl: profilePicUrl, name: username)),
-                    buildSearchField(searchController),
+                    buildSearchField(searchController, context),
                     Spacer(),
                     buildNearbyLocationsText(context),
                     Expanded(flex: 6, child: NearbyLocations()),

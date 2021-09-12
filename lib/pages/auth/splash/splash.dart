@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 import '../../../services/auth_service.dart';
 import '../../main/bottom_nav_bar/bottom_nav_bar.dart';
@@ -14,7 +15,7 @@ class Splash extends StatefulWidget {
   _SplashState createState() => _SplashState();
 }
 
-class _SplashState extends State<Splash> {
+class _SplashState extends State<Splash> with TickerProviderStateMixin {
   final User? _user = AuthService().getCurrentUser();
   Future<void> _check() async {
     // await AuthService().signOut();
@@ -27,9 +28,17 @@ class _SplashState extends State<Splash> {
     }
   }
 
+  late final spinkit;
+
   @override
   void initState() {
     super.initState();
+    spinkit = SpinKitFadingFour(
+      color: Colors.black,
+      size: 50.0,
+      controller: AnimationController(
+          vsync: this, duration: const Duration(milliseconds: 1200)),
+    );
     Timer(const Duration(seconds: 4), () {
       _check();
     });
@@ -38,7 +47,15 @@ class _SplashState extends State<Splash> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(child: Image.asset('asset/images/celebi_logo.png')),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Image.asset('asset/images/celebi_logo.png'),
+            spinkit,
+          ],
+        ),
+      ),
     );
   }
 }

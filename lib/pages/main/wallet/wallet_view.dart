@@ -8,7 +8,9 @@ import 'package:http/http.dart' as http;
 import 'package:stripe_payment/stripe_payment.dart';
 
 class WalletView extends StatefulWidget {
-  const WalletView({Key? key}) : super(key: key);
+  const WalletView({Key? key, required this.ucret}) : super(key: key);
+
+  final double ucret;
 
   @override
   _WalletViewState createState() => _WalletViewState();
@@ -72,7 +74,7 @@ class _WalletViewState extends State<WalletView> {
                                 borderRadius: BorderRadius.circular(20)),
                             padding: EdgeInsets.symmetric(
                                 vertical: 10, horizontal: 15),
-                            child: Text('1500 TL')),
+                            child: Text('${widget.ucret} TL')),
                       ),
                     ),
                     Expanded(
