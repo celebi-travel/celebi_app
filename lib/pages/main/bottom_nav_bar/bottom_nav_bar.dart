@@ -23,7 +23,10 @@ class BottomNavBar extends StatelessWidget {
 
 List<SalomonBottomBarItem> bottomNavBarElementsList = [
   SalomonBottomBarItem(
-    icon: Icon(Icons.home, color: Colors.black),
+    icon: Icon(
+      Icons.home,
+      color: Colors.black,
+    ),
     title: Text(LocaleKeys.bottombar_home.tr()),
   ),
   SalomonBottomBarItem(

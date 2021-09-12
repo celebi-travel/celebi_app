@@ -132,7 +132,6 @@ class _PopularPlacesState extends State<PopularPlaces> {
   List<VideoResponseModel>? videoList = [];
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     networkService = NetworkService();
     networkService.getVideos().then((value) {
