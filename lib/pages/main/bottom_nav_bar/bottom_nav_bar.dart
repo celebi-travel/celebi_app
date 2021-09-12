@@ -34,10 +34,6 @@ List<SalomonBottomBarItem> bottomNavBarElementsList = [
     title: Text(LocaleKeys.bottombar_Wallets.tr()),
   ),
   SalomonBottomBarItem(
-    icon: Icon(Icons.qr_code, color: Colors.black),
-    title: Text(LocaleKeys.bottombar_qr.tr()),
-  ),
-  SalomonBottomBarItem(
       icon: Icon(Icons.person, color: Colors.black),
       title: Text(LocaleKeys.bottombar_account.tr())),
 ];

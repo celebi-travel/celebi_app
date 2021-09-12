@@ -12,12 +12,9 @@ abstract class _BottomNavBarViewModelBase with Store {
   List pages = [
     HomeView(),
     Saves(),
-    Container(
-      child: Center(),
-    ),
-    Container(
-      child: Center(
-        child: Text('QR'),
+    Scaffold(
+      body: Container(
+        child: Center(),
       ),
     ),
     AccountPage(),

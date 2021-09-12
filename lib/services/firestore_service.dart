@@ -1,4 +1,6 @@
 import 'dart:io';
+import 'package:celebi_project/models/beach_model.dart';
+
 import '../models/hotel_model.dart';
 import '../models/restaurant_model.dart';
 import 'package:firebase_storage/firebase_storage.dart';
@@ -108,6 +110,19 @@ class FirestoreService {
       _restaurants.add(Restaurant.fromJson(_restaurantMap));
     });
     return _restaurants;
+  }
+
+  Future<List<Beach>> getBeaches() async {
+    QuerySnapshot<Map<String, dynamic>> hotels =
+        await FirebaseFirestore.instance.collection('beaches').get();
+    List<Beach> _beaches = [];
+    hotels.docs.forEach((element) {
+      var _hotelMap = element.data();
+
+      _beaches.add(Beach.fromJson(_hotelMap));
+    });
+
+    return _beaches;
   }
 
   Future<void> getMusics() async {

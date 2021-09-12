@@ -1,4 +1,8 @@
 import 'dart:async';
+import 'package:celebi_project/constants/image_slider.dart';
+import 'package:celebi_project/models/beach_model.dart';
+import 'package:celebi_project/pages/main/beach/beach_page_view.dart';
+
 import '../bottom_nav_bar/bottom_nav_bar.dart';
 import '../hotel_page/hotel_page_view.dart';
 
@@ -27,6 +31,7 @@ class _MyRoutePageState extends State<MyRoutePage> {
   final List<Map<String, LatLng>> directions;
   late BitmapDescriptor _markerHotelIcon;
   late BitmapDescriptor _markerRestaurantIcon;
+  late BitmapDescriptor _markerBeachIcon;
 
   final CameraPosition _initialPosition;
 
@@ -58,6 +63,7 @@ class _MyRoutePageState extends State<MyRoutePage> {
   String googleAPIKey = "AIzaSyBvXMWSF_0U1by4qtckHw3qKBdKp8_EUkA";
   List<Hotel> hotels = [];
   List<Restaurant> restaurants = [];
+  List<Beach> beaches = [];
   bool showHotels = false;
 
   _MyRoutePageState(this.directions, this._initialPosition);
@@ -90,6 +96,8 @@ class _MyRoutePageState extends State<MyRoutePage> {
         _imageConfiguration, 'asset/icons/location.png');
     _markerRestaurantIcon = await BitmapDescriptor.fromAssetImage(
         _imageConfiguration, 'asset/icons/placeholder.png');
+    _markerBeachIcon = await BitmapDescriptor.fromAssetImage(
+        _imageConfiguration, 'asset/icons/beach.png');
   }
 
   void setHotelMarkers() {
@@ -134,6 +142,37 @@ class _MyRoutePageState extends State<MyRoutePage> {
     setState(() {});
   }
 
+  void setBeachMarkers() {
+    beaches.forEach((element) {
+      _markers.add(Marker(
+          markerId: MarkerId(element.beachName),
+          //icon: _markerBeachIcon,
+          onTap: () {
+            showDialog(
+              context: context,
+              builder: (context) => Dialog(
+                backgroundColor: Colors.transparent,
+                insetPadding: EdgeInsets.zero,
+                child: Container(
+                  height: 300,
+                  width: double.infinity - 40,
+                  color: Colors.transparent,
+                  child: Center(
+                    child: ImageSlider(imagesList: element.images),
+                  ),
+                ),
+              ),
+            );
+          },
+          position:
+              LatLng(element.coordinate.latitude, element.coordinate.longitude),
+          infoWindow: InfoWindow(
+            title: element.beachName,
+          )));
+    });
+    setState(() {});
+  }
+
   void removeHotelMarkers() {
     _markers.removeWhere((element) => element.icon == _markerHotelIcon);
     setState(() {});
@@ -141,6 +180,11 @@ class _MyRoutePageState extends State<MyRoutePage> {
 
   void removeRestaurantMarkers() {
     _markers.removeWhere((element) => element.icon == _markerRestaurantIcon);
+    setState(() {});
+  }
+
+  void removeBeachMarkers() {
+    _markers.clear();
     setState(() {});
   }
 
@@ -180,6 +224,11 @@ class _MyRoutePageState extends State<MyRoutePage> {
     await _setCustomMapPin(context);
   }
 
+  Future<void> _getBeaches() async {
+    beaches = await FirestoreService().getBeaches();
+    await _setCustomMapPin(context);
+  }
+
   Future<void> _getRestaurants() async {
     restaurants = await FirestoreService().getRestaurants();
   }
@@ -189,6 +238,7 @@ class _MyRoutePageState extends State<MyRoutePage> {
     super.initState();
     _getRestaurants();
     _getHotels();
+    _getBeaches();
   }
 
   @override
@@ -259,7 +309,13 @@ class _MyRoutePageState extends State<MyRoutePage> {
                 FilterElement(
                   item: _items[2],
                   onTap: () {
-                    _items[2].isSelected = !_items[2].isSelected;
+                    if (_items[2].isSelected) {
+                      _items[2].isSelected = false;
+                      removeBeachMarkers();
+                    } else {
+                      _items[2].isSelected = true;
+                      setBeachMarkers();
+                    }
                     setState(() {});
                   },
                   size: 50,

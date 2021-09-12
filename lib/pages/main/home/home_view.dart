@@ -64,7 +64,7 @@ class _HomeViewState extends State<HomeView> {
                 child: Column(
                   children: [
                     Expanded(
-                        flex: 6,
+                        flex: 8,
                         child:
                             HeadTitle(imageUrl: profilePicUrl, name: username)),
                     buildSearchField(searchController),
