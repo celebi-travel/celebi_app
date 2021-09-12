@@ -51,12 +51,8 @@ class HeadTitle extends StatelessWidget {
           child: Container(
             height: 40,
             width: 40,
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(100),
-              child: Image.network(
-                imageUrl,
-                fit: BoxFit.cover,
-              ),
+            child: CircleAvatar(
+              backgroundImage: NetworkImage(imageUrl),
             ),
           ),
         ),
