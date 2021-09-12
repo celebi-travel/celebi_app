@@ -48,7 +48,7 @@ class _DetailPageState extends State<DetailPage> {
     sliderImages = _result['generalImage'];
     info = _result['information'];
     info = await TranslatorManager.instance.translate(context, info);
-    productImages = _result['productImage'];
+    // productImages = _result['productImage'];
     postImages = _result['postImage'];
     loaded = true;
     setState(() {});
@@ -87,7 +87,7 @@ class _DetailPageState extends State<DetailPage> {
                                 style: context.textTheme.bodyText1!.copyWith(
                                     fontWeight: FontWeight.w500, fontSize: 16)),
                             SizedBox(height: 7),
-                            SizedBox(
+                            /*  SizedBox(
                               height: 120,
                               child: ListView(
                                 physics: ClampingScrollPhysics(),
@@ -96,7 +96,7 @@ class _DetailPageState extends State<DetailPage> {
                                 children: buildProductImageList(
                                     context, productImages),
                               ),
-                            ),
+                            ),*/
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [

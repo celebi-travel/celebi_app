@@ -146,7 +146,7 @@ class _MyRoutePageState extends State<MyRoutePage> {
     beaches.forEach((element) {
       _markers.add(Marker(
           markerId: MarkerId(element.beachName),
-          //icon: _markerBeachIcon,
+          icon: _markerBeachIcon,
           onTap: () {
             showDialog(
               context: context,

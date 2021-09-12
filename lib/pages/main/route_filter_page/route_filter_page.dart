@@ -1,4 +1,9 @@
 import 'dart:convert';
+import 'package:celebi_project/pages/main/detail/detail_view.dart';
+import 'package:celebi_project/services/cities_service.dart';
+import 'package:flutter_rating_stars/flutter_rating_stars.dart';
+import 'package:flutter_typeahead/flutter_typeahead.dart';
+
 import '../../../models/place.dart';
 import '../bottom_nav_bar/bottom_nav_bar.dart';
 import '../my_route_page/my_route_page.dart';
@@ -33,6 +38,7 @@ class _RouteFilterPageState extends State<RouteFilterPage> {
   List _placeNames = [];
   List favoritePlaces = [];
 
+  double rating = 4.5;
   Future<void> decodeJSON() async {
     String jsonString = await rootBundle.loadString('json/sehirler.json');
     final jsonResponse = json.decode(jsonString);
@@ -169,7 +175,7 @@ class _RouteFilterPageState extends State<RouteFilterPage> {
                             ),
                           ],
                         )),
-                    buildSearchField(_controller),
+                    buildSearchField(_controller, context),
                     Padding(
                       padding: EdgeInsets.only(left: 30),
                       child: Row(
@@ -298,7 +304,8 @@ class _RouteFilterPageState extends State<RouteFilterPage> {
   }
 }
 
-Container buildSearchField(searchController) {
+Container buildSearchField(searchController, context) {
+  String selectedCity = '';
   return Container(
     height: 35,
     decoration: BoxDecoration(
@@ -308,7 +315,59 @@ Container buildSearchField(searchController) {
         borderRadius: BorderRadius.circular(15)),
     margin: EdgeInsets.symmetric(horizontal: 20),
     child: Center(
-      child: TextFormField(
+      child: TypeAheadFormField(
+        textFieldConfiguration: TextFieldConfiguration(
+          decoration: InputDecoration(
+            counterText: '',
+            contentPadding: EdgeInsets.symmetric(
+              vertical: 12,
+              horizontal: 20,
+            ),
+            prefixIcon: Padding(
+              padding: EdgeInsets.only(left: 20, right: 15),
+              child: Icon(
+                Icons.search_rounded,
+                color: Colors.black,
+              ),
+            ),
+            border: InputBorder.none,
+            hintText: 'Search for cities',
+          ),
+          controller: searchController,
+        ),
+        suggestionsCallback: (pattern) {
+          return CitiesService.getSuggestions(pattern);
+        },
+        itemBuilder: (context, String suggestion) {
+          return ListTile(
+            title: Text(suggestion),
+          );
+        },
+        transitionBuilder: (context, suggestionsBox, controller) {
+          return suggestionsBox;
+        },
+        onSuggestionSelected: (String suggestion) {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => DetailPage(
+                placeModel: allLocations
+                    .where(
+                      (element) =>
+                          element.city!.toLowerCase() ==
+                          suggestion.toLowerCase(),
+                    )
+                    .first,
+              ),
+            ),
+          );
+          searchController.text = suggestion;
+        },
+        validator: (value) => value!.isEmpty ? 'Please select a city' : null,
+        onSaved: (value) => selectedCity = value!,
+      ),
+
+      /*TextFormField(
         keyboardType: TextInputType.text,
         validator: (value) {},
         controller: searchController,
@@ -327,16 +386,17 @@ Container buildSearchField(searchController) {
             ),
           ),
           border: InputBorder.none,
-          hintText: 'Search  ',
+          hintText: 'Search for cities',
         ),
         cursorHeight: 20,
-      ),
+      ),*/
     ),
   );
 }
 
+// ignore: must_be_immutable
 class PlaceWidget extends StatelessWidget {
-  const PlaceWidget({
+  PlaceWidget({
     Key? key,
     required this.name,
     required this.imgURL,
@@ -353,6 +413,8 @@ class PlaceWidget extends StatelessWidget {
   final IconData icon;
   final Color favoriteButtonColor;
   final VoidCallback onPressed, favoriteButton;
+
+  double rating = 4.5;
 
   @override
   Widget build(BuildContext context) {
@@ -407,7 +469,77 @@ class PlaceWidget extends StatelessWidget {
                     SizedBox(height: 8),
                     Row(
                       children: [
-                        StarsBuilder(starsNumber),
+                        GestureDetector(
+                            onTap: () {
+                              showDialog(
+                                context: context,
+                                builder: (context) => StatefulBuilder(
+                                  builder: (context, setState) {
+                                    return AlertDialog(
+                                      content: SizedBox(
+                                        height: 100,
+                                        child: Center(
+                                          child: RatingStars(
+                                            value: rating,
+                                            onValueChanged: (v) {
+                                              //
+                                              setState(() {
+                                                rating = v;
+                                              });
+                                            },
+                                            starBuilder: (index, color) => Icon(
+                                              Icons.star,
+                                              color: color,
+                                            ),
+                                            starCount: 5,
+                                            starSize: 30,
+                                            valueLabelColor:
+                                                const Color(0xff9b9b9b),
+                                            valueLabelTextStyle:
+                                                const TextStyle(
+                                                    color: Colors.white,
+                                                    fontWeight: FontWeight.w400,
+                                                    fontStyle: FontStyle.normal,
+                                                    fontSize: 12.0),
+                                            valueLabelRadius: 10,
+                                            maxValue: 5,
+                                            starSpacing: 2,
+                                            maxValueVisibility: true,
+                                            valueLabelVisibility: true,
+                                            animationDuration:
+                                                Duration(milliseconds: 1000),
+                                            valueLabelPadding:
+                                                const EdgeInsets.symmetric(
+                                                    vertical: 1, horizontal: 8),
+                                            valueLabelMargin:
+                                                const EdgeInsets.only(right: 8),
+                                            starOffColor:
+                                                const Color(0xffe7e8ea),
+                                            starColor: Colors.yellow,
+                                          ),
+                                        ),
+                                      ),
+                                      actions: [
+                                        TextButton(
+                                          onPressed: () {
+                                            ScaffoldMessenger.of(context)
+                                                .showSnackBar(
+                                              SnackBar(
+                                                content: Text(
+                                                    'Thank you for your rating'),
+                                              ),
+                                            );
+                                            Navigator.pop(context);
+                                          },
+                                          child: Text('Rate'),
+                                        )
+                                      ],
+                                    );
+                                  },
+                                ),
+                              );
+                            },
+                            child: StarsBuilder(starsNumber)),
                         SizedBox(width: 8),
                         Text(commentsNumber.toString()),
                       ],

@@ -1,3 +1,5 @@
+import 'package:celebi_project/pages/auth/account_page/account_page.dart';
+
 import '../../../../constants/lang/locale_keys.g.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -51,8 +53,14 @@ class HeadTitle extends StatelessWidget {
           child: Container(
             height: 40,
             width: 40,
-            child: CircleAvatar(
-              backgroundImage: NetworkImage(imageUrl),
+            child: GestureDetector(
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => AccountPage()));
+              },
+              child: CircleAvatar(
+                backgroundImage: NetworkImage(imageUrl),
+              ),
             ),
           ),
         ),
