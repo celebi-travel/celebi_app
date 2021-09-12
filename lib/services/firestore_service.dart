@@ -280,4 +280,32 @@ class FirestoreService {
     Map savedData = (documentSnapshot.data() as Map)['savedData'];
     return savedData['favoritePlaces'];
   }
+
+  Future<String> getProfilePicture() async {
+    String uid = AuthService().getCurrentUser()!.uid;
+    DocumentSnapshot<Map<String, dynamic>> documentSnapshot =
+        await FirebaseFirestore.instance.collection('users').doc(uid).get();
+    String? profilePicUrl = (documentSnapshot.data() as Map)['profilePicture'];
+    if (profilePicUrl != null) {
+      return profilePicUrl;
+    } else {
+      return 'error';
+    }
+  }
+
+  Future<void> saveProfilePicture(File image) async {
+    final FirebaseStorage _storage = FirebaseStorage.instance;
+    String uid = AuthService().getCurrentUser()!.uid;
+    File file = File(image.path);
+    var snap = await _storage
+        .ref()
+        .child("profilePics/$uid/${image.path}/${basename(file.path)}")
+        .putFile(file);
+    String url = await snap.ref.getDownloadURL();
+
+    await FirebaseFirestore.instance
+        .collection('users')
+        .doc(uid)
+        .update({'profilePicture': url});
+  }
 }
