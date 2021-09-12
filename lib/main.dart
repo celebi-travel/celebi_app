@@ -1,18 +1,5 @@
-import 'extensions/context_extension.dart';
-import 'models/place.dart';
-import 'pages/auth/account_page/account_page.dart';
-import 'pages/auth/login_main_page/login_main_page.dart';
 import 'pages/auth/splash/splash.dart';
-import 'pages/auth/welcome_page/welcome_view.dart';
-
-import 'pages/main/home/home_view.dart';
-import 'pages/main/music/music_view.dart';
-import 'pages/main/payment/payment_view.dart';
-import 'pages/main/profile/proflle_view.dart';
-import 'pages/main/route_filter_page/route_filter_page.dart';
-import 'pages/main/settings_page/settings_page_view.dart';
 import 'services/locators.dart';
-import 'services/translator.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';

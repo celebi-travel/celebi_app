@@ -1,4 +1,3 @@
-import '../../../../models/popular_place_model.dart';
 import '../../../../models/video_response_model.dart';
 import '../../video/video_screen.dart';
 import '../../../../services/network_service.dart';

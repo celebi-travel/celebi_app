@@ -52,6 +52,7 @@ class _PaymentViewState extends State<PaymentView> {
 
   void setError(dynamic error) {
     _scaffoldKey.currentState!
+        // ignore: deprecated_member_use
         .showSnackBar(SnackBar(content: Text(error.toString())));
     setState(() {
       _error = error.toString();
@@ -83,6 +84,7 @@ class _PaymentViewState extends State<PaymentView> {
           controller: _controller,
           padding: const EdgeInsets.all(20),
           children: <Widget>[
+            // ignore: deprecated_member_use
             RaisedButton(
               child: Text("Create Source"),
               onPressed: () {
@@ -92,44 +94,53 @@ class _PaymentViewState extends State<PaymentView> {
                   currency: 'eur',
                   returnURL: 'example://stripe-redirect',
                 )).then((source) {
+                  // ignore: deprecated_member_use
                   _scaffoldKey.currentState!.showSnackBar(
                       SnackBar(content: Text('Received ${source.sourceId}')));
                   setState(() {
                     _source = source;
                   });
+                  // ignore: invalid_return_type_for_catch_error
                 }).catchError(setError);
               },
             ),
             Divider(),
+            // ignore: deprecated_member_use
             RaisedButton(
               child: Text("Create Token with Card Form"),
               onPressed: () {
                 StripePayment.paymentRequestWithCardForm(
                         CardFormPaymentRequest())
                     .then((paymentMethod) {
+                  // ignore: deprecated_member_use
                   _scaffoldKey.currentState!.showSnackBar(
                       SnackBar(content: Text('Received ${paymentMethod.id}')));
                   setState(() {
                     _paymentMethod = paymentMethod;
                   });
+                  // ignore: invalid_return_type_for_catch_error
                 }).catchError(setError);
               },
             ),
+            // ignore: deprecated_member_use
             RaisedButton(
               child: Text("Create Token with Card"),
               onPressed: () {
                 StripePayment.createTokenWithCard(
                   testCard,
                 ).then((token) {
+                  // ignore: deprecated_member_use
                   _scaffoldKey.currentState!.showSnackBar(
                       SnackBar(content: Text('Received ${token.tokenId}')));
                   setState(() {
                     _paymentToken = token;
                   });
+                  // ignore: invalid_return_type_for_catch_error
                 }).catchError(setError);
               },
             ),
             Divider(),
+            // ignore: deprecated_member_use
             RaisedButton(
               child: Text("Create Payment Method with Card"),
               onPressed: () {
@@ -138,14 +149,17 @@ class _PaymentViewState extends State<PaymentView> {
                     card: testCard,
                   ),
                 ).then((paymentMethod) {
+                  // ignore: deprecated_member_use
                   _scaffoldKey.currentState!.showSnackBar(
                       SnackBar(content: Text('Received ${paymentMethod.id}')));
                   setState(() {
                     _paymentMethod = paymentMethod;
                   });
+                  // ignore: invalid_return_type_for_catch_error
                 }).catchError(setError);
               },
             ),
+            // ignore: deprecated_member_use
             RaisedButton(
               child: Text("Create Payment Method with existing token"),
               onPressed: _paymentToken == null
@@ -158,15 +172,18 @@ class _PaymentViewState extends State<PaymentView> {
                           ),
                         ),
                       ).then((paymentMethod) {
+                        // ignore: deprecated_member_use
                         _scaffoldKey.currentState!.showSnackBar(SnackBar(
                             content: Text('Received ${paymentMethod.id}')));
                         setState(() {
                           _paymentMethod = paymentMethod;
                         });
+                        // ignore: invalid_return_type_for_catch_error
                       }).catchError(setError);
                     },
             ),
             Divider(),
+            // ignore: deprecated_member_use
             RaisedButton(
               child: Text("Confirm Payment Intent"),
               onPressed:
@@ -179,15 +196,18 @@ class _PaymentViewState extends State<PaymentView> {
                               paymentMethodId: _paymentMethod!.id,
                             ),
                           ).then((paymentIntent) {
+                            // ignore: deprecated_member_use
                             _scaffoldKey.currentState!.showSnackBar(SnackBar(
                                 content: Text(
                                     'Received ${paymentIntent.paymentIntentId}')));
                             setState(() {
                               _paymentIntent = paymentIntent;
                             });
+                            // ignore: invalid_return_type_for_catch_error
                           }).catchError(setError);
                         },
             ),
+            // ignore: deprecated_member_use
             RaisedButton(
               child: Text(
                 "Confirm Payment Intent with saving payment method",
@@ -204,15 +224,18 @@ class _PaymentViewState extends State<PaymentView> {
                               isSavingPaymentMethod: true,
                             ),
                           ).then((paymentIntent) {
+                            // ignore: deprecated_member_use
                             _scaffoldKey.currentState?.showSnackBar(SnackBar(
                                 content: Text(
                                     'Received ${paymentIntent.paymentIntentId}')));
                             setState(() {
                               _paymentIntent = paymentIntent;
                             });
+                            // ignore: invalid_return_type_for_catch_error
                           }).catchError(setError);
                         },
             ),
+            // ignore: deprecated_member_use
             RaisedButton(
               child: Text("Authenticate Payment Intent"),
               onPressed: _paymentIntentClientSecret == null
@@ -221,16 +244,19 @@ class _PaymentViewState extends State<PaymentView> {
                       StripePayment.authenticatePaymentIntent(
                               clientSecret: _paymentIntentClientSecret!)
                           .then((paymentIntent) {
+                        // ignore: deprecated_member_use
                         _scaffoldKey.currentState!.showSnackBar(SnackBar(
                             content: Text(
                                 'Received ${paymentIntent.paymentIntentId}')));
                         setState(() {
                           _paymentIntent = paymentIntent;
                         });
+                        // ignore: invalid_return_type_for_catch_error
                       }).catchError(setError);
                     },
             ),
             Divider(),
+            // ignore: deprecated_member_use
             RaisedButton(
               child: Text("Native payment"),
               onPressed: () {
@@ -254,19 +280,24 @@ class _PaymentViewState extends State<PaymentView> {
                   ),
                 ).then((token) {
                   setState(() {
+                    // ignore: deprecated_member_use
                     _scaffoldKey.currentState!.showSnackBar(
                         SnackBar(content: Text('Received ${token.tokenId}')));
                     _paymentToken = token;
                   });
+                  // ignore: invalid_return_type_for_catch_error
                 }).catchError(setError);
               },
             ),
+            // ignore: deprecated_member_use
             RaisedButton(
               child: Text("Complete Native Payment"),
               onPressed: () {
                 StripePayment.completeNativePayRequest().then((_) {
+                  // ignore: deprecated_member_use
                   _scaffoldKey.currentState!.showSnackBar(
                       SnackBar(content: Text('Completed successfully')));
+                  // ignore: invalid_return_type_for_catch_error
                 }).catchError(setError);
               },
             ),

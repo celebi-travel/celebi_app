@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import '../../../extensions/context_extension.dart';
-import '../check_email/check_email.dart';
 import '../custom/custom_button.dart';
 import '../custom/image_with_blue_button.dart';
 

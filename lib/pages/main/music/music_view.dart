@@ -4,7 +4,6 @@ import '../../../models/music_response_model.dart';
 import '../../../services/network_service.dart';
 import '../../../extensions/context_extension.dart';
 import 'custom_list_tile.dart';
-import 'music_model.dart';
 import 'package:flutter/material.dart';
 
 class MusicView extends StatefulWidget {
@@ -23,7 +22,6 @@ class _MusicViewState extends State<MusicView> {
   late NetworkService networkService;
   @override
   void dispose() {
-    // TODO: implement dispose
     super.dispose();
     print('dispose worked');
     audioPlayer.dispose();

@@ -172,6 +172,7 @@ class _WalletViewState extends State<WalletView> {
       CardFormPaymentRequest(),
     )
         .then((PaymentMethod paymentMethod) => paymentMethod)
+        // ignore: invalid_return_type_for_catch_error
         .catchError((e) => print(e));
     startDirectCharge(paymentMethod);
   }

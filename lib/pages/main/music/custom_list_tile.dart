@@ -3,8 +3,6 @@ import '../../../models/music_response_model.dart';
 import '../../../extensions/context_extension.dart';
 import 'package:flutter/material.dart';
 
-import 'music_model.dart';
-
 class CustomListTile extends StatelessWidget {
   const CustomListTile({Key? key, required this.music, required this.onTap})
       : super(key: key);

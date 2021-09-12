@@ -1,4 +1,3 @@
-import '../languages_page/language_page.dart';
 import '../../main/bottom_nav_bar/bottom_nav_bar.dart';
 import '../../main/profile_edit/profile_edit_view.dart';
 import '../../main/settings_page/settings_page_view.dart';

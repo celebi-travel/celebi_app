@@ -14,4 +14,4 @@ class DetailModel {
   });
 }
 
-List<DetailModel> DetailPageList = [];
+List<DetailModel> detailPageList = [];
