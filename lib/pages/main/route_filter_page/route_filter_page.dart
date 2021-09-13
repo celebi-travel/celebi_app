@@ -176,19 +176,54 @@ class _RouteFilterPageState extends State<RouteFilterPage> {
                           ],
                         )),
                     buildSearchField(_controller, context),
-                    Padding(
-                      padding: EdgeInsets.only(left: 30),
-                      child: Row(
-                        children: [
-                          Text(
-                            '3 placed sorted by travel favorites',
-                            style: TextStyle(fontSize: 12),
-                          ),
-                          SizedBox(width: 8),
-                          Icon(Icons.info),
-                        ],
+                    if (_currentSelectedCategoryIndex != 0)
+                      Padding(
+                        padding: EdgeInsets.only(left: 30),
+                        child: Row(
+                          children: [
+                            Text(
+                              '3 placed sorted by travel favorites',
+                              style: TextStyle(fontSize: 12),
+                            ),
+                            SizedBox(width: 8),
+                            GestureDetector(
+                                onTap: () {
+                                  showDialog(
+                                    context: context,
+                                    builder: (context) {
+                                      return Dialog(
+                                        child: Container(
+                                          height: 200,
+                                          width: double.infinity,
+                                          margin: EdgeInsets.all(10),
+                                          child: Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              IconButton(
+                                                icon: Icon(Icons.close),
+                                                onPressed: () {
+                                                  Navigator.pop(context);
+                                                },
+                                              ),
+                                              SizedBox(height: 20),
+                                              Center(
+                                                child: Text(
+                                                  "Gezginlerin favorileri Çelebi'de etkinlikler, deneyimler, puanlar, fotoğraflar, popülerlik, kullanıcılar, fiyatlar ve Çelebi üzerinden yapılan rezervasyonlar dahil olmak üzere özel Çelebi verileri kullanılarak sıralanır.",
+                                                  textAlign: TextAlign.center,
+                                                ),
+                                              )
+                                            ],
+                                          ),
+                                        ),
+                                      );
+                                    },
+                                  );
+                                },
+                                child: Icon(Icons.info)),
+                          ],
+                        ),
                       ),
-                    ),
                     Align(
                       alignment: Alignment.centerRight,
                       child: Padding(

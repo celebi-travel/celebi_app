@@ -8,12 +8,15 @@ class FilterCategory {
   final Widget goPage;
   bool isSelected;
 
+  String asset;
+
   FilterCategory({
     required this.categoryName,
     required this.categoryIcon,
     required this.categoryColor,
     required this.goPage,
     required this.isSelected,
+    this.asset = '',
   });
 }
 
@@ -24,6 +27,7 @@ List<FilterCategory> filterCategories = [
     categoryColor: Color(0xFF8BCC78),
     goPage: Container(),
     isSelected: false,
+    asset: 'asset/icons/guide.png',
   ),
   FilterCategory(
     categoryName: 'Outdoors',

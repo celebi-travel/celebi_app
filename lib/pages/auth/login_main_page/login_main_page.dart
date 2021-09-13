@@ -1,3 +1,5 @@
+import 'package:celebi_project/pages/main/bottom_nav_bar/bottom_nav_bar.dart';
+
 import '../../../constants/lang/locale_keys.g.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -54,6 +56,13 @@ class _LoginMainPageState extends State<LoginMainPage> {
                 avatarColor: Colors.white.withOpacity(0.15),
                 onPressed: () async {
                   String? result = await AuthService().signInWithGoogle();
+                  if (result == 'Signed In With Google') {
+                    await AuthService().setValuesFromGoogle();
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => BottomNavBar()));
+                  }
                   print('result = $result');
                 },
               ),

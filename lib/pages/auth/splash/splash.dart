@@ -33,7 +33,7 @@ class _SplashState extends State<Splash> with TickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
-    spinkit = SpinKitFadingFour(
+    spinkit = SpinKitSquareCircle(
       color: Colors.black,
       size: 50.0,
       controller: AnimationController(
@@ -51,7 +51,8 @@ class _SplashState extends State<Splash> with TickerProviderStateMixin {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            Image.asset('asset/images/celebi_logo.png'),
+            Image.asset('asset/images/celebi_logo.png',
+                color: Theme.of(context).colorScheme.primary),
             spinkit,
           ],
         ),

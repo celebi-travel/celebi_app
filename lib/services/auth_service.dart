@@ -14,7 +14,8 @@ class AuthService {
     await _auth.signOut();
   }
 
-  Future<String?> signIn({required String email, required String password}) async {
+  Future<String?> signIn(
+      {required String email, required String password}) async {
     try {
       await _auth.signInWithEmailAndPassword(email: email, password: password);
       return "Signed in";
@@ -23,10 +24,26 @@ class AuthService {
     }
   }
 
-  Future<String?> signUp({required String email, required String password, required String username, required String dateOfBirth}) async {
+  Future<void> setValuesFromGoogle() async {
+    User? _currentUser = getCurrentUser();
+    await FirestoreService().saveNewUserData(
+        user: _currentUser!,
+        username: _currentUser.displayName!,
+        dateOfBirth: '15/10/2000');
+  }
+
+  Future<String?> signUp(
+      {required String email,
+      required String password,
+      required String username,
+      required String dateOfBirth}) async {
     try {
-      await _auth.createUserWithEmailAndPassword(email: email, password: password);
-      await FirestoreService().saveNewUserData(user: _auth.currentUser!, username: username, dateOfBirth: dateOfBirth);
+      await _auth.createUserWithEmailAndPassword(
+          email: email, password: password);
+      await FirestoreService().saveNewUserData(
+          user: _auth.currentUser!,
+          username: username,
+          dateOfBirth: dateOfBirth);
       return "Signed up";
     } on FirebaseAuthException catch (e) {
       return e.message;
@@ -46,7 +63,8 @@ class AuthService {
     if (_googleSignInAccount != null) {
       print("3");
       try {
-        GoogleSignInAuthentication _googleSignInAuthentication = await _googleSignInAccount.authentication;
+        GoogleSignInAuthentication _googleSignInAuthentication =
+            await _googleSignInAccount.authentication;
 
         AuthCredential _credential = GoogleAuthProvider.credential(
           idToken: _googleSignInAuthentication.idToken,

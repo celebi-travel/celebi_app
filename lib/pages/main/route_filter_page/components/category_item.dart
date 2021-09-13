@@ -31,7 +31,12 @@ class CategoryItem extends StatelessWidget {
                 borderRadius: BorderRadius.circular(12),
               ),
               child: Center(
-                child: Icon(_item.categoryIcon, size: 30, color: Colors.white),
+                child: _item.asset != ''
+                    ? Padding(
+                        padding: const EdgeInsets.all(4.0),
+                        child: Image.asset(_item.asset),
+                      )
+                    : Icon(_item.categoryIcon, size: 30, color: Colors.black),
               ),
             ),
           ],

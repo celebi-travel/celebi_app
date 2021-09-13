@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:celebi_project/pages/main/detail/source/product_image_list.dart';
 import 'package:celebi_project/services/translator.dart';
 
 import '../../../constants/lang/locale_keys.g.dart';
@@ -9,7 +10,6 @@ import 'package:easy_localization/easy_localization.dart';
 import '../../../services/firestore_service.dart';
 import 'package:image_picker/image_picker.dart';
 import 'source/post_image_list.dart';
-import 'source/product_image_list.dart';
 import 'package:flutter/material.dart';
 import 'package:readmore/readmore.dart';
 import '../../../../extensions/context_extension.dart';
@@ -45,11 +45,17 @@ class _DetailPageState extends State<DetailPage> {
   Future<void> _getDataOfCity() async {
     Map<String, dynamic> _result =
         await FirestoreService().getDetailDataOfCity(placeModel.city!);
+    print('1');
     sliderImages = _result['generalImage'];
+    print('2');
     info = _result['information'];
+    print('3');
     info = await TranslatorManager.instance.translate(context, info);
-    // productImages = _result['productImage'];
+    print('4');
+    productImages = _result['productImage'];
+    print('productImages = $productImages');
     postImages = _result['postImage'];
+    print('6');
     loaded = true;
     setState(() {});
   }
@@ -87,8 +93,8 @@ class _DetailPageState extends State<DetailPage> {
                                 style: context.textTheme.bodyText1!.copyWith(
                                     fontWeight: FontWeight.w500, fontSize: 16)),
                             SizedBox(height: 7),
-                            /*  SizedBox(
-                              height: 120,
+                            SizedBox(
+                              height: 140,
                               child: ListView(
                                 physics: ClampingScrollPhysics(),
                                 controller: scrollController,
@@ -96,7 +102,7 @@ class _DetailPageState extends State<DetailPage> {
                                 children: buildProductImageList(
                                     context, productImages),
                               ),
-                            ),*/
+                            ),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
