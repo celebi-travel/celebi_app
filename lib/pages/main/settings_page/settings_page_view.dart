@@ -1,3 +1,6 @@
+import 'package:celebi_project/pages/auth/login_main_page/login_main_page.dart';
+import 'package:celebi_project/services/auth_service.dart';
+
 import '../../../constants/lang/language_manager.dart';
 import '../../../extensions/context_extension.dart';
 import '../../auth/change_password/change_password.dart';
@@ -52,7 +55,13 @@ class _SettingsPageState extends State<SettingsPage> {
         height: 55,
         width: double.infinity,
         child: ElevatedButton(
-          onPressed: () {},
+          onPressed: () async {
+            await AuthService().signOut();
+            Navigator.pushAndRemoveUntil(
+                context,
+                MaterialPageRoute(builder: (context) => LoginMainPage()),
+                (route) => false);
+          },
           style: ButtonStyle(
               backgroundColor:
                   MaterialStateProperty.all<Color>(Color(0xFF6AADA4)),

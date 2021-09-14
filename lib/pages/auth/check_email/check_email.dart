@@ -1,3 +1,4 @@
+import 'package:celebi_project/pages/main/home/home_view.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
@@ -61,13 +62,22 @@ class _CheckEmailViewState extends State<CheckEmailView> {
                           flex: 3,
                         ),
                         CustomButton(
-                            text: 'Register',
-                            onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => CheckEmailView()),
-                              );
+                            text: 'Continue',
+                            onPressed: () async {
+                              bool canGo =
+                                  await AuthService().isEmailVerified();
+                              if (canGo) {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => HomeView()),
+                                );
+                              } else {
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                    SnackBar(
+                                        content:
+                                            Text('E posta doğrulanmamış')));
+                              }
                             }),
                         Spacer()
                       ],
