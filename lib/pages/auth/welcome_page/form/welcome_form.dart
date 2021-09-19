@@ -36,7 +36,7 @@ class _WelcomeBackFormState extends State<WelcomeBackForm> {
               buildEmailField(context),
               SizedBox(height: 20),
               buildPasswordField(context),
-              buildForgetPasswordButton(),
+              buildForgetPasswordButton(context),
               SizedBox(height: 60),
               CustomButton(
                   text: 'Login',
@@ -44,8 +44,8 @@ class _WelcomeBackFormState extends State<WelcomeBackForm> {
                     print('clicked');
                     if (formKey.currentState!.validate()) {
                       print('valdiated');
-                      final String email = emailController.text;
-                      final String password = passwordController.text;
+                      final String email = emailController.text.trim();
+                      final String password = passwordController.text.trim();
 
                       String? result = await AuthService()
                           .signIn(email: email, password: password);

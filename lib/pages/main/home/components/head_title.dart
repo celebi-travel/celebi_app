@@ -59,7 +59,7 @@ class HeadTitle extends StatelessWidget {
                     MaterialPageRoute(builder: (context) => AccountPage()));
               },
               child: CircleAvatar(
-                backgroundImage: NetworkImage(imageUrl),
+                //backgroundImage: NetworkImage(imageUrl),
               ),
             ),
           ),

@@ -10,6 +10,9 @@ import 'package:flutter/material.dart';
 import 'components/settings_divider.dart';
 import 'components/settings_element.dart';
 
+import 'package:url_launcher/url_launcher.dart';
+
+
 class AccountPage extends StatefulWidget {
   @override
   State<AccountPage> createState() => _AccountPageState();
@@ -121,7 +124,9 @@ class _AccountPageState extends State<AccountPage> {
                             SettingsElement(
                                 name: 'privacy Policy',
                                 icon: Icons.language,
-                                onPressed: () {}),
+                                onPressed: () async {
+                                  await launch('https://sites.google.com/view/celebi/ana-sayfa');
+                                }),
                             SettingsDivider(),
                             SettingsElement(
                                 name: 'Terms of Use',

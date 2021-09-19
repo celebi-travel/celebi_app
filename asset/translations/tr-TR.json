@@ -60,7 +60,7 @@
     "register": "Kayıt ol"
   },
   "forget_password": {
-    "title": "Şifreyi unut",
+    "title": "Şifreyi unuttun mu?",
     "subtitle": "Parola sıfırlama talimatını almak için kayıtlı e-postanızı aşağıya girin",
     "email": "E-posta",
     "send": "Gönder",

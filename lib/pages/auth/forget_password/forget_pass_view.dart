@@ -25,11 +25,12 @@ class _ForgetPasswordPageState extends State<ForgetPasswordPage> {
                 "asset/images/forget_password.png",
               ),
               Text(
-                LocaleKeys.forget_password_title.tr() + '?',
+                LocaleKeys.forget_password_title.tr(),
+                textAlign: TextAlign.center,
                 style: TextStyle(
                     fontSize: 40,
                     color: Colors.black,
-                    fontWeight: FontWeight.bold),
+                    fontWeight: FontWeight.bold,),
               ),
               Padding(
                 padding: EdgeInsets.only(top: 30),

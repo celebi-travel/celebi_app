@@ -209,7 +209,7 @@ class _RouteFilterPageState extends State<RouteFilterPage> {
                                               SizedBox(height: 20),
                                               Center(
                                                 child: Text(
-                                                  "Gezginlerin favorileri Çelebi'de etkinlikler, deneyimler, puanlar, fotoğraflar, popülerlik, kullanıcılar, fiyatlar ve Çelebi üzerinden yapılan rezervasyonlar dahil olmak üzere özel Çelebi verileri kullanılarak sıralanır.",
+                                                  "Gezginlerin favorileri celebi_project'de etkinlikler, deneyimler, puanlar, fotoğraflar, popülerlik, kullanıcılar, fiyatlar ve celebi_project üzerinden yapılan rezervasyonlar dahil olmak üzere özel celebi_project verileri kullanılarak sıralanır.",
                                                   textAlign: TextAlign.center,
                                                 ),
                                               )

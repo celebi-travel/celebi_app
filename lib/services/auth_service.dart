@@ -50,10 +50,9 @@ class AuthService {
     }
   }
 
-  Future<void> sendPasswordResetMail() async {
-    User? _user = _auth.currentUser;
+  Future<void> sendPasswordResetMail(String email) async { 
 
-    await _auth.sendPasswordResetEmail(email: _user!.email!);
+    await _auth.sendPasswordResetEmail(email: email);
   }
 
   Future<String?> signInWithGoogle() async {

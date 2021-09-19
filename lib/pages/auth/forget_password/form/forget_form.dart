@@ -1,3 +1,5 @@
+import 'package:celebi_project/services/auth_service.dart';
+
 import '../../../../constants/lang/locale_keys.g.dart';
 import 'package:easy_localization/easy_localization.dart';
 
@@ -25,12 +27,27 @@ class _ForgetFormState extends State<ForgetForm> {
         padding: EdgeInsets.only(top: 40, right: 30, left: 30, bottom: 40),
         child: Column(
           children: [
-            buildNameField(context),
+TextFormField(
+    controller: forgetPassController,
+    decoration: InputDecoration(
+      prefixIcon: Icon(
+        Icons.markunread,
+        color: Colors.teal[200],
+      ),
+      hintText: LocaleKeys.forget_password_email.tr(),
+      hintStyle: context.textTheme.bodyText2!
+          .copyWith(color: Colors.grey, fontSize: 18),
+    ),
+  ),
             SizedBox(height: 30),
             CustomButton(
-                onPressed: () {
+                onPressed: () async {
                   final String forgetEmail = forgetPassController.text;
-                  if (formKey.currentState!.validate()) {}
+                  if (formKey.currentState!.validate()) {
+                    await AuthService().sendPasswordResetMail(forgetEmail);
+                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Şifre Sıfırlama Mesajı Gönderildi')));
+                 Navigator.pop(context);
+                  }
                 },
                 text: LocaleKeys.forget_password_send.tr()),
           ],

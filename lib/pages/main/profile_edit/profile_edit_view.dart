@@ -1,11 +1,48 @@
+import 'package:celebi_project/services/auth_service.dart';
+import 'package:celebi_project/services/firestore_service.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import '../../../extensions/context_extension.dart';
 import '../../auth/custom/custom_button.dart';
 
-class ProfileEditView extends StatelessWidget {
+class ProfileEditView extends StatefulWidget {
   const ProfileEditView({Key? key}) : super(key: key);
 
+  @override
+  _ProfileEditViewState createState() => _ProfileEditViewState();
+}
+
+class _ProfileEditViewState extends State<ProfileEditView> {
+  late String username;
+
+  bool nameGet = false;
+
+  late User currentUser;
+
+  String profilePicUrl = 'https://cdn-icons-png.flaticon.com/512/747/747376.png';
+
+  bool profilePicget = false;
+
+  Future<void> getProfilePic() async {
+    profilePicUrl = await FirestoreService().getProfilePicture();
+     
+    profilePicget = true;
+    setState(() {});
+  }
+
+  Future<void> getusername() async {
+    username = await FirestoreService().getCurrentUsersUsername();
+    currentUser = (AuthService().getCurrentUser())!;
+    nameGet = true;
+    setState(() {});
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    getusername().then((value) => getProfilePic());
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,13 +63,21 @@ class ProfileEditView extends StatelessWidget {
               SizedBox(
                 height: context.height * 0.1,
               ),
-              ClipRRect(
-                borderRadius: BorderRadius.circular(100),
-                child: CircleAvatar(
-                  child: Image.network(
-                      'https://pbs.twimg.com/profile_images/991832743439994880/km5_AHDq_400x400.jpg'),
-                  radius: 100,
-                ),
+              Stack(
+                children: [
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(100),
+                    child: CircleAvatar(backgroundColor: Color(0xFF7BC4B2),
+                      child:   Image.network(
+                         profilePicUrl != 'error'  ? profilePicUrl : 'https://cdn-icons-png.flaticon.com/512/747/747376.png'),
+                      radius: 100,
+                    ),
+                  ),
+                  Positioned( bottom: 4,right:4,
+                    child: CircleAvatar(child: IconButton(onPressed: (){
+                      
+                    }, icon: Icon(Icons.camera_alt_rounded))))
+                ],
               ),
               SizedBox(
                 height: context.height * 0.1,

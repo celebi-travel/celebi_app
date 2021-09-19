@@ -1,3 +1,4 @@
+import 'package:celebi_project/pages/auth/login_main_page/login_main_page.dart';
 import 'package:celebi_project/pages/main/home/home_view.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -40,6 +41,7 @@ class _CheckEmailViewState extends State<CheckEmailView> {
                         ),
                         Text(
                           LocaleKeys.check_email_title.tr(),
+                          textAlign: TextAlign.center,
                           style: TextStyle(
                               fontSize: 40,
                               color: Colors.black,
@@ -62,22 +64,9 @@ class _CheckEmailViewState extends State<CheckEmailView> {
                           flex: 3,
                         ),
                         CustomButton(
-                            text: 'Continue',
+                            text: 'Back To Login Page',
                             onPressed: () async {
-                              bool canGo =
-                                  await AuthService().isEmailVerified();
-                              if (canGo) {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => HomeView()),
-                                );
-                              } else {
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                    SnackBar(
-                                        content:
-                                            Text('E posta doğrulanmamış')));
-                              }
+                              Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>LoginMainPage()), (route) => false);
                             }),
                         Spacer()
                       ],

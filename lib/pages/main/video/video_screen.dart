@@ -23,12 +23,12 @@ class _VideoScreenState extends State<VideoScreen> {
     videoPlayerController = VideoPlayerController.network(widget.videoUrl);
     await Future.wait([videoPlayerController.initialize()]);
 
-    _chewieController = ChewieController(
-      aspectRatio: 5 / 10,
+    _chewieController = ChewieController(  
       videoPlayerController: videoPlayerController,
       autoPlay: true,
       autoInitialize: true,
       looping: true,
+
     );
     setState(() {});
     print(_chewieController);
