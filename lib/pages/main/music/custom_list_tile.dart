@@ -17,8 +17,8 @@ class CustomListTile extends StatelessWidget {
         child: Row(
           children: [
             Container(
-              height: 80,
-              width: 80,
+              height: 50,
+              width: 50,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(16),
                 image: DecorationImage(

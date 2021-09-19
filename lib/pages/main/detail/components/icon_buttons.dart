@@ -1,3 +1,5 @@
+import 'package:celebi_project/pages/main/music/music_view.dart';
+
 import '../../../../constants/lang/locale_keys.g.dart';
 import '../../../../models/place.dart';
 import '../../route_filter_page/route_filter_page.dart';
@@ -14,11 +16,16 @@ class BuildIconButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Icon(
-          Icons.location_on,
-          color: Colors.orange,
-        ),
+      children: [ 
+         GestureDetector(
+           onTap: (){
+             Navigator.push(context, MaterialPageRoute(builder: (context)=> MusicView()));
+           },
+           child: Icon(
+            Icons.music_note,
+            color: Colors.orange,
+                 ),
+         ),
         Row(
           children: [
             TextButton(

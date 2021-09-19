@@ -3,13 +3,13 @@ import 'dart:convert';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class Hotel {
-  late String hotelName;
+  late var hotelName;
   late List<dynamic> images;
   late double rating;
-  late String place;
-  late String description;
+  late var place;
+  late var description;
   late int price;
-  late GeoPoint coordinate;
+  late var coordinate;
 
   Hotel({
     required this.hotelName,

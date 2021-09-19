@@ -78,6 +78,7 @@ class _MyRoutePageState extends State<MyRoutePage> {
   void setMapPins() {
     directions.forEach((element) {
       _markers.add(Marker(
+
         markerId: MarkerId(element['origin'].toString()),
         position: element['origin']!,
       ));
@@ -91,8 +92,9 @@ class _MyRoutePageState extends State<MyRoutePage> {
 
   Future<void> _setCustomMapPin(context) async {
     final ImageConfiguration _imageConfiguration =
-        createLocalImageConfiguration(context);
+        createLocalImageConfiguration(context,size: Size(50,50));
     _markerHotelIcon = await BitmapDescriptor.fromAssetImage(
+
         _imageConfiguration, 'asset/icons/location.png');
     _markerRestaurantIcon = await BitmapDescriptor.fromAssetImage(
         _imageConfiguration, 'asset/icons/placeholder.png');
@@ -101,10 +103,11 @@ class _MyRoutePageState extends State<MyRoutePage> {
   }
 
   void setHotelMarkers() {
-    hotels.forEach((element) {
+    hotels.forEach((element) { 
       _markers.add(Marker(
           markerId: MarkerId(element.hotelName),
           icon: _markerHotelIcon,
+
           onTap: () {
             Navigator.push(
                 context,

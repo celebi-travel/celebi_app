@@ -92,10 +92,9 @@ class FirestoreService {
     QuerySnapshot<Map<String, dynamic>> hotels =
         await FirebaseFirestore.instance.collection('hotels').get();
     List<Hotel> _hotels = [];
-    hotels.docs.forEach((element) {
+    hotels.docs.forEach((element) { 
       var _hotelMap = element.data();
-
-      _hotels.add(Hotel.fromJson(_hotelMap));
+      _hotels.add(Hotel.fromJson(_hotelMap)); 
     });
 
     return _hotels;

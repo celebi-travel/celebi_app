@@ -31,7 +31,7 @@ class _MusicViewState extends State<MusicView> {
   void initState() {
     super.initState();
     networkService = NetworkService();
-    networkService.getMusics(MusicCategory.kd).then((value) {
+    networkService.getMusics(MusicCategory.ad).then((value) {
       musicList = value;
       setState(() {
         currentMusic = musicList!.first;
@@ -77,13 +77,13 @@ class _MusicViewState extends State<MusicView> {
       appBar: AppBar(
         backgroundColor: Colors.white,
         title: Text(
-          'Anadolu Playlist',
+          'Akdeniz Playlist',
           style: context.textTheme.headline5,
         ),
         elevation: 0,
       ),
       body: musicList!.length == 0
-          ? CircularProgressIndicator()
+          ? Center(child: CircularProgressIndicator())
           : Column(
               children: [
                 Expanded(
