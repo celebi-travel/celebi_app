@@ -72,6 +72,13 @@ class _MusicViewState extends State<MusicView> {
     });
   }
 
+  Map bolgeAdlari = {
+    MusicCategory.mr : 'Marmara',
+    MusicCategory.ad : 'Akdeniz',
+    MusicCategory.eg : 'Ege',
+    MusicCategory.kd : 'Karadeniz',
+  };
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -79,7 +86,7 @@ class _MusicViewState extends State<MusicView> {
       appBar: AppBar(
         backgroundColor: Colors.white,
         title: Text(
-          'Akdeniz Playlist',
+          '${bolgeAdlari[widget.category]} Playlist',
           style: context.textTheme.headline5,
         ),
         elevation: 0,

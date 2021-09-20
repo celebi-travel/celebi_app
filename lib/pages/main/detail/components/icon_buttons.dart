@@ -10,7 +10,14 @@ import '../../../../extensions/context_extension.dart';
 import 'package:flutter/material.dart';
 
 Map musicCategory = {
-  'BURSA': MusicCategory.ad
+  'BURSA': MusicCategory.mr,
+  'BALIKESİR': MusicCategory.mr,
+  'CANAKKALE': MusicCategory.mr,
+  'İSTANBUL': MusicCategory.mr,
+  'ANTALYA': MusicCategory.ad,
+  'EDİRNE': MusicCategory.mr,
+  'TRABZON': MusicCategory.kd,
+  'SAKARYA': MusicCategory.mr,
 };
 
 class BuildIconButton extends StatelessWidget {
@@ -24,7 +31,7 @@ class BuildIconButton extends StatelessWidget {
       children: [ 
          GestureDetector(
            onTap: (){
-             Navigator.push(context, MaterialPageRoute(builder: (context)=> MusicView(category: musicCategory[placeModel.city],)));
+             Navigator.push(context, MaterialPageRoute(builder: (context)=> MusicView(category: musicCategory[placeModel.city!.toUpperCase()],)));
            },
            child: Container(
              color: Colors.green[100],
