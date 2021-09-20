@@ -4,7 +4,7 @@ import '../models/video_response_model.dart';
 import 'package:vexana/vexana.dart';
 
 class NetworkService {
-  static final String baseUrl = "https://e6b9-81-214-136-13.ngrok.io/";
+  static final String baseUrl = "https://6cc0-212-2-212-149.ngrok.io/";
   INetworkManager networkManager = NetworkManager(
       options: BaseOptions(
     baseUrl: baseUrl,
@@ -17,8 +17,7 @@ class NetworkService {
   Future<List<MusicResponseModel>?> getMusics(
       MusicCategory musicCategory) async {
     final response =
-        await networkManager.send<MusicResponseModel, List<MusicResponseModel>>(
-            'media/musics/${musicCategory.rawValue}',
+        await networkManager.send<MusicResponseModel, List<MusicResponseModel>>(  'media/musics/${musicCategory.rawValue}',
             parseModel: MusicResponseModel(),
             method: RequestType.GET);
     print(response.data);

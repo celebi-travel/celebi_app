@@ -1,4 +1,6 @@
 import 'dart:convert';
+import 'package:celebi_project/pages/main/bottom_nav_bar/bottom_nav_bar.dart';
+
 import '../../auth/custom/custom_button.dart';
 import 'credit_card_form.dart';
 import 'credit_card_widget.dart';
@@ -15,6 +17,8 @@ class WalletView extends StatefulWidget {
   @override
   _WalletViewState createState() => _WalletViewState();
 }
+
+int rehberUcret =0;
 
 class _WalletViewState extends State<WalletView> {
   String cardNumber = '';
@@ -36,63 +40,81 @@ class _WalletViewState extends State<WalletView> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Credit Card View Demo',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: Scaffold(
-        resizeToAvoidBottomInset: true,
-        backgroundColor: Color(0xffE5E5E5),
-        body: SafeArea(
-          child: Column(
-            children: <Widget>[
-              CreditCardWidget(
-                cardNumber: cardNumber,
-                expiryDate: expiryDate,
-                cardHolderName: cardHolderName,
-                cvvCode: cvvCode,
-                showBackView: isCvvFocused,
-                obscureCardNumber: true,
-                obscureCardCvv: true,
-                cardBgColor: Color(0XFF1A4170),
-              ),
-              buildCardForm(),
-              Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
-                child: Row(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(right: 16),
-                      child: Align(
-                        alignment: Alignment.centerRight,
+    return Scaffold(
+      resizeToAvoidBottomInset: true,
+      backgroundColor: Color(0xffE5E5E5),
+      bottomNavigationBar: bottomBarMethod(context),
+      body: SafeArea(
+        child: Column(
+          children: <Widget>[
+            CreditCardWidget(
+              cardNumber: cardNumber,
+              expiryDate: expiryDate,
+              cardHolderName: cardHolderName,
+              cvvCode: cvvCode,
+              showBackView: isCvvFocused,
+              obscureCardNumber: true,
+              obscureCardCvv: true,
+              cardBgColor: Color(0XFF1A4170),
+            ),
+            buildCardForm(),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+              child: Row(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(right: 16),
+                    child: Align(
+                      alignment: Alignment.centerRight,
+                      child: GestureDetector(
+                        onTap: () {
+                          showDialog(
+                            context: context,
+                            builder: (context) => Dialog(
+                              child: Container(
+                                height: 200,
+                                width: 200,
+                                padding: EdgeInsets.all(12),
+                                child: Container(
+                                  decoration: BoxDecoration(border: Border.all(color: Colors.green)), padding: EdgeInsets.all(12),
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      Text('Rehber Rezervasyonu : $rehberUcret TL'),
+                                      Text('Otel Rezervasyonu : ${widget.ucret.toInt()} TL'),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                          );
+                        },
                         child: Container(
                             decoration: BoxDecoration(
                                 color: Colors.blue.withOpacity(0.2),
                                 borderRadius: BorderRadius.circular(20)),
                             padding: EdgeInsets.symmetric(
                                 vertical: 10, horizontal: 15),
-                            child: Text('${widget.ucret} TL')),
+                            child: Text('${widget.ucret.toInt() + rehberUcret} TL')),
                       ),
                     ),
-                    Expanded(
-                      child: CustomButton(
-                          onPressed: () {
-                            /*  if (formKey.currentState!.validate()) {
+                  ),
+                  Expanded(
+                    child: CustomButton(
+                        onPressed: () {
+                          /*  if (formKey.currentState!.validate()) {
                                     print('valid!');
                                   } else {
                                     print('invalid!');
                                   } */
-                          },
-                          text: 'Ödemeyi Onaylayın'),
-                    ),
-                  ],
-                ),
+                        },
+                        text: 'Ödemeyi Onaylayın'),
+                  ),
+                ],
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

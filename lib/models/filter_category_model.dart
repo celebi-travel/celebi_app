@@ -31,7 +31,7 @@ List<FilterCategory> filterCategories = [
   ),
   FilterCategory(
     categoryName: 'Outdoors',
-    categoryIcon: Icons.outdoor_grill,
+    categoryIcon: Icons.nature_people,
     categoryColor: Color(0xFFF7685E),
     goPage: Container(),
     isSelected: false,

@@ -1,3 +1,5 @@
+import 'package:cached_network_image/cached_network_image.dart';
+
 import '../../../../services/firestore_service.dart';
 import 'package:flutter/material.dart';
 import '../../../../extensions/context_extension.dart';
@@ -93,8 +95,8 @@ class _RecentlyViewedState extends State<RecentlyViewed> {
                                     borderRadius: BorderRadius.circular(14)),
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(14),
-                                  child: Image.network(
-                                    hotelImages[index],
+                                  child: CachedNetworkImage(
+                     imageUrl:  hotelImages[index],
                                     fit: BoxFit.cover,
                                   ),
                                 ),
@@ -169,8 +171,8 @@ class _RecentlyViewedState extends State<RecentlyViewed> {
                                     borderRadius: BorderRadius.circular(14)),
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(14),
-                                  child: Image.network(
-                                    restaurantImages[index],
+                                  child: CachedNetworkImage(
+                     imageUrl:  restaurantImages[index],
                                     fit: BoxFit.cover,
                                   ),
                                 ),
@@ -245,8 +247,8 @@ class _RecentlyViewedState extends State<RecentlyViewed> {
                                     borderRadius: BorderRadius.circular(14)),
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(14),
-                                  child: Image.network(
-                                    cityImages[index],
+                                  child: CachedNetworkImage(
+                     imageUrl:cityImages[index],
                                     fit: BoxFit.cover,
                                   ),
                                 ),

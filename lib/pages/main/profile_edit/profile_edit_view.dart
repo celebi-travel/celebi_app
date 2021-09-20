@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:celebi_project/services/auth_service.dart';
 import 'package:celebi_project/services/firestore_service.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -15,6 +16,7 @@ class ProfileEditView extends StatefulWidget {
 
 class _ProfileEditViewState extends State<ProfileEditView> {
   late String username;
+  late String email;
 
   bool nameGet = false;
 
@@ -34,6 +36,7 @@ class _ProfileEditViewState extends State<ProfileEditView> {
   Future<void> getusername() async {
     username = await FirestoreService().getCurrentUsersUsername();
     currentUser = (AuthService().getCurrentUser())!;
+    email = (currentUser.email)!;
     nameGet = true;
     setState(() {});
   }
@@ -68,8 +71,8 @@ class _ProfileEditViewState extends State<ProfileEditView> {
                   ClipRRect(
                     borderRadius: BorderRadius.circular(100),
                     child: CircleAvatar(backgroundColor: Color(0xFF7BC4B2),
-                      child:   Image.network(
-                         profilePicUrl != 'error'  ? profilePicUrl : 'https://cdn-icons-png.flaticon.com/512/747/747376.png'),
+                      child:   CachedNetworkImage(
+                     imageUrl:   profilePicUrl != 'error'  ? profilePicUrl : 'https://cdn-icons-png.flaticon.com/512/747/747376.png'),
                       radius: 100,
                     ),
                   ),
@@ -88,7 +91,7 @@ class _ProfileEditViewState extends State<ProfileEditView> {
                     TextFormField(
                       decoration: InputDecoration(
                           floatingLabelBehavior: FloatingLabelBehavior.always,
-                          hintText: 'Naralie Gardnerson',
+                          hintText: username,
                           labelText: 'Full Name:',
                           labelStyle: TextStyle(
                               fontSize: 20, fontWeight: FontWeight.bold)),
@@ -97,21 +100,11 @@ class _ProfileEditViewState extends State<ProfileEditView> {
                     TextFormField(
                       decoration: InputDecoration(
                           floatingLabelBehavior: FloatingLabelBehavior.always,
-                          hintText: 'info@celebi.com.tr',
+                          hintText: email,
                           labelText: 'Email:',
                           labelStyle: TextStyle(
                               fontSize: 20, fontWeight: FontWeight.bold)),
-                    ),
-                    Divider(height: context.highValue * 0.5),
-                    TextFormField(
-                      obscureText: true,
-                      decoration: InputDecoration(
-                          floatingLabelBehavior: FloatingLabelBehavior.always,
-                          hintText: 'Please enter',
-                          labelText: 'Password:',
-                          labelStyle: TextStyle(
-                              fontSize: 20, fontWeight: FontWeight.bold)),
-                    )
+                    ), 
                   ],
                 ),
               ),

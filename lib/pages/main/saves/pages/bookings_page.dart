@@ -1,3 +1,5 @@
+import 'package:cached_network_image/cached_network_image.dart';
+
 import '../../../../services/firestore_service.dart';
 import 'package:flutter/material.dart';
 
@@ -50,8 +52,8 @@ class _BookingsPageState extends State<BookingsPage> {
                                   borderRadius: BorderRadius.circular(14)),
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(14),
-                                child: Image.network(
-                                  item['hotelImageUrl'],
+                                child: CachedNetworkImage(
+                     imageUrl: item['hotelImageUrl'],
                                   fit: BoxFit.cover,
                                 ),
                               ),

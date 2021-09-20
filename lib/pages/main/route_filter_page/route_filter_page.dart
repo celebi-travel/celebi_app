@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:celebi_project/pages/main/detail/detail_view.dart';
 import 'package:celebi_project/services/cities_service.dart';
 import 'package:flutter_rating_stars/flutter_rating_stars.dart';
@@ -182,7 +183,7 @@ class _RouteFilterPageState extends State<RouteFilterPage> {
                         child: Row(
                           children: [
                             Text(
-                              '3 placed sorted by travel favorites',
+                              '${sehirVerim.length} placed sorted by travel favorites',
                               style: TextStyle(fontSize: 12),
                             ),
                             SizedBox(width: 8),
@@ -468,8 +469,8 @@ class PlaceWidget extends StatelessWidget {
                         width: 160,
                         height: 160,
                         color: Colors.blue,
-                        child: Image.network(
-                          imgURL,
+                        child: CachedNetworkImage(
+                     imageUrl: imgURL,
                           fit: BoxFit.cover,
                         )),
                     Positioned(

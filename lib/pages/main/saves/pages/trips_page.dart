@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 class TripsPage extends StatelessWidget {
@@ -27,8 +28,8 @@ class TripsPage extends StatelessWidget {
                       BoxDecoration(borderRadius: BorderRadius.circular(14)),
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(14),
-                    child: Image.network(
-                      'https://media-cdn.tripadvisor.com/media/photo-s/08/02/db/0c/cleopatra-pools.jpg',
+                    child: CachedNetworkImage(
+                     imageUrl:  'https://media-cdn.tripadvisor.com/media/photo-s/08/02/db/0c/cleopatra-pools.jpg',
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -104,8 +105,8 @@ class TripsPage extends StatelessWidget {
                       BoxDecoration(borderRadius: BorderRadius.circular(14)),
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(14),
-                    child: Image.network(
-                      'https://www.choramuseum.com/wp-content/uploads/2016/02/chora-museum-church-istanbul.jpg',
+                    child: CachedNetworkImage(
+                     imageUrl: 'https://www.choramuseum.com/wp-content/uploads/2016/02/chora-museum-church-istanbul.jpg',
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -180,8 +181,8 @@ class TripsPage extends StatelessWidget {
                       BoxDecoration(borderRadius: BorderRadius.circular(14)),
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(14),
-                    child: Image.network(
-                      'https://basin.ktb.gov.tr/Resim/35525,group-4-dsc2307dsc2312-6-imagesjpg.png?0',
+                    child: CachedNetworkImage(
+                     imageUrl:  'https://basin.ktb.gov.tr/Resim/35525,group-4-dsc2307dsc2312-6-imagesjpg.png?0',
                       fit: BoxFit.cover,
                     ),
                   ),

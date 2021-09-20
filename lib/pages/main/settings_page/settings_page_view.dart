@@ -23,28 +23,30 @@ class _SettingsPageState extends State<SettingsPage> {
     return Scaffold(
       bottomNavigationBar: bottomBarMethod(context),
       appBar: AppBar(
-          backgroundColor: Colors.white,
-          elevation: 0,
-          title: Text("Back", style: TextStyle(color: Colors.black))),
-      body: Padding(
-        padding: EdgeInsets.only(left: 20, right: 20),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text("Settings",
-                style: TextStyle(
-                    fontSize: 60,
-                    fontWeight: FontWeight.bold,
-                    fontStyle: FontStyle.italic)),
-            SizedBox(height: 100),
-            Padding(
-              padding: EdgeInsets.only(left: 30, bottom: 20),
-              child: accountIconAndTitle(),
-            ),
-            buildSettingsInfo(),
-            SizedBox(height: 150),
-            logOutInfo(),
-          ],
+      backgroundColor: Colors.white,
+      elevation: 0,
+      title: Text("Back", style: TextStyle(color: Colors.black))),
+      body: SafeArea(
+        child: Padding(
+          padding: EdgeInsets.only(left: 20, right: 20),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text("Settings",
+                  style: TextStyle(
+                      fontSize: 60,
+                      fontWeight: FontWeight.bold,
+                      fontStyle: FontStyle.italic)),
+              SizedBox(height: 100),
+              Padding(
+                padding: EdgeInsets.only(left: 30, bottom: 20),
+                child: accountIconAndTitle(),
+              ),
+              buildSettingsInfo(),
+              SizedBox(height: 50),
+              logOutInfo(),
+            ],
+          ),
         ),
       ),
     );
@@ -97,7 +99,7 @@ class _SettingsPageState extends State<SettingsPage> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Icon(
-          Icons.ac_unit,
+          Icons.person,
           color: Colors.black,
           size: 30,
         ),
@@ -116,7 +118,7 @@ class _SettingsPageState extends State<SettingsPage> {
           color: Color(0xFFE9E9E9),
           borderRadius: BorderRadius.all(Radius.circular(30))),
       width: 600,
-      height: 180,
+      height: 120,
       child: Column(
         children: [
           buildSettingsSections(
@@ -132,14 +134,14 @@ class _SettingsPageState extends State<SettingsPage> {
             showDialog(
                 context: context,
                 builder: (context) => CustomAlertDialog(
-                      height: context.height * 0.4,
+                      height: context.height * 0.5,
                       width: context.width * 0.8,
                       content: Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           Text("Select Your Language",
                               style: TextStyle(color: Colors.black)),
-                          SizedBox(height: 90),
+                         
                           buildAllLanguages(
                               'icons/flags/png/tr.png', " Turkısh", () {
                             context
@@ -169,9 +171,10 @@ class _SettingsPageState extends State<SettingsPage> {
                             context
                                 .setLocale(LanguageManager.instance.bgLocale);
                           }),
+                          SizedBox(height:10),
                           SizedBox(
-                            height: 40,
-                            width: 100,
+                            height: 30,
+                            width: 60,
                             child: CustomButton(
                                 onPressed: () => Navigator.of(context).pop(),
                                 text: 'Ok'),
@@ -180,38 +183,31 @@ class _SettingsPageState extends State<SettingsPage> {
                       ),
                     ));
           }),
-          buildDivider(),
-          buildSettingsSections(Icons.privacy_tip, "Privacy and Security",
-              Icons.arrow_forward_ios_outlined, () {}),
         ],
       ),
     );
   }
 
   buildAllLanguages(String flagImage, String languageName, Function() onPress) {
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 90),
-      child: Row(
-        children: [
-          ClipRRect(
-            borderRadius: BorderRadius.circular(90),
-            child: Image.asset(
-              flagImage,
-              package: 'country_icons',
-              height: 40,
-              width: 60,
-            ),
+    return Row(
+      children: [
+        ClipRRect(
+          borderRadius: BorderRadius.circular(90),
+          child: Image.asset(
+            flagImage,
+            package: 'country_icons',
+            height: 20,
+            width: 40,
           ),
-          TextButton(
-            onPressed: onPress,
-            child: Text(
-              languageName,
-              style:
-                  TextStyle(color: Colors.black, fontWeight: FontWeight.w300),
-            ),
+        ),
+        TextButton(
+          onPressed: onPress,
+          child: Text(
+            languageName,
+            style:TextStyle(color: Colors.black,fontSize: 13, fontWeight: FontWeight.w300),
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
@@ -220,7 +216,7 @@ Padding buildDivider() {
   return Padding(
     padding: EdgeInsets.only(right: 20, left: 20),
     child: Divider(
-      height: 3,
+      height: 2,
       color: Colors.black,
     ),
   );

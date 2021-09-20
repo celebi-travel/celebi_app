@@ -152,15 +152,15 @@ class _DetailPageState extends State<DetailPage> {
     return ReadMoreText(
       info,
       trimLength: 200,
-      colorClickableText: Colors.blue[900],
+      colorClickableText: Colors.grey,
       trimMode: TrimMode.Length,
       trimCollapsedText: 'Show more',
       trimExpandedText: 'Show less',
-      style: TextStyle(color: Colors.black),
+      style: TextStyle(color: Colors.grey[700]),
       moreStyle: context.textTheme.bodyText1!.copyWith(
-          color: Colors.blue[900], fontWeight: FontWeight.w700, fontSize: 13),
+          color: Colors.black, fontWeight: FontWeight.w700, fontSize: 13),
       lessStyle: context.textTheme.bodyText1!.copyWith(
-          color: Colors.blue[900], fontWeight: FontWeight.w700, fontSize: 13),
+          color: Colors.black, fontWeight: FontWeight.w700, fontSize: 13),
     );
   }
 }

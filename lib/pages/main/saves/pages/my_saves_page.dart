@@ -1,5 +1,7 @@
 import 'dart:convert';
 
+import 'package:cached_network_image/cached_network_image.dart';
+
 import '../../../../services/firestore_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -67,8 +69,8 @@ class _MySavesPageState extends State<MySavesPage> {
                               borderRadius: BorderRadius.circular(14)),
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(14),
-                            child: Image.network(
-                              item['imgURL'],
+                            child: CachedNetworkImage(
+                     imageUrl:   item['imgURL'],
                               fit: BoxFit.cover,
                             ),
                           ),

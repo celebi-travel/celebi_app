@@ -1,4 +1,5 @@
 import 'package:celebi_project/pages/main/wallet/wallet_view.dart';
+import 'package:flutter_rating_stars/flutter_rating_stars.dart';
 
 import '../../../constants/lang/locale_keys.g.dart';
 import '../../../models/hotel_model.dart';
@@ -74,19 +75,113 @@ class _HotelPageState extends State<HotelPage> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Padding(
-                  padding: const EdgeInsets.only(left: 10),
-                  child: Chip(
-                      label: Text(hotel.place),
-                      avatar: Icon(Icons.place, color: Colors.red),
-                      backgroundColor: context.colors.background),
+                Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: CircleAvatar(
+                        radius: 34,
+                        backgroundImage:
+                            AssetImage('asset/images/sertifika.jpg'),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 10),
+                      child: Chip(
+                        
+                          padding: EdgeInsets.only(right: 18),
+                          label: Text(
+                            hotel.place,
+                            style: TextStyle(fontSize: 12),
+                          ),
+                          avatar: Icon(
+                            Icons.place,
+                            color: Colors.red,
+                            size: 18,
+                          ),
+                          backgroundColor: context.colors.background),
+                    ),
+                  ],
                 ),
                 Row(
                   children: [
-                    Chip(
-                        label: Text(hotel.rating.toString()),
-                        avatar: Icon(Icons.star, color: Colors.yellow),
-                        backgroundColor: context.colors.background),
+                    GestureDetector(
+                      onTap: (){
+                         showDialog(
+                                context: context,
+                                builder: (context) => StatefulBuilder(
+                                  builder: (context, setState) {
+                                    return AlertDialog(
+                                      
+                                      content: SizedBox(
+                                        height: 100,
+                                        child: Center(
+                                          child: RatingStars(
+                                            
+                                            value: widget.hotel.rating,
+                                            onValueChanged: (v) {
+                                              //
+                                              setState(() {
+                                                widget.hotel.rating = v;
+                                              });
+                                            },
+                                            starBuilder: (index, color) => Icon(
+                                              Icons.star,
+                                              color: color,
+                                            ),
+                                            starCount: 5,
+                                            starSize: 26,
+                                            valueLabelColor:
+                                                const Color(0xff9b9b9b),
+                                            valueLabelTextStyle:
+                                                const TextStyle(
+                                                    color: Colors.white,
+                                                    fontWeight: FontWeight.w400,
+                                                    fontStyle: FontStyle.normal,
+                                                    fontSize: 12.0),
+                                            valueLabelRadius: 10,
+                                            maxValue: 5,
+                                            starSpacing: 2,
+                                            maxValueVisibility: true,
+                                            valueLabelVisibility: true,
+                                            animationDuration:
+                                                Duration(milliseconds: 1000),
+                                            valueLabelPadding:
+                                                const EdgeInsets.symmetric(
+                                                    vertical: 1, horizontal: 8),
+                                            valueLabelMargin:
+                                                const EdgeInsets.only(right: 8),
+                                            starOffColor:
+                                                const Color(0xffe7e8ea),
+                                            starColor: Colors.yellow,
+                                          ),
+                                        ),
+                                      ),
+                                      actions: [
+                                        TextButton(
+                                          onPressed: () {
+                                            ScaffoldMessenger.of(context)
+                                                .showSnackBar(
+                                              SnackBar(
+                                                content: Text(
+                                                    'Thank you for your rating'),
+                                              ),
+                                            );
+                                            Navigator.pop(context);
+                                          },
+                                          child: Text('Rate'),
+                                        )
+                                      ],
+                                    );
+                                  },
+                                ),
+                              );
+                      },
+                      child: Chip(
+                          label: Text(hotel.rating.toString()),
+                          avatar: Icon(Icons.star, color: Colors.yellow),
+                          backgroundColor: context.colors.background),
+                    ),
                     IconButton(
                         onPressed: () {},
                         icon: Icon(Icons.favorite_outline, color: Colors.red)),

@@ -1,3 +1,5 @@
+import 'package:cached_network_image/cached_network_image.dart';
+
 import '../../../../models/video_response_model.dart';
 import '../../video/video_screen.dart';
 import '../../../../services/network_service.dart';
@@ -128,7 +130,17 @@ class PopularPlaces extends StatefulWidget {
 
 class _PopularPlacesState extends State<PopularPlaces> {
   late NetworkService networkService;
-  List<VideoResponseModel>? videoList = [];
+  List<VideoResponseModel>? videoList = [
+    VideoResponseModel()/*
+    'http://localhost:8000/media/media/videos/Mardin_Tan%C4%B1t%C4%B1m_Filmi.mp4',
+    'http://localhost:8000/media/media/videos/G%C3%B6rkemli_%C4%B0STANBUL_istanbul_tan%C4%B1t%C4%B1m_filmi_WkKAzC9.mp4',
+    'http://localhost:8000/media/media/videos/Gaziantep_Tan%C4%B1t%C4%B1m_Filmi_2020.mp4',
+    'http://localhost:8000/media/media/videos/Turizm_Cenneti_Antalya_tan%C4%B1t%C4%B1m_Videosu___antalya_promotional_video.mp4',
+    'http://localhost:8000/media/media/videos/Konya_Zaman%C4%B1_A%C5%9Fan_%C5%9Eehir_Konya_Tan%C4%B1t%C4%B1m_Filmi__Konya_Film_Konya_Turkey_Konya__ZVzp0fB.mp4',
+    'http://localhost:8000/media/media/videos/Fethiye_Tan%C4%B1t%C4%B1m_Filmi.mp4',
+    'http://localhost:8000/media/media/videos/Karadeniz_Tan%C4%B1t%C4%B1m_Videosu.mp4',
+    'http://localhost:8000/media/media/videos/Karadeniz_Tan%C4%B1t%C4%B1m_Videosu.mp4',*/
+  ];
   @override
   void initState() {
     super.initState();
@@ -164,8 +176,8 @@ class _PopularPlacesState extends State<PopularPlaces> {
                       children: [
                         Container(
                           width: double.infinity,
-                          child: Image.network(
-                            popularPlaceModel.image!,
+                          child: CachedNetworkImage(
+                     imageUrl: popularPlaceModel.image!,
                             fit: BoxFit.fill,
                           ),
                         ),

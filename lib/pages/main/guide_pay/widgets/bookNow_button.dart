@@ -1,11 +1,13 @@
+import 'package:celebi_project/pages/main/wallet/wallet_view.dart';
 import 'package:flutter/material.dart';
 
-bookNowButton(context, selected) {
+bookNowButton(context, int selected) {
   String bookNowTitle = "Book Now";
   return Padding(
     padding: EdgeInsets.only(left: 190, top: 10),
     child: ElevatedButton(
       onPressed: () {
+        rehberUcret = selected;
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             backgroundColor: Color(0XFFB6E7DA),
@@ -15,6 +17,7 @@ bookNowButton(context, selected) {
             ),
           ),
         );
+        
       },
       child: Text(
         bookNowTitle,

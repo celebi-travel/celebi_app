@@ -23,14 +23,14 @@ class _GuidePayPageState extends State<GuidePayPage> {
   int night = 321;
   int morning = 589;
 
-  Map value = {
+  Map<String,int> value = {
     'full': 640,
     'city': 772,
     'night': 321,
     'morning': 589,
   };
 
-  String selected = '';
+  String selected = 'full';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -59,7 +59,7 @@ class _GuidePayPageState extends State<GuidePayPage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              bookNowButton(context, value[selected]),
+              bookNowButton(context, value[selected]!),
               buildDivider(),
               SizedBox(height: 10),
               buildTourPricesHead(),

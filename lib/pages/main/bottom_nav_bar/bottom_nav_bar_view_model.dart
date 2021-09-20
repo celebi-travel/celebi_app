@@ -1,3 +1,5 @@
+import 'package:celebi_project/pages/main/wallet/wallet_view.dart';
+
 import '../../auth/account_page/account_page.dart';
 import '../home/home_view.dart';
 import '../saves/saves.dart';
@@ -12,11 +14,7 @@ abstract class _BottomNavBarViewModelBase with Store {
   List pages = [
     HomeView(),
     Saves(),
-    Scaffold(
-      body: Container(
-        child: Center(),
-      ),
-    ),
+    WalletView(ucret: 0),
     AccountPage(),
   ];
 

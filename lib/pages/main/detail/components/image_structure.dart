@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 Padding imageStructure(
@@ -44,8 +45,8 @@ Padding imageStructureNetwork(
           borderRadius: BorderRadius.all(
             Radius.circular(20),
           ),
-          child: Image.network(
-            image,
+          child: CachedNetworkImage(
+                     imageUrl: image,
             fit: BoxFit.cover,
           ),
         ),
@@ -72,8 +73,8 @@ Padding imageStructureWithTextNetwork(
               borderRadius: BorderRadius.all(
                 Radius.circular(20),
               ),
-              child: Image.network(
-                image,
+              child: CachedNetworkImage(
+                     imageUrl:image,
                 fit: BoxFit.cover,
               ),
             ),

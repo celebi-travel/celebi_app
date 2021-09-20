@@ -56,12 +56,14 @@ class _AccountPageState extends State<AccountPage> {
         child: nameGet
             ? SingleChildScrollView(
                 child: Column(
+                
                   children: [
+                    
                     Container(
                       width: double.infinity,
                       height: 100,
                       margin:
-                          EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+                          EdgeInsets.only(right:30,left:30,top:60),
                       decoration: BoxDecoration(
                           color: Colors.grey[200],
                           borderRadius: BorderRadius.circular(12)),
@@ -73,16 +75,14 @@ class _AccountPageState extends State<AccountPage> {
                           ),
                           title: Text('$username'),
                           subtitle: Text('${currentUser.email}'),
-                          trailing: IconButton(
-                              onPressed: () {},
-                              icon: Icon(Icons.keyboard_arrow_right)),
+                        ),
                         ),
                       ),
-                    ),
+                    
                     Container(
                         width: double.infinity,
                         margin:
-                            EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+                            EdgeInsets.symmetric(horizontal: 30, vertical: 40),
                         decoration: BoxDecoration(
                             color: Colors.grey[200],
                             borderRadius: BorderRadius.circular(12)),
@@ -105,21 +105,6 @@ class _AccountPageState extends State<AccountPage> {
                                     builder: (context) => SettingsPage(),
                                   ));
                                 }),
-                          ],
-                        )),
-                    Container(
-                        width: double.infinity,
-                        margin:
-                            EdgeInsets.symmetric(horizontal: 30, vertical: 10),
-                        decoration: BoxDecoration(
-                            color: Colors.grey[200],
-                            borderRadius: BorderRadius.circular(12)),
-                        child: Column(
-                          children: [
-                            SettingsElement(
-                                name: 'Invite your friends',
-                                icon: Icons.person,
-                                onPressed: () {}),
                             SettingsDivider(),
                             SettingsElement(
                                 name: 'privacy Policy',
@@ -127,11 +112,8 @@ class _AccountPageState extends State<AccountPage> {
                                 onPressed: () async {
                                   await launch('https://sites.google.com/view/celebi/ana-sayfa');
                                 }),
-                            SettingsDivider(),
-                            SettingsElement(
-                                name: 'Terms of Use',
-                                icon: Icons.settings,
-                                onPressed: () {}),
+                            
+                          
                             SettingsDivider(),
                             SettingsElement(
                                 name: 'Help',

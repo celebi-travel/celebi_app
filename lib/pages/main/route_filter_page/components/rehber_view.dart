@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../extensions/context_extension.dart';
@@ -35,7 +36,8 @@ class RehberView extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Expanded(
-                            child: Image.network(rehber.imageURL,
+                            child:CachedNetworkImage(
+                     imageUrl:rehber.imageURL,
                                 fit: BoxFit.cover)),
                         Center(
                           child: SizedBox(

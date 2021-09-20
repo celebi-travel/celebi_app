@@ -21,10 +21,15 @@ class BuildIconButton extends StatelessWidget {
            onTap: (){
              Navigator.push(context, MaterialPageRoute(builder: (context)=> MusicView()));
            },
-           child: Icon(
-            Icons.music_note,
-            color: Colors.orange,
-                 ),
+           child: Container(
+             color: Colors.green[100],
+             height: 30,
+             width:30,
+             child: Icon(
+              Icons.music_note,
+              color: Colors.black,
+                   ),
+           ),
          ),
         Row(
           children: [
@@ -41,7 +46,7 @@ class BuildIconButton extends StatelessWidget {
                   style: context.textTheme.bodyText2!
                       .copyWith(fontSize: 14, color: Colors.white)),
               style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(Colors.blue[900])),
+                  backgroundColor: MaterialStateProperty.all(Colors.red[400])),
             ),
           ],
         )

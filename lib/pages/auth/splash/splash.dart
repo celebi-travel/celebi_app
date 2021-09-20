@@ -30,18 +30,27 @@ class _SplashState extends State<Splash> with TickerProviderStateMixin {
 
   late final spinkit;
 
+  late AnimationController _animationController ;
+
   @override
   void initState() {
     super.initState();
+    _animationController = AnimationController(
+          vsync: this, duration: const Duration(milliseconds: 1200));
     spinkit = SpinKitSquareCircle(
       color: Colors.black,
       size: 50.0,
-      controller: AnimationController(
-          vsync: this, duration: const Duration(milliseconds: 1200)),
+      controller:_animationController,
     );
     Timer(const Duration(seconds: 4), () {
       _check();
     });
+  }
+
+  @override
+  void dispose() {
+_animationController.dispose();
+    super.dispose();
   }
 
   @override
@@ -52,7 +61,7 @@ class _SplashState extends State<Splash> with TickerProviderStateMixin {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             Image.asset('asset/images/celebi_logo.png',
-                color: Theme.of(context).colorScheme.primary),
+                color: Theme.of(context).colorScheme.onError),
             spinkit,
           ],
         ),
