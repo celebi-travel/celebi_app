@@ -9,7 +9,7 @@ class Hotel {
   late var place;
   late var description;
   late int price;
-  late var coordinate;
+  late GeoPoint coordinate;
 
   Hotel({
     required this.hotelName,

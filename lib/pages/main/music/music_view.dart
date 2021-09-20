@@ -7,7 +7,9 @@ import 'custom_list_tile.dart';
 import 'package:flutter/material.dart';
 
 class MusicView extends StatefulWidget {
-  const MusicView({Key? key}) : super(key: key);
+  const MusicView({Key? key, required this.category}) : super(key: key);
+
+  final MusicCategory category ;
 
   @override
   _MusicViewState createState() => _MusicViewState();
@@ -31,7 +33,7 @@ class _MusicViewState extends State<MusicView> {
   void initState() {
     super.initState();
     networkService = NetworkService();
-    networkService.getMusics(MusicCategory.ad).then((value) {
+    networkService.getMusics(widget.category).then((value) {
       musicList = value;
       setState(() {
         currentMusic = musicList!.first;

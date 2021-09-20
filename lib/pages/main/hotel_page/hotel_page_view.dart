@@ -56,7 +56,9 @@ class _HotelPageState extends State<HotelPage> {
         elevation: 0,
         backgroundColor: Colors.white,
         leading: IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pop(context);
+            },
             icon: Icon(
               Icons.chevron_left,
               color: Colors.black,
@@ -70,6 +72,7 @@ class _HotelPageState extends State<HotelPage> {
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
+
           children: [
             ImageSlider(imagesList: hotel.images),
             Row(
@@ -86,7 +89,7 @@ class _HotelPageState extends State<HotelPage> {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(left: 10),
+                      padding: const EdgeInsets.only(left: 2,top:14),
                       child: Chip(
                         
                           padding: EdgeInsets.only(right: 18),
@@ -178,8 +181,8 @@ class _HotelPageState extends State<HotelPage> {
                               );
                       },
                       child: Chip(
-                          label: Text(hotel.rating.toString()),
-                          avatar: Icon(Icons.star, color: Colors.yellow),
+                          label: Text(hotel.rating.toString(),style: TextStyle(fontSize: 12),),
+                          avatar: Icon(Icons.star, color: Colors.yellow,size: 18,),
                           backgroundColor: context.colors.background),
                     ),
                     IconButton(

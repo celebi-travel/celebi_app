@@ -1,3 +1,4 @@
+import 'package:celebi_project/constants/music_category.dart';
 import 'package:celebi_project/pages/main/music/music_view.dart';
 
 import '../../../../constants/lang/locale_keys.g.dart';
@@ -7,6 +8,10 @@ import 'package:easy_localization/easy_localization.dart';
 
 import '../../../../extensions/context_extension.dart';
 import 'package:flutter/material.dart';
+
+Map musicCategory = {
+  'BURSA': MusicCategory.ad
+};
 
 class BuildIconButton extends StatelessWidget {
   final PlaceModel placeModel;
@@ -19,7 +24,7 @@ class BuildIconButton extends StatelessWidget {
       children: [ 
          GestureDetector(
            onTap: (){
-             Navigator.push(context, MaterialPageRoute(builder: (context)=> MusicView()));
+             Navigator.push(context, MaterialPageRoute(builder: (context)=> MusicView(category: musicCategory[placeModel.city],)));
            },
            child: Container(
              color: Colors.green[100],
