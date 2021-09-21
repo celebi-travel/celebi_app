@@ -38,7 +38,7 @@ Map languagesMap = {
     'editprofile': 'Profili Düzenle',
     'trips': 'Geziler',
     'homesearch': 'Şehirler ara',
-    'saveroute':'Rotayı kaydet'
+    'saveroute':'Rotayı kaydet '
   },
   LanguageManager.instance.ruLocale: {
     'language':'Language ru',
