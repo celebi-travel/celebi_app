@@ -88,7 +88,8 @@ class _BodyState extends State<Body> {
                           children: [
                             Text(
                               onBoardItems[index].title ?? "",
-                              style: context.textTheme.headline4!.copyWith(
+                              textAlign: TextAlign.center,
+                              style: context.textTheme.headline5!.copyWith(
                                   color: Colors.black,
                                   fontWeight: FontWeight.w500),
                             ).tr(),
@@ -103,7 +104,7 @@ class _BodyState extends State<Body> {
                                 child: Text(
                                   onBoardItems[index].content ?? "",
                                   textAlign: TextAlign.center,
-                                  style: context.textTheme.headline5!
+                                  style: context.textTheme.bodyText1!
                                       .copyWith(color: context.colors.surface),
                                 ).tr(),
                               ),

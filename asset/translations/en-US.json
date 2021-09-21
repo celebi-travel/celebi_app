@@ -95,7 +95,7 @@
     "home": "Home",
     "Wallets": "Wallets",
     "routes": "Routes",
-    "qr": "QR",
+    "qr": "Map",
     "account": "Account"
   },
   "route_filter": {
@@ -114,7 +114,7 @@
     "hotels": "Hotels",
     "caferestaurant": "Cafe & Restaurant",
     "beaches": "Beaches",
-    "btn": "Go To Route"
+    "btn": "Save Route"
   },
   "hotel": {
     "reservation": "Reservation",

@@ -1,4 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:celebi_project/youtube_player_page.dart';
 
 import '../../../../models/video_response_model.dart';
 import '../../video/video_screen.dart';
@@ -129,7 +130,7 @@ class PopularPlaces extends StatefulWidget {
 }
 
 class _PopularPlacesState extends State<PopularPlaces> {
-  late NetworkService networkService;
+  /*late NetworkService networkService;
   List<VideoResponseModel>? videoList = [
     VideoResponseModel()/*
     'http://localhost:8000/media/media/videos/Mardin_Tan%C4%B1t%C4%B1m_Filmi.mp4',
@@ -151,22 +152,28 @@ class _PopularPlacesState extends State<PopularPlaces> {
         videoList!;
       });
     });
-  }
+  }*/
+
+  List<Map> data = [
+    {'image':'https://i.pinimg.com/originals/cd/d5/21/cdd5214b4a679f05bb6656ad711869ad.jpg','video':'https://www.youtube.com/watch?v=ZgPpkRzE8gU','city':'Nevşehir','place':'Peri Bacaları'},
+    {'image':'https://images.etstur.com/definitions/etstur/page_management/af1309a0bb51c70c7fcc4bee93a8be6e_20210323124930.jpg','video':'https://www.youtube.com/watch?v=Bw9QnL7Wa8Y','city':'Antalya','place':'Kaş'},
+    {'image':'https://i.natgeofe.com/n/bd729afd-04b7-4589-b9cd-913449c48c6a/istanbul-travel_2x3.jpg','video':'https://www.youtube.com/watch?v=eV6lTEY95yY&t=19s','city':'İstanbul','place':'Ayasfoya'},
+    {'image':'https://i.pinimg.com/736x/e7/4f/04/e74f04be23f2f27f68e4e561e43eb169.jpg','video':'https://www.youtube.com/watch?v=5w8ydPqMtGg&t=58s','city':'İzmir','place':'Alaçatı'},
+    {'image':'http://3.bp.blogspot.com/-FeZ0kYM9l8Q/UjzQmdEhg0I/AAAAAAAAHL0/sUK8pN1D9cM/s1600/NSG_9951.c1.jpg','video':'https://www.youtube.com/watch?v=BB0SUKR-huw','city':'Gaziantep','place':'Şehitkamil'},
+    {'image':'https://www.gezzytur.com/turresim/3395_b.jpg','video':'https://www.youtube.com/watch?v=_FsK2fQlKy8','city':'Konya','place':'Kelebekler Vadisi'},
+    {'image':'https://planetofhotels.com/guide/sites/default/files/styles/big_gallery_image/public/text_gallery/Fethiye-1.jpg','video':'https://www.youtube.com/watch?v=NVJrT8c0hpc','city':'Muğla','place':'Fethiye'},
+  ];
 
   @override
-  Widget build(BuildContext context) {
-    print(videoList);
-    return videoList!.length == 0
-        ? Center(
-            child: CircularProgressIndicator(),
-          )
-        : MasonryGrid(
+  Widget build(BuildContext context) { 
+    return MasonryGrid(
+      
             mainAxisSpacing: 20,
             crossAxisSpacing: 15,
             column: 2,
             children: List.generate(6, (index) {
               print(index);
-              VideoResponseModel popularPlaceModel = videoList![index];
+              Map _value = data[index];
               return InkWell(
                 splashColor: Colors.transparent,
                 highlightColor: Colors.transparent,
@@ -177,13 +184,13 @@ class _PopularPlacesState extends State<PopularPlaces> {
                         Container(
                           width: double.infinity,
                           child: CachedNetworkImage(
-                     imageUrl: popularPlaceModel.image!,
+                     imageUrl: _value['image'],
                             fit: BoxFit.fill,
                           ),
                         ),
                         Positioned(
-                          bottom: 0,
-                          right: 8,
+                          bottom: 0, 
+                          right: 0,
                           left: 0,
                           child: Container(
                             decoration: BoxDecoration(
@@ -193,11 +200,7 @@ class _PopularPlacesState extends State<PopularPlaces> {
                                 colors: [
                                   Colors.grey.withOpacity(0.0),
                                   Colors.black,
-                                ],
-                                stops: [
-                                  0.0,
-                                  1.0,
-                                ],
+                                ], 
                               ),
                             ),
                             child: Padding(
@@ -208,13 +211,13 @@ class _PopularPlacesState extends State<PopularPlaces> {
                                 children: [
                                   RichText(
                                     text: TextSpan(
-                                      text: '${popularPlaceModel.place},\n',
+                                      text: '${_value['place']},\n',
                                       style: TextStyle(
                                           fontSize: 12,
                                           fontWeight: FontWeight.bold),
                                       children: [
                                         TextSpan(
-                                            text: popularPlaceModel.city,
+                                            text: _value['city'],
                                             style: TextStyle(
                                                 fontSize: 16,
                                                 fontWeight: FontWeight.bold))
@@ -242,7 +245,7 @@ class _PopularPlacesState extends State<PopularPlaces> {
                     context,
                     MaterialPageRoute(
                       builder: (context) =>
-                          VideoScreen(videoUrl: videoList![index].video!),
+                          YoutubePlayerPage(videoURL: _value['video']),
                     ),
                   );
                 },

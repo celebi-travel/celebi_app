@@ -1,3 +1,5 @@
+import 'package:celebi_project/youtube_player_page.dart';
+
 import 'pages/auth/splash/splash.dart';
 import 'services/locators.dart';
 import 'package:easy_localization/easy_localization.dart';
