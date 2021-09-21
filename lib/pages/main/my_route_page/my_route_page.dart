@@ -3,6 +3,7 @@ import 'dart:typed_data';
 import 'package:celebi_project/constants/image_slider.dart';
 import 'package:celebi_project/models/beach_model.dart';
 import 'package:celebi_project/pages/main/beach/beach_page_view.dart';
+import 'package:celebi_project/services/translator.dart';
 import 'package:flutter/services.dart';
 
 import '../bottom_nav_bar/bottom_nav_bar.dart';
@@ -22,9 +23,12 @@ import 'dart:ui' as ui;
 
 Future<Uint8List> getBytesFromAsset(String path, int width) async {
   ByteData data = await rootBundle.load(path);
-  ui.Codec codec = await ui.instantiateImageCodec(data.buffer.asUint8List(), targetWidth: width);
+  ui.Codec codec = await ui.instantiateImageCodec(data.buffer.asUint8List(),
+      targetWidth: width);
   ui.FrameInfo fi = await codec.getNextFrame();
-  return (await fi.image.toByteData(format: ui.ImageByteFormat.png))!.buffer.asUint8List();
+  return (await fi.image.toByteData(format: ui.ImageByteFormat.png))!
+      .buffer
+      .asUint8List();
 }
 
 class MyRoutePage extends StatefulWidget {
@@ -89,7 +93,6 @@ class _MyRoutePageState extends State<MyRoutePage> {
   void setMapPins() {
     directions.forEach((element) {
       _markers.add(Marker(
-
         markerId: MarkerId(element['origin'].toString()),
         position: element['origin']!,
       ));
@@ -103,22 +106,25 @@ class _MyRoutePageState extends State<MyRoutePage> {
 
   Future<void> _setCustomMapPin(context) async {
     final ImageConfiguration _imageConfiguration =
-        createLocalImageConfiguration(context,size: Size(50,50));
-        final Uint8List _markerHotelIconasset = await getBytesFromAsset('asset/icons/location.png', 100);
-        final Uint8List _markerRestaurantIconasset = await getBytesFromAsset('asset/icons/placeholder.png', 100);
-        final Uint8List _markerBeachIconasset = await getBytesFromAsset('asset/icons/beach.png', 100);
+        createLocalImageConfiguration(context, size: Size(50, 50));
+    final Uint8List _markerHotelIconasset =
+        await getBytesFromAsset('asset/icons/location.png', 100);
+    final Uint8List _markerRestaurantIconasset =
+        await getBytesFromAsset('asset/icons/placeholder.png', 100);
+    final Uint8List _markerBeachIconasset =
+        await getBytesFromAsset('asset/icons/beach.png', 100);
 
-    _markerHotelIcon =   BitmapDescriptor.fromBytes(_markerHotelIconasset);
-    _markerRestaurantIcon =   BitmapDescriptor.fromBytes(_markerRestaurantIconasset);
-    _markerBeachIcon =   BitmapDescriptor.fromBytes(_markerBeachIconasset);
+    _markerHotelIcon = BitmapDescriptor.fromBytes(_markerHotelIconasset);
+    _markerRestaurantIcon =
+        BitmapDescriptor.fromBytes(_markerRestaurantIconasset);
+    _markerBeachIcon = BitmapDescriptor.fromBytes(_markerBeachIconasset);
   }
 
-  void setHotelMarkers() { 
-   hotels.forEach((element) { 
+  void setHotelMarkers() {
+    hotels.forEach((element) {
       _markers.add(Marker(
-          markerId: MarkerId(element.coordinate.latitude.toString() ),
+          markerId: MarkerId(element.coordinate.latitude.toString()),
           icon: _markerHotelIcon,
-
           onTap: () {
             Navigator.push(
                 context,
@@ -344,7 +350,8 @@ class _MyRoutePageState extends State<MyRoutePage> {
               child: ElevatedButton(
                 onPressed: () {},
                 child: Text(
-                  'Go To Route',
+                  languagesMap[TranslatorManager.instance.getLocale(context)]
+                      ['saveroute'],
                   style: TextStyle(color: Colors.white),
                 ),
                 style: ButtonStyle(

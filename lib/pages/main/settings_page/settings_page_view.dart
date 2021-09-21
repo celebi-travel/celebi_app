@@ -1,5 +1,6 @@
 import 'package:celebi_project/pages/auth/login_main_page/login_main_page.dart';
 import 'package:celebi_project/services/auth_service.dart';
+import 'package:celebi_project/services/translator.dart';
 
 import '../../../constants/lang/language_manager.dart';
 import '../../../extensions/context_extension.dart';
@@ -23,16 +24,18 @@ class _SettingsPageState extends State<SettingsPage> {
     return Scaffold(
       bottomNavigationBar: bottomBarMethod(context),
       appBar: AppBar(
-      backgroundColor: Colors.white,
-      elevation: 0,
-      title: Text("Back", style: TextStyle(color: Colors.black))),
+          backgroundColor: Colors.white,
+          elevation: 0,
+          title: Text("Back", style: TextStyle(color: Colors.black))),
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.only(left: 20, right: 20),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text("Settings",
+              Text(
+                  languagesMap[TranslatorManager.instance.getLocale(context)]
+                      ['settings'],
                   style: TextStyle(
                       fontSize: 60,
                       fontWeight: FontWeight.bold,
@@ -40,7 +43,7 @@ class _SettingsPageState extends State<SettingsPage> {
               SizedBox(height: 100),
               Padding(
                 padding: EdgeInsets.only(left: 30, bottom: 20),
-                child: accountIconAndTitle(),
+                child: accountIconAndTitle(context),
               ),
               buildSettingsInfo(),
               SizedBox(height: 50),
@@ -94,7 +97,7 @@ class _SettingsPageState extends State<SettingsPage> {
         ));
   }
 
-  Row accountIconAndTitle() {
+  Row accountIconAndTitle(context) {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -105,7 +108,8 @@ class _SettingsPageState extends State<SettingsPage> {
         ),
         SizedBox(width: 30),
         Text(
-          "Account",
+          languagesMap[TranslatorManager.instance.getLocale(context)]
+              ['account'],
           style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
         ),
       ],
@@ -122,15 +126,20 @@ class _SettingsPageState extends State<SettingsPage> {
       child: Column(
         children: [
           buildSettingsSections(
-              Icons.lock, "Change Password", Icons.arrow_forward_ios_outlined,
-              () {
+              Icons.lock,
+              languagesMap[TranslatorManager.instance.getLocale(context)]
+                  ['changepassword'],
+              Icons.arrow_forward_ios_outlined, () {
             Navigator.of(context).push(MaterialPageRoute(
               builder: (context) => ChangePasswordView(),
             ));
           }),
           buildDivider(),
           buildSettingsSections(
-              Icons.language, "Language", Icons.arrow_forward_ios_outlined, () {
+              Icons.language,
+              languagesMap[TranslatorManager.instance.getLocale(context)]
+                  ['language'],
+              Icons.arrow_forward_ios_outlined, () {
             showDialog(
                 context: context,
                 builder: (context) => CustomAlertDialog(
@@ -139,9 +148,10 @@ class _SettingsPageState extends State<SettingsPage> {
                       content: Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          Text("Select Your Language",
+                          Text(
+                              languagesMap[TranslatorManager.instance
+                                  .getLocale(context)]['language'],
                               style: TextStyle(color: Colors.black)),
-                         
                           buildAllLanguages(
                               'icons/flags/png/tr.png', " Turkısh", () {
                             context
@@ -171,7 +181,7 @@ class _SettingsPageState extends State<SettingsPage> {
                             context
                                 .setLocale(LanguageManager.instance.bgLocale);
                           }),
-                          SizedBox(height:10),
+                          SizedBox(height: 10),
                           SizedBox(
                             height: 30,
                             width: 60,
@@ -204,7 +214,8 @@ class _SettingsPageState extends State<SettingsPage> {
           onPressed: onPress,
           child: Text(
             languageName,
-            style:TextStyle(color: Colors.black,fontSize: 13, fontWeight: FontWeight.w300),
+            style: TextStyle(
+                color: Colors.black, fontSize: 13, fontWeight: FontWeight.w300),
           ),
         ),
       ],

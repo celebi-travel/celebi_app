@@ -1,5 +1,6 @@
 import 'package:celebi_project/services/auth_service.dart';
 import 'package:celebi_project/services/firestore_service.dart';
+import 'package:celebi_project/services/translator.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 import '../../main/bottom_nav_bar/bottom_nav_bar.dart';
@@ -11,7 +12,6 @@ import 'components/settings_divider.dart';
 import 'components/settings_element.dart';
 
 import 'package:url_launcher/url_launcher.dart';
-
 
 class AccountPage extends StatefulWidget {
   @override
@@ -56,14 +56,11 @@ class _AccountPageState extends State<AccountPage> {
         child: nameGet
             ? SingleChildScrollView(
                 child: Column(
-                
                   children: [
-                    
                     Container(
                       width: double.infinity,
                       height: 100,
-                      margin:
-                          EdgeInsets.only(right:30,left:30,top:60),
+                      margin: EdgeInsets.only(right: 30, left: 30, top: 60),
                       decoration: BoxDecoration(
                           color: Colors.grey[200],
                           borderRadius: BorderRadius.circular(12)),
@@ -76,9 +73,8 @@ class _AccountPageState extends State<AccountPage> {
                           title: Text('$username'),
                           subtitle: Text('${currentUser.email}'),
                         ),
-                        ),
                       ),
-                    
+                    ),
                     Container(
                         width: double.infinity,
                         margin:
@@ -89,7 +85,8 @@ class _AccountPageState extends State<AccountPage> {
                         child: Column(
                           children: [
                             SettingsElement(
-                                name: 'Edit Profile',
+                                name: languagesMap[TranslatorManager.instance
+                                    .getLocale(context)]['editprofile'],
                                 icon: Icons.person,
                                 onPressed: () {
                                   Navigator.of(context).push(MaterialPageRoute(
@@ -98,7 +95,8 @@ class _AccountPageState extends State<AccountPage> {
                                 }),
                             SettingsDivider(),
                             SettingsElement(
-                                name: 'Settings',
+                                name: languagesMap[TranslatorManager.instance
+                                    .getLocale(context)]['settings'],
                                 icon: Icons.settings,
                                 onPressed: () {
                                   Navigator.of(context).push(MaterialPageRoute(
@@ -107,18 +105,13 @@ class _AccountPageState extends State<AccountPage> {
                                 }),
                             SettingsDivider(),
                             SettingsElement(
-                                name: 'privacy Policy',
+                                name: languagesMap[TranslatorManager.instance
+                                    .getLocale(context)]['privacypolicy'],
                                 icon: Icons.language,
                                 onPressed: () async {
-                                  await launch('https://sites.google.com/view/celebi/ana-sayfa');
+                                  await launch(
+                                      'https://sites.google.com/view/celebi/ana-sayfa');
                                 }),
-                            
-                          
-                            SettingsDivider(),
-                            SettingsElement(
-                                name: 'Help',
-                                icon: Icons.question_answer,
-                                onPressed: () {}),
                           ],
                         ))
                   ],
