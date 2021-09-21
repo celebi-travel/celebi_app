@@ -18,7 +18,7 @@ late  YoutubePlayerController _controller;
   _controller=  YoutubePlayerController(
     initialVideoId: YoutubePlayer.convertUrlToId(widget.videoURL)!,
     flags: YoutubePlayerFlags(
-        autoPlay: true, 
+        autoPlay: true,  
     ),
 );
   }
