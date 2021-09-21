@@ -1,4 +1,6 @@
 import 'dart:ui';
+import 'package:celebi_project/pages/auth/login_main_page/login_main_page.dart';
+
 import '../../../../cache/locale_manager.dart';
 import '../../../../constants/lang/locale_keys.g.dart';
 import '../../../../constants/preferences_keys.dart';
@@ -37,7 +39,7 @@ class _BodyState extends State<Body> {
       Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => BottomNavBar(),
+            builder: (context) => LoginMainPage(),
           ));
     } else {
       controller.nextPage(

@@ -1,7 +1,9 @@
 import 'dart:convert';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:celebi_project/constants/lang/locale_keys.g.dart';
 import 'package:celebi_project/pages/main/detail/detail_view.dart';
 import 'package:celebi_project/services/cities_service.dart';
+import 'package:celebi_project/services/translator.dart';
 import 'package:flutter_rating_stars/flutter_rating_stars.dart';
 import 'package:flutter_typeahead/flutter_typeahead.dart';
 
@@ -367,7 +369,9 @@ Container buildSearchField(searchController, context) {
               ),
             ),
             border: InputBorder.none,
-            hintText: 'Search for cities',
+            hintText:
+                languagesMap[TranslatorManager.instance.getLocale(context)]
+                    ['homesearch'],
           ),
           controller: searchController,
         ),
@@ -470,7 +474,7 @@ class PlaceWidget extends StatelessWidget {
                         height: 160,
                         color: Colors.blue,
                         child: CachedNetworkImage(
-                     imageUrl: imgURL,
+                          imageUrl: imgURL,
                           fit: BoxFit.cover,
                         )),
                     Positioned(

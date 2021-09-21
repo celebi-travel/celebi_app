@@ -1,3 +1,5 @@
+import 'package:celebi_project/services/translator.dart';
+
 import '../bottom_nav_bar/bottom_nav_bar.dart';
 import 'pages/bookings_page.dart';
 import 'pages/my_saves_page.dart';
@@ -28,7 +30,10 @@ class _SavesState extends State<Saves> {
             indicatorColor: Color(0xff5C9DFF),
             tabs: [
               Tab(
-                child: Text('Trips', style: TextStyle(color: Colors.black)),
+                child: Text(
+                    languagesMap[TranslatorManager.instance.getLocale(context)]
+                        ['trips'],
+                    style: TextStyle(color: Colors.black)),
               ),
               Tab(
                 child: Text('Bookings', style: TextStyle(color: Colors.black)),

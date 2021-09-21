@@ -27,18 +27,18 @@ List<SalomonBottomBarItem> bottomNavBarElementsList = [
       Icons.home,
       color: Colors.black,
     ),
-    title: Text(LocaleKeys.bottombar_home.tr()),
+    title: Text(LocaleKeys.bottombar_home).tr(),
   ),
   SalomonBottomBarItem(
       icon: Icon(Icons.favorite_outline, color: Colors.black),
-      title: Text(LocaleKeys.bottombar_routes.tr())),
+      title: Text(LocaleKeys.bottombar_routes).tr()),
   SalomonBottomBarItem(
     icon: Icon(Icons.wallet_travel, color: Colors.black),
-    title: Text(LocaleKeys.bottombar_Wallets.tr()),
+    title: Text(LocaleKeys.bottombar_Wallets).tr(),
   ),
   SalomonBottomBarItem(
       icon: Icon(Icons.person, color: Colors.black),
-      title: Text(LocaleKeys.bottombar_account.tr())),
+      title: Text(LocaleKeys.bottombar_account).tr()),
 ];
 BottomNavBarViewModel bottomNavBarViewModel = BottomNavBarViewModel();
 Widget bottomBarMethod(BuildContext context) {
