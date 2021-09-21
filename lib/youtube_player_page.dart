@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
-class YoutubePlayerPage extends StatefulWidget {
+class YoutubePlayerPage extends StatefulWidget { 
   final String videoURL;
   const YoutubePlayerPage({ Key? key, required this.videoURL }) : super(key: key);
 
