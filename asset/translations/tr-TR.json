@@ -95,7 +95,7 @@
     "home": "Ana Ekran",
     "Wallets": "Cüzdan",
     "routes": "Seyahatler",
-    "qr": "QR",
+    "qr": "Harita",
     "account": "Profil"
   },
   "route_filter": {
@@ -114,7 +114,7 @@
     "hotels": "Oteller",
     "caferestaurant": "Kafe & Restoran",
     "beaches": "Sahiller",
-    "btn": "Rotaya Git"
+    "btn": "Rotayı Kaydet"
   },
   "hotel": {
     "reservation": "Rezervasyon",

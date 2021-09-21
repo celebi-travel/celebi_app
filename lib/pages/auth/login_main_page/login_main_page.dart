@@ -49,23 +49,7 @@ class _LoginMainPageState extends State<LoginMainPage> {
                     fontSize: 20,
                   )).tr(),
               Spacer(),
-              LoginButton(
-                name: LocaleKeys.login1_googlebtn.tr(),
-                imagePath: 'asset/icons/google.png',
-                color: Color(0xff1A81F3),
-                avatarColor: Colors.white.withOpacity(0.15),
-                onPressed: () async {
-                  String? result = await AuthService().signInWithGoogle();
-                  if (result == 'Signed In With Google') {
-                    await AuthService().setValuesFromGoogle();
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => BottomNavBar()));
-                  }
-                  print('result = $result');
-                },
-              ),
+               
               LoginButton(
                 name: LocaleKeys.login1_mailbtn.tr(),
                 imagePath: 'asset/icons/email.png',

@@ -1,4 +1,6 @@
 import 'dart:ui';
+import 'package:celebi_project/pages/auth/login_main_page/login_main_page.dart';
+
 import '../../../../cache/locale_manager.dart';
 import '../../../../constants/lang/locale_keys.g.dart';
 import '../../../../constants/preferences_keys.dart';
@@ -37,7 +39,7 @@ class _BodyState extends State<Body> {
       Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => BottomNavBar(),
+            builder: (context) => LoginMainPage(),
           ));
     } else {
       controller.nextPage(
@@ -86,7 +88,8 @@ class _BodyState extends State<Body> {
                           children: [
                             Text(
                               onBoardItems[index].title ?? "",
-                              style: context.textTheme.headline4!.copyWith(
+                              textAlign: TextAlign.center,
+                              style: context.textTheme.headline5!.copyWith(
                                   color: Colors.black,
                                   fontWeight: FontWeight.w500),
                             ).tr(),
@@ -101,7 +104,7 @@ class _BodyState extends State<Body> {
                                 child: Text(
                                   onBoardItems[index].content ?? "",
                                   textAlign: TextAlign.center,
-                                  style: context.textTheme.headline5!
+                                  style: context.textTheme.bodyText1!
                                       .copyWith(color: context.colors.surface),
                                 ).tr(),
                               ),

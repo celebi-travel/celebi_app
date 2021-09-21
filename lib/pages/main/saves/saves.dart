@@ -1,3 +1,6 @@
+import 'package:celebi_project/constants/lang/locale_keys.g.dart';
+import 'package:easy_localization/easy_localization.dart';
+
 import '../bottom_nav_bar/bottom_nav_bar.dart';
 import 'pages/bookings_page.dart';
 import 'pages/my_saves_page.dart';
@@ -27,18 +30,18 @@ class _SavesState extends State<Saves> {
           bottom: TabBar(
             indicatorColor: Color(0xff5C9DFF),
             tabs: [
+              
               Tab(
-                child: Text('Trips', style: TextStyle(color: Colors.black)),
+                child: Text(LocaleKeys.travels_trips,textAlign: TextAlign.center, style: TextStyle(color: Colors.black)).tr(),
               ),
               Tab(
-                child: Text('Bookings', style: TextStyle(color: Colors.black)),
+                child: Text(LocaleKeys.travels_bookings,textAlign: TextAlign.center, style: TextStyle(color: Colors.black)).tr(),
               ),
               Tab(
-                child: Text('My Saves', style: TextStyle(color: Colors.black)),
+                child: Text(LocaleKeys.travels_my_saves,textAlign: TextAlign.center, style: TextStyle(color: Colors.black)).tr(),
               ),
               Tab(
-                child: Text('Recently Viewed',
-                    style: TextStyle(color: Colors.black)),
+                child: Text(LocaleKeys.travels_recently,textAlign: TextAlign.center, style: TextStyle(color: Colors.black)).tr(),
               ),
             ],
           ),

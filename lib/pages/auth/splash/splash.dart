@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:celebi_project/pages/auth/onboard/onboard_view.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -21,7 +22,7 @@ class _SplashState extends State<Splash> with TickerProviderStateMixin {
     // await AuthService().signOut();
     if (_user == null) {
       Navigator.push(
-          context, MaterialPageRoute(builder: (context) => LoginMainPage()));
+          context, MaterialPageRoute(builder: (context) => OnboardView()));
     } else {
       Navigator.push(
           context, MaterialPageRoute(builder: (context) => BottomNavBar()));

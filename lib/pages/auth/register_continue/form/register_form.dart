@@ -38,6 +38,29 @@ class _WelcomeBackFormState extends State<RegisterForm> {
           SizedBox(height: 15),
           buildPasswordField(context),
           SizedBox(height: 30),
+          Row(
+            children: [
+              Checkbox(
+                activeColor: Color(0xFF7BC4B2),
+                value: this.value,
+                onChanged: (value) {
+                  setState(() {
+                    this.value = (value)!;
+                  });
+                },
+              ), //Checkbox
+
+              Flexible(
+                child: TextButton(
+                    onPressed: () {},
+                    child: Text(
+                      LocaleKeys.register_agree.tr(),
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStyle(fontSize: 10),
+                    )),
+              ),
+            ],
+          ),
           CustomButton(
               text: LocaleKeys.register_register.tr(),
               onPressed: () async {
@@ -61,26 +84,6 @@ class _WelcomeBackFormState extends State<RegisterForm> {
                   }
                 }
               }),
-          Row(
-            children: [
-              Checkbox(
-                activeColor: Color(0xFF7BC4B2),
-                value: this.value,
-                onChanged: (value) {
-                  setState(() {
-                    this.value = (value)!;
-                  });
-                },
-              ), //Checkbox
-
-              TextButton(
-                  onPressed: () {},
-                  child: Text(
-                    LocaleKeys.register_agree.tr(),
-                    style: TextStyle(fontSize: 10),
-                  )),
-            ],
-          ),
         ],
       ),
     ));

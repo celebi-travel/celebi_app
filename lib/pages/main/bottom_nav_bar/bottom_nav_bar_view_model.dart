@@ -1,3 +1,4 @@
+import 'package:celebi_project/pages/main/map/map_page.dart';
 import 'package:celebi_project/pages/main/wallet/wallet_view.dart';
 
 import '../../auth/account_page/account_page.dart';
@@ -14,6 +15,7 @@ abstract class _BottomNavBarViewModelBase with Store {
   List pages = [
     HomeView(),
     Saves(),
+    MapPage(),
     WalletView(ucret: 0),
     AccountPage(),
   ];

@@ -1,4 +1,5 @@
 import 'package:celebi_project/pages/auth/login_main_page/login_main_page.dart';
+import 'package:celebi_project/pages/auth/onboard/onboard_view.dart';
 import 'package:celebi_project/services/auth_service.dart';
 
 import '../../../constants/lang/language_manager.dart';
@@ -61,7 +62,7 @@ class _SettingsPageState extends State<SettingsPage> {
             await AuthService().signOut();
             Navigator.pushAndRemoveUntil(
                 context,
-                MaterialPageRoute(builder: (context) => LoginMainPage()),
+                MaterialPageRoute(builder: (context) => OnboardView()),
                 (route) => false);
           },
           style: ButtonStyle(

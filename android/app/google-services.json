@@ -14,11 +14,11 @@
       },
       "oauth_client": [
         {
-          "client_id": "1022575622778-oad8r923hl87c7q0pcfl9et7tmkcfh3n.apps.googleusercontent.com",
+          "client_id": "1022575622778-9i4cp0je4fvflpnm6ieencch06k497ad.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.example.celebi_project",
-            "certificate_hash": "940293bbe675b97cbfadcf9e20acea41f9b3e944"
+            "certificate_hash": "db63f8da26bcb57d0ee14d7255019a215178f468"
           }
         },
         {

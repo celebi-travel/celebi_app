@@ -1,3 +1,5 @@
+import 'package:easy_localization/easy_localization.dart';
+
 import '../../../constants/lang/locale_keys.g.dart';
 import '../../../models/place.dart';
 import '../bottom_nav_bar/bottom_nav_bar.dart';
@@ -8,7 +10,6 @@ import '../../../services/auth_service.dart';
 import '../../../services/firestore_service.dart';
 import '../../../services/network_service.dart';
 import '../../../services/translator.dart';
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../extensions/context_extension.dart';
@@ -72,6 +73,7 @@ class _HomeViewState extends State<HomeView> {
                     buildNearbyLocationsText(context),
                     Expanded(flex: 6, child: NearbyLocations()),
                     Spacer(),
+                    
                     Align(
                       alignment: Alignment.centerLeft,
                       child: Text(

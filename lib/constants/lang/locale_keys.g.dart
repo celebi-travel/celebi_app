@@ -1,23 +1,13 @@
 // DO NOT EDIT. This is code generated via package:easy_localization/generate.dart
 
 abstract class  LocaleKeys {
-  static const home_popular_cities = 'home.popular_cities';
   static const home_title = 'home.title';
   static const home_hello = 'home.hello';
+  static const home_popular_cities = 'home.popular_cities';
   static const home_search = 'home.search';
   static const home_nearby_locations = 'home.nearby_locations';
   static const home_like_these = 'home.like_these';
   static const home = 'home';
-  static const detail_page_create_route = 'detail_page.create_route';
-  static const detail_page_products = 'detail_page.products';
-  static const detail_page_post = 'detail_page.post';
-  static const detail_page_alert_title = 'detail_page.alert.title';
-  static const detail_page_alert_content = 'detail_page.alert.content';
-  static const detail_page_alert_locaitiontext = 'detail_page.alert.locaitiontext';
-  static const detail_page_alert_btn = 'detail_page.alert.btn';
-  static const detail_page_alert = 'detail_page.alert';
-  static const detail_page_btn_upload = 'detail_page.btn_upload';
-  static const detail_page = 'detail_page';
   static const onboard_page1_title = 'onboard.page1.title';
   static const onboard_page1_content = 'onboard.page1.content';
   static const onboard_page1 = 'onboard.page1';
@@ -31,6 +21,16 @@ abstract class  LocaleKeys {
   static const onboard_btn_skip = 'onboard.btn_skip';
   static const onboard_btn_next2 = 'onboard.btn_next2';
   static const onboard = 'onboard';
+  static const detail_page_create_route = 'detail_page.create_route';
+  static const detail_page_products = 'detail_page.products';
+  static const detail_page_post = 'detail_page.post';
+  static const detail_page_alert_title = 'detail_page.alert.title';
+  static const detail_page_alert_content = 'detail_page.alert.content';
+  static const detail_page_alert_locaitiontext = 'detail_page.alert.locaitiontext';
+  static const detail_page_alert_btn = 'detail_page.alert.btn';
+  static const detail_page_alert = 'detail_page.alert';
+  static const detail_page_btn_upload = 'detail_page.btn_upload';
+  static const detail_page = 'detail_page';
   static const login1_title = 'login1.title';
   static const login1_subtitle = 'login1.subtitle';
   static const login1_googlebtn = 'login1.googlebtn';
