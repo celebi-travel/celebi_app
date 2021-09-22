@@ -81,7 +81,7 @@ ColorScheme get _appColorScheme {
       primary: Color(0xFF7BC4B2),
       primaryVariant: Color(0xffB6E7DA), //xx
       secondary: Color(0xff1A81F3),
-      secondaryVariant: Color(0xffE28989),
+      secondaryVariant: Color(0xffF08A5D),
       surface: Color(0xff455A64), //xx
       background: Color(0xffE5E5E5), //xx
       error: Color(0xffEB5757),

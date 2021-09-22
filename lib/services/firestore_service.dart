@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:celebi_project/models/beach_model.dart';
+import 'package:celebi_project/models/place.dart';
 
 import '../models/hotel_model.dart';
 import '../models/restaurant_model.dart';
@@ -26,6 +27,7 @@ class FirestoreService {
           'hotels': [],
           'restaurants': [],
           'favoritePlaces': [],
+          'routes': [],
         }
       },
     );
@@ -287,12 +289,34 @@ class FirestoreService {
     );
   }
 
+  Future<void> saveRoute(
+      PlaceModel city) async {
+    String uid = AuthService().getCurrentUser()!.uid;
+    DocumentSnapshot<Map<String, dynamic>> documentSnapshot =
+        await FirebaseFirestore.instance.collection('users').doc(uid).get();
+    Map savedData = (documentSnapshot.data() as Map)['savedData'];
+    savedData['routes'].add({
+      'city':city.city,
+      'image':city.imageUrl,
+    });
+    await FirebaseFirestore.instance.collection('users').doc(uid).update(
+      {'savedData': savedData},
+    );
+  }
+
   Future<List> getFavoritePlaces() async {
     String uid = AuthService().getCurrentUser()!.uid;
     DocumentSnapshot<Map<String, dynamic>> documentSnapshot =
         await FirebaseFirestore.instance.collection('users').doc(uid).get();
     Map savedData = (documentSnapshot.data() as Map)['savedData'];
     return savedData['favoritePlaces'];
+  }
+  Future<List> getRoutes() async {
+    String uid = AuthService().getCurrentUser()!.uid;
+    DocumentSnapshot<Map<String, dynamic>> documentSnapshot =
+        await FirebaseFirestore.instance.collection('users').doc(uid).get();
+    Map savedData = (documentSnapshot.data() as Map)['savedData'];
+    return savedData['routes'];
   }
 
   Future<String> getProfilePicture() async {
@@ -323,3 +347,4 @@ class FirestoreService {
         .update({'profilePicture': url});
   }
 }
+

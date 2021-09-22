@@ -50,16 +50,21 @@ class HeadTitle extends StatelessWidget {
           ),
         ),
         Expanded(
-          child: Container(
-            height: 40,
-            width: 40,
-            child: GestureDetector(
-              onTap: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => AccountPage()));
-              },
-              child: CircleAvatar(
-                //backgroundImage: NetworkImage(imageUrl),
+          child: Center(
+            child: Container(
+              alignment: Alignment.center,
+              height: 40,
+              width: 40,
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => AccountPage()));
+                },
+                child: Center(
+                  child: CircleAvatar(
+                    backgroundImage: imageUrl != 'error'? NetworkImage(imageUrl): null,
+                  ),
+                ),
               ),
             ),
           ),

@@ -5,9 +5,13 @@ class CustomButton extends StatelessWidget {
     Key? key,
     required this.onPressed,
     required this.text,
+    this.color = const Color(0xFF6AADA4),
+    this.borderRadius = 10,
   }) : super(key: key);
   final VoidCallback onPressed;
   final String text;
+  final Color color;
+  final double borderRadius;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -17,10 +21,10 @@ class CustomButton extends StatelessWidget {
           onPressed: onPressed,
           style: ButtonStyle(
               backgroundColor:
-                  MaterialStateProperty.all<Color>(Color(0xFF6AADA4)),
+                  MaterialStateProperty.all<Color>(color),
               shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                   RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10),
+                borderRadius: BorderRadius.circular(borderRadius),
               ))),
           child: Text(
             text,

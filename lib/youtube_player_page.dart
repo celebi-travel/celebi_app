@@ -19,7 +19,7 @@ late  YoutubePlayerController _controller;
     initialVideoId: YoutubePlayer.convertUrlToId(widget.videoURL)!,
     flags: YoutubePlayerFlags(
         autoPlay: true,     
-        
+
     ),
 );
   }
@@ -31,10 +31,10 @@ late  YoutubePlayerController _controller;
     controller: _controller,
     showVideoProgressIndicator: true, 
     progressColors: ProgressBarColors(
-          playedColor: Colors.amber,
-          handleColor: Colors.amberAccent,
+          playedColor: Colors.green,
+          handleColor: Colors.greenAccent,
     ),
-    onReady: () { 
+    onReady: () {  
     },
 ),
       ),),

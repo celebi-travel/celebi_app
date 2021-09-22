@@ -32,6 +32,9 @@ List<SalomonBottomBarItem> bottomNavBarElementsList = [
   SalomonBottomBarItem(
       icon: Icon(Icons.favorite_outline, color: Colors.black),
       title: Text(LocaleKeys.bottombar_routes).tr()),
+      SalomonBottomBarItem(
+      icon: Icon(Icons.map, color: Colors.black),
+      title: Text(LocaleKeys.bottombar_qr).tr()),
   SalomonBottomBarItem(
     icon: Icon(Icons.wallet_travel, color: Colors.black),
     title: Text(LocaleKeys.bottombar_Wallets).tr(),

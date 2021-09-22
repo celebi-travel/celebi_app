@@ -14,7 +14,7 @@ class IndicatorDot extends StatelessWidget {
       height: 30,
       width: 20,
       decoration: BoxDecoration(
-          color: isSelected ? Colors.orange : Colors.orange.withOpacity(0.3),
+          color: isSelected ? Colors.orange : Colors.grey[300],
           borderRadius: BorderRadius.circular(20)),
     );
   }

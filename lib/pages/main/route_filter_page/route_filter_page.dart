@@ -80,6 +80,7 @@ class _RouteFilterPageState extends State<RouteFilterPage> {
           initialPosition: CameraPosition(
               target: randomLatLongs[placeModel.city!.toLowerCase()]![0],
               zoom: 10),
+              city:placeModel,
         ),
       ),
     );
@@ -345,17 +346,22 @@ class _RouteFilterPageState extends State<RouteFilterPage> {
 Container buildSearchField(searchController, context) {
   String selectedCity = '';
   return Container(
-    height: 35,
-    decoration: BoxDecoration(
-        border: Border.all(
-          color: Colors.white,
-        ),
-        borderRadius: BorderRadius.circular(15)),
-    margin: EdgeInsets.symmetric(horizontal: 20),
+    height: 40,
+    decoration: BoxDecoration(borderRadius: BorderRadius.circular(50)),
+    margin: EdgeInsets.symmetric(horizontal: 4),
     child: Center(
       child: TypeAheadFormField(
         textFieldConfiguration: TextFieldConfiguration(
           decoration: InputDecoration(
+            errorBorder:
+                OutlineInputBorder(borderRadius: BorderRadius.circular(50)),
+            enabledBorder:
+                OutlineInputBorder(borderRadius: BorderRadius.circular(50)),
+            focusedBorder:
+                OutlineInputBorder(borderRadius: BorderRadius.circular(50)),
+            disabledBorder:
+                OutlineInputBorder(borderRadius: BorderRadius.circular(50)),
+            fillColor: Colors.white,
             counterText: '',
             contentPadding: EdgeInsets.symmetric(
               vertical: 12,
@@ -406,30 +412,6 @@ Container buildSearchField(searchController, context) {
         validator: (value) => value!.isEmpty ? 'Please select a city' : null,
         onSaved: (value) => selectedCity = value!,
       ),
-
-      /*TextFormField(
-        keyboardType: TextInputType.text,
-        validator: (value) {},
-        controller: searchController,
-        maxLength: 30,
-        decoration: InputDecoration(
-          counterText: '',
-          contentPadding: EdgeInsets.symmetric(
-            vertical: 12,
-            horizontal: 20,
-          ),
-          prefixIcon: Padding(
-            padding: EdgeInsets.only(left: 20, right: 15),
-            child: Icon(
-              Icons.search_rounded,
-              color: Colors.black,
-            ),
-          ),
-          border: InputBorder.none,
-          hintText: 'Search for cities',
-        ),
-        cursorHeight: 20,
-      ),*/
     ),
   );
 }

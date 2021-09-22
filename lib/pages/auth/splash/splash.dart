@@ -5,6 +5,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
+import '../../../../extensions/context_extension.dart';
 import '../../../services/auth_service.dart';
 import '../../main/bottom_nav_bar/bottom_nav_bar.dart';
 import '../login_main_page/login_main_page.dart';
@@ -39,7 +40,7 @@ class _SplashState extends State<Splash> with TickerProviderStateMixin {
     _animationController = AnimationController(
           vsync: this, duration: const Duration(milliseconds: 1200));
     spinkit = SpinKitSquareCircle(
-      color: Colors.black,
+      color: Colors.orange,
       size: 50.0,
       controller:_animationController,
     );

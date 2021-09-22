@@ -3,6 +3,7 @@ import 'dart:typed_data';
 import 'package:celebi_project/constants/image_slider.dart';
 import 'package:celebi_project/constants/lang/locale_keys.g.dart';
 import 'package:celebi_project/models/beach_model.dart';
+import 'package:celebi_project/models/place.dart';
 import 'package:celebi_project/pages/main/beach/beach_page_view.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/services.dart';
@@ -34,10 +35,11 @@ Future<Uint8List> getBytesFromAsset(String path, int width) async {
 
 class MyRoutePage extends StatefulWidget {
   const MyRoutePage(
-      {Key? key, required this.directions, required this.initialPosition})
+      {Key? key, required this.directions, required this.initialPosition, required this.city})
       : super(key: key);
   final CameraPosition initialPosition;
   final List<Map<String, LatLng>> directions;
+  final PlaceModel city;
   @override
   _MyRoutePageState createState() =>
       _MyRoutePageState(directions, initialPosition);
@@ -257,6 +259,7 @@ class _MyRoutePageState extends State<MyRoutePage> {
   @override
   void initState() {
     super.initState();
+    print(widget.city);
     _getRestaurants();
     _getHotels();
     _getBeaches();
@@ -349,8 +352,10 @@ class _MyRoutePageState extends State<MyRoutePage> {
             child: SizedBox(
               height: 35,
               child: ElevatedButton(
-                onPressed: () {
+                onPressed: () async {
+                  await FirestoreService().saveRoute(widget.city);
                   ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Rota kaydedilmiştir.')));
+                  
                 },
                 child: Text(
                   LocaleKeys.map_btn,

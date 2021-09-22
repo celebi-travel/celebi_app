@@ -105,7 +105,7 @@ class _BodyState extends State<Body> {
                                   onBoardItems[index].content ?? "",
                                   textAlign: TextAlign.center,
                                   style: context.textTheme.bodyText1!
-                                      .copyWith(color: context.colors.surface),
+                                      .copyWith(color: context.colors.secondaryVariant),
                                 ).tr(),
                               ),
                             )
@@ -122,16 +122,20 @@ class _BodyState extends State<Body> {
             flex: 1,
             child: Column(
               children: [
-                Expanded(
-                  child: ListView.builder(
-                    shrinkWrap: true,
-                    itemCount: onBoardItems.length,
-                    scrollDirection: Axis.horizontal,
-                    itemBuilder: (context, index) => Padding(
-                        padding: EdgeInsets.all(10),
-                        child: IndicatorDot(
-                          isSelected: currentPageIndex == index,
-                        )),
+               Expanded(
+                    child: Padding(
+                  padding: const EdgeInsets.only(bottom:12.0),
+                  child:  ListView.builder(
+                      shrinkWrap: true,
+                      itemCount: onBoardItems.length,
+                      scrollDirection: Axis.horizontal,
+                      itemBuilder: (context, index) =>  Padding(
+                        padding: const EdgeInsets.symmetric(horizontal:4.0),
+                        child: IndicatorDot( 
+                              isSelected: currentPageIndex == index,
+                             ),
+                      ),
+                    ),
                   ),
                 ), // Next Butonu
                 Expanded(
@@ -143,9 +147,8 @@ class _BodyState extends State<Body> {
                       text: currentPageIndex != (onBoardItems.length - 1)
                           ? LocaleKeys.onboard_btn_next.tr()
                           : LocaleKeys.onboard_btn_next2.tr(),
-                      /*  color: currentPageIndex == (onBoardItems.length - 1)
-                      ? Color(0xFFF08A5D)
-                      : Color(0xFF7BC4B2), */
+                          color: context.colors.secondaryVariant,
+                          borderRadius: 50,
                       onPressed: () {
                         completeOnBoard();
                       },
@@ -156,7 +159,7 @@ class _BodyState extends State<Body> {
             ),
           ),
           TextButton(
-              onPressed: () {}, child: Text(LocaleKeys.onboard_btn_skip.tr())),
+              onPressed: () {}, child: Text(LocaleKeys.onboard_btn_skip.tr(),style: TextStyle(color: context.colors.secondaryVariant,),)),
           // Sayfanın aşağısında farklı ekranlara uyumlu bir boşluk
           Expanded(flex: 1, child: Container()),
         ],

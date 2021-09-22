@@ -37,13 +37,13 @@ Map languagesMap = {
     'settings':'Ayarlar',
     'editprofile': 'Profili Düzenle',
     'trips': 'Geziler',
-    'homesearch': 'Şehirler ara',
+    'homesearch': 'Şehir ara',
     'saveroute':'Rotayı kaydet '
   },
   LanguageManager.instance.ruLocale: {
     'language':'Language ru',
     'changepassword': 'Change Password ru',
-    'account':'Account ru',
+    'account':'Account ru', 
     'privacypolicy':'Privacy Policy ru',
     'settings':'Settings',
     'editprofile': 'Edit Profile ru',
